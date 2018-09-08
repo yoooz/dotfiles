@@ -1,0 +1,32 @@
+#!/bin/zsh
+
+pane_num="#[fg=black,bg=blue] #P #[default]#[fg=blue,bg=colour89]#[default]"
+
+tcwd=$1
+trunc_symbol="···"
+dir=${tcwd##*/}
+local max_len=10
+max_len=$(( ( max_len < ${#dir} ) ? ${#dir} : max_len ))
+ttcwd=${tcwd/#${HOME}/\~}
+pwdoffset=$(( ${#ttcwd} - max_len ))
+if [ ${pwdoffset} -gt "0" ]; then
+    ttcwd=${trunc_symbol}/${ttcwd##*/}
+fi
+
+directory="#[fg=colour211,bg=colour89]$ttcwd#[default]"
+
+if git_status=$(cd $1 && git status 2>/dev/null ); then
+  git_branch="$(echo $git_status| awk 'NR==1 {print $2}')"
+  case $git_status in
+    *Changes\ not\ staged* ) state="#[fg=colour29,bg=colour013]#[defualt]#[bg=colour013,fg=black] ± #[default]#[fg=colour013,bg=colour235]#[default]" ;;
+    *Changes\ to\ be\ committed* ) state="#[fg=colour29,bg=colour013]#[defualt]#[bg=colour013,fg=black] + #[default]#[fg=colour013,bg=colour235]#[default]" ;; 
+    *working\ tree\ clean ) state="#[fg=colour29,bg=green]#[defualt]#[bg=green,fg=black] ✔ #[default]#[fg=green,bg=colour235]#[default]" ;;
+    *) state="#[fg=colour29,bg=colour013]#[defualt]#[bg=colour013,fg=black] * #[default]#[fg=colour013,bg=colour235]#[default]" ;;
+  esac
+  
+  git_info="#[fg=colour89,bg=colour29]#[default]#[bg=colour29] #[fg=colour5] #[fg=colour88]${git_branch} #[default]${state}"
+else
+  git_info="#[fg=colour89,bg=colour235]#[default]"
+fi
+
+echo "$pane_num$directory$git_info"
