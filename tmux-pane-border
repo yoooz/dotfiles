@@ -19,7 +19,7 @@ directory="#[fg=colour211,bg=colour89]$ttcwd#[default]"
 
 # git status
 if git_status=$(cd $1 && git status 2>/dev/null ); then
-  git_branch="$(echo $git_status| awk 'NR==1 {print $2}')"
+  git_branch="$(echo $git_status| awk 'NR==1 {print $3}')"
   case $git_status in
     *Changes\ not\ staged* ) state="#[fg=colour29,bg=colour013]#[defualt]#[bg=colour013,fg=black] ± #[default]#[fg=colour013,bg=colour235]#[default]" ;;
     *Changes\ to\ be\ committed* ) state="#[fg=colour29,bg=colour013]#[defualt]#[bg=colour013,fg=black] + #[default]#[fg=colour013,bg=colour235]#[default]" ;; 
