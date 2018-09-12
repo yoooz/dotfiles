@@ -84,6 +84,7 @@ alias mkdir='nocorrect mkdir'
 alias j=jobs
 alias h=history
 alias grep=egrep
+alias cat='bat'
 
 case "${OSTYPE}" in
     darwin*)
