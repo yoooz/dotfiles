@@ -51,6 +51,10 @@
 (require 'tramp)
 (setq tramp-defanult-method "scpx")
 
+;;web-mode
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
+
 ;;Mozc
 (add-to-list 'load-path "/usr/share/emacs24/site-lisp/emacs-mozc")
 (require 'mozc)
