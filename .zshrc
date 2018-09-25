@@ -34,6 +34,7 @@ export LANG=ja_JP.UTF-8
 export PATH=$PATH:/opt/maven/bin:${HOME}/bin
 export PATH=$PATH:${HOME}/tmp/swift-DEVELOPMENT-SNAPSHOT-2018-09-08-a-ubuntu18.04/usr/bin
 export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:${HOME}/go/bin
 export EDITOR=emacs
 
 export HISTFILE=${HOME}/.zsh_history
