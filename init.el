@@ -36,7 +36,6 @@
      ("o" . 'mc/sort-regions)
      ("O" . 'mc/reverse-regions)))
 
-
 ;;elscreen
 (require 'elscreen)
 (elscreen-set-prefix-key "\C-z")
@@ -86,7 +85,7 @@
 (setq indent-line-function 'indent-to-left-margin)
 
 ;; tab 
-(setq-default indent-tabs-mode t)
+(setq-default tab-width 4 indent-tabs-mode nil)
 
 (setq backup-inhibited t)
 (setq auto-save-default nil)
