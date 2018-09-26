@@ -1,4 +1,4 @@
-zmodload zsh/zprof && zprof
+# zmodload zsh/zprof && zprof
 
 # run tmux
 #[[ -z "$TMUX" && ! -z "$PS1" ]] && exec tmux
@@ -136,5 +136,7 @@ function precmd() {
   fi
 }
 
+#zprof
 
-zprof
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
