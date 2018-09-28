@@ -46,7 +46,7 @@ export LS_COLORS='no=32:di=36:ln=35:so=37:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30
 
 # Install Node.js
 export NVM_DIR=${HOME}/.nvm
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Install goenv
 export PATH=$PATH:${HOME}/.goenv/bin
@@ -92,6 +92,7 @@ case "${OSTYPE}" in
 	alias ls='ls -G'
 	alias ll='ls -l -G'
 	alias la='ls -a -G'
+    export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/
 	;;
     linux*)
 	alias ls='ls --color=auto'
