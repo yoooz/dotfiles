@@ -92,7 +92,7 @@ case "${OSTYPE}" in
 	alias ls='ls -G'
 	alias ll='ls -l -G'
 	alias la='ls -a -G'
-    export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/
+    export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/:${HOME}/Library/Android/sdk/tools
 	;;
     linux*)
 	alias ls='ls --color=auto'
