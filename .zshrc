@@ -1,5 +1,3 @@
-# zmodload zsh/zprof && zprof
-
 # run tmux
 #[[ -z "$TMUX" && ! -z "$PS1" ]] && exec tmux
 
@@ -9,16 +7,16 @@ source ${HOME}/.zplug/init.zsh
 zplug 'zsh-users/zsh-completions'
 zplug 'zsh-users/zaw'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
-# Install plugins if there are plugins that have not been installed
-#if ! zplug check --verbose; then
-#  printf "Install? [y/N]: "
-#  if read -q; then
-#    echo; zplug install
-#  fi
-#fi
-## Then, source plugins and add commands to $PATH
-
 zplug load
+
+# zstyles
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*:default' menu select=2
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' keep-prefix
+zstyle ':completion:*' recent-dirs-insert both
+zstyle ':completion:*' completer _complete _ignored _expand _match _prefix _list _history
+zstyle ':completion:*' verbose no
 
 # load colors
 autoload -U colors
@@ -52,6 +50,11 @@ export NVM_DIR=${HOME}/.nvm
 export PATH=$PATH:${HOME}/.goenv/bin
 eval "$(goenv init -)"
 export GOPATH=${HOME}/go
+
+# Install pyenv
+export PYENV_ROOT=${HOME}/.pyenv
+export PATH=$PATH:${PYENV_ROOT}/bin
+eval "$(pyenv init -)"
 
 # Use emacs keybindings
 bindkey -e
@@ -100,21 +103,15 @@ case "${OSTYPE}" in
 	alias la='ls -a --color=auto'
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
+    export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/platform-tools
+    export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/tools
 	;;
 esac      
 
 # umask
 umask 002
 
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-zstyle ':completion:*:default' menu select=2
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' keep-prefix
-zstyle ':completion:*' recent-dirs-insert both
-zstyle ':completion:*' completer _complete _ignored _expand _match _prefix _list _history
-zstyle ':completion:*' verbose no
-
-## zsh + peco 
+# zsh + peco 
 function peco-select-history() {
     local tac
     if which tac > /dev/null; then
@@ -136,8 +133,6 @@ function precmd() {
     tmux refresh-client -S
   fi
 }
-
-#zprof
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
