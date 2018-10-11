@@ -4,7 +4,7 @@
 # Source lib to get the function get_tmux_pwd
 source "${TMUX_POWERLINE_DIR_LIB}/tmux_adapter.sh"
 
-TMUX_POWERLINE_SEG_PWD_MAX_LEN_DEFAULT="10"
+TMUX_POWERLINE_SEG_PWD_MAX_LEN_DEFAULT="40"
 
 generate_segmentrc() {
 	read -d '' rccontents  << EORC
