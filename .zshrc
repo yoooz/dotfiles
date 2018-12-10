@@ -56,6 +56,10 @@ export PYENV_ROOT=${HOME}/.pyenv
 export PATH=$PATH:${PYENV_ROOT}/bin
 eval "$(pyenv init -)"
 
+# Install rbenv
+export PATH=$PATH:${HOME}/.rbenv/bin
+eval "$(rbenv init -)"
+
 # Use emacs keybindings
 bindkey -e
 
