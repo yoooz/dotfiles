@@ -1,7 +1,6 @@
 ;;package
 (require 'package)
 (add-to-list 'package-archives '("melpa". "http://melpa.milkbox.net/packages/"))
-;;(add-to-list 'package-archives '("marmalade". "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("gnu". "http://elpa.gnu.org/packages"))
 (add-to-list 'package-archives '("org". "http://orgmode.org/elpa"))
 (package-initialize)
@@ -10,7 +9,6 @@
 (load "looks")
 
 (require 'swift3-mode)
-
 (require 'multiple-cursors)
 (require 'smartrep)
 
@@ -81,6 +79,29 @@
 
 (global-set-key(kbd "C-x C-]") 'all-indent)
 
+;; ivy
+(require 'ivy)
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(setq enable-recursive-minibuffers t)
+(setq ivy-height 30) 
+(setq ivy-extra-directories nil)
+(setq ivy-re-builders-alist
+      '((t . ivy--regex-plus)))
+
+;; counsel
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file) 
+(defvar counsel-find-file-ignore-regexp (regexp-opt '("./" "../")))
+
+(global-set-key "\C-s" 'swiper)
+(defvar swiper-include-line-number-in-search t)
+
+;; migemo + swiper
+(require 'avy-migemo)
+(avy-migemo-mode 1)
+(require 'avy-migemo-e.g.swiper)
+
 ;; tab on Fundamental mode
 (setq indent-line-function 'indent-to-left-margin)
 
@@ -98,7 +119,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (swift3-mode smartrep multiple-cursors mozc hiwin elscreen))))
+    (avy-migemo counsel swift3-mode smartrep multiple-cursors mozc hiwin elscreen))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
