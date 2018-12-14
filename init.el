@@ -123,6 +123,13 @@
 (define-key symbol-overlay-map (kbd "n") 'symbol-overlay-jump-next) 
 (define-key symbol-overlay-map (kbd "C-g") 'symbol-overlay-remove-all) 
 
+(require 'google-this)
+(with-eval-after-load "google-this"
+    (defun my:google-this ()
+      "検索確認をスキップして直接検索実行"
+      (interactive)
+      (google-this (current-word) t)))
+
 ;; tab on Fundamental mode
 (setq indent-line-function 'indent-to-left-margin)
 
@@ -148,7 +155,7 @@
      ivy--highlight-default-migemo ivy-occur-revert-buffer-migemo ivy-occur-press-migemo avy-migemo-goto-char avy-migemo-goto-char-2 avy-migemo-goto-char-in-line avy-migemo-goto-char-timer avy-migemo-goto-subword-1 avy-migemo-goto-word-1 avy-migemo-isearch avy-migemo-org-goto-heading-timer avy-migemo--overlay-at avy-migemo--overlay-at-full)))
  '(package-selected-packages
    (quote
-    (symbol-overlay swiper avy-migemo counsel swift3-mode smartrep multiple-cursors mozc hiwin elscreen))))
+    (google-this symbol-overlay swiper avy-migemo counsel swift3-mode smartrep multiple-cursors mozc hiwin elscreen))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
