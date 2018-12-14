@@ -44,9 +44,6 @@ case "${OSTYPE}" in
 	export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/:${HOME}/Library/Android/sdk/tools/
 	export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 	export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/:${HOME}/Library/Android/sdk/tools:$M3:JAVA_HOME
-    export PATH=$PATH:${HOME}/.goenv/shims
-    export PATH=$PATH:${PYENV_ROOT}/shims
-    export PATH=$PATH:${HOME}/.rbenv/shims
 	;;
     linux*)
 	alias ls='ls --color=auto'
@@ -57,12 +54,16 @@ case "${OSTYPE}" in
     export PATH=$PATH:${HOME}/tmp/swift-DEVELOPMENT-SNAPSHOT-2018-09-08-a-ubuntu18.04/usr/bin
 	export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/platform-tools
 	export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/tools
-    export PATH=$PATH:${HOME}/.goenv/bin
-    export PATH=$PATH:${PYENV_ROOT}/bin
-    export PATH=$PATH:${HOME}/.rbenv/bin
 	;;
-esac      
+esac
 
+export PATH=$PATH:${HOME}/.rbenv/bin
+export PATH=$PATH:${HOME}/.goenv/bin
+export PATH=$PATH:${PYENV_ROOT}/bin
+
+export PATH=$PATH:${HOME}/.rbenv/shims
+export PATH=$PATH:${HOME}/.goenv/shims
+export PATH=$PATH:${PYENV_ROOT}/shims
 eval "$(goenv init -)"
 eval "$(pyenv init -)"
 eval "$(rbenv init -)"
@@ -111,7 +112,6 @@ alias j=jobs
 alias h=history
 alias grep=egrep
 alias cat='bat'
-
 
 # umask
 umask 002
