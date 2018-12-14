@@ -15,17 +15,18 @@
 		    (set-face-foreground 'font-lock-warning-face "blue")
 		    (set-background-color "Black")
 		    (set-foreground-color "LightGray")
-		    (set-cursor-color "Gray")
+		    (set-cursor-color "White")
 		    (set-frame-parameter nil 'alpha 90)
 		    ))
 
 ;;high light
 (global-hl-line-mode t)
 (custom-set-faces
- '(hl-line ((t (:background "#5b5858"))))
+ ;; '(hl-line ((t (:background "pink"))))
+  '(hl-line ((t (:background "#333333"))))
  )
 
-;;corsor number
+;;Corsor number
 (column-number-mode t)
 (line-number-mode t)
 

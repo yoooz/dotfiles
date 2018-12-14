@@ -57,7 +57,7 @@ export PATH=$PATH:${PYENV_ROOT}/bin
 eval "$(pyenv init -)"
 
 # Install rbenv
-export PATH=$PATH:${HOME}/.rbenv/bin
+export PATH=$PATH:${HOME}/.rbenv/shims
 eval "$(rbenv init -)"
 
 # Use emacs keybindings
@@ -99,16 +99,18 @@ case "${OSTYPE}" in
 	alias ls='ls -G'
 	alias ll='ls -l -G'
 	alias la='ls -a -G'
-    export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/:${HOME}/Library/Android/sdk/tools
+	export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/:${HOME}/Library/Android/sdk/tools/
+	export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+	export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/:${HOME}/Library/Android/sdk/tools:$M3:JAVA_HOME
 	;;
     linux*)
 	alias ls='ls --color=auto'
 	alias ll='ls -l --color=auto'
 	alias la='ls -a --color=auto'
-    alias pbcopy='xsel --clipboard --input'
-    alias pbpaste='xsel --clipboard --output'
-    export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/platform-tools
-    export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/tools
+	alias pbcopy='xsel --clipboard --input'
+	alias pbpaste='xsel --clipboard --output'
+	export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/platform-tools
+	export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/tools
 	;;
 esac      
 

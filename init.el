@@ -34,7 +34,13 @@
      ("o" . 'mc/sort-regions)
      ("O" . 'mc/reverse-regions)))
 
-;;elscreen
+;; scroll
+(setq next-screen-context-lines 10)
+(setq scroll-conservatively 35)
+(setq scroll-margin 20)
+(setq scroll-preserve-screen-position t)
+
+;;Elscreen
 (require 'elscreen)
 (elscreen-set-prefix-key "\C-z")
 (global-set-key "\C-r" 'elscreen-next)
@@ -64,6 +70,14 @@
 (prefer-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 
+;; 行番号
+(global-linum-mode t)
+(setq linum-format "%d ")
+(set-face-attribute 'linum nil
+                    :foreground "black"
+                    :background "white"
+                    :height 0.9)
+
 ;;C-h Backspace
 ;;C-c h HELP
 (keyboard-translate ?\C-h ?\C-?)
@@ -90,8 +104,6 @@
       '((t . ivy--regex-plus)))
 
 ;; counsel
-(global-set-key (kbd "M-x") 'counsel-M-x)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file) 
 (defvar counsel-find-file-ignore-regexp (regexp-opt '("./" "../")))
 
 (global-set-key "\C-s" 'swiper)
@@ -119,10 +131,10 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (avy-migemo counsel swift3-mode smartrep multiple-cursors mozc hiwin elscreen))))
+    (swiper avy-migemo counsel swift3-mode smartrep multiple-cursors mozc hiwin elscreen))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(hl-line ((t (:background "#5b5858")))))
+ '(hl-line ((t (:background "#333333")))))
