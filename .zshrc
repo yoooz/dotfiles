@@ -83,7 +83,7 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 
 # prompt
-PROMPT="%{${fg[blue]}%}%n %# %{${reset_color}%}"
+PROMPT="%{${fg[cyan]}%}%n %# %{${reset_color}%}"
 
 # alias
 alias mv='nocorrect mv'
