@@ -33,12 +33,6 @@
      ("o" . 'mc/sort-regions)
      ("O" . 'mc/reverse-regions)))
 
-;; scroll
-(setq next-screen-context-lines 10)
-(setq scroll-conservatively 35)
-(setq scroll-margin 20)
-(setq scroll-preserve-screen-position t)
-
 ;;Elscreen
 (require 'elscreen)
 (elscreen-set-prefix-key "\C-z")
@@ -62,20 +56,12 @@
 (require 'mozc)
 (set-language-environment "Japanese")
 (setq default-input-method "japanese-mozc")
-
 (setq mozc-candidate-style 'echo-area)
 
 ;; 文字コード
 (prefer-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
-
-;; 行番号
-(global-linum-mode t)
-(setq linum-format "%d ")
-(set-face-attribute 'linum nil
-                    :foreground "black"
-                    :background "white"
-                    :height 0.9)
+(set-clipboard-coding-system 'utf-8)
 
 ;;C-h Backspace
 ;;C-c h HELP
@@ -102,16 +88,8 @@
 (setq ivy-re-builders-alist
       '((t . ivy--regex-plus)))
 
-;; counsel
-(defvar counsel-find-file-ignore-regexp (regexp-opt '("./" "../")))
-
 (global-set-key "\C-s" 'swiper)
 (defvar swiper-include-line-number-in-search t)
-
-;; migemo + swiper
-(require 'avy-migemo)
-(avy-migemo-mode 1)
-(require 'avy-migemo-e.g.swiper)
 
 ;; symbol-overlay
 (require 'symbol-overlay)
@@ -137,26 +115,3 @@
 (setq backup-inhibited t)
 (setq auto-save-default nil)
 (setq ring-bell-function 'ignore)
-(set-clipboard-coding-system 'utf-8)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(avy-migemo-function-names
-   (quote
-    (swiper--add-overlays-migemo
-     (swiper--re-builder :around swiper--re-builder-migemo-around)
-     (ivy--regex :around ivy--regex-migemo-around)
-     (ivy--regex-ignore-order :around ivy--regex-ignore-order-migemo-around)
-     (ivy--regex-plus :around ivy--regex-plus-migemo-around)
-     ivy--highlight-default-migemo ivy-occur-revert-buffer-migemo ivy-occur-press-migemo avy-migemo-goto-char avy-migemo-goto-char-2 avy-migemo-goto-char-in-line avy-migemo-goto-char-timer avy-migemo-goto-subword-1 avy-migemo-goto-word-1 avy-migemo-isearch avy-migemo-org-goto-heading-timer avy-migemo--overlay-at avy-migemo--overlay-at-full)))
- '(package-selected-packages
-   (quote
-    (google-this symbol-overlay swiper avy-migemo counsel swift3-mode smartrep multiple-cursors mozc hiwin elscreen))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(hl-line ((t (:background "#333333")))))

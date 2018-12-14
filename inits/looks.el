@@ -33,20 +33,33 @@
 ;;no blink
 (blink-cursor-mode 0)
 
+;; 行番号
+(global-linum-mode t)
+(setq linum-format "%d ")
+(set-face-attribute 'linum nil
+                    :foreground "black"
+                    :background "white"
+                    :height 0.9)
+
 ;;start up
 (setq inhibit-startup-screen t)
 ;;not scratch
 (setq initial-scratch-message "")
 
-;;
+;; scroll
 (setq scroll-conservatively 35
-      scroll-margin 0
-      scroll-step 1)
+      next-screen-context-lines 10
+      scroll-margin 20
+      scroll-preserve-screen-position t)
 (setq comint-scroll-show-maximum-output t)
 
-;;
+;; (underline & bold & strength)
 (show-paren-mode 1)
-
+(setq show-paren-delay 0)
+(setq show-paren-style 'expression)
+(set-face-attribute 'show-paren-match-face nil
+                    :background nil :foreground nil
+                    :underline "#ffff00" :weight 'extra-bold)
 
 ;;非アクティブウィンドウの背景色を設定
 (require 'hiwin)
