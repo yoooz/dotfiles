@@ -1,8 +1,7 @@
 ;;package
 (require 'package)
 (add-to-list 'package-archives '("melpa". "http://melpa.milkbox.net/packages/"))
-(add-to-list 'package-archives '("gnu". "http://elpa.gnu.org/packages"))
-(add-to-list 'package-archives '("org". "http://orgmode.org/elpa"))
+(add-to-list 'package-archives '("melpa.org". "http://melpa.org/packages/"))
 (package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/inits")
@@ -98,7 +97,7 @@
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
-(setq ivy-height 30) 
+(setq ivy-height 20) 
 (setq ivy-extra-directories nil)
 (setq ivy-re-builders-alist
       '((t . ivy--regex-plus)))
@@ -126,7 +125,6 @@
 (require 'google-this)
 (with-eval-after-load "google-this"
     (defun my:google-this ()
-      "検索確認をスキップして直接検索実行"
       (interactive)
       (google-this (current-word) t)))
 
