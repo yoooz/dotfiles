@@ -114,6 +114,15 @@
 (avy-migemo-mode 1)
 (require 'avy-migemo-e.g.swiper)
 
+;; symbol-overlay
+(require 'symbol-overlay)
+(add-hook 'prog-mode-hook #'symbol-overlay-mode)
+(add-hook 'markdown-mode-hook #'symbol-overlay-mode)
+(global-set-key (kbd "M-i") 'symbol-overlay-put)
+(define-key symbol-overlay-map (kbd "p") 'symbol-overlay-jump-prev) 
+(define-key symbol-overlay-map (kbd "n") 'symbol-overlay-jump-next) 
+(define-key symbol-overlay-map (kbd "C-g") 'symbol-overlay-remove-all) 
+
 ;; tab on Fundamental mode
 (setq indent-line-function 'indent-to-left-margin)
 
@@ -129,9 +138,17 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(avy-migemo-function-names
+   (quote
+    (swiper--add-overlays-migemo
+     (swiper--re-builder :around swiper--re-builder-migemo-around)
+     (ivy--regex :around ivy--regex-migemo-around)
+     (ivy--regex-ignore-order :around ivy--regex-ignore-order-migemo-around)
+     (ivy--regex-plus :around ivy--regex-plus-migemo-around)
+     ivy--highlight-default-migemo ivy-occur-revert-buffer-migemo ivy-occur-press-migemo avy-migemo-goto-char avy-migemo-goto-char-2 avy-migemo-goto-char-in-line avy-migemo-goto-char-timer avy-migemo-goto-subword-1 avy-migemo-goto-word-1 avy-migemo-isearch avy-migemo-org-goto-heading-timer avy-migemo--overlay-at avy-migemo--overlay-at-full)))
  '(package-selected-packages
    (quote
-    (swiper avy-migemo counsel swift3-mode smartrep multiple-cursors mozc hiwin elscreen))))
+    (symbol-overlay swiper avy-migemo counsel swift3-mode smartrep multiple-cursors mozc hiwin elscreen))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
