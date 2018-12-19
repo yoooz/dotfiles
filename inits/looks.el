@@ -53,13 +53,9 @@
       scroll-preserve-screen-position t)
 (setq comint-scroll-show-maximum-output t)
 
-;; (underline & bold & strength)
+;; ()
 (show-paren-mode 1)
 (setq show-paren-delay 0)
-(setq show-paren-style 'expression)
-(set-face-attribute 'show-paren-match-face nil
-                    :background nil :foreground nil
-                    :underline "#ffff00" :weight 'extra-bold)
 
 ;;非アクティブウィンドウの背景色を設定
 (require 'hiwin)
