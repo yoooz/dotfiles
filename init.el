@@ -111,6 +111,13 @@
 (require 'undo-tree)
 (global-undo-tree-mode t)
 
+(require 'smartparens-config)
+(smartparens-global-mode t)
+
+
+(require 'volatile-highlights)
+(volatile-highlights-mode t)
+
 ;; tab on Fundamental mode
 (setq indent-line-function 'indent-to-left-margin)
 
@@ -128,7 +135,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (undo-tree dashboard markdown-preview-mode uuidgen web-server websocket counsel web-mode symbol-overlay swiper swift3-mode smartrep multiple-cursors mozc hl-sentence hiwin google-this elscreen avy-migemo))))
+    (volatile-highlights smartparens undo-tree dashboard markdown-preview-mode uuidgen web-server websocket counsel web-mode symbol-overlay swiper swift3-mode smartrep multiple-cursors mozc hl-sentence hiwin google-this elscreen avy-migemo))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
