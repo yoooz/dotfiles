@@ -1,62 +1,10 @@
 ;;package
 (require 'package)
 (add-to-list 'package-archives '("melpa". "http://melpa.milkbox.net/packages/"))
-(add-to-list 'package-archives '("melpa.org". "http://melpa.org/packages/"))
 (package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/inits")
 (load "looks")
-
-(require 'swift3-mode)
-(require 'multiple-cursors)
-(require 'smartrep)
-
-(declare-function smartrep-define-key "smartrep")
-
-(global-set-key (kbd "C-M-c") 'mc/edit-lines)
-(global-set-key (kbd "C-M-r") 'mc/mark/all-in-region)
-
-(global-unset-key "\C-t")
-
-(smartrep-define-key global-map "C-t"
-    '(("C-t" . 'mc/mark-next-like-this)
-     ("n" . 'mc/mark-next-like-this)
-     ("p" . 'mc/mark-previous-like-this)
-     ("m" . 'mc/mark-more-like-this-extended)
-     ("u" . 'mc/unmark-next-like-this)
-     ("U" . 'mc/unmark-previous-like-this)
-     ("s" . 'mc/skip-to-next-like-this)
-     ("S" . 'mc/skip-to-previous-like-this)
-     ("*" . 'mc/mark-all-like-thi)
-     ("d" . 'mc/mark-all-like-this-dwim)
-     ("i" . 'mc/insert-numbers)
-     ("o" . 'mc/sort-regions)
-     ("O" . 'mc/reverse-regions)))
-
-;;Elscreen
-(require 'elscreen)
-(elscreen-set-prefix-key "\C-z")
-
-;;[X], [<->]を表示しない
-(setq elscreen-tab-display-kill-screen nil)
-(setq elscreen-tab-display-control nil)
-(elscreen-start)
-
-;;tramp
-(require 'tramp)
-(setq tramp-defanult-method "ssh")
-
-;;web-mode
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
-
-;;Mozc
-(add-to-list 'load-path "/usr/share/emacs24/site-lisp/emacs-mozc")
-(require 'mozc)
-(set-language-environment "Japanese")
-(setq default-input-method "japanese-mozc")
-(setq mozc-candidate-style 'echo-area)
 
 ;; 文字コード
 (prefer-coding-system 'utf-8)
@@ -78,8 +26,67 @@
 
 (global-set-key(kbd "C-x C-]") 'all-indent)
 
-;; ivy
+;; tab on Fundamental mode
+(setq indent-line-function 'indent-to-left-margin)
+
+;; tab 
+(setq-default tab-width 4 indent-tabs-mode nil)
+
+(setq backup-inhibited t)
+(setq auto-save-default nil)
+(setq ring-bell-function 'ignore)
+
+(global-set-key "\C-r" 'execute-extended-command)
+
+;; packages
+(require 'swift3-mode)
+(require 'multiple-cursors)
+(require 'smartrep)
+(require 'elscreen)
+(require 'tramp)
+(require 'web-mode)
 (require 'ivy)
+(require 'symbol-overlay)
+(require 'undo-tree)
+(require 'smartparens-config)
+(require 'volatile-highlights)
+(require 'neotree)
+(require 'company)
+
+;; smartrep & multiple-cursors
+(declare-function smartrep-define-key "smartrep")
+(global-set-key (kbd "C-M-c") 'mc/edit-lines)
+(global-set-key (kbd "C-M-r") 'mc/mark/all-in-region)
+(global-unset-key "\C-t")
+(smartrep-define-key global-map "C-t"
+    '(("C-t" . 'mc/mark-next-like-this)
+     ("n" . 'mc/mark-next-like-this)
+     ("p" . 'mc/mark-previous-like-this)
+     ("m" . 'mc/mark-more-like-this-extended)
+     ("u" . 'mc/unmark-next-like-this)
+     ("U" . 'mc/unmark-previous-like-this)
+     ("s" . 'mc/skip-to-next-like-this)
+     ("S" . 'mc/skip-to-previous-like-this)
+     ("*" . 'mc/mark-all-like-this)
+     ("d" . 'mc/mark-all-like-this-dwim)
+     ("i" . 'mc/insert-numbers)
+     ("o" . 'mc/sort-regions)
+     ("O" . 'mc/reverse-regions)))
+
+;;Elscreen
+(elscreen-set-prefix-key "\C-z")
+(setq elscreen-tab-display-kill-screen nil) ;[X]
+(setq elscreen-tab-display-control nil) ;[<->]
+(elscreen-start)
+
+;;tramp
+(setq tramp-defanult-method "ssh")
+
+;;web-mode
+(add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
+
+;; ivy
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
@@ -91,10 +98,7 @@
 (global-set-key "\C-s" 'swiper)
 (defvar swiper-include-line-number-in-search t)
 
-(global-set-key "\C-r" 'execute-extended-command)
-
 ;; symbol-overlay
-(require 'symbol-overlay)
 (add-hook 'prog-mode-hook #'symbol-overlay-mode)
 (add-hook 'markdown-mode-hook #'symbol-overlay-mode)
 (global-set-key (kbd "M-i") 'symbol-overlay-put)
@@ -102,40 +106,59 @@
 (define-key symbol-overlay-map (kbd "n") 'symbol-overlay-jump-next) 
 (define-key symbol-overlay-map (kbd "C-g") 'symbol-overlay-remove-all) 
 
+;; google-this
 (require 'google-this)
 (with-eval-after-load "google-this"
     (defun my:google-this ()
       (interactive)
       (google-this (current-word) t)))
 
-(require 'undo-tree)
+;; undo-tree
 (global-undo-tree-mode t)
 
-(require 'smartparens-config)
+;; smartparens
 (smartparens-global-mode t)
 
-
-(require 'volatile-highlights)
+;; volatile-highlights
 (volatile-highlights-mode t)
 
-;; tab on Fundamental mode
-(setq indent-line-function 'indent-to-left-margin)
+;; dumb-jump 
+(setq dumb-jump-mode t)
+(setq dumb-jump-selector 'ivy)
+(setq dumb-jump-use-visible-window nil)
 
-;; tab 
-(setq-default tab-width 4 indent-tabs-mode nil)
+;; neotree
+(setq neo-theme 'icons)
+(setq neo-smart-open t)
 
-(setq backup-inhibited t)
-(setq auto-save-default nil)
-(setq ring-bell-function 'ignore)
+;; company
+(global-company-mode)
+(setq company-transformers '(company-sort-by-backend-importance))
+(setq company-idle-delay 0)
+(setq company-minimum-prefix-lengh 2)
+(setq company-selection-wrap-around t)
+(setq completion-ignore-case t)
+(setq company-dabbrev-downcase nil)
+(global-set-key (kbd "C-M-i") 'company-complete)
+(define-key company-active-map (kbd "C-n") 'company-select-next)
+(define-key company-active-map (kbd "C-p") 'company-select-previous)
+(define-key company-search-map (kbd "C-n") 'company-select-next)
+(define-key company-search-map (kbd "C-p") 'company-select-previous)
+(define-key company-active-map (kbd "C-s") 'company-filter-candidates)
+(define-key company-active-map (kbd "C-i") 'company-complete-selection)
+(define-key company-active-map [tab] 'company-complete-selection)
+(define-key company-active-map (kbd "C-f") 'company-complete-selection)
+(define-key emacs-lisp-mode-map (kbd "C-M-i") 'company-complete)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(magit-diff-section-arguments (quote ("--no-ext-diff")))
  '(package-selected-packages
    (quote
-    (volatile-highlights smartparens undo-tree dashboard markdown-preview-mode uuidgen web-server websocket counsel web-mode symbol-overlay swiper swift3-mode smartrep multiple-cursors mozc hl-sentence hiwin google-this elscreen avy-migemo))))
+    (diminish solarized-theme smart-mode-line smart-mode-line-atom-one-dark-theme flycheck company neotree dumb-jump ripgrep rg twittering-mode magit volatile-highlights smartparens undo-tree dashboard markdown-preview-mode uuidgen web-server websocket counsel web-mode symbol-overlay swiper swift3-mode smartrep multiple-cursors mozc hl-sentence hiwin google-this elscreen avy-migemo))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -1,6 +1,17 @@
-;;メニューバーにファイルパス
-(setq frame-title-format
-      (format "%%f - Emacs@%s" (system-name)))
+;; smart mode line
+(defvar sml/no-confirm-load-theme t)
+(defvar sml/theme 'dark)
+(defvar sml/shorten-directory -1)
+(sml/setup)
+
+;; diminish
+(require 'diminish)
+(eval-after-load "company" '(diminish 'company-mode "comp"))
+(eval-after-load "ivy" '(diminish 'ivy-mode))
+(eval-after-load "flycheck" '(diminish 'flycheck "fc"))
+(eval-after-load "Undo-Tree" '(diminish 'Undo-Tree))
+(eval-after-load "volatile-highlights" '(diminish 'volatile-highlights))
+(eval-after-load "eldoc" '(diminish 'eldoc))
 
 ;;color
 (if window-system (progn
