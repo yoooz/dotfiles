@@ -49,8 +49,7 @@
 (global-linum-mode t)
 (setq linum-format "%d ")
 (set-face-attribute 'linum nil
-                    :foreground "black"
-                    :background "white"
+                    :foreground "white"
                     :height 0.9)
 
 ;;start up
