@@ -6,12 +6,13 @@
 
 ;; diminish
 (require 'diminish)
-(eval-after-load "company" '(diminish 'company-mode "comp"))
+(eval-after-load "company" '(diminish 'company-mode))
+(eval-after-load "volatile-highlights" '(diminish 'volatile-highlights-mode))
+(eval-after-load "undo-tree" '(diminish 'undo-tree-mode))
 (eval-after-load "ivy" '(diminish 'ivy-mode))
-(eval-after-load "flycheck" '(diminish 'flycheck "fc"))
-(eval-after-load "Undo-Tree" '(diminish 'Undo-Tree))
-(eval-after-load "volatile-highlights" '(diminish 'volatile-highlights))
-(eval-after-load "eldoc" '(diminish 'eldoc))
+(eval-after-load "eldoc" '(diminish 'eldoc-mode))
+(eval-after-load "smartparens" '(diminish 'smartparens-mode))
+(eval-after-load "symbol-overlay" '(diminish 'symbol-overlay-mode))
 
 ;;color
 (if window-system (progn

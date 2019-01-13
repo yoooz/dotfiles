@@ -38,6 +38,8 @@
 
 (global-set-key "\C-r" 'execute-extended-command)
 
+(global-auto-revert-mode t)
+
 ;; packages
 (require 'swift3-mode)
 (require 'multiple-cursors)
