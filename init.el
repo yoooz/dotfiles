@@ -54,6 +54,7 @@
 (require 'volatile-highlights)
 (require 'neotree)
 (require 'company)
+(require 'google-this)
 
 ;; smartrep & multiple-cursors
 (declare-function smartrep-define-key "smartrep")
@@ -109,7 +110,6 @@
 (define-key symbol-overlay-map (kbd "C-g") 'symbol-overlay-remove-all) 
 
 ;; google-this
-(require 'google-this)
 (with-eval-after-load "google-this"
     (defun my:google-this ()
       (interactive)
