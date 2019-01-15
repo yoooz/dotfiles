@@ -6,6 +6,8 @@
 (add-to-list 'load-path "~/.emacs.d/inits")
 (load "looks")
 
+(global-set-key "\C-l" 'hs-toggle-hiding)
+
 ;; 文字コード
 (prefer-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
@@ -37,6 +39,7 @@
 (setq ring-bell-function 'ignore)
 
 (global-set-key "\C-r" 'execute-extended-command)
+(global-set-key "\C-i" 'avy-goto-word-0)
 
 (global-auto-revert-mode t)
 
@@ -58,8 +61,6 @@
 
 ;; smartrep & multiple-cursors
 (declare-function smartrep-define-key "smartrep")
-(global-set-key (kbd "C-M-c") 'mc/edit-lines)
-(global-set-key (kbd "C-M-r") 'mc/mark/all-in-region)
 (global-unset-key "\C-t")
 (smartrep-define-key global-map "C-t"
     '(("C-t" . 'mc/mark-next-like-this)
