@@ -39,12 +39,11 @@
 (setq ring-bell-function 'ignore)
 
 (global-set-key "\C-r" 'execute-extended-command)
-(global-set-key "\C-i" 'avy-goto-word-0)
 
 (global-auto-revert-mode t)
 
 ;; packages
-(require 'swift3-mode)
+(require 'swift-mode)
 (require 'multiple-cursors)
 (require 'smartrep)
 (require 'elscreen)
@@ -161,7 +160,7 @@
  '(magit-diff-section-arguments (quote ("--no-ext-diff")))
  '(package-selected-packages
    (quote
-    (sudden-death avy diminish solarized-theme smart-mode-line smart-mode-line-atom-one-dark-theme flycheck company neotree dumb-jump ripgrep rg twittering-mode magit volatile-highlights smartparens undo-tree dashboard markdown-preview-mode uuidgen web-server websocket counsel web-mode symbol-overlay swiper swift3-mode smartrep multiple-cursors mozc hl-sentence hiwin google-this elscreen avy-migemo))))
+    (swift-mode sudden-death avy diminish solarized-theme smart-mode-line smart-mode-line-atom-one-dark-theme flycheck company neotree dumb-jump ripgrep rg twittering-mode magit volatile-highlights smartparens undo-tree dashboard markdown-preview-mode uuidgen web-server websocket counsel web-mode symbol-overlay swiper swift3-mode smartrep multiple-cursors mozc hl-sentence hiwin google-this elscreen avy-migemo))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
