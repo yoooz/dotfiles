@@ -6,8 +6,6 @@
 (add-to-list 'load-path "~/.emacs.d/inits")
 (load "looks")
 
-(global-set-key "\C-l" 'hs-toggle-hiding)
-
 ;; 文字コード
 (prefer-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
@@ -39,6 +37,7 @@
 (setq ring-bell-function 'ignore)
 
 (global-set-key "\C-r" 'execute-extended-command)
+(global-set-key "\C-l" 'avy-goto-word-0)
 
 (global-auto-revert-mode t)
 
