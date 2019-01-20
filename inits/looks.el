@@ -31,10 +31,22 @@
 		    (set-frame-parameter nil 'alpha 90)
 		    ))
 
+;; color magit
+(eval-after-load 'magit
+  '(progn
+     (set-face-foreground 'magit-diff-added "#00FF00")
+     (set-face-background 'magit-diff-added "#000000")
+     (set-face-foreground 'magit-diff-added-highlight "#00FF00")
+     (set-face-background 'magit-diff-added-highlight "#gray20")
+     
+     (set-face-foreground 'magit-diff-removed "#FF0000")
+     (set-face-background 'magit-diff-removed "#000000")
+     (set-face-foreground 'magit-diff-removed-highlight "#FF0000")
+     (set-face-background 'magit-diff-removed-highlight "gray20")))
+
 ;;high light
 (global-hl-line-mode t)
 (custom-set-faces
- ;; '(hl-line ((t (:background "pink"))))
   '(hl-line ((t (:background "#333333"))))
  )
 
@@ -67,8 +79,3 @@
 ;; ()
 (show-paren-mode 1)
 (setq show-paren-delay 0)
-
-;;非アクティブウィンドウの背景色を設定
-(require 'hiwin)
-(hiwin-activate)
-(set-face-background 'hiwin-face "#3a3939")
