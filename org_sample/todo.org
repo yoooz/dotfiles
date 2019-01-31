@@ -1,0 +1,16 @@
+#+TODO: TODO FEEDBACK VERIFY | DONE CANCELED
+
+* TODO [#B] [0/5]
+:PROPERTIES:
+:COOKIE_DATA: recursive
+:END:
+** TODO A                                                              :task:
+   SCHEDULED: <2019-02-06 水>
+*** TODO A-1
+    SCHEDULED: <2019-02-01 金>
+** VERIFY B
+   SCHEDULED: <2019-02-11 月>
+*** TODO B-2                                                      :work:list:
+    SCHEDULED: <2019-02-07 木>
+** TODO C
+   SCHEDULED: <2019-02-11 月>

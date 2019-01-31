@@ -17,6 +17,10 @@
 (global-set-key "\C-h" nil)
 (global-set-key "\C-ch" 'help-command)
 
+;; org
+(setq org-agenda-files '("~/config/org_sample/todo.org"
+                         "~/config/org_sample/list.org"))
+
 ;; all indent
 (defun all-indent()
   (interactive)
