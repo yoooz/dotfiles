@@ -5,6 +5,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/inits")
 (load "looks")
+(load "myorg")
 
 ;; 文字コード
 (prefer-coding-system 'utf-8)
@@ -16,10 +17,6 @@
 (keyboard-translate ?\C-h ?\C-?)
 (global-set-key "\C-h" nil)
 (global-set-key "\C-ch" 'help-command)
-
-;; org
-(setq org-agenda-files '("~/config/org_sample/todo.org"
-                         "~/config/org_sample/list.org"))
 
 ;; all indent
 (defun all-indent()
