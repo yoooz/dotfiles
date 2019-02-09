@@ -160,10 +160,4 @@
  '(magit-diff-section-arguments (quote ("--no-ext-diff")))
  '(package-selected-packages
    (quote
-    (swift-mode sudden-death avy diminish solarized-theme smart-mode-line smart-mode-line-atom-one-dark-theme flycheck company neotree dumb-jump ripgrep rg twittering-mode magit volatile-highlights smartparens undo-tree dashboard markdown-preview-mode uuidgen web-server websocket counsel web-mode symbol-overlay swiper swift3-mode smartrep multiple-cursors mozc hl-sentence hiwin google-this elscreen avy-migemo))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(hl-line ((t (:background "#333333")))))
+    (swift-mode sudden-death avy diminish solarized-theme smart-mode-line smart-mode-line-atom-one-dark-theme flycheck company neotree dumb-jump ripgrep rg twittering-mode magit volatile-highlights smartparens undo-tree dashboard markdown-preview-mode uuidgen web-server websocket counsel web-mode symbol-overlay swiper swift3-mode smartrep multiple-cursors hl-sentence hiwin google-this elscreen))))

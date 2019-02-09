@@ -59,7 +59,7 @@
 
 ;; 行番号
 (global-linum-mode t)
-(setq linum-format "%d ")
+(setq linum-format "%3d| ")
 (set-face-attribute 'linum nil
                     :foreground "white"
                     :height 0.9)

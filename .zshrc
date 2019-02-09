@@ -32,6 +32,16 @@ export LANG=ja_JP.UTF-8
 export PATH=$PATH:/opt/maven/bin:${HOME}/bin
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:${HOME}/go/bin
+export PATH=$PATH:${HOME}/.rbenv/bin
+export PATH=$PATH:${HOME}/.goenv/bin
+export PATH=$PATH:${PYENV_ROOT}/bin
+export PATH=$PATH:${HOME}/.rbenv/shims
+export PATH=$PATH:${HOME}/.goenv/shims
+export PATH=$PATH:${PYENV_ROOT}/shims
+eval "$(goenv init -)"
+eval "$(pyenv init -)"
+eval "$(rbenv init -)"
+
 export GOPATH=${HOME}/go
 export PYENV_ROOT=${HOME}/.pyenv
 export EDITOR=emacs
@@ -41,9 +51,8 @@ case "${OSTYPE}" in
 	alias ls='ls -G'
 	alias ll='ls -l -G'
 	alias la='ls -a -G'
-	export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/:${HOME}/Library/Android/sdk/tools/
 	export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-	export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/:${HOME}/Library/Android/sdk/tools:$M3:JAVA_HOME
+	export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/:${HOME}/Library/Android/sdk/tools/:${JAVA_HOME}
 	;;
     linux*)
 	alias ls='ls --color=auto'
@@ -56,17 +65,6 @@ case "${OSTYPE}" in
 	export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/tools
 	;;
 esac
-
-export PATH=$PATH:${HOME}/.rbenv/bin
-export PATH=$PATH:${HOME}/.goenv/bin
-export PATH=$PATH:${PYENV_ROOT}/bin
-
-export PATH=$PATH:${HOME}/.rbenv/shims
-export PATH=$PATH:${HOME}/.goenv/shims
-export PATH=$PATH:${PYENV_ROOT}/shims
-eval "$(goenv init -)"
-eval "$(pyenv init -)"
-eval "$(rbenv init -)"
 
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=6000000
