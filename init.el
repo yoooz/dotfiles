@@ -4,6 +4,17 @@
 (package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/inits")
+(add-to-list 'load-path "/usr/local/share/gtags/gtags")
+(autoload 'gtags-mode "gtags" "" t)
+(setq gtags-mode-hook
+      '(lambda()
+         (local-set-key "\M-t" 'gtags-find-tag)
+         (local-set-key "\M-r" 'gtags-find-rtag)
+         (local-set-key "\M-s" 'gtags-find-symbol)
+         (local-set-key "\C-t" 'gtags-pop-stack)
+         ))
+(add-hook 'java-mode-hook 'gtags-mode)
+
 (load "looks")
 (load "myorg")
 
