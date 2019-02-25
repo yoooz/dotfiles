@@ -68,6 +68,7 @@
 (require 'neotree)
 (require 'company)
 (require 'google-this)
+(require 'howm)
 
 ;; smartrep & multiple-cursors
 (declare-function smartrep-define-key "smartrep")
@@ -162,6 +163,12 @@
 (define-key company-active-map [tab] 'company-complete-selection)
 (define-key company-active-map (kbd "C-f") 'company-complete-selection)
 (define-key emacs-lisp-mode-map (kbd "C-M-i") 'company-complete)
+
+;; howm
+(setq howm-directory (concat user-emacs-directory "howm"))
+(setq howm-menu-lang 'ja)
+(setq howm-file-name-format "%Y/%m/%Y-%m-%d.howm")
+(define-key global-map (kbd "C-c ,,") 'howm-menu)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
