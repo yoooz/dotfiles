@@ -110,6 +110,7 @@ alias j=jobs
 alias h=history
 alias grep=egrep
 alias cat='bat'
+alias e='emacsclient -t'
 
 # umask
 umask 002
