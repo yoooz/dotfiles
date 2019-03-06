@@ -26,8 +26,6 @@
 ;;C-h Backspace
 ;;C-c h HELP
 (keyboard-translate ?\C-h ?\C-?)
-(global-set-key "\C-h" nil)
-(global-set-key "\C-ch" 'help-command)
 
 ;; all indent
 (defun all-indent()
@@ -69,6 +67,7 @@
 (require 'company)
 (require 'google-this)
 (require 'howm)
+(require 'ace-jump-buffer)
 
 ;; smartrep & multiple-cursors
 (declare-function smartrep-define-key "smartrep")
@@ -169,6 +168,9 @@
 (setq howm-menu-lang 'ja)
 (setq howm-file-name-format "%Y/%m/%Y-%m-%d.howm")
 (define-key global-map (kbd "C-c ,,") 'howm-menu)
+
+;; ace-jump-buffer
+(global-set-key (kbd "C-\\") 'ace-jump-buffer)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
