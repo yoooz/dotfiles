@@ -48,9 +48,9 @@ export EDITOR=emacs
 
 case "${OSTYPE}" in
     darwin*)
-	alias ls='ls -G'
-	alias ll='ls -l -G'
-	alias la='ls -a -G'
+	alias ls='exa'
+	alias ll='exa -l'
+	alias la='exa -a'
 	export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 	export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/:${HOME}/Library/Android/sdk/tools/:${JAVA_HOME}
 	;;
@@ -140,3 +140,4 @@ function precmd() {
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
