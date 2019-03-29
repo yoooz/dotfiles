@@ -60,6 +60,7 @@ case "${OSTYPE}" in
 	alias la='ls -a --color=auto'
 	alias pbcopy='xsel --clipboard --input'
 	alias pbpaste='xsel --clipboard --output'
+    alias hhkb='sudo dpkg-reconfigure keyboard-configuration'
     export PATH=$PATH:${HOME}/tmp/swift-DEVELOPMENT-SNAPSHOT-2018-09-08-a-ubuntu18.04/usr/bin
 	export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/platform-tools
 	export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/tools
