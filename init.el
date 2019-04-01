@@ -161,6 +161,12 @@
 ;; ace-jump-buffer
 (global-set-key (kbd "C-\\") 'ace-jump-buffer)
 
+;; scratch can not be killed
+(with-current-buffer "*scratch*"
+  (emacs-lock-mode 'kill))
+(with-current-buffer "*Messages*"
+  (emacs-lock-mode 'kill))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
