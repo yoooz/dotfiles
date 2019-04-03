@@ -112,6 +112,9 @@ alias h=history
 alias grep=egrep
 alias cat='bat'
 alias e='emacsclient -t'
+alias gcd='cd $(ghq root)/$(ghq list | peco)'
+alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
+alias gclone='ghq get'
 
 # umask
 umask 002
