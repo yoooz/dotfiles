@@ -1,6 +1,8 @@
 ;; smartrep & multiple-cursors
-(require 'multiple-cursors)
-(require 'smartrep)
+(straight-use-package 'multiple-cursors)
+(use-package 'multiple-cursors)
+(straight-use-package 'smartrep)
+(use-package 'smartrep)
 (declare-function smartrep-define-key "smartrep")
 (global-unset-key "\C-t")
 (smartrep-define-key global-map "C-t"
@@ -19,7 +21,8 @@
     ("O" . 'mc/reverse-regions)))
 
 ;; symbol-overlay
-(require 'symbol-overlay)
+(straight-use-pakcage 'symbol-overlay)
+(use-package 'symbol-overlay)
 (add-hook 'prog-mode-hook #'symbol-overlay-mode)
 (add-hook 'markdown-mode-hook #'symbol-overlay-mode)
 (global-set-key (kbd "M-i") 'symbol-overlay-put)
@@ -28,21 +31,25 @@
 (define-key symbol-overlay-map (kbd "C-g") 'symbol-overlay-remove-all)
 
 ;; smartparens
-(require 'smartparens-config)
+(straight-use-package 'smartparens-config)
+(use-package 'smartparens-config)
 (smartparens-global-mode t)
 
 ;; volatile-highlights
-(require 'volatile-highlights)
+(straight-use-package 'volatile-highlights)
+(use-package 'volatile-highlights)
 (volatile-highlights-mode t)
 
 ;; dumb-jump
-(require 'dumb-jump)
+(straight-use-package 'dumb-jump)
+(use-package 'dumb-jump)
 (setq dumb-jump-mode t)
 (setq dumb-jump-selector 'ivy)
 (setq dumb-jump-use-visible-window nil)
 
 ;; company
-(require 'company)
+(straight-use-package 'company)
+(use-package 'company)
 (global-company-mode)
 (setq company-transformers '(company-sort-by-backend-importance))
 (setq company-idle-delay 0)

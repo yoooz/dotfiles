@@ -1,13 +1,32 @@
-;;package
+;; 何も考えず公式のREADMEからコピペすればいいコード
+;; straight.el自身のインストールと初期設定を行ってくれる
+(let ((bootstrap-file (concat user-emacs-directory "straight/repos/straight.el/bootstrap.el"))
+      (bootstrap-version 3))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+;; use-packageをインストールする
+(straight-use-package 'use-package)
+;; package
 (require 'package)
 (add-to-list 'package-archives '("melpa". "http://melpa.milkbox.net/packages/"))
 (package-initialize)
 
-(add-to-list 'load-path "~/.emacs.d/inits")
-(load "looks")
-(load "myorg")
-(load "coding")
-(load "util")
+;; オプションなしで自動的にuse-packageをstraight.elにフォールバックする
+;; 本来は (use-package hoge :straight t) のように書く必要がある
+(setq straight-use-package-by-default t)
+
+;; init-loaderをインストール&読み込み
+(use-package init-loader)
+
+;; ~/.emacs.d/init/ 以下のファイルを全部読み込む
+(init-loader-load "~/.emacs.d/init")
 
 ;; 文字コード
 (prefer-coding-system 'utf-8)
@@ -45,24 +64,29 @@
 (global-set-key "\C-l" 'avy-goto-word-0)
 
 ;; packages
-(require 'swift-mode)
-(require 'web-mode)
+(straight-use-package 'swift-mode)
+(use-package 'swift-mode)
 
 ;;web-mode
+(straight-use-package 'web-mode)
+(use-package 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
 
 ;; undo-tree
-(require 'undo-tree)
+(straight-use-package 'undo-tree)
+(use-package 'undo-tree)
 (global-undo-tree-mode t)
 
 ;; neotree
-(require 'neotree)
+(straight-use-package 'neotree)
+(use-package 'neotree)
 (setq neo-theme 'icons)
 (setq neo-smart-open t)
 
 ;; howm
-(require 'howm)
+(straight-use-package 'howm)
+(usepackage 'howm)
 (setq howm-directory (concat user-emacs-directory "howm"))
 (setq howm-menu-lang 'ja)
 (setq howm-file-name-format "%Y/%m/%Y-%m-%d.howm")
