@@ -13,10 +13,6 @@
 
 ;; use-packageをインストールする
 (straight-use-package 'use-package)
-;; package
-(require 'package)
-(add-to-list 'package-archives '("melpa". "http://melpa.milkbox.net/packages/"))
-(package-initialize)
 
 ;; オプションなしで自動的にuse-packageをstraight.elにフォールバックする
 ;; 本来は (use-package hoge :straight t) のように書く必要がある
@@ -26,7 +22,7 @@
 (use-package init-loader)
 
 ;; ~/.emacs.d/init/ 以下のファイルを全部読み込む
-(init-loader-load "~/.emacs.d/init")
+;(init-loader-load "~/.emacs.d/init")
 
 ;; 文字コード
 (prefer-coding-system 'utf-8)
@@ -64,28 +60,23 @@
 (global-set-key "\C-l" 'avy-goto-word-0)
 
 ;; packages
-(straight-use-package 'swift-mode)
 (use-package 'swift-mode)
 
 ;;web-mode
-(straight-use-package 'web-mode)
 (use-package 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
 
 ;; undo-tree
-(straight-use-package 'undo-tree)
 (use-package 'undo-tree)
 (global-undo-tree-mode t)
 
 ;; neotree
-(straight-use-package 'neotree)
 (use-package 'neotree)
 (setq neo-theme 'icons)
 (setq neo-smart-open t)
 
 ;; howm
-(straight-use-package 'howm)
 (usepackage 'howm)
 (setq howm-directory (concat user-emacs-directory "howm"))
 (setq howm-menu-lang 'ja)
@@ -97,21 +88,3 @@
   (emacs-lock-mode 'kill))
 (with-current-buffer "*Messages*"
   (emacs-lock-mode 'kill))
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(magit-diff-section-arguments (quote ("--no-ext-diff")))
- '(package-selected-packages
-   (quote
-    (mew kosmos-theme markdown-mode ace-jump-buffer swift-mode sudden-death avy diminish solarized-theme smart-mode-line smart-mode-line-atom-one-dark-theme flycheck company neotree dumb-jump ripgrep rg twittering-mode magit volatile-highlights smartparens undo-tree dashboard markdown-preview-mode uuidgen web-server websocket counsel web-mode symbol-overlay swiper swift3-mode smartrep multiple-cursors hl-sentence hiwin google-this elscreen))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(hl-line ((t (:background "#333333")))))
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
