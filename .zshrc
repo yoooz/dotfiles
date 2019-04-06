@@ -120,7 +120,7 @@ alias gjump='git checkout $(git branch | sed "s/*//g" | sed "s/ //g" | peco)'
 # umask
 umask 002
 
-# zsh + peco 
+# peco + history
 function peco-select-history() {
     local tac
     if which tac > /dev/null; then
@@ -136,6 +136,15 @@ function peco-select-history() {
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
+
+function peco-kill() {
+    for pid in `ps aux | peco | awk '{ print $2 }'`
+    do
+        kill $pid
+        echo "Killed ${pid}"
+    done
+}
+alias pk="peco-kill"
 
 function precmd() {
   if [ ! -z $TMUX ]; then
