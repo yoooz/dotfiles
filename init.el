@@ -65,23 +65,28 @@
 
 ;; packages
 (straight-use-package 'swift-mode)
+(use-package 'swift-mode)
 
 ;;web-mode
 (straight-use-package 'web-mode)
+(use-package 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
 
 ;; undo-tree
 (straight-use-package 'undo-tree)
+(use-package 'undo-tree)
 (global-undo-tree-mode t)
 
 ;; neotree
 (straight-use-package 'neotree)
+(use-package 'neotree)
 (setq neo-theme 'icons)
 (setq neo-smart-open t)
 
 ;; howm
 (straight-use-package 'howm)
+(usepackage 'howm)
 (setq howm-directory (concat user-emacs-directory "howm"))
 (setq howm-menu-lang 'ja)
 (setq howm-file-name-format "%Y/%m/%Y-%m-%d.howm")
