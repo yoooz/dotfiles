@@ -164,7 +164,7 @@ function peco-cdr() {
     zle clear-screen
 }
 zle -N peco-cdr
-bindkey '^L' peco-cdr
+bindkey '^S' peco-cdr
 
 function precmd() {
   if [ ! -z $TMUX ]; then
