@@ -59,32 +59,30 @@
 (global-set-key "\C-r" 'execute-extended-command)
 (global-set-key "\C-l" 'avy-goto-word-0)
 
-;; packages
-(use-package 'swift-mode)
-
-;;web-mode
-(use-package 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
-
-;; undo-tree
-(use-package 'undo-tree)
-(global-undo-tree-mode t)
-
-;; neotree
-(use-package 'neotree)
-(setq neo-theme 'icons)
-(setq neo-smart-open t)
-
-;; howm
-(usepackage 'howm)
-(setq howm-directory (concat user-emacs-directory "howm"))
-(setq howm-menu-lang 'ja)
-(setq howm-file-name-format "%Y/%m/%Y-%m-%d.howm")
-(define-key global-map (kbd "C-c ,,") 'howm-menu)
-
 ;; scratch can not be killed
 (with-current-buffer "*scratch*"
   (emacs-lock-mode 'kill))
 (with-current-buffer "*Messages*"
   (emacs-lock-mode 'kill))
+
+;; smartrep & multiple-cursors
+(straight-use-package 'multiple-cursors)
+(use-package 'multiple-cursors)
+(straight-use-package 'smartrep)
+(use-package 'smartrep)
+(declare-function smartrep-define-key "smartrep")
+(global-unset-key "\C-t")
+(smartrep-define-key global-map "C-t"
+  '(("C-t" . 'mc/mark-next-like-this)
+    ("n" . 'mc/mark-next-like-this)
+    ("p" . 'mc/mark-previous-like-this)
+    ("m" . 'mc/mark-more-like-this-extended)
+    ("u" . 'mc/unmark-next-like-this)
+    ("U" . 'mc/unmark-previous-like-this)
+    ("s" . 'mc/skip-to-next-like-this)
+    ("S" . 'mc/skip-to-previous-like-this)
+    ("*" . 'mc/mark-all-like-this)
+    ("d" . 'mc/mark-all-like-this-dwim)
+    ("i" . 'mc/insert-numbers)
+    ("o" . 'mc/sort-regions)
+    ("O" . 'mc/reverse-regions)))
