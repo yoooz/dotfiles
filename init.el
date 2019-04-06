@@ -7,6 +7,7 @@
 (load "looks")
 (load "myorg")
 (load "coding")
+(load "util")
 
 ;; 文字コード
 (prefer-coding-system 'utf-8)
@@ -45,62 +46,27 @@
 
 ;; packages
 (require 'swift-mode)
-(require 'elscreen)
-(require 'tramp)
 (require 'web-mode)
-(require 'ivy)
-(require 'undo-tree)
-(require 'neotree)
-(require 'google-this)
-(require 'howm)
-(require 'ace-jump-buffer)
-
-;;Elscreen
-(elscreen-set-prefix-key "\C-z")
-(setq elscreen-tab-display-kill-screen nil) ;[X]
-(setq elscreen-tab-display-control nil) ;[<->]
-(elscreen-start)
-
-;;tramp
-(setq tramp-defanult-method "ssh")
 
 ;;web-mode
 (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
 
-;; ivy
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
-(setq enable-recursive-minibuffers t)
-(setq ivy-height 20) 
-(setq ivy-extra-directories nil)
-(setq ivy-re-builders-alist
-      '((t . ivy--regex-plus)))
-
-(global-set-key "\C-s" 'swiper)
-(defvar swiper-include-line-number-in-search t)
-
-;; google-this
-(with-eval-after-load "google-this"
-    (defun my:google-this ()
-      (interactive)
-      (google-this (current-word) t)))
-
 ;; undo-tree
+(require 'undo-tree)
 (global-undo-tree-mode t)
 
 ;; neotree
+(require 'neotree)
 (setq neo-theme 'icons)
 (setq neo-smart-open t)
 
 ;; howm
+(require 'howm)
 (setq howm-directory (concat user-emacs-directory "howm"))
 (setq howm-menu-lang 'ja)
 (setq howm-file-name-format "%Y/%m/%Y-%m-%d.howm")
 (define-key global-map (kbd "C-c ,,") 'howm-menu)
-
-;; ace-jump-buffer
-(global-set-key (kbd "C-\\") 'ace-jump-buffer)
 
 ;; scratch can not be killed
 (with-current-buffer "*scratch*"
