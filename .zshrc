@@ -160,6 +160,8 @@ function peco-cdr() {
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
         zle accept-line
+    else
+        zle reset-prompt
     fi
     zle clear-screen
 }
