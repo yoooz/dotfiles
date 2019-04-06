@@ -1,11 +1,9 @@
 ;; tramp
 (straight-use-package 'tramp)
-(use-package 'tramp)
 (setq tramp-default-method "ssh")
 
 ;; elscreen
 (straight-use-package 'elscreen)
-(use-package 'elscreen)
 (elscreen-set-prefix-key "\C-z")
 (setq elscreen-tab-display-kill-screen nil) ;[X]
 (setq elscreen-tab-display-control nil) ;[<->]
@@ -13,7 +11,6 @@
 
 ;; google-this
 (straight-use-package 'google-this)
-(use-package 'google-this)
 (with-eval-after-load "google-this"
   (defun my:google-this ()
     (interactive)
@@ -21,7 +18,6 @@
 
 ;; ivy
 (straight-use-package 'ivy)
-(use-package 'ivy)
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
@@ -34,5 +30,4 @@
 
 ;; ace-jump-buffer
 (straight-use-package 'ace-jump-buffer)
-(use-package 'ace-jump-buffer)
 (global-set-key (kbd "C-\\") 'ace-jump-buffer)
