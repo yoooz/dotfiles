@@ -9,6 +9,10 @@ zplug 'zsh-users/zaw'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 zplug load
 
+# cdr
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+
 # zstyles
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*:default' menu select=2
@@ -17,6 +21,11 @@ zstyle ':completion:*' keep-prefix
 zstyle ':completion:*' recent-dirs-insert both
 zstyle ':completion:*' completer _complete _ignored _expand _match _prefix _list _history
 zstyle ':completion:*' verbose no
+zstyle ':completion:*' recent-dirs-insert both
+zstyle ':chpwd:*' recent-dirs-max 500
+zstyle ':chpwd:*' recent-dirs-default true
+zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recend-dirs"
+zstyle ':chpwd:*' recent-dirs-pushd true
 
 # load colors
 autoload -U colors
@@ -145,6 +154,17 @@ function peco-kill() {
     done
 }
 alias pk="peco-kill"
+
+function peco-cdr() {
+    local selected_dir=$(cdr -l | awk '{print $2 }' | peco)
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-cdr
+bindkey '^L' peco-cdr
 
 function precmd() {
   if [ ! -z $TMUX ]; then
