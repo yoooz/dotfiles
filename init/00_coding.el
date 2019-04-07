@@ -1,7 +1,7 @@
 ;; smartrep & multiple-cursors
 (straight-use-package 'multiple-cursors)
-(use-package 'multiple-cursors)
 (straight-use-package 'smartrep)
+(use-package 'multiple-cursors)
 (use-package 'smartrep)
 (declare-function smartrep-define-key "smartrep")
 (global-unset-key "\C-t")
