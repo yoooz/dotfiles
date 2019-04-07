@@ -60,3 +60,6 @@
 (define-key company-active-map [tab] 'company-complete-selection)
 (define-key company-active-map (kbd "C-f") 'company-complete-selection)
 (define-key emacs-lisp-mode-map (kbd "C-M-i") 'company-complete)
+
+;; magit
+(use-package magit)
