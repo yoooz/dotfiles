@@ -32,6 +32,7 @@
 		    ))
 
 ;; color magit
+(use-package magit)
 (eval-after-load 'magit
   '(progn
      (set-face-foreground 'magit-diff-added "#00FF00")
