@@ -28,7 +28,7 @@
 (define-key symbol-overlay-map (kbd "C-g") 'symbol-overlay-remove-all)
 
 ;; smartparens
-(use-package smartparens-config)
+(use-package smartparens)
 (smartparens-global-mode t)
 
 ;; volatile-highlights
