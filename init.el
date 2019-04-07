@@ -20,6 +20,8 @@
 
 ;; init-loaderをインストール&読み込み
 (use-package init-loader)
+(custom-set-variables
+  '(init-loader-show-log-after-init 'error-only))
 
 ;; ~/.emacs.d/init/ 以下のファイルを全部読み込む
 (init-loader-load "~/.emacs.d/init")
