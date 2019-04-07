@@ -28,6 +28,9 @@
 (global-set-key "\C-s" 'swiper)
 (defvar swiper-include-line-number-in-search t)
 
+;; counsel
+(use-package counsel)
+
 ;; ace-jump-buffer
 (use-package ace-jump-buffer)
 (global-set-key (kbd "C-\\") 'ace-jump-buffer)
