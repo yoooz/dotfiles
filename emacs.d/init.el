@@ -1,5 +1,4 @@
-;; 何も考えず公式のREADMEからコピペすればいいコード
-;; straight.el自身のインストールと初期設定を行ってくれる
+;; straight.el setting by myself
 (let ((bootstrap-file (concat user-emacs-directory "straight/repos/straight.el/bootstrap.el"))
       (bootstrap-version 3))
   (unless (file-exists-p bootstrap-file)
@@ -11,19 +10,18 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-;; use-packageをインストールする
+;; use-package
 (straight-use-package 'use-package)
 
-;; オプションなしで自動的にuse-packageをstraight.elにフォールバックする
-;; 本来は (use-package hoge :straight t) のように書く必要がある
+;; use-package fallback to straight.el automatically
 (setq straight-use-package-by-default t)
 
-;; init-loaderをインストール&読み込み
+;; init-loader
 (use-package init-loader)
 (custom-set-variables
   '(init-loader-show-log-after-init 'error-only))
 
-;; ~/.emacs.d/init/ 以下のファイルを全部読み込む
+;; loading all el files under ~/.emacs.d/init/ 
 (init-loader-load "~/.emacs.d/init")
 
 ;; 文字コード
