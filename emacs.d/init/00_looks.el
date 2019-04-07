@@ -1,11 +1,13 @@
 ;; smart mode line
+(use-package smart-mode-line)
+(setq sml/no-confirm-load-theme t)
 (defvar sml/no-confirm-load-theme t)
 (defvar sml/theme 'dark)
 (defvar sml/shorten-directory -1)
 (sml/setup)
 
 ;; diminish
-(require 'diminish)
+(use-package diminish)
 (eval-after-load "company" '(diminish 'company-mode))
 (eval-after-load "volatile-highlights" '(diminish 'volatile-highlights-mode))
 (eval-after-load "undo-tree" '(diminish 'undo-tree-mode))
@@ -32,6 +34,7 @@
 		    ))
 
 ;; color magit
+(use-package magit)
 (eval-after-load 'magit
   '(progn
      (set-face-foreground 'magit-diff-added "#00FF00")

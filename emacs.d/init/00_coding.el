@@ -1,6 +1,6 @@
 ;; smartrep & multiple-cursors
-(require 'multiple-cursors)
-(require 'smartrep)
+(use-package multiple-cursors)
+(use-package smartrep)
 (declare-function smartrep-define-key "smartrep")
 (global-unset-key "\C-t")
 (smartrep-define-key global-map "C-t"
@@ -19,7 +19,7 @@
     ("O" . 'mc/reverse-regions)))
 
 ;; symbol-overlay
-(require 'symbol-overlay)
+(use-package symbol-overlay)
 (add-hook 'prog-mode-hook #'symbol-overlay-mode)
 (add-hook 'markdown-mode-hook #'symbol-overlay-mode)
 (global-set-key (kbd "M-i") 'symbol-overlay-put)
@@ -28,21 +28,21 @@
 (define-key symbol-overlay-map (kbd "C-g") 'symbol-overlay-remove-all)
 
 ;; smartparens
-(require 'smartparens-config)
+(use-package smartparens)
 (smartparens-global-mode t)
 
 ;; volatile-highlights
-(require 'volatile-highlights)
+(use-package volatile-highlights)
 (volatile-highlights-mode t)
 
 ;; dumb-jump
-(require 'dumb-jump)
+(use-package dumb-jump)
 (setq dumb-jump-mode t)
 (setq dumb-jump-selector 'ivy)
 (setq dumb-jump-use-visible-window nil)
 
 ;; company
-(require 'company)
+(use-package company)
 (global-company-mode)
 (setq company-transformers '(company-sort-by-backend-importance))
 (setq company-idle-delay 0)
@@ -60,3 +60,6 @@
 (define-key company-active-map [tab] 'company-complete-selection)
 (define-key company-active-map (kbd "C-f") 'company-complete-selection)
 (define-key emacs-lisp-mode-map (kbd "C-M-i") 'company-complete)
+
+;; magit
+(use-package magit)
