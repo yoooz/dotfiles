@@ -5,8 +5,7 @@
 (sml/setup)
 
 ;; diminish
-(straight-use-package 'diminish)
-(use-package 'diminish)
+(use-package diminish)
 (eval-after-load "company" '(diminish 'company-mode))
 (eval-after-load "volatile-highlights" '(diminish 'volatile-highlights-mode))
 (eval-after-load "undo-tree" '(diminish 'undo-tree-mode))

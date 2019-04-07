@@ -22,7 +22,7 @@
 (use-package init-loader)
 
 ;; ~/.emacs.d/init/ 以下のファイルを全部読み込む
-;(init-loader-load "~/.emacs.d/init")
+(init-loader-load "~/.emacs.d/init")
 
 ;; 文字コード
 (prefer-coding-system 'utf-8)
@@ -64,25 +64,3 @@
   (emacs-lock-mode 'kill))
 (with-current-buffer "*Messages*"
   (emacs-lock-mode 'kill))
-
-;; smartrep & multiple-cursors
-(straight-use-package 'multiple-cursors)
-(straight-use-package 'smartrep)
-(use-package multiple-cursors)
-(use-package smartrep)
-(declare-function smartrep-define-key "smartrep")
-(global-unset-key "\C-t")
-(smartrep-define-key global-map "C-t"
-  '(("C-t" . 'mc/mark-next-like-this)
-    ("n" . 'mc/mark-next-like-this)
-    ("p" . 'mc/mark-previous-like-this)
-    ("m" . 'mc/mark-more-like-this-extended)
-    ("u" . 'mc/unmark-next-like-this)
-    ("U" . 'mc/unmark-previous-like-this)
-    ("s" . 'mc/skip-to-next-like-this)
-    ("S" . 'mc/skip-to-previous-like-this)
-    ("*" . 'mc/mark-all-like-this)
-    ("d" . 'mc/mark-all-like-this-dwim)
-    ("i" . 'mc/insert-numbers)
-    ("o" . 'mc/sort-regions)
-    ("O" . 'mc/reverse-regions)))
