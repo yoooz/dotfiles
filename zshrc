@@ -125,6 +125,7 @@ alias gcd='cd $(ghq root)/$(ghq list | peco)'
 alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 alias gclone='ghq get'
 alias gjump='git checkout $(git branch | sed "s/*//g" | sed "s/ //g" | peco)'
+alias psh='ssh `grep "Host " ~/.ssh/config | grep -v "\*" | cut -b 6- | peco`'
 
 # umask
 umask 002
