@@ -50,7 +50,7 @@
 ;;high light
 (global-hl-line-mode t)
 (custom-set-faces
-  '(hl-line ((t (:background "#333333"))))
+  '(hl-line ((t (:background "#610243"))))
  )
 
 ;;Corsor number
