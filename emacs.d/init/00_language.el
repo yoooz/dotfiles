@@ -3,3 +3,6 @@
 
 ;; Groovy
 (use-package groovy-mode)
+
+;; markdown
+(use-package markdown-mode)
