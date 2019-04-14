@@ -47,6 +47,11 @@
      (set-face-foreground 'magit-diff-removed-highlight "#FF0000")
      (set-face-background 'magit-diff-removed-highlight "gray20")))
 
+(eval-after-load "magit-log"
+  '(progn
+     (custom-set-variables
+            '(magit-log-margin '(t "%Y-%m-%d %H:%M:%S" magit-log-margin-width t 18)))))
+
 ;;high light
 (global-hl-line-mode t)
 (custom-set-faces
