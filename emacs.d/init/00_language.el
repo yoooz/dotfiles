@@ -9,3 +9,6 @@
 
 ;; yaml
 (use-package yaml-mode)
+
+;; swift3
+(use-package swift3-mode)
