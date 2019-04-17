@@ -64,3 +64,6 @@
 ;; web-mode
 (use-package web-mode)
 (add-to-list 'auto-mode-alist '("\\.jsp$" . web-mode))
+
+;; git-gutter
+(use-package git-gutter)

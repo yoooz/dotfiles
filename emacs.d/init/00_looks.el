@@ -66,11 +66,11 @@
 (blink-cursor-mode 0)
 
 ;; 行番号
-(global-linum-mode t)
-(setq linum-format "%3d| ")
-(set-face-attribute 'linum nil
-                    :foreground "white"
-                    :height 0.9)
+;(global-linum-mode t)
+;(setq linum-format "%3d| ")
+;(set-face-attribute 'linum nil
+;                    :foreground "white"
+;                    :height 0.9)
 
 ;;start up
 (setq inhibit-startup-screen t)
