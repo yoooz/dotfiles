@@ -67,3 +67,4 @@
 
 ;; git-gutter
 (use-package git-gutter)
+(global-git-gutter-mode t)
