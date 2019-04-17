@@ -65,6 +65,29 @@
 (use-package web-mode)
 (add-to-list 'auto-mode-alist '("\\.jsp$" . web-mode))
 
+;; hydra
+(use-package hydra)
+
 ;; git-gutter
-(use-package git-gutter)
-(global-git-gutter-mode t)
+(use-package git-gutter
+  :custom
+  (git-gutter:ask-p nil)
+  (global-git-gutter-mode t)
+
+  :bind ("C-c C-g" . hydra-git-gutter/body))
+
+(defun git-gutter:toggle-popup-hunk ()
+  "Toggle git-gutter hunk window."
+  (interactive)
+  (if (window-live-p (git-gutter:popup-buffer-window))
+      (delete-window (git-gutter:popup-buffer-window))
+    (git-gutter:popup-hunk)))
+
+;; git-gutter hydra
+(defhydra hydra-git-gutter nil
+  "git hunk"
+  ("p" git-gutter:previous-hunk "previous")
+  ("n" git-gutter:next-hunk "next")
+  ("s" git-gutter:stage-hunk "stage")
+  ("r" git-gutter:revert-hunk "revert")
+    ("SPC" git-gutter:toggle-popup-hunk "toggle diffinfo"))
