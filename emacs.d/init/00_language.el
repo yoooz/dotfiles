@@ -6,3 +6,6 @@
 
 ;; markdown
 (use-package markdown-mode)
+
+;; yaml
+(use-package yaml-mode)
