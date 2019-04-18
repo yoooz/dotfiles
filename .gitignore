@@ -7,3 +7,4 @@ emacs.d/recentf
 emacs.d/.cache/
 emacs.d/.lsp-session-v1
 emacs.d/eclipse.jdt.ls/
+emacs.d/.mc-lists.el
