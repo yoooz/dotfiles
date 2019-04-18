@@ -40,19 +40,9 @@ bindkey -e # キーバインドをemacsモードにする
 export LANG=ja_JP.UTF-8
 export PATH=$PATH:/opt/maven/bin:${HOME}/bin
 export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:${HOME}/go/bin
-export PATH=$PATH:${HOME}/.rbenv/bin
-export PATH=$PATH:${HOME}/.goenv/bin
-export PATH=$PATH:${PYENV_ROOT}/bin
-export PATH=$PATH:${HOME}/.rbenv/shims
-export PATH=$PATH:${HOME}/.goenv/shims
-export PATH=$PATH:${PYENV_ROOT}/shims
-eval "$(goenv init -)"
-eval "$(pyenv init -)"
-eval "$(rbenv init -)"
+export PATH=$PATH:${HOME}/.anyenv/bin
+eval "$(anyenv init -)"
 
-export GOPATH=${HOME}/go
-export PYENV_ROOT=${HOME}/.pyenv
 export EDITOR=emacs
 
 case "${OSTYPE}" in
