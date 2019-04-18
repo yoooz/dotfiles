@@ -1,8 +1,0 @@
-#+TODO: TODO FEEDBACK VERIFY | DONE CANCELED
-
-* TODO [#A] [/]
-:PROPERTIES:
-:COOKIE_DATA: recursive
-:END:
-** TODO dev                                                             :dev:
-   SCHEDULED: <2019-02-18 月>
