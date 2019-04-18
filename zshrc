@@ -50,8 +50,7 @@ case "${OSTYPE}" in
 	alias ls='exa'
 	alias ll='exa -l'
 	alias la='exa -a'
-	export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-	export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/:${HOME}/Library/Android/sdk/tools/:${JAVA_HOME}
+	export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/:${HOME}/Library/Android/sdk/tools/
 	;;
     linux*)
 	alias ls='ls --color=auto'
