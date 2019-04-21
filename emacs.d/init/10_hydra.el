@@ -1,8 +1,9 @@
 (use-package hydra)
 
 ;; hydra global menu
-(defhydra hydra-global-menu(:exit t
-                                  :hint nil)
+(defhydra hydra-global-menu
+  (:exit t
+         :hint nil)
   "
 hydra
 ----------------------------------------------------------
@@ -20,7 +21,7 @@ hydra
   ("g" hydra-magit/body)
   ("c" hydra-counsel/body))
 
-(global-set-key (kbd "C-c") #'hydra-global-menu/body)
+(global-set-key (kbd "C-v") 'hydra-global-menu/body)
 
 ;; hydra
 ;; git-gutter hydra
@@ -41,8 +42,14 @@ hydra
 
 ;; Movement
 (defhydra hydra-move
-  (:body-pre (next-line))
-  "move"
+  (:body-pre (next-line)
+             :hint nil)
+  "
+move
+----------------------------------------------------------
+_n_ext-line _p_revious-line _f_orward-char _b_ackward-char
+_a_: beginning-of-line _e_: end-of-line 
+_v_: scroll-down _V_: scroll-up"
   ("n" next-line)
   ("p" previous-line)
   ("f" forward-char)
