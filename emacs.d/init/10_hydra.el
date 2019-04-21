@@ -9,21 +9,13 @@
 
   :bind ("C-c g" . hydra-git-gutter/body))
 
-(defun git-gutter:toggle-popup-hunk ()
-  "Toggle git-gutter hunk window."
-  (interactive)
-  (if (window-live-p (git-gutter:popup-buffer-window))
-      (delete-window (git-gutter:popup-buffer-window))
-    (git-gutter:popup-hunk)))
-
 ;; git-gutter hydra
 (defhydra hydra-git-gutter nil
   "git hunk"
   ("p" git-gutter:previous-hunk "previous")
   ("n" git-gutter:next-hunk "next")
   ("s" git-gutter:stage-hunk "stage")
-  ("r" git-gutter:revert-hunk "revert")
-  ("SPC" git-gutter:toggle-popup-hunk "toggle diffinfo"))
+  ("r" git-gutter:revert-hunk "revert"))
 
 (defhydra hydra-yank-pop()
   "yank"
