@@ -24,7 +24,7 @@
 ;; loading all el files under ~/.emacs.d/init/ 
 (init-loader-load "~/.emacs.d/init")
 
-;; 文字コード
+;; char-code
 (prefer-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-clipboard-coding-system 'utf-8)
