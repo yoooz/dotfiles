@@ -130,3 +130,13 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
   ("A" mc/insert-letters :exit t)
   ("q" nil))
 (global-set-key (kbd "C-c s") #'hydra-multiple-cursors/body)
+
+(defhydra hydra-howm(:exit t)
+  "howm"
+  ("e" howm-remember "remember")
+  ("c" howm-create "create")
+  ("a" howm-list-all "list-all")
+  (":" howm-find-yesterday "yesterday")
+  ("." howm-find-today "today"))
+
+(global-set-key (kbd "C-c h") #'hydra-howm/body)

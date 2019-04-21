@@ -9,13 +9,3 @@
 (setq howm-template-date-format
       (concat "[" datetime-format "]"))
 (setq howm-keyword-case-fold-search t)
-
-(defhydra hydra-howm(:exit t)
-  "howm"
-  ("e" howm-remember "remember")
-  ("c" howm-create "create")
-  ("a" howm-list-all "list-all")
-  (":" howm-find-yesterday "yesterday")
-  ("." howm-find-today "today"))
-
-(global-set-key (kbd "C-c h") #'hydra-howm/body)
