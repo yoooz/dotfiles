@@ -1,14 +1,28 @@
-;; hydra
 (use-package hydra)
 
-;; git-gutter
-(use-package git-gutter
-  :custom
-  (git-gutter:ask-p nil)
-  (global-git-gutter-mode t)
+;; hydra global menu
+(defhydra hydra-global-menu(:exit t
+                                  :hint nil)
+  "
+hydra
+----------------------------------------------------------
+[_a_]: avy [_b_]: markdown [_c_]: counsel [_d_]: git-gutter 
+[_g_]: magit [_h_]: howm [_l_]: goto-line [_m_]: move 
+[_s_]: mcurosr [_y_]: yank "
+  ("d" hydra-git-gutter/body)
+  ("y" hydra-yank-pop/body)
+  ("m" hydra-move/body)
+  ("l" hydra-goto-line/body)
+  ("a" hydra-avy/body)
+  ("b" dh-hydra-markdown-mode/body)
+  ("s" hydra-multiple-cursors/body)
+  ("h" hydra-howm/body)
+  ("g" hydra-magit/body)
+  ("c" hydra-counsel/body))
 
-  :bind ("C-c g" . hydra-git-gutter/body))
+(global-set-key (kbd "C-c") #'hydra-global-menu/body)
 
+;; hydra
 ;; git-gutter hydra
 (defhydra hydra-git-gutter nil
   "git hunk"
@@ -24,7 +38,6 @@
   ("y" (yank-pop 1) "next")
   ("Y" (yank-pop -1) "prev")
   ("l" counsel-yank-pop))
-(global-set-key (kbd "C-c y") #'hydra-yank-pop/body)
 
 ;; Movement
 (defhydra hydra-move
@@ -38,7 +51,6 @@
   ("e" move-end-of-line)
   ("v" scroll-up-command)
   ("V" scroll-down-command))
-(global-set-key (kbd "C-c m") #'hydra-move/body)
 
 ;; goto line
 (defhydra hydra-goto-line (goto-map ""
@@ -47,7 +59,6 @@
   ("g" goto-line "go")
   ("m" set-mark-command "mark" :bind nil)
   ("q" nil "quit"))
-(global-set-key (kbd "C-c l") #'hydra-goto-line/body)
 
 (defhydra hydra-avy (:exit t :hint nil)
     "
@@ -68,7 +79,6 @@
     ("K" avy-kill-region)
     ("y" avy-copy-line)
     ("Y" avy-copy-region))
-(global-set-key (kbd "C-c a") #'hydra-avy/body)
 
 (defhydra dh-hydra-markdown-mode (:hint nil)
     "
@@ -107,7 +117,6 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
     ("F" markdown-insert-footnote :color blue)
     ("W" markdown-insert-wiki-link :color blue)
     ("R" markdown-insert-reference-link-dwim :color blue))
-(global-set-key (kbd "C-c b") #'dh-hydra-markdown-mode/body)
 
 (defhydra hydra-multiple-cursors (:hint nil)
     "
@@ -129,7 +138,6 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
   ("0" mc/insert-numbers :exit t)
   ("A" mc/insert-letters :exit t)
   ("q" nil))
-(global-set-key (kbd "C-c s") #'hydra-multiple-cursors/body)
 
 (defhydra hydra-howm(:exit t)
   "howm"
@@ -139,4 +147,15 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
   (":" howm-find-yesterday "yesterday")
   ("." howm-find-today "today"))
 
-(global-set-key (kbd "C-c h") #'hydra-howm/body)
+(defhydra hydra-magit(:exit t)
+  "magit"
+  ("s" magit-status "status")
+  ("b" magit-blame "blame")
+  ("l" magit-log "log")
+  ("c" magit-commit "commit"))
+
+(defhydra hydra-counsel(:exit t)
+  "counsel"
+  ("g" counsel-git "git")
+  ("r" counsel-rg "rg")
+  ("s" counsel-switch-buffer "switch-buffer"))

@@ -33,25 +33,6 @@
 		    (set-frame-parameter nil 'alpha 90)
 		    ))
 
-;; color magit
-(use-package magit)
-(eval-after-load 'magit
-  '(progn
-     (set-face-foreground 'magit-diff-added "#00FF00")
-     (set-face-background 'magit-diff-added "#000000")
-     (set-face-foreground 'magit-diff-added-highlight "#00FF00")
-     (set-face-background 'magit-diff-added-highlight "#gray20")
-     
-     (set-face-foreground 'magit-diff-removed "#FF0000")
-     (set-face-background 'magit-diff-removed "#000000")
-     (set-face-foreground 'magit-diff-removed-highlight "#FF0000")
-     (set-face-background 'magit-diff-removed-highlight "gray20")))
-
-(eval-after-load "magit-log"
-  '(progn
-     (custom-set-variables
-            '(magit-log-margin '(t "%Y-%m-%d %H:%M:%S" magit-log-margin-width t 18)))))
-
 ;;high light
 (global-hl-line-mode t)
 (custom-set-faces

@@ -44,4 +44,28 @@
 (define-key company-active-map (kbd "C-f") 'company-complete-selection)
 (define-key emacs-lisp-mode-map (kbd "C-M-i") 'company-complete)
 
+;; color magit
+(use-package magit)
+(eval-after-load 'magit
+  '(progn
+     (set-face-foreground 'magit-diff-added "#00FF00")
+     (set-face-background 'magit-diff-added "#000000")
+     (set-face-foreground 'magit-diff-added-highlight "#00FF00")
+     (set-face-background 'magit-diff-added-highlight "#gray20")
+     
+     (set-face-foreground 'magit-diff-removed "#FF0000")
+     (set-face-background 'magit-diff-removed "#000000")
+     (set-face-foreground 'magit-diff-removed-highlight "#FF0000")
+     (set-face-background 'magit-diff-removed-highlight "gray20")))
+
+(eval-after-load "magit-log"
+  '(progn
+     (custom-set-variables
+            '(magit-log-margin '(t "%Y-%m-%d %H:%M:%S" magit-log-margin-width t 18)))))
+
+;; git-gutter
+(use-package git-gutter
+  :custom
+  (git-gutter:ask-p nil)
+  (global-git-gutter-mode t))
 
