@@ -15,6 +15,7 @@
 (eval-after-load "eldoc" '(diminish 'eldoc-mode))
 (eval-after-load "smartparens" '(diminish 'smartparens-mode))
 (eval-after-load "symbol-overlay" '(diminish 'symbol-overlay-mode))
+(eval-after-load "git-gutter" '(diminish 'git-gutter-mode))
 
 ;;color
 (if window-system (progn
