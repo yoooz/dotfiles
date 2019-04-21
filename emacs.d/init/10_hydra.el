@@ -21,7 +21,7 @@ hydra
   ("g" hydra-magit/body)
   ("c" hydra-counsel/body))
 
-(global-set-key (kbd "C-v") 'hydra-global-menu/body)
+(global-set-key (kbd "C-t") 'hydra-global-menu/body)
 
 ;; hydra
 ;; git-gutter hydra
