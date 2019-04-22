@@ -148,11 +148,11 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
 
 (defhydra hydra-howm(:exit t)
   "howm"
-  ("e" howm-remember "remember")
+  ("r" howm-remember "remember")
   ("c" howm-create "create")
-  ("a" howm-list-all "list-all")
-  (":" howm-find-yesterday "yesterday")
-  ("." howm-find-today "today"))
+  ("l" howm-list-all "list-all")
+  ("y" howm-find-yesterday "yesterday")
+  ("t" howm-find-today "today"))
 
 (defhydra hydra-magit(:exit t)
   "magit"
