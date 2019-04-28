@@ -159,7 +159,8 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
   ("s" magit-status "status")
   ("b" magit-blame "blame")
   ("l" magit-log "log")
-  ("c" magit-commit "commit"))
+  ("c" magit-commit "commit")
+  ("p" magit-push "push"))
 
 (defhydra hydra-counsel(:exit t)
   "counsel"
