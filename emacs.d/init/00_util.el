@@ -34,3 +34,8 @@
 ;; beacon
 (use-package beacon)
 (beacon-mode t)
+(custom-set-variables
+ '(beacon-size 10)
+ '(beacon-color 0.2)
+ '(beacon-blink-delay 0.1)
+ '(beacon-blink-when-focused t))
