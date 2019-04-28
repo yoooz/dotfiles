@@ -14,10 +14,6 @@
 (use-package smartparens)
 (smartparens-global-mode t)
 
-;; volatile-highlights
-(use-package volatile-highlights)
-(volatile-highlights-mode t)
-
 ;; dumb-jump
 (use-package dumb-jump)
 (setq dumb-jump-mode t)
