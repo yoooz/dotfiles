@@ -2,13 +2,6 @@
 (use-package tramp)
 (setq tramp-default-method "ssh")
 
-;; elscreen
-(use-package elscreen)
-(elscreen-set-prefix-key "\C-z")
-(setq elscreen-tab-display-kill-screen nil) ;[X]
-(setq elscreen-tab-display-control nil) ;[<->]
-(elscreen-start)
-
 ;; google-this
 (use-package google-this)
 (with-eval-after-load "google-this"
