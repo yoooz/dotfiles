@@ -33,12 +33,6 @@
 		    (set-frame-parameter nil 'alpha 90)
 		    ))
 
-;;high light
-(global-hl-line-mode t)
-(custom-set-faces
-  '(hl-line ((t (:background "#4c4c4c"))))
- )
-
 ;;Corsor number
 (column-number-mode t)
 (line-number-mode t)

@@ -37,3 +37,7 @@
 
 ;; neotree
 (use-package neotree)
+
+;; beacon
+(use-package beacon)
+(beacon-mode t)
