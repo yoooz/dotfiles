@@ -29,7 +29,7 @@
 (global-set-key (kbd "C-\\") 'ace-jump-buffer)
 
 ;; neotree
-(use-package neotree)
+(use-package treemacs)
 
 ;; beacon
 (use-package beacon)
