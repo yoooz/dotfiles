@@ -64,3 +64,29 @@
   (emacs-lock-mode 'kill))
 (with-current-buffer "*Messages*"
   (emacs-lock-mode 'kill))
+
+;;Corsor number
+(column-number-mode t)
+(line-number-mode t)
+
+;;no blink
+(blink-cursor-mode 0)
+
+;; line-number
+(global-display-line-numbers-mode t)
+
+;;start up
+(setq inhibit-startup-screen t)
+;;not scratch
+(setq initial-scratch-message "")
+
+;; scroll
+(setq scroll-conservatively 35
+      next-screen-context-lines 10
+      scroll-margin 20
+      scroll-preserve-screen-position t)
+(setq comint-scroll-show-maximum-output t)
+
+;; ()
+(show-paren-mode 1)
+(setq show-paren-delay 0)
