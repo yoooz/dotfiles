@@ -24,6 +24,14 @@
 ;; counsel
 (use-package counsel)
 
+;; ivy-posframe (GUI Emacs Only)
+(use-package ivy-posframe)
+(setq ivy-display-function #'ivy-posframe-display-at-point)
+(ivy-posframe-enable)
+(setq ivy-posframe-parameters
+      '((left-fringe . 8)
+        (right-fringe . 8)))
+
 ;; ace-jump-buffer
 (use-package ace-jump-buffer)
 (global-set-key (kbd "C-\\") 'ace-jump-buffer)
