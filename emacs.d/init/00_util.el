@@ -27,7 +27,7 @@
 ;; ivy-posframe (GUI Emacs Only)
 (use-package ivy-posframe
   :config
-  (setq ivy-display-function #'ivy-posframe-display-at-point)
+  (setq ivy-display-function #'ivy-posframe-display-at-window-center)
   (ivy-posframe-enable)
   (setq ivy-posframe-parameters
         '((left-fringe . 8)
