@@ -33,15 +33,6 @@
 ;;C-c h HELP
 (define-key key-translation-map (kbd "C-h") (kbd "<DEL>"))
 
-;; all indent
-(defun all-indent()
-  (interactive)
-  (mark-whole-buffer)
-  (indent-region(region-beginning)(region-end))
-  (point-undo))
-
-(global-set-key(kbd "C-x C-]") 'all-indent)
-
 ;; tab on Fundamental mode
 (setq indent-line-function 'indent-to-left-margin)
 
