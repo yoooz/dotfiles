@@ -27,7 +27,7 @@
 ;; ivy-posframe (GUI Emacs Only)
 (use-package ivy-posframe
   :config
-  (setq ivy-display-function #'ivy-posframe-display-at-window-center)
+  (setq ivy-display-function #'ivy-posframe-display-at-frame-center)
   (ivy-posframe-enable)
   (setq ivy-posframe-parameters
         '((left-fringe . 8)
@@ -61,3 +61,10 @@
   (package-initialize)
   )
 
+(use-package zoom
+  :config
+  (custom-set-variables
+   '(zoom-size '(0.618 . 0.618))
+   '(zoom-mode t)
+   )
+  )
