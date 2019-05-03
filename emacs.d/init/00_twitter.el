@@ -1,2 +1,4 @@
-(use-package twittering-mode)
-(setq twittering-icon-mode t)
+(use-package twittering-mode
+  :config
+  (setq twittering-icon-mode t)
+  )

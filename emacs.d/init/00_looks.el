@@ -1,20 +1,24 @@
 ;; smart mode line
-(use-package smart-mode-line)
-(setq sml/no-confirm-load-theme t)
-(defvar sml/no-confirm-load-theme t)
-(defvar sml/theme 'dark)
-(defvar sml/shorten-directory -1)
-(sml/setup)
+(use-package smart-mode-line
+  :config
+  (setq sml/no-confirm-load-theme t)
+  (defvar sml/no-confirm-load-theme t)
+  (defvar sml/theme 'dark)
+  (defvar sml/shorten-directory -1)
+  (sml/setup)
+  )
 
 ;; diminish
-(use-package diminish)
-(eval-after-load "company" '(diminish 'company-mode))
-(eval-after-load "undo-tree" '(diminish 'undo-tree-mode))
-(eval-after-load "ivy" '(diminish 'ivy-mode))
-(eval-after-load "eldoc" '(diminish 'eldoc-mode))
-(eval-after-load "smartparens" '(diminish 'smartparens-mode))
-(eval-after-load "symbol-overlay" '(diminish 'symbol-overlay-mode))
-(eval-after-load "git-gutter" '(diminish 'git-gutter-mode))
+(use-package diminish
+  :config
+  (eval-after-load "company" '(diminish 'company-mode))
+  (eval-after-load "undo-tree" '(diminish 'undo-tree-mode))
+  (eval-after-load "ivy" '(diminish 'ivy-mode))
+  (eval-after-load "eldoc" '(diminish 'eldoc-mode))
+  (eval-after-load "smartparens" '(diminish 'smartparens-mode))
+  (eval-after-load "symbol-overlay" '(diminish 'symbol-overlay-mode))
+  (eval-after-load "git-gutter" '(diminish 'git-gutter-mode))
+  )
 
 ;;color
 (if window-system (progn
