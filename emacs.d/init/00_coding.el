@@ -70,3 +70,7 @@
   (git-gutter:ask-p nil)
   (global-git-gutter-mode t))
 
+(use-package point-history
+  :straight (:host github
+                   :repo "blue0513/point-history"
+                   :branch "master"))
