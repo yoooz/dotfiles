@@ -1,4 +1,5 @@
 ;; smart mode line
+(use-package rich-minority)
 (use-package smart-mode-line
   :config
   (setq sml/no-confirm-load-theme t)
