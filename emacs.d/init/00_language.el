@@ -18,3 +18,6 @@
   :mode
   (("\\.jsp\\'" . web-mode))
   )
+
+;; dockerfile-mode
+(use-package dockerfile-mode)
