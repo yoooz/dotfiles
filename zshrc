@@ -50,6 +50,7 @@ case "${OSTYPE}" in
 	alias ls='exa'
 	alias ll='exa -l'
 	alias la='exa -a'
+    alias pidcat='pidcat --always-display-tags'
 	export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/:${HOME}/Library/Android/sdk/tools/
 	;;
     linux*)
