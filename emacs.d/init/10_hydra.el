@@ -154,7 +154,7 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
   ("y" howm-find-yesterday "yesterday")
   ("t" howm-find-today "today")
   ("m" howm-menu "menu")
-  ("d" howm-insert-date))
+  ("d" howm-insert-date "date"))
 
 (defhydra hydra-magit(:exit t)
   "magit"
