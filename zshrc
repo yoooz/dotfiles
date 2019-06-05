@@ -54,6 +54,7 @@ case "${OSTYPE}" in
 	alias la='exa -a'
     alias pidcat='pidcat --always-display-tags'
 	export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/:${HOME}/Library/Android/sdk/tools/
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home      
 	;;
     linux*)
 	alias ls='ls --color=auto'
