@@ -48,7 +48,7 @@
 (global-auto-revert-mode t)
 
 (global-set-key "\C-r" 'execute-extended-command)
-(global-set-key "\C-l" 'avy-goto-char-2)
+(global-set-key "\C-l" 'avy-goto-word-1)
 
 ;; scratch can not be killed
 (with-current-buffer "*scratch*"
