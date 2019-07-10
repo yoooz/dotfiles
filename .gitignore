@@ -8,5 +8,7 @@ emacs.d/.cache/
 emacs.d/.lsp-session-v1
 emacs.d/eclipse.jdt.ls/
 emacs.d/.mc-lists.el
+emacs.d/newsticker
+emacs.d/url
 
 emacs.d/init/10_twit_oauth.el
