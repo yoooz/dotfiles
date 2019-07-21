@@ -1,10 +1,10 @@
 ;; smart mode line
 (use-package rich-minority)
+(use-package smart-mode-line-powerline-theme)
 (use-package smart-mode-line
   :config
   (setq sml/no-confirm-load-theme t)
-  (defvar sml/no-confirm-load-theme t)
-  (defvar sml/theme 'dark)
+  (defvar sml/theme 'powerline-theme)
   (defvar sml/shorten-directory -1)
   (sml/setup)
   )
