@@ -81,3 +81,6 @@
 ;; ()
 (show-paren-mode 1)
 (setq show-paren-delay 0)
+
+(setenv "PATH" (concatenate 'string (getenv "PATH") ":/usr/local/bin"))
+(setq exec-path (parse-colon-path (getenv "PATH")))
