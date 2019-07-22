@@ -24,6 +24,10 @@
 ;; counsel
 (use-package counsel)
 
+;; counsel-ghq
+(use-package counsel-ghq
+  :straight (counsel-ghq :type git :host github :repo "windymelt/counsel-ghq"))
+
 ;; ivy-posframe (GUI Emacs Only)
 (use-package ivy-posframe
   :config
