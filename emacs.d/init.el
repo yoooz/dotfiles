@@ -21,9 +21,6 @@
 (custom-set-variables
   '(init-loader-show-log-after-init 'error-only))
 
-;; loading all el files under ~/.emacs.d/init/ 
-(init-loader-load "~/.emacs.d/init")
-
 ;; char-code
 (prefer-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
@@ -82,5 +79,8 @@
 (show-paren-mode 1)
 (setq show-paren-delay 0)
 
-(setenv "PATH" (concatenate 'string (getenv "PATH") ":/usr/local/bin"))
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 (setq exec-path (parse-colon-path (getenv "PATH")))
+
+;; loading all el files under ~/.emacs.d/init/ 
+(init-loader-load "~/.emacs.d/init")
