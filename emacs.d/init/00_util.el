@@ -31,8 +31,8 @@
 ;; ivy-posframe (GUI Emacs Only)
 (use-package ivy-posframe
   :config
-  (setq ivy-display-function #'ivy-posframe-display-at-frame-center)
-  (ivy-posframe-enable)
+  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
+  (ivy-posframe-mode 1)
   (setq ivy-posframe-parameters
         '((left-fringe . 8)
           (right-fringe . 8)))
