@@ -36,7 +36,7 @@
 (set-background-color "Black")
 (set-foreground-color "LightGray")
 (set-cursor-color "White")
-(set-frame-parameter nil 'alpha 90)
+(set-frame-parameter nil 'alpha 100)
 
 ;; rainbow delimiters
 (use-package cl-lib)
