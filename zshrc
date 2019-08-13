@@ -41,7 +41,6 @@ export LANG=ja_JP.UTF-8
 export PATH=$PATH:/opt/maven/bin:${HOME}/bin
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:${HOME}/.anyenv/bin
-export GOPATH=${HOME}/go
 export PATH=$PATH:${GOPATH}/bin
 eval "$(anyenv init -)"
 
