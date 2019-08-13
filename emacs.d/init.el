@@ -1,30 +1,12 @@
-;; straight.el setting by myself
-(let ((bootstrap-file (concat user-emacs-directory "straight/repos/straight.el/bootstrap.el"))
-      (bootstrap-version 3))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
-
-;; use-package
-(straight-use-package 'use-package)
-
-;; use-package fallback to straight.el automatically
-(setq straight-use-package-by-default t)
-
-;; init-loader
-(use-package init-loader)
-(custom-set-variables
-  '(init-loader-show-log-after-init 'error-only))
-
 ;; char-code
 (prefer-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-clipboard-coding-system 'utf-8)
+
+;; hide tool bar
+(tool-bar-mode 0)
+;; hide menu bar
+(menu-bar-mode 0)
 
 ;;C-h Backspace
 ;;C-c h HELP
@@ -50,19 +32,19 @@
 (with-current-buffer "*Messages*"
   (emacs-lock-mode 'kill))
 
-;;Corsor number
+;; Corsor number
 (column-number-mode t)
 (line-number-mode t)
 
-;;no blink
+;; no blink
 (blink-cursor-mode 0)
 
 ;; line-number
 (global-display-line-numbers-mode t)
 
-;;start up
+;; start up
 (setq inhibit-startup-screen t)
-;;not scratch
+;; not scratch
 (setq initial-scratch-message "")
 
 ;; scroll
@@ -78,6 +60,29 @@
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 (setq exec-path (parse-colon-path (getenv "PATH")))
+
+;; straight.el setting by myself
+(let ((bootstrap-file (concat user-emacs-directory "straight/repos/straight.el/bootstrap.el"))
+      (bootstrap-version 3))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+;; use-package
+(straight-use-package 'use-package)
+
+;; use-package fallback to straight.el automatically
+(setq straight-use-package-by-default t)
+
+;; init-loader
+(use-package init-loader)
+(custom-set-variables
+  '(init-loader-show-log-after-init 'error-only))
 
 ;; loading all el files under ~/.emacs.d/init/ 
 (init-loader-load "~/.emacs.d/init")
