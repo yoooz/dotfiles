@@ -3,13 +3,17 @@
 
 ;; symbol-overlay
 (use-package symbol-overlay
+  :hook
+  ((prog-mode markdown-mode) . symbol-overlay-mode)
+  :bind
+  (("M-i" . symbol-overlay-put)
+   :map symbol-overlay-map
+   ("p" . symbol-overlay-jump-prev)
+   ("n" . symbol-overlay-jump-next)
+   ("C-g" . symbol-overlay-remove-all))
   :config
-  (add-hook 'prog-mode-hook #'symbol-overlay-mode)
-  (add-hook 'markdown-mode-hook #'symbol-overlay-mode)
-  (global-set-key (kbd "M-i") 'symbol-overlay-put)
-  (define-key symbol-overlay-map (kbd "p") 'symbol-overlay-jump-prev)
-  (define-key symbol-overlay-map (kbd "n") 'symbol-overlay-jump-next)
-  (define-key symbol-overlay-map (kbd "C-g") 'symbol-overlay-remove-all)
+  (custom-set-variables
+   '(symbol-overlay-idle-time 0.1))
   )
 
 ;; smartparens

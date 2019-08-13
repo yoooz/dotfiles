@@ -26,14 +26,17 @@
 (use-package ivy
   :config
   (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t)
-  (setq ivy-height 20)
-  (setq ivy-extra-directories nil)
   (setq ivy-re-builders-alist
         '((t . ivy--regex-plus)))
-  (global-set-key "\C-s" 'swiper)
-  (defvar swiper-include-line-number-in-search t)
+  (custom-set-variables
+   '(swiper-include-line-number-in-search t)
+   '(ivy-use-virtual-buffers t)
+   '(ivy-height 20)
+   '(ivy-extra-directories nil)
+   '())
+  :bind
+  ("C-s" . swiper)
   )
 
 ;; counsel
@@ -49,11 +52,16 @@
 ;; ivy-posframe (GUI Emacs Only)
 (use-package ivy-posframe
   :config
-  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
-  (ivy-posframe-mode 1)
-  (setq ivy-posframe-parameters
+  (custom-set-faces
+   '(ivy-posframe-border((t (:background "CornflowerBlue"))))
+   )
+  (custom-set-variables
+   '(ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-point)))
+   '(ivy-posframe-mode 1)
+   '(ivy-posframe-parameters
         '((left-fringe . 8)
           (right-fringe . 8)))
+   )
   )
 
 (use-package migemo
@@ -96,4 +104,9 @@
    '(zoom-size '(0.618 . 0.618))
    '(zoom-mode t)
    )
+  )
+
+(use-package hungry-delete
+  :hook
+  ((prog-mode) . hungry-delete-mode)
   )
