@@ -7,6 +7,21 @@
 ;; google-this
 (use-package google-this)
 
+;; avy
+(use-package avy
+  :config
+  (setq avy-background t)
+  (custom-set-faces
+   '(avy-lead-face ((t (:foreground "red" :background "black"))))
+   '(avy-lead-face-0 ((t (:foreground "green" :background "black"))))
+   '(avy-lead-face-1 ((t (:foreground "yellow" :background "black"))))
+   '(avy-lead-face-2 ((t (:foreground "blue" :background "black"))))
+   )
+  :bind
+  (
+   ("C-l" . avy-goto-word-1))
+  )
+
 ;; ivy
 (use-package ivy
   :config
@@ -22,7 +37,12 @@
   )
 
 ;; counsel
-(use-package counsel)
+(use-package counsel
+  :bind
+  (
+   ("C-r" . counsel-M-x)
+   )
+  )
 
 ;; counsel-ghq
 (use-package counsel-ghq

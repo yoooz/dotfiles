@@ -44,16 +44,6 @@
 ;; auto-revert
 (global-auto-revert-mode t)
 
-(global-set-key "\C-r" 'execute-extended-command)
-(global-set-key "\C-l" 'avy-goto-word-1)
-(setq avy-background t)
-(custom-set-faces
- '(avy-lead-face ((t (:foreground "red" :background "black"))))
- '(avy-lead-face-0 ((t (:foreground "green" :background "black"))))
- '(avy-lead-face-1 ((t (:foreground "yellow" :background "black"))))
- '(avy-lead-face-2 ((t (:foreground "blue" :background "black"))))
-)
-
 ;; scratch can not be killed
 (with-current-buffer "*scratch*"
   (emacs-lock-mode 'kill))
