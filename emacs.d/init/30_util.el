@@ -39,9 +39,7 @@
 ;; counsel
 (use-package counsel
   :bind
-  (
-   ("C-r" . counsel-M-x)
-   )
+  (("C-r" . counsel-M-x))
   )
 
 ;; counsel-ghq
@@ -74,8 +72,8 @@
 
 ;; ace-jump-buffer
 (use-package ace-jump-buffer
-  :config
-  (global-set-key (kbd "C-\\") 'ace-jump-buffer)
+  :bind 
+  (("C-\\" . 'ace-jump-buffer))
   )
 
 ;; treemacs
@@ -90,13 +88,6 @@
    '(beacon-color 0.2)
    '(beacon-blink-delay 0.1)
    '(beacon-blink-when-focused t))
-  )
-
-;; package
-(use-package package
-  :config
-  (add-to-list 'package-archives '("melpa". "http://melpa.milkbox.net/packages/"))
-  (package-initialize)
   )
 
 (use-package zoom

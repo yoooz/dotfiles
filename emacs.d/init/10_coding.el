@@ -18,14 +18,6 @@
   (smartparens-global-mode t)
   )
 
-;; dumb-jump
-(use-package dumb-jump
-  :config
-  (setq dumb-jump-mode t)
-  (setq dumb-jump-selector 'ivy)
-  (setq dumb-jump-use-visible-window nil)
-  )
-
 ;; color magit
 (use-package magit
   :config
