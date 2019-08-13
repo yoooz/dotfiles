@@ -1,3 +1,15 @@
+(use-package doom-themes
+  :custom
+  (doom-themes-enable-italic t)
+  (doom-themes-enable-bold t)
+  :config
+  (load-theme 'doom-snazzy t)
+  )
+
+(use-package hide-mode-line
+  :hook
+  ((treemacs-mode) . hide-mode-line-mode))
+
 ;; smart mode line
 (use-package rich-minority)
 (use-package smart-mode-line-powerline-theme)
@@ -23,21 +35,6 @@
   (eval-after-load "git-gutter" '(diminish 'git-gutter-mode))
   (eval-after-load "ivy-posframe" '(diminish 'ivy-posframe-mode))
   )
-
-;;color
-(set-face-foreground 'font-lock-comment-face "MediumSeaGreen")
-(set-face-foreground 'font-lock-string-face "lightskyblue")
-(set-face-foreground 'font-lock-keyword-face "NavajoWhite")
-(set-face-foreground 'font-lock-function-name-face "NavajoWhite")
-(set-face-bold-p 'font-lock-function-name-face t)
-(set-face-foreground 'font-lock-variable-name-face "lawn green")
-(set-face-foreground 'font-lock-type-face "LightSeaGreen")
-(set-face-foreground 'font-lock-builtin-face "medium aquamarine")
-(set-face-foreground 'font-lock-warning-face "blue")
-(set-background-color "Black")
-(set-foreground-color "LightGray")
-(set-cursor-color "White")
-(set-frame-parameter nil 'alpha 100)
 
 ;; rainbow delimiters
 (use-package cl-lib)
