@@ -34,6 +34,7 @@
    '(ivy-use-virtual-buffers t)
    '(ivy-height 20)
    '(ivy-extra-directories nil)
+   '(ivy-format-functions-alist '((t . ivy-format-function-arrow)))
    )
   :bind
   ("C-s" . swiper)
