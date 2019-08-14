@@ -22,6 +22,16 @@
    ("C-l" . avy-goto-word-1))
   )
 
+;; ace-window
+(use-package ace-window
+  :config
+  (custom-set-variables
+   '(aw-keys '(?j ?k ?l ?i ?o ?h ?y ?u ?p))
+   )
+  :custom-face
+  (aw-leading-char-face ((t (:height 4.0 :foreground "#f1fa8c"))))
+)
+
 ;; ivy
 (use-package ivy
   :config
