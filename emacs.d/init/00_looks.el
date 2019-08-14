@@ -7,20 +7,17 @@
   ;;(load-theme 'doom-vibrant t)
   )
 
+(use-package doom-modeline
+  :hook (after-init . doom-modeline-mode)
+  :config
+  (setq doom-modeline-height 25)
+  (setq doom-modeline-bar-width 3)
+  (setq doom-modeline-buffer-file-name-style 'truncate-all)
+  )
+
 (use-package hide-mode-line
   :hook
   ((treemacs-mode) . hide-mode-line-mode))
-
-;; smart mode line
-(use-package rich-minority)
-(use-package smart-mode-line-powerline-theme)
-(use-package smart-mode-line
-  :config
-  (setq sml/no-confirm-load-theme t)
-  (defvar sml/theme 'powerline-theme)
-  (defvar sml/shorten-directory -1)
-  (sml/setup)
-  )
 
 ;; diminish
 (use-package diminish
