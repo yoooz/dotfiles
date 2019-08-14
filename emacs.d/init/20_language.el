@@ -7,18 +7,18 @@
   :config
   ;; lsp-ui-doc
   (custom-set-variables
-   '(lsp-ui-doc-enable nil)
+   '(lsp-ui-doc-enable t)
    '(lsp-ui-doc-header t)
    '(lsp-ui-doc-include-signature t)
    '(lsp-ui-doc-position 'top)
    '(lsp-ui-doc-alignment 'frame)
-   '(lsp-ui-doc-border "blue")
+   '(lsp-ui-doc-border "SteelBlue")
    '(lsp-ui-doc-use-childframe t)
    '(lsp-ui-doc-use-webkit t)   
    '(lsp-ui-doc-delay 0.1)
    )
   (custom-set-faces
-   '(lsp-ui-doc-background ((t (:background "black"))))
+   '(lsp-ui-doc-background ((t (:background "#282a36"))))
    )
   ;; lsp-ui-flycheck
   (custom-set-variables
