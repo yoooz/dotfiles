@@ -19,8 +19,6 @@
   (setq sml/no-confirm-load-theme t)
   (defvar sml/theme 'powerline-theme)
   (defvar sml/shorten-directory -1)
-  (custom-set-faces
-   '(sml/folder ((t (:inherit sml/global :background "grey17" :foreground "gray90" :weight normal)))))
   (sml/setup)
   )
 
