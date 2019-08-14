@@ -53,6 +53,7 @@
 
 ;; git-gutter
 (use-package git-gutter
+  :diminish git-gutter-mode
   :custom
   (git-gutter:ask-p nil)
   (global-git-gutter-mode t))
