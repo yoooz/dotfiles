@@ -4,6 +4,7 @@
   (doom-themes-enable-bold t)
   :config
   (load-theme 'doom-snazzy t)
+  ;;(load-theme 'doom-vibrant t)
   )
 
 (use-package hide-mode-line
