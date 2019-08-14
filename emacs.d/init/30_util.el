@@ -58,10 +58,7 @@
   (custom-set-variables
    '(ivy-posframe-display-functions-alist
      '((swiper . nil)
-       (execute-extended-command . ivy-posframe-display-at-frame-top-center)
-       (counsel-ghq . ivy-posframe-display-at-frame-center)
-       (counsel-rg . ivy-posframe-display-at-frame-center)
-       (t . ivy-posframe-display-at-point)
+       (t . ivy-posframe-display-at-frame-top-center)
        )
      )
    '(ivy-posframe-mode 1)
