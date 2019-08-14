@@ -42,7 +42,7 @@
 ;; counsel
 (use-package counsel
   :bind
-  (("C-r" . counsel-M-x))
+  (("C-r" . execute-extended-command))
   )
 
 ;; counsel-ghq
