@@ -1,5 +1,20 @@
 ;; yasnippet
-(use-package yasnippet)
+(use-package yasnippet
+  :config
+  (custom-set-variables
+   '(yas-snippet-dirs '("../yasnippet-snippets"))
+   )
+  (yas-global-mode 1)
+  :bind
+  (:map yas-minor-mode-map
+        ("C-x i i" . yas-insert-snippet)
+        ("C-x i n" . yas-new-snippet)
+        ("C-x i v" . yas-visit-snippet-file)
+        )
+  )
+
+;; snippets
+(use-package yasnippet-snippets)
 
 ;; Language Server Protocol
 (use-package lsp-mode)
