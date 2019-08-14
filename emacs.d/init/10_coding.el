@@ -17,6 +17,17 @@
    '(symbol-overlay-idle-time 0.1))
   )
 
+;; highlight-indent-guides
+(use-package highlight-indent-guides
+  :diminish highlight-indent-guides-mode
+  :hook
+  ((prog-mode yaml-mode) . highlight-indent-guides-mode)
+  :custom
+  (highlight-indent-guides-auto-enabled t)
+  (highlight-indent-guides-responsive t)
+  (highlight-indent-guides-method 'character)
+)
+
 ;; smartparens
 (use-package smartparens
   :diminish smartparens-mode
