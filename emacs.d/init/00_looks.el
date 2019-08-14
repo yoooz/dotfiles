@@ -25,14 +25,8 @@
 ;; diminish
 (use-package diminish
   :config
-  (eval-after-load "company" '(diminish 'company-mode))
-  (eval-after-load "undo-tree" '(diminish 'undo-tree-mode))
-  (eval-after-load "ivy" '(diminish 'ivy-mode))
-  (eval-after-load "eldoc" '(diminish 'eldoc-mode))
-  (eval-after-load "smartparens" '(diminish 'smartparens-mode))
-  (eval-after-load "symbol-overlay" '(diminish 'symbol-overlay-mode))
-  (eval-after-load "git-gutter" '(diminish 'git-gutter-mode))
-  (eval-after-load "ivy-posframe" '(diminish 'ivy-posframe-mode))
+  (diminish 'emacs-lock-mode)
+  (diminish 'eldoc-mode)
   )
 
 ;; rainbow delimiters

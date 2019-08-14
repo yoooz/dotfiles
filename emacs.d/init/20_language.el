@@ -1,5 +1,6 @@
 ;; yasnippet
 (use-package yasnippet
+  :diminish yas-minor-mode
   :config
   (yas-global-mode 1)
   :bind
@@ -61,6 +62,7 @@
 
 ;; company
 (use-package company
+  :diminish company-mode
   :config
   (global-company-mode)
   (setq company-transformers '(company-sort-by-backend-importance))

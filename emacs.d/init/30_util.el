@@ -34,6 +34,7 @@
 
 ;; ivy
 (use-package ivy
+  :diminish ivy-mode
   :config
   (ivy-mode 1)
   (setq enable-recursive-minibuffers t)
@@ -62,6 +63,7 @@
 
 ;; ivy-posframe (GUI Emacs Only)
 (use-package ivy-posframe
+  :diminish ivy-posframe-mode
   :config
   (custom-set-faces
    '(ivy-posframe-border((t (:background "CornflowerBlue"))))
@@ -104,6 +106,7 @@
 
 ;; beacon
 (use-package beacon
+  :diminish beacon-mode
   :config
   (beacon-mode t)
   (custom-set-variables
@@ -114,6 +117,7 @@
   )
 
 (use-package zoom
+  :diminish zoom-mode
   :config
   (custom-set-variables
    '(zoom-size '(0.618 . 0.618))
@@ -122,6 +126,7 @@
   )
 
 (use-package hungry-delete
+  :diminish hungry-delete-mode
   :hook
   ((prog-mode) . hungry-delete-mode)
   )

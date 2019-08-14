@@ -3,6 +3,7 @@
 
 ;; symbol-overlay
 (use-package symbol-overlay
+  :diminish symbol-overlay-mode
   :hook
   ((prog-mode markdown-mode) . symbol-overlay-mode)
   :bind
@@ -18,6 +19,7 @@
 
 ;; smartparens
 (use-package smartparens
+  :diminish smartparens-mode
   :config
   (smartparens-global-mode t)
   )
