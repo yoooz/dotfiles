@@ -33,17 +33,6 @@
 (use-package cl-lib)
 (use-package color)
 (use-package rainbow-delimiters
-  :config
-  (rainbow-delimiters-mode 1)
-  (setq rainbow-delimiters-outermost-only-face-count 1)
-  (set-face-foreground 'rainbow-delimiters-depth-1-face "#f0f0f0")
-  (set-face-foreground 'rainbow-delimiters-depth-2-face "#ff5e5e")
-  (set-face-foreground 'rainbow-delimiters-depth-3-face "#ffaa77")
-  (set-face-foreground 'rainbow-delimiters-depth-4-face "#dddd77")
-  (set-face-foreground 'rainbow-delimiters-depth-5-face "#80ee80")
-  (set-face-foreground 'rainbow-delimiters-depth-6-face "#66bbff")
-  (set-face-foreground 'rainbow-delimiters-depth-7-face "#da6bda")
-  (set-face-foreground 'rainbow-delimiters-depth-8-face "#afafaf")
-  (set-face-foreground 'rainbow-delimiters-depth-9-face "#9a4040")
-  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+  :hook
+  ((prog-mode) . rainbow-delimiters-mode)
   )
