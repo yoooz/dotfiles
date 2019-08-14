@@ -56,7 +56,14 @@
    '(ivy-posframe-border((t (:background "CornflowerBlue"))))
    )
   (custom-set-variables
-   '(ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-point)))
+   '(ivy-posframe-display-functions-alist
+     '((swiper . nil)
+       (execute-extended-command . ivy-posframe-display-at-frame-top-center)
+       (counsel-ghq . ivy-posframe-display-at-frame-center)
+       (counsel-rg . ivy-posframe-display-at-frame-center)
+       (t . ivy-posframe-display-at-point)
+       )
+     )
    '(ivy-posframe-mode 1)
    '(ivy-posframe-parameters
         '((left-fringe . 8)
