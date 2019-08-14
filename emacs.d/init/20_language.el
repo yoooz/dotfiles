@@ -1,9 +1,6 @@
 ;; yasnippet
 (use-package yasnippet
   :config
-  (custom-set-variables
-   '(yas-snippet-dirs '("../yasnippet-snippets"))
-   )
   (yas-global-mode 1)
   :bind
   (:map yas-minor-mode-map
