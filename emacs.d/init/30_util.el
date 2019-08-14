@@ -34,7 +34,7 @@
    '(ivy-use-virtual-buffers t)
    '(ivy-height 20)
    '(ivy-extra-directories nil)
-   '())
+   )
   :bind
   ("C-s" . swiper)
   )
