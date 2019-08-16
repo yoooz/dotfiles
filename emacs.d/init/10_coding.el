@@ -4,24 +4,21 @@
 ;; symbol-overlay
 (use-package symbol-overlay
   :diminish symbol-overlay-mode
-  :hook
-  ((prog-mode markdown-mode) . symbol-overlay-mode)
+  :hook ((prog-mode markdown-mode) . symbol-overlay-mode)
   :bind
   (("M-i" . symbol-overlay-put)
    :map symbol-overlay-map
    ("p" . symbol-overlay-jump-prev)
    ("n" . symbol-overlay-jump-next)
    ("C-g" . symbol-overlay-remove-all))
-  :config
-  (custom-set-variables
-   '(symbol-overlay-idle-time 0.1))
+  :custom
+  (symbol-overlay-idle-time 0.1)
   )
 
 ;; highlight-indent-guides
 (use-package highlight-indent-guides
   :diminish highlight-indent-guides-mode
-  :hook
-  ((prog-mode yaml-mode) . highlight-indent-guides-mode)
+  :hook ((prog-mode yaml-mode) . highlight-indent-guides-mode)
   :custom
   (highlight-indent-guides-auto-enabled t)
   (highlight-indent-guides-responsive t)
@@ -37,18 +34,13 @@
 
 ;; color magit
 (use-package magit
-  :config
-  (set-face-foreground 'magit-diff-added "#00FF00")
-  (set-face-background 'magit-diff-added "#000000")
-  (set-face-foreground 'magit-diff-added-highlight "#00FF00")
-  (set-face-background 'magit-diff-added-highlight "#gray20")
-  
-  (set-face-foreground 'magit-diff-removed "#FF0000")
-  (set-face-background 'magit-diff-removed "#000000")
-  (set-face-foreground 'magit-diff-removed-highlight "#FF0000")
-  (set-face-background 'magit-diff-removed-highlight "gray20")
-  (custom-set-variables
-   '(magit-log-margin '(t "%Y-%m-%d %H:%M:%S" magit-log-margin-width t 18)))
+  :custom-face
+  (magit-diff-added ((t (:foreground "#00FF00" :background "gray20"))))
+  (magit-diff-added-highlight ((t (:foreground "#00FF00" :background "gray20"))))
+  (magit-diff-removed ((t (:foreground "#FF0000" :background "gray20"))))
+  (magit-diff-removed-highlight ((t (:foreground "#FF0000" :background "gray20"))))
+  :custom 
+  (magit-log-margin '(t "%Y-%m-%d %H:%M:%S" magit-log-margin-width t 18))
 )
 
 ;; git-gutter
