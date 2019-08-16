@@ -42,7 +42,7 @@
         '((t . ivy--regex-plus)))
   (custom-set-variables
    '(swiper-include-line-number-in-search t)
-   '(ivy-use-virtual-buffers t)
+   '(ivy-use-virtual-buffers nil)
    '(ivy-height 20)
    '(ivy-extra-directories nil)
    '(ivy-format-functions-alist '((t . ivy-format-function-arrow)))
