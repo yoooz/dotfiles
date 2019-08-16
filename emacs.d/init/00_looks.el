@@ -33,3 +33,7 @@
   :hook
   ((prog-mode) . rainbow-delimiters-mode)
   )
+
+;; rainbow mode
+(use-package rainbow-mode
+  :diminish rainbow-mode)
