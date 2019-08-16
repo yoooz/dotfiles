@@ -9,10 +9,10 @@
 
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode)
-  :config
-  (setq doom-modeline-height 25)
-  (setq doom-modeline-bar-width 3)
-  (setq doom-modeline-buffer-file-name-style 'truncate-all)
+  :custom 
+  (doom-modeline-height 25)
+  (doom-modeline-bar-width 3)
+  (doom-modeline-buffer-file-name-style 'truncate-all)
   )
 
 (use-package dashboard
@@ -23,8 +23,8 @@
   )
 
 (use-package hide-mode-line
-  :hook
-  ((treemacs-mode) . hide-mode-line-mode))
+  :hook(treemacs-mode . hide-mode-line-mode)
+  )
 
 ;; diminish
 (use-package diminish
@@ -37,10 +37,11 @@
 (use-package cl-lib)
 (use-package color)
 (use-package rainbow-delimiters
-  :hook
-  ((prog-mode) . rainbow-delimiters-mode)
+  :hook(prog-mode . rainbow-delimiters-mode)
   )
 
 ;; rainbow mode
 (use-package rainbow-mode
-  :diminish rainbow-mode)
+  :hook(prog-mode . rainbow-mode)
+  :diminish rainbow-mode
+  )
