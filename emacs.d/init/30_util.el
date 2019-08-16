@@ -46,15 +46,22 @@
    '(ivy-height 20)
    '(ivy-extra-directories nil)
    '(ivy-format-functions-alist '((t . ivy-format-function-arrow)))
+   '(ivy-initial-inputs-alist '((counsel-M-x . "")))
    )
   :bind
   ("C-s" . swiper)
   )
 
+;; all the icons ivy 
+(use-package all-the-icons-ivy
+  :config
+  (all-the-icons-ivy-setup))
+
 ;; counsel
 (use-package counsel
   :bind
-  (("C-r" . execute-extended-command))
+  (("C-r" . counsel-M-x)
+   ("C-x C-f" . counsel-find-file))
   )
 
 ;; counsel-ghq
