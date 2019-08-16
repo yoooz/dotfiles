@@ -1,6 +1,6 @@
 (use-package electric-case
-  :config
-  (add-hook 'kotlin-mode-hook 'electric-case-java-init))
+  :hook (kotlin-mode . electric-case-java-init)
+  )
 
 ;; evil-mode
 ;(use-package evil)
