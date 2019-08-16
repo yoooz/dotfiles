@@ -52,11 +52,6 @@
   ("C-s" . swiper)
   )
 
-;; all the icons ivy 
-(use-package all-the-icons-ivy
-  :config
-  (all-the-icons-ivy-setup))
-
 ;; counsel
 (use-package counsel
   :bind
@@ -87,6 +82,15 @@
           (right-fringe . 8)))
    )
   )
+
+;; all the icons ivy 
+(use-package all-the-icons-ivy
+  :config
+  (all-the-icons-ivy-setup))
+
+(use-package ivy-rich
+  :config
+  (ivy-rich-mode -1))
 
 (use-package migemo
   :config
