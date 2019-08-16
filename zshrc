@@ -38,10 +38,12 @@ compinit
 bindkey -e # キーバインドをemacsモードにする
 
 export LANG=ja_JP.UTF-8
-export PATH=$PATH:/opt/maven/bin:${HOME}/bin
-export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:${HOME}/.anyenv/bin
-export PATH=$PATH:${GOPATH}/bin
+if [[ -z $TMUX ]]; then
+    export PATH=$PATH:/opt/maven/bin:${HOME}/bin
+    export PATH=$PATH:/usr/local/bin
+    export PATH=$PATH:${HOME}/.anyenv/bin
+    export PATH=$PATH:${GOPATH}/bin
+fi 
 eval "$(anyenv init -)"
 
 export EDITOR=emacs
@@ -52,8 +54,10 @@ case "${OSTYPE}" in
 	alias ll='exa -l'
 	alias la='exa -a'
     alias pidcat='pidcat --always-display-tags'
-	export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/:${HOME}/Library/Android/sdk/tools/
-    export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home      
+    if [[ -z $TMUX ]]; then
+    	export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/:${HOME}/Library/Android/sdk/tools/
+        export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home
+    fi 
 	;;
     linux*)
 	alias ls='ls --color=auto'
@@ -62,9 +66,11 @@ case "${OSTYPE}" in
 	alias pbcopy='xsel --clipboard --input'
 	alias pbpaste='xsel --clipboard --output'
     alias hhkb='sudo dpkg-reconfigure keyboard-configuration'
-    export PATH=$PATH:${HOME}/tmp/swift-DEVELOPMENT-SNAPSHOT-2018-09-08-a-ubuntu18.04/usr/bin
-	export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/platform-tools
-	export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/tools
+    if [[ -z $TMUX ]]; then
+        export PATH=$PATH:${HOME}/tmp/swift-DEVELOPMENT-SNAPSHOT-2018-09-08-a-ubuntu18.04/usr/bin
+    	export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/platform-tools
+    	export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/tools
+    fi
 	;;
 esac
 
