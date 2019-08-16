@@ -2,8 +2,7 @@
 
 ;; hydra global menu
 (defhydra hydra-global-menu
-  (:exit t
-         :hint nil)
+  (:exit t :hint nil)
   "
 hydra
 ----------------------------------------------------------
@@ -42,8 +41,7 @@ hydra
 
 ;; Movement
 (defhydra hydra-move
-  (:body-pre (next-line)
-             :hint nil)
+  (:body-pre (next-line) :hint nil)
   "
 move
 ----------------------------------------------------------
@@ -60,8 +58,8 @@ _v_: scroll-down _V_: scroll-up"
   ("V" scroll-down-command))
 
 ;; goto line
-(defhydra hydra-goto-line (goto-map ""
-                                    :post (linum-mode -1))
+(defhydra hydra-goto-line
+  (goto-map "" :post (linum-mode -1))
   "goto-line"
   ("g" goto-line "go")
   ("m" set-mark-command "mark" :bind nil)
@@ -87,7 +85,8 @@ _v_: scroll-down _V_: scroll-up"
     ("y" avy-copy-line)
     ("Y" avy-copy-region))
 
-(defhydra dh-hydra-markdown-mode (:hint nil)
+(defhydra dh-hydra-markdown-mode
+  (:hint nil)
     "
 Formatting        C-c C-s    _s_: bold          _e_: italic     _b_: blockquote   _p_: pre-formatted    _c_: code
 
@@ -125,7 +124,8 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
     ("W" markdown-insert-wiki-link :color blue)
     ("R" markdown-insert-reference-link-dwim :color blue))
 
-(defhydra hydra-multiple-cursors (:hint nil)
+(defhydra hydra-multiple-cursors
+  (:hint nil)
     "
  Up^^             Down^^           Miscellaneous 
 ------------------------------------------------------------------
@@ -146,7 +146,8 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
   ("A" mc/insert-letters :exit t)
   ("q" nil))
 
-(defhydra hydra-howm(:exit t)
+(defhydra hydra-howm
+  (:exit t)
   "howm"
   ("r" howm-remember "remember")
   ("c" howm-create "create")
@@ -156,7 +157,8 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
   ("m" howm-menu "menu")
   ("d" howm-insert-date "date"))
 
-(defhydra hydra-magit(:exit t)
+(defhydra hydra-magit
+  (:exit t)
   "magit"
   ("s" magit-status "status")
   ("b" magit-blame-addition "blame")
@@ -164,7 +166,8 @@ Links, footnotes  C-c C-a    _L_: link          _U_: uri        _F_: footnote   
   ("c" magit-commit-create "commit")
   ("p" magit-push-current-to-upstream "push"))
 
-(defhydra hydra-counsel(:exit t)
+(defhydra hydra-counsel
+  (:exit t)
   "counsel"
   ("g" counsel-git "git")
   ("r" counsel-rg "rg")
