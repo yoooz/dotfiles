@@ -15,6 +15,13 @@
   (setq doom-modeline-buffer-file-name-style 'truncate-all)
   )
 
+(use-package dashboard
+  :config
+  (setq dashboard-items '((recents . 15)))
+  (setq dashboard-startup-banner "~/dotfiles/emacs.d/swiper2.png")
+  (dashboard-setup-startup-hook)
+  )
+
 (use-package hide-mode-line
   :hook
   ((treemacs-mode) . hide-mode-line-mode))
