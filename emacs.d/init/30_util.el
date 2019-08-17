@@ -41,6 +41,7 @@
   (swiper-include-line-number-in-search t)
   (ivy-use-virtual-buffers nil)
   (ivy-height 20)
+  (ivy-count-format "(%d/%d)")
   (ivy-extra-directories nil)
   (ivy-format-functions-alist '((t . ivy-format-function-arrow)))
   (ivy-initial-inputs-alist '((counsel-M-x . "")))
