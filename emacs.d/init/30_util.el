@@ -67,6 +67,7 @@
   :custom
   (ivy-posframe-display-functions-alist
    '((swiper . nil)
+     (counsel-rg . nil)
      (t . ivy-posframe-display-at-frame-top-center)
      )
    )
