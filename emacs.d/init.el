@@ -78,6 +78,8 @@
 
 ;; use-package fallback to straight.el automatically
 (setq straight-use-package-by-default t)
+;; report package loading status
+(setq use-package-compute-statistics t)
 
 ;; init-loader
 (use-package init-loader)
