@@ -80,30 +80,21 @@
    )
   )
 
+;; language
 (use-package python-mode
   :hook (python-mode . lsp-mode)
   )
-
-;; kotlin
 (use-package kotlin-mode)
-
-;; Groovy
+(use-package gradle-mode)
+(use-package android-mode)
+(use-package apache-mode)
+(use-package clojure-mode)
 (use-package groovy-mode)
-
-;; markdown
 (use-package markdown-mode)
-
-;; yaml
 (use-package yaml-mode)
-
-;; swift3
 (use-package swift3-mode)
-
-;; web-mode
 (use-package web-mode
   :mode
   (("\\.jsp\\'" . web-mode))
   )
-
-;; dockerfile-mode
 (use-package dockerfile-mode)
