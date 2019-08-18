@@ -119,11 +119,11 @@ alias h=history
 alias grep=egrep
 alias cat='bat'
 alias e='emacsclient -t'
-alias gcd='cd $(ghq root)/$(ghq list | peco)'
+alias gcd='cd $(ghq root)/$(ghq list | peco --prompt "REPOSITORY")'
 alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 alias gclone='ghq get'
-alias gjump='git checkout $(git branch | sed "s/*//g" | sed "s/ //g" | peco)'
-alias psh='ssh `grep "Host " ~/.ssh/config | grep -v "\*" | cut -b 6- | peco`'
+alias gjump='git checkout $(git branch | sed "s/*//g" | sed "s/ //g" | peco --prompt "GIT BRANCH")'
+alias psh='ssh `grep "Host " ~/.ssh/config | grep -v "\*" | cut -b 6- | peco --prompt "HOST> "`'
 
 # umask
 umask 002
@@ -138,7 +138,7 @@ function peco-select-history() {
     fi
     BUFFER=$(\history -n 1 | \
         eval $tac | \
-        peco --query "$LBUFFER")
+        peco --query "$LBUFFER" --prompt "COMMAND> ")
     CURSOR=$#BUFFER
     zle clear-screen
 }
@@ -146,7 +146,7 @@ zle -N peco-select-history
 bindkey '^r' peco-select-history
 
 function peco-kill() {
-    for pid in `ps aux | peco | awk '{ print $2 }'`
+    for pid in `ps aux | peco --prompt "TARGET PROCESS> "| awk '{ print $2 }'`
     do
         kill $pid
         echo "Killed ${pid}"
@@ -155,7 +155,7 @@ function peco-kill() {
 alias pk="peco-kill"
 
 function peco-cdr() {
-    local selected_dir=$(cdr -l | awk '{print $2 }' | peco)
+    local selected_dir=$(cdr -l | awk '{print $2 }' | peco --prompt "CHANGE DIRECTOY> ")
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
         zle accept-line
