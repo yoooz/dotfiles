@@ -36,13 +36,14 @@ autoload -Uz compinit
 compinit
 
 export LANG=ja_JP.UTF-8
+
 if [[ -z $TMUX ]]; then
     export PATH=$PATH:/opt/maven/bin:${HOME}/bin
     export PATH=$PATH:/usr/local/bin
     export PATH=$PATH:${HOME}/.anyenv/bin
+    eval "$(anyenv init -)"
     export PATH=$PATH:${GOPATH}/bin
 fi 
-eval "$(anyenv init -)"
 
 export EDITOR=emacs
 
