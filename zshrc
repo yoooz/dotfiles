@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # zplug
 source ${HOME}/.zplug/init.zsh
 zplug 'zsh-users/zsh-completions'
