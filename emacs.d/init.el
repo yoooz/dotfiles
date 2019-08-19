@@ -81,6 +81,11 @@
 ;; report package loading status
 (setq use-package-compute-statistics t)
 
+(use-package exec-path-from-shell
+  :config
+  (exec-path-from-shell-initialize)
+)
+
 ;; init-loader
 (use-package init-loader)
 (custom-set-variables
