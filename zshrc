@@ -1,6 +1,3 @@
-# run tmux
-[[ -z "$TMUX" && ! -z "$PS1" ]] && exec tmux
-
 # zplug
 source ${HOME}/.zplug/init.zsh
 zplug 'zsh-users/zsh-completions'
@@ -84,7 +81,8 @@ case "${OSTYPE}" in
 	alias la='exa -a'
     alias pidcat='pidcat --always-display-tags'
     if [[ -z $TMUX ]]; then
-    	export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/:${HOME}/Library/Android/sdk/tools/
+    	export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/
+        export PATH=$PATH:${HOME}/Library/Android/sdk/tools/
         export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home
     fi 
 	;;
@@ -96,7 +94,6 @@ case "${OSTYPE}" in
 	alias pbpaste='xsel --clipboard --output'
     alias hhkb='sudo dpkg-reconfigure keyboard-configuration'
     if [[ -z $TMUX ]]; then
-        export PATH=$PATH:${HOME}/tmp/swift-DEVELOPMENT-SNAPSHOT-2018-09-08-a-ubuntu18.04/usr/bin
     	export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/platform-tools
     	export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/tools
     fi
@@ -168,4 +165,4 @@ function precmd() {
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#[[ -z "$TMUX" && ! -z "$PS1" ]] && exec tmux
