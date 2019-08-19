@@ -58,9 +58,6 @@
 (show-paren-mode 1)
 (setq show-paren-delay 0)
 
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-(setq exec-path (parse-colon-path (getenv "PATH")))
-
 ;; straight.el setting by myself
 (let ((bootstrap-file (concat user-emacs-directory "straight/repos/straight.el/bootstrap.el"))
       (bootstrap-version 3))
