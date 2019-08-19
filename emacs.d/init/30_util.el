@@ -12,10 +12,10 @@
   :config
   (setq avy-background t)
   :custom-face
-  (avy-lead-face ((t (:foreground "red" :background "black"))))
-  (avy-lead-face-0 ((t (:foreground "green" :background "black"))))
-  (avy-lead-face-1 ((t (:foreground "yellow" :background "black"))))
-  (avy-lead-face-2 ((t (:foreground "blue" :background "black"))))
+  (avy-lead-face ((t (:foreground "red" :background "#282a36"))))
+  (avy-lead-face-0 ((t (:foreground "green" :background "#282a36"))))
+  (avy-lead-face-1 ((t (:foreground "yellow" :background "#282a36"))))
+  (avy-lead-face-2 ((t (:foreground "blue" :background "#282a36"))))
   :bind
   (
    ("C-l" . avy-goto-word-1))
