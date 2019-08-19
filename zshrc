@@ -35,8 +35,6 @@ colors
 autoload -Uz compinit
 compinit
 
-bindkey -e # キーバインドをemacsモードにする
-
 export LANG=ja_JP.UTF-8
 if [[ -z $TMUX ]]; then
     export PATH=$PATH:/opt/maven/bin:${HOME}/bin
