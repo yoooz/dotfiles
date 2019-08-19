@@ -164,6 +164,3 @@ function precmd() {
 }
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# run tmux
-[[ -z "$TMUX" && ! -z "$PS1" ]] && exec tmux
