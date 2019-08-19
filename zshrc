@@ -1,17 +1,11 @@
 # run tmux
-#[[ -z "$TMUX" && ! -z "$PS1" ]] && exec tmux
+[[ -z "$TMUX" && ! -z "$PS1" ]] && exec tmux
 
 # zplug
 source ${HOME}/.zplug/init.zsh
-
 zplug 'zsh-users/zsh-completions'
-zplug 'zsh-users/zaw'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 zplug load
-
-# cdr
-autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-add-zsh-hook chpwd chpwd_recent_dirs
 
 # zstyles
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
@@ -27,15 +21,53 @@ zstyle ':chpwd:*' recent-dirs-default true
 zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recend-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 
-# load colors
-autoload -U colors
-colors
+# cdr
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
 
 # Use modern completion system
 autoload -Uz compinit
 compinit
 
 export LANG=ja_JP.UTF-8
+
+# load colors
+autoload -U colors
+colors
+
+export EDITOR=emacs
+
+# Use emacs keybindings
+bindkey -e
+
+# umask
+umask 002
+
+export HISTFILE=${HOME}/.zsh_history
+export HISTSIZE=6000000
+export SAVEHIST=6000000
+
+setopt inc_append_history
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt share_history
+setopt correct
+setopt list_packed
+setopt complete_in_word
+setopt longlistjobs
+setopt notify
+setopt auto_param_slash
+setopt mark_dirs
+setopt auto_param_keys
+setopt no_flow_control
+
+# auto cd
+setopt auto_cd
+setopt auto_pushd
+setopt pushd_ignore_dups
+
+# prompt
+PROMPT="%{${fg[cyan]}%}%n %# %{${reset_color}%}"
 
 if [[ -z $TMUX ]]; then
     export PATH=$PATH:/opt/maven/bin:${HOME}/bin
@@ -44,8 +76,6 @@ if [[ -z $TMUX ]]; then
     eval "$(anyenv init -)"
     export PATH=$PATH:${GOPATH}/bin
 fi 
-
-export EDITOR=emacs
 
 case "${OSTYPE}" in
     darwin*)
@@ -73,42 +103,6 @@ case "${OSTYPE}" in
 	;;
 esac
 
-export HISTFILE=${HOME}/.zsh_history
-export HISTSIZE=6000000
-export SAVEHIST=6000000
-
-# ls color
-export LS_COLORS='no=32:di=36:ln=35:so=37:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30:*.pdf=33'
-
-# Install Node.js
-export NVM_DIR=${HOME}/.nvm
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# Use emacs keybindings
-bindkey -e
-
-setopt inc_append_history
-setopt hist_ignore_dups
-setopt hist_ignore_all_dups
-setopt share_history
-setopt correct
-setopt list_packed
-setopt complete_in_word
-setopt longlistjobs
-setopt notify
-setopt auto_param_slash
-setopt mark_dirs
-setopt auto_param_keys
-setopt no_flow_control
-
-# auto cd
-setopt auto_cd
-setopt auto_pushd
-setopt pushd_ignore_dups
-
-# prompt
-PROMPT="%{${fg[cyan]}%}%n %# %{${reset_color}%}"
-
 # alias
 alias mv='nocorrect mv'
 alias cp='nocorrect cp'
@@ -124,9 +118,7 @@ alias gclone='ghq get'
 alias gjump='git checkout $(git branch | sed "s/*//g" | sed "s/ //g" | peco --prompt "GIT BRANCH")'
 alias psh='ssh `grep "Host " ~/.ssh/config | grep -v "\*" | cut -b 6- | peco --prompt "HOST> "`'
 
-# umask
-umask 002
-
+# pecos
 # peco + history
 function peco-select-history() {
     local tac
@@ -144,6 +136,7 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
+# peco + ps + kill
 function peco-kill() {
     for pid in `ps aux | peco --prompt "TARGET PROCESS> "| awk '{ print $2 }'`
     do
@@ -153,6 +146,7 @@ function peco-kill() {
 }
 alias pk="peco-kill"
 
+# peco + directory history
 function peco-cdr() {
     local selected_dir=$(cdr -l | awk '{print $2 }' | peco --prompt "CHANGE DIRECTOY> ")
     if [ -n "$selected_dir" ]; then
