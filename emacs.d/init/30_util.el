@@ -18,7 +18,7 @@
   (avy-lead-face-2 ((t (:foreground "blue" :background "#282a36"))))
   :bind
   (
-   ("C-l" . avy-goto-word-1))
+   ("C-;" . avy-goto-char-timer))
   )
 
 ;; ace-window
