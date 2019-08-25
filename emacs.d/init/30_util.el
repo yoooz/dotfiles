@@ -115,7 +115,7 @@
   :config
   (beacon-mode t)
   :custom
-  (beacon-size 10)
+  (beacon-size 70)
   (beacon-color 0.2)
   (beacon-blink-delay 0.1)
   (beacon-blink-when-focused t)
