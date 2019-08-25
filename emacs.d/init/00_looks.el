@@ -45,3 +45,9 @@
   :hook(prog-mode . rainbow-mode)
   :diminish rainbow-mode
   )
+
+(use-package hiwin
+  :config
+  (hiwin-activate)
+  (set-face-background 'hiwin-face "gray10")
+  )
