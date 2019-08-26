@@ -62,6 +62,7 @@
   (company-idle-delay 0)
   (company-minimum-prefix-lengh 2)
   (company-selection-wrap-around t)
+  (company-dabbrev-ignore-case t)
   (company-dabbrev-downcase nil)
   :bind
   (("C-M-i" . company-complete)
