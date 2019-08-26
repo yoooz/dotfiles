@@ -17,16 +17,18 @@
   (avy-lead-face-1 ((t (:foreground "yellow" :background "#282a36"))))
   (avy-lead-face-2 ((t (:foreground "blue" :background "#282a36"))))
   :bind
-  (
-   ("C-;" . avy-goto-char-timer))
+  ("C-;" . avy-goto-char-timer)
   )
 
 ;; ace-window
 (use-package ace-window
   :custom
   (aw-keys '(?j ?k ?l ?i ?o ?h ?y ?u ?p))
+  (aw-dispatch-always t)
   :custom-face
   (aw-leading-char-face ((t (:height 4.0 :foreground "#f1fa8c"))))
+  :bind
+  ("C-l" . ace-delete-window)
 )
 
 ;; ivy
