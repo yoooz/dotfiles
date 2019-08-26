@@ -83,19 +83,44 @@
 
 ;; language
 (use-package python-mode
+  :defer t
   :hook (python-mode . lsp-mode)
   )
-(use-package kotlin-mode)
-(use-package gradle-mode)
-(use-package android-mode)
-(use-package apache-mode)
-(use-package clojure-mode)
-(use-package groovy-mode)
-(use-package markdown-mode)
-(use-package yaml-mode)
-(use-package swift3-mode)
+(use-package kotlin-mode
+  :defer t
+  )
+(use-package gradle-mode
+  :defer t
+  )
+(use-package android-mode
+  :defer t
+  )
+(use-package apache-mode
+  :defer t
+  )
+(use-package clojure-mode
+  :defer t
+  )
+(use-package groovy-mode
+  :defer t
+  )
+(use-package markdown-mode
+  :defer t  
+  )
+(use-package yaml-mode
+  :defer t
+  )
+(use-package swift3-mode
+  :defer t
+  )
 (use-package web-mode
+  :defer t
   :mode
   (("\\.jsp\\'" . web-mode))
   )
-(use-package dockerfile-mode)
+(use-package dockerfile-mode
+  :defer t
+  )
+(use-package go-mode
+  :defer t
+  )
