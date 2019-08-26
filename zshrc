@@ -89,7 +89,6 @@ case "${OSTYPE}" in
     if [[ -z $TMUX ]]; then
     	export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/
         export PATH=$PATH:${HOME}/Library/Android/sdk/tools/
-        export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home
     fi 
 	;;
     linux*)
