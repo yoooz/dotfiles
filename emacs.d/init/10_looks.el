@@ -17,7 +17,8 @@
 
 (use-package dashboard
   :config
-  (setq dashboard-items '((recents . 15)))
+  (add-to-list 'dashboard-item-generators '(qiita . dashboard-qiita-insert))
+  (setq dashboard-items '((recents . 15) (qiita . 15)))
   (setq dashboard-startup-banner "~/dotfiles/emacs.d/swiper2.png")
   (dashboard-setup-startup-hook)
   )
