@@ -23,6 +23,8 @@
   (lsp-ui-doc-header t)
   (lsp-ui-doc-include-signature t)
   (lsp-ui-doc-position 'top)
+  (lsp-ui-doc-max-width 150)
+  (lsp-ui-doc-max-height 30)
   (lsp-ui-doc-alignment 'frame)
   (lsp-ui-doc-border "SteelBlue")
   (lsp-ui-doc-use-childframe t)
@@ -31,18 +33,29 @@
   ;; lsp-ui-flycheck
   (lsp-ui-flycheck-enable nil)
   ;; lsp-ui-sideline
-  (lsp-ui-sideline-enable t)
+  (lsp-ui-sideline-enable nil)
   (lsp-ui-sideline-ignore-duplicate t)
   (lsp-ui-sideline-show-symbol t)
   (lsp-ui-sideline-show-hover t)
-  (lsp-ui-sideline-show-diagnostics t)
-  (lsp-ui-sideline-show-code-actions t)
+  (lsp-ui-sideline-show-diagnostics nil)
+  (lsp-ui-sideline-show-code-actions nil)
   (lsp-ui-sideline-update-mode 'line)
   (lsp-ui-sideline-delay 0.1)
   ;; lsp-ui-imenu
+  (lsp-ui-imenu-enable nil)
+  (lsp-ui-imenu-kind-position 'top)
   ;; lsp-ui-peek
   (lsp-ui-peek-enable t)
+  (lsp-ui-peek-peek-height 20)
+  (lsp-ui-peek-list-width 50)
   (lsp-ui-peek-always-show t)
+  :bind
+  (:map lsp-mode-map
+        ("C-c C-r" . lsp-ui-peek-find-references)
+        ("C-c C-j" . lsp-ui-peek-find-definitions)
+        ("C-c i"   . lsp-ui-peek-find-implementation)
+        ("C-c m"   . lsp-ui-imenu)
+        ("C-c s"   . lsp-ui-sideline-mode))
   :custom-face
   (lsp-ui-doc-background ((t (:background "#282a36"))))
   :hook (lsp-mode . lsp-ui-mode)
