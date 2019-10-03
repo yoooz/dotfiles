@@ -78,6 +78,7 @@ eval "$(anyenv init -)"
 
 if [[ -z $TMUX ]]; then
     export PATH=$PATH:${GOPATH}/bin
+    export JAVA_HOME=`jenv javahome`
 fi    
 
 case "${OSTYPE}" in
