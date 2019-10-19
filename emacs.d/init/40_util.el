@@ -59,12 +59,15 @@
    ("C-x C-f" . counsel-find-file))
   )
 
+(defun counsel-ghq-magit-status (directory)
+  (magit-status directory))
+
 ;; counsel-ghq
 (use-package counsel-ghq
   :straight (counsel-ghq :type git :host github :repo "SuzumiyaAoba/counsel-ghq")
   :config
   (ivy-set-actions 'counsel-ghq
-                   '(("d" find-file "default"))
+                   '(("g" counsel-ghq-magit-status "magit"))
                    )
   )
 
