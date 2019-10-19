@@ -29,6 +29,7 @@
   (aw-leading-char-face ((t (:height 4.0 :foreground "#f1fa8c"))))
   :bind
   ("C-l" . ace-delete-window)
+  ("C-]" . ace-select-window)
 )
 
 ;; ivy
@@ -60,7 +61,12 @@
 
 ;; counsel-ghq
 (use-package counsel-ghq
-  :straight (counsel-ghq :type git :host github :repo "SuzumiyaAoba/counsel-ghq"))
+  :straight (counsel-ghq :type git :host github :repo "SuzumiyaAoba/counsel-ghq")
+  :config
+  (ivy-set-actions 'counsel-ghq
+                   '(("d" find-file "default"))
+                   )
+  )
 
 ;; ivy-posframe (GUI Emacs Only)
 (use-package ivy-posframe
