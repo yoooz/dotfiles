@@ -64,11 +64,7 @@
 
 ;; counsel-ghq
 (use-package counsel-ghq
-  :straight (counsel-ghq :type git :host github :repo "SuzumiyaAoba/counsel-ghq")
-  :config
-  (ivy-set-actions 'counsel-ghq
-                   '(("g" counsel-ghq-magit-status "magit"))
-                   )
+  :straight (counsel-ghq :type git :host github :repo "yoooz/counsel-ghq")
   )
 
 ;; ivy-posframe (GUI Emacs Only)
