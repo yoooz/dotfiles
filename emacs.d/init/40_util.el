@@ -29,6 +29,7 @@
   (aw-leading-char-face ((t (:height 4.0 :foreground "#f1fa8c"))))
   :bind
   ("C-l" . ace-delete-window)
+  ("C-]" . ace-select-window)
 )
 
 ;; ivy
@@ -58,9 +59,13 @@
    ("C-x C-f" . counsel-find-file))
   )
 
+(defun counsel-ghq-magit-status (directory)
+  (magit-status directory))
+
 ;; counsel-ghq
 (use-package counsel-ghq
-  :straight (counsel-ghq :type git :host github :repo "SuzumiyaAoba/counsel-ghq"))
+  :straight (counsel-ghq :type git :host github :repo "yoooz/counsel-ghq")
+  )
 
 ;; ivy-posframe (GUI Emacs Only)
 (use-package ivy-posframe
