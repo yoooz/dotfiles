@@ -19,28 +19,11 @@
 (use-package lsp-ui
   :custom
   ;; lsp-ui-doc
-  (lsp-ui-doc-enable t)
-  (lsp-ui-doc-header t)
-  (lsp-ui-doc-include-signature t)
-  (lsp-ui-doc-position 'top)
-  (lsp-ui-doc-max-width 150)
-  (lsp-ui-doc-max-height 30)
-  (lsp-ui-doc-alignment 'frame)
-  (lsp-ui-doc-border "SteelBlue")
-  (lsp-ui-doc-use-childframe t)
-  (lsp-ui-doc-use-webkit t)   
-  (lsp-ui-doc-delay 0.1)
+  (lsp-ui-doc-enable nil)
   ;; lsp-ui-flycheck
   (lsp-ui-flycheck-enable nil)
   ;; lsp-ui-sideline
   (lsp-ui-sideline-enable nil)
-  (lsp-ui-sideline-ignore-duplicate t)
-  (lsp-ui-sideline-show-symbol t)
-  (lsp-ui-sideline-show-hover t)
-  (lsp-ui-sideline-show-diagnostics nil)
-  (lsp-ui-sideline-show-code-actions nil)
-  (lsp-ui-sideline-update-mode 'line)
-  (lsp-ui-sideline-delay 0.1)
   ;; lsp-ui-imenu
   (lsp-ui-imenu-enable nil)
   (lsp-ui-imenu-kind-position 'top)
@@ -48,7 +31,7 @@
   (lsp-ui-peek-enable t)
   (lsp-ui-peek-peek-height 20)
   (lsp-ui-peek-list-width 50)
-  (lsp-ui-peek-always-show t)
+  (lsp-ui-peek-always-show nil)
   :bind
   (:map lsp-mode-map
         ("C-c C-r" . lsp-ui-peek-find-references)
@@ -56,8 +39,8 @@
         ("C-c i"   . lsp-ui-peek-find-implementation)
         ("C-c m"   . lsp-ui-imenu)
         ("C-c s"   . lsp-ui-sideline-mode))
-  :custom-face
-  (lsp-ui-doc-background ((t (:background "#282a36"))))
+  ;:custom-face
+  ;(lsp-ui-doc-background ((t (:background "#282a36"))))
   :hook (lsp-mode . lsp-ui-mode)
   )
 
@@ -96,7 +79,8 @@
 
 ;; language
 (use-package python-mode
-  :hook (python-mode . #'lsp)
+  :config
+  (add-hook 'python-mode-hook #'lsp)
   )
 (use-package kotlin-mode)
 (use-package gradle-mode)
