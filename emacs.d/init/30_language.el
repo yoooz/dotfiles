@@ -24,6 +24,9 @@
   (lsp-ui-flycheck-enable nil)
   ;; lsp-ui-sideline
   (lsp-ui-sideline-enable nil)
+  (lsp-ui-sideline-ignore-duplicate t)
+  (lsp-ui-sideline-update-mode 'point)
+  (lsp-ui-sideline-delay 0.1)
   ;; lsp-ui-imenu
   (lsp-ui-imenu-enable nil)
   (lsp-ui-imenu-kind-position 'top)
@@ -32,6 +35,7 @@
   (lsp-ui-peek-peek-height 20)
   (lsp-ui-peek-list-width 50)
   (lsp-ui-peek-always-show nil)
+  (lsp-ui-peek-fontify 'always)
   :bind
   (:map lsp-mode-map
         ("C-c C-r" . lsp-ui-peek-find-references)
@@ -39,7 +43,9 @@
         ("C-c i"   . lsp-ui-peek-find-implementation)
         ("C-c m"   . lsp-ui-imenu)
         ("C-c s"   . lsp-ui-sideline-mode))
-  ;:custom-face
+  :custom-face
+  (lsp-ui-peek-line-number ((t (:foreground "LightGreen"))))
+  (lsp-ui-peek-highlight ((t (:background "LightGreen" :foreground "black" :box (:line-width 1 :color "black")))))
   ;(lsp-ui-doc-background ((t (:background "#282a36"))))
   :hook (lsp-mode . lsp-ui-mode)
   )
