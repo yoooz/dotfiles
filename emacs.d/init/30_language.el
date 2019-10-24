@@ -82,7 +82,12 @@
   :config
   (add-hook 'python-mode-hook #'lsp)
   )
-(use-package kotlin-mode)
+
+(add-to-list 'exec-path "~/.ghq/github.com/fwcd/kotlin-language-server/server/build/install/server/bin")
+(use-package kotlin-mode
+  :config
+  (add-hook 'kotlin-mode-hook #'lsp)
+  )
 (use-package gradle-mode)
 (use-package android-mode)
 (use-package apache-mode)
