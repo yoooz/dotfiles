@@ -140,3 +140,13 @@
   :diminish hungry-delete-mode
   :hook (prog-mode . hungry-delete-mode)
   )
+
+(use-package elscreen
+  :config
+  (elscreen-start)
+  :custom
+  (elscreen-tab-display-kill-screen 'right)
+  :custom-face
+  (elscreen-tab-current-screen-face ((t (:background "MediumSlateBlue" :foreground "white"))))
+  (elscreen-tab-other-screen-face ((t (:background "#282a36" :foreground "white"))))
+  )
