@@ -1,9 +1,3 @@
-;; tramp
-(use-package tramp
-  :custom
-  (tramp-default-method "ssh")
-  )
-
 ;; google-this
 (use-package google-this)
 
