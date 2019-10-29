@@ -72,14 +72,12 @@ if [[ -z $TMUX ]]; then
     export PATH=$PATH:/opt/maven/bin:${HOME}/bin
     export PATH=$PATH:/usr/local/bin
     export PATH=$PATH:${HOME}/.anyenv/bin
+    eval "$(anyenv init -)"
 fi
 
-eval "$(anyenv init -)"
-
-if [[ -z $TMUX ]]; then
-    export PATH=$PATH:${GOPATH}/bin
-    export JAVA_HOME=`jenv javahome`
-fi    
+# なんかおかしい
+export PATH=$PATH:${GOPATH}/bin
+export JAVA_HOME=`jenv javahome`
 
 case "${OSTYPE}" in
     darwin*)
