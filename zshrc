@@ -113,11 +113,12 @@ alias h=history
 alias grep=egrep
 alias cat='bat'
 alias e='emacsclient -t'
-alias gcd='cd $(ghq root)/$(ghq list | peco --prompt "REPOSITORY")'
+alias gcd='cd $(ghq root)/$(ghq list | peco --prompt "REPOSITORY >")'
 alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 alias gclone='ghq get'
-alias gjump='git checkout $(git branch | sed "s/*//g" | sed "s/ //g" | peco --prompt "GIT BRANCH")'
-alias psh='ssh `grep "Host " ~/.ssh/config | grep -v "\*" | cut -b 6- | peco --prompt "HOST> "`'
+alias gjump='git checkout $(git branch | sed "s/*//g" | sed "s/ //g" | peco --prompt "CHECKOUT BRANCH >")'
+alias gdel='git branch -D $(git branch | peco --prompt "DELETE BRANCH >")'
+alias psh='ssh `grep "Host " ~/.ssh/config | grep -v "\*" | cut -b 6- | peco --prompt "HOST > "`'
 
 # pecos
 # peco + history
