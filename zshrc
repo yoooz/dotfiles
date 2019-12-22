@@ -72,7 +72,8 @@ if [[ -z $TMUX ]]; then
     export PATH=$PATH:/opt/maven/bin:${HOME}/bin
     export PATH=$PATH:/usr/local/bin
     export PATH=$PATH:${HOME}/.anyenv/bin
-    eval "$(anyenv init -)"
+    eval "$(anyenv init - zsh)"
+    export GOPATH=$HOME/go
 fi
 
 # なんかおかしい
@@ -81,19 +82,13 @@ export JAVA_HOME=`jenv javahome`
 
 case "${OSTYPE}" in
     darwin*)
-	alias ls='exa'
-	alias ll='exa -l'
-	alias la='exa -a'
-    alias pidcat='pidcat --always-display-tags'
-    if [[ -z $TMUX ]]; then
-    	export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/
-        export PATH=$PATH:${HOME}/Library/Android/sdk/tools/
-    fi 
+	alias pidcat='pidcat --always-display-tags'
+	if [[ -z $TMUX ]]; then
+    	    export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/
+            export PATH=$PATH:${HOME}/Library/Android/sdk/tools/
+	fi 
 	;;
     linux*)
-	alias ls='ls --color=auto'
-	alias ll='ls -l --color=auto'
-	alias la='ls -a --color=auto'
 	alias pbcopy='xsel --clipboard --input'
 	alias pbpaste='xsel --clipboard --output'
     alias hhkb='sudo dpkg-reconfigure keyboard-configuration'
@@ -105,6 +100,9 @@ case "${OSTYPE}" in
 esac
 
 # alias
+alias ls='exa'
+alias ll='exa -l'
+alias la='exa -a'
 alias mv='nocorrect mv'
 alias cp='nocorrect cp'
 alias mkdir='nocorrect mkdir'
