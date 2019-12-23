@@ -8,6 +8,8 @@
 ;; hide menu bar
 ;(menu-bar-mode 0)
 
+(scroll-bar-mode 0)
+
 ;;C-h Backspace
 ;;C-c h HELP
 (define-key key-translation-map (kbd "C-h") (kbd "<DEL>"))
