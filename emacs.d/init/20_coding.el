@@ -48,7 +48,12 @@
   :diminish git-gutter-mode
   :custom
   (git-gutter:ask-p nil)
-  (global-git-gutter-mode t))
+  (global-git-gutter-mode t)
+  :custom-face
+  (git-gutter:modified ((t (:background "#f1fa8c" :foreground "#f1fa8c"))))
+  (git-gutter:added    ((t (:background "#50fa7b" :foreground "#50fa7b"))))
+  (git-gutter:deleted  ((t (:background "#ff79c6" :foreground "#ff79c6"))))
+)
 
 (use-package point-history
   :straight (:host github
