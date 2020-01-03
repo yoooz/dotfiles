@@ -4,7 +4,6 @@
   (doom-themes-enable-bold t)
   :config
   (load-theme 'doom-snazzy t)
-  ;;(load-theme 'doom-vibrant t)
   )
 
 (use-package doom-modeline
@@ -12,7 +11,7 @@
   :custom 
   (doom-modeline-height 25)
   (doom-modeline-bar-width 3)
-  (doom-modeline-buffer-file-name-style 'truncate-all)
+  (doom-modeline-buffer-file-name-style 'truncate-upto-root)
   )
 
 (use-package dashboard
@@ -45,10 +44,4 @@
 (use-package rainbow-mode
   :hook(prog-mode . rainbow-mode)
   :diminish rainbow-mode
-  )
-
-(use-package hiwin
-  :config
-  (hiwin-activate)
-  (set-face-background 'hiwin-face "gray10")
   )

@@ -84,10 +84,10 @@
   )
 
 ;; language
-(use-package python-mode
-  :config
-  (add-hook 'python-mode-hook #'lsp)
-  )
+;(use-package python-mode
+;  :config
+;  (add-hook 'python-mode-hook #'lsp)
+;  )
 
 (add-to-list 'exec-path "~/.ghq/github.com/fwcd/kotlin-language-server/server/build/install/server/bin")
 (use-package kotlin-mode
@@ -96,16 +96,16 @@
   )
 (use-package gradle-mode)
 (use-package android-mode)
-(use-package apache-mode)
+;(use-package apache-mode)
 (use-package clojure-mode)
 (use-package groovy-mode)
 (use-package markdown-mode)
 (use-package yaml-mode)
-(use-package swift3-mode)
+;(use-package swift3-mode)
 (use-package web-mode
   :mode
   (("\\.jsp\\'" . web-mode)
    ("\\.js\\'" . web-mode))
   )
 (use-package dockerfile-mode)
-(use-package go-mode)
+;(use-package go-mode)
