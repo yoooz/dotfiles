@@ -41,6 +41,10 @@
   (magit-diff-removed-highlight ((t (:foreground "#FF0000" :background "gray20"))))
   :custom 
   (magit-log-margin '(t "%Y-%m-%d %H:%M:%S" magit-log-margin-width t 18))
+  :bind
+  (:map evil-normal-state-map
+        ("g" . magit-status)
+        )
 )
 
 ;; git-gutter

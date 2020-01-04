@@ -11,7 +11,9 @@
   (avy-lead-face-1 ((t (:foreground "yellow" :background "#282a36"))))
   (avy-lead-face-2 ((t (:foreground "blue" :background "#282a36"))))
   :bind
-  ("C-;" . avy-goto-char-timer)
+  (:map evil-normal-state-map
+        (";" . avy-goto-char-timer)
+        )
   )
 
 ;; ace-window
@@ -22,8 +24,10 @@
   :custom-face
   (aw-leading-char-face ((t (:height 4.0 :foreground "#f1fa8c"))))
   :bind
-  ("C-l" . ace-delete-window)
-  ("C-]" . ace-select-window)
+  (:map evil-normal-state-map
+        ("w d" . ace-delete-window)
+        ("w s" . ace-select-window)
+        )
 )
 
 ;; ivy
@@ -50,7 +54,11 @@
 (use-package counsel
   :bind
   (("C-r" . counsel-M-x)
-   ("C-x C-f" . counsel-find-file))
+   ("C-x C-f" . counsel-find-file)
+   :map evil-normal-state-map
+   (":" . counsel-M-x)
+   ("f" . counsel-find-file)
+   )
   )
 
 (defun counsel-ghq-magit-status (directory)
