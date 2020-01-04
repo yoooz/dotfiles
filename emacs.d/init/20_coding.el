@@ -43,7 +43,7 @@
   (magit-log-margin '(t "%Y-%m-%d %H:%M:%S" magit-log-margin-width t 18))
   :bind
   (:map evil-normal-state-map
-        ("g" . magit-status)
+        ("SPC g" . magit-status)
         )
 )
 
