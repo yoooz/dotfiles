@@ -16,3 +16,5 @@
 (define-key evil-normal-state-map (kbd "b s") 'switch-to-buffer)
 ;; window
 (define-key evil-normal-state-map (kbd "w o") 'other-window)
+(define-key evil-normal-state-map (kbd "w v") 'split-window-below)
+(define-key evil-normal-state-map (kbd "w h") 'split-window-right)

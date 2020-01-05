@@ -128,6 +128,9 @@
   (beacon-color 0.2)
   (beacon-blink-delay 0.1)
   (beacon-blink-when-focused t)
+  :bind
+  (:map evil-normal-state-map
+        ("ga" . beacon-blink))
   )
 
 (use-package zoom
@@ -151,4 +154,11 @@
   :custom-face
   (elscreen-tab-current-screen-face ((t (:background "MediumSlateBlue" :foreground "white"))))
   (elscreen-tab-other-screen-face ((t (:background "#282a36" :foreground "white"))))
+  :bind
+  (:map evil-normal-state-map
+        ("t c" . elscreen-create)
+        ("t n" . elscreen-next)
+        ("t p" . elscreen-previous)
+        ("t k" . elscreen-kill)
+        )
   )

@@ -6,11 +6,13 @@
   :diminish symbol-overlay-mode
   :hook ((prog-mode markdown-mode) . symbol-overlay-mode)
   :bind
-  (("M-i" . symbol-overlay-put)
+  (:map evil-normal-state-map
+   ("C-i" . symbol-overlay-put)
    :map symbol-overlay-map
    ("p" . symbol-overlay-jump-prev)
    ("n" . symbol-overlay-jump-next)
-   ("C-g" . symbol-overlay-remove-all))
+   ("C-g" . symbol-overlay-remove-all)
+   )
   :custom
   (symbol-overlay-idle-time 0.1)
   )
