@@ -6,9 +6,7 @@
   :diminish symbol-overlay-mode
   :hook ((prog-mode markdown-mode) . symbol-overlay-mode)
   :bind
-  (:map evil-normal-state-map
-   ("C-i" . symbol-overlay-put)
-   :map symbol-overlay-map
+  (:map symbol-overlay-map
    ("p" . symbol-overlay-jump-prev)
    ("n" . symbol-overlay-jump-next)
    ("C-g" . symbol-overlay-remove-all)
@@ -43,10 +41,6 @@
   (magit-diff-removed-highlight ((t (:foreground "#FF0000" :background "gray20"))))
   :custom 
   (magit-log-margin '(t "%Y-%m-%d %H:%M:%S" magit-log-margin-width t 18))
-  :bind
-  (:map evil-normal-state-map
-        ("SPC g" . magit-status)
-        )
 )
 
 ;; git-gutter
@@ -60,8 +54,3 @@
   (git-gutter:added    ((t (:background "#50fa7b" :foreground "#50fa7b"))))
   (git-gutter:deleted  ((t (:background "#ff79c6" :foreground "#ff79c6"))))
 )
-
-(use-package point-history
-  :straight (:host github
-                   :repo "blue0513/point-history"
-                   :branch "master"))

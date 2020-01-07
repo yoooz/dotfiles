@@ -12,7 +12,7 @@
   (avy-lead-face-2 ((t (:foreground "blue" :background "#282a36"))))
   :bind
   (:map evil-normal-state-map
-        (";" . avy-goto-char-timer)
+        ("C-;" . avy-goto-char-timer)
         )
   )
 
@@ -23,11 +23,6 @@
   (aw-dispatch-always t)
   :custom-face
   (aw-leading-char-face ((t (:height 4.0 :foreground "#f1fa8c"))))
-  :bind
-  (:map evil-normal-state-map
-        ("w d" . ace-delete-window)
-        ("w s" . ace-select-window)
-        )
 )
 
 ;; ivy
@@ -47,7 +42,9 @@
   (ivy-format-functions-alist '((t . ivy-format-function-arrow)))
   (ivy-initial-inputs-alist '((counsel-M-x . "")))
   :bind
-  ("C-s" . swiper)
+  (("C-s" . swiper)
+   :map evil-normal-state-map
+   ("/" . swiper))
   )
 
 ;; counsel
@@ -56,8 +53,8 @@
   (("C-r" . counsel-M-x)
    ("C-x C-f" . counsel-find-file)
    :map evil-normal-state-map
-   (":" . counsel-M-x)
-   ("f" . counsel-find-file)
+   ("SPC :" . counsel-M-x)
+   ("gf" . counsel-find-file)
    )
   )
 
@@ -109,12 +106,6 @@
   (migemo-init)
   )
 
-;; ace-jump-buffer
-(use-package ace-jump-buffer
-  :bind 
-  (("C-\\" . 'ace-jump-buffer))
-  )
-
 ;; treemacs
 (use-package treemacs)
 
@@ -154,11 +145,4 @@
   :custom-face
   (elscreen-tab-current-screen-face ((t (:background "MediumSlateBlue" :foreground "white"))))
   (elscreen-tab-other-screen-face ((t (:background "#282a36" :foreground "white"))))
-  :bind
-  (:map evil-normal-state-map
-        ("t c" . elscreen-create)
-        ("t n" . elscreen-next)
-        ("t p" . elscreen-previous)
-        ("t k" . elscreen-kill)
-        )
   )

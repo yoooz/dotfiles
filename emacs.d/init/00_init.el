@@ -11,16 +11,24 @@
 (define-key evil-emacs-state-map (kbd "<escape>") 'evil-normal-state)
 (define-key evil-emacs-state-map (kbd "C-g") 'evil-normal-state)
 (define-key evil-normal-state-map (kbd "gg") 'goto-line)
-;; buffer
-(define-key evil-normal-state-map (kbd "b k") 'kill-buffer)
-(define-key evil-normal-state-map (kbd "b s") 'switch-to-buffer)
-;; window
-(define-key evil-normal-state-map (kbd "w o") 'other-window)
-(define-key evil-normal-state-map (kbd "w v") 'split-window-below)
-(define-key evil-normal-state-map (kbd "w h") 'split-window-right)
 
 (use-package key-chord
   :config
   (setq key-chord-two-keys-delay 0.5)
   (key-chord-define evil-emacs-state-map "jj" 'evil-normal-state)
   (key-chord-mode 1))
+
+;; howm
+(use-package howm
+  :custom
+  (howm-file-name-format "%Y/%m/%Y_%m_%d.txt")
+  (howm-menu-lang 'ja)
+  (howm-keyword-case-fold-search t)
+  :config
+  (setq howm-keyword-file "~/howm/.howm-keys")
+  (setq action-lock-no-browser t)
+  (defvar howm-view-title-header "# ")
+  (defvar datetime-format "%Y-%m-%dT%H:%M:%S")
+  (setq howm-template-date-format
+        (concat "[" datetime-format "]"))
+  )
