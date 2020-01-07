@@ -18,3 +18,9 @@
 (define-key evil-normal-state-map (kbd "w o") 'other-window)
 (define-key evil-normal-state-map (kbd "w v") 'split-window-below)
 (define-key evil-normal-state-map (kbd "w h") 'split-window-right)
+
+(use-package key-chord
+  :config
+  (setq key-chord-two-keys-delay 0.5)
+  (key-chord-define evil-emacs-state-map "jj" 'evil-normal-state)
+  (key-chord-mode 1))
