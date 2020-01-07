@@ -7,7 +7,7 @@
 hydra
 --------------------------------------
 _b_uffer _c_ursors _g_it-gutter _h_owm 
-_m_agit  _p_ put   _s_earch     _t_ab 
+_m_agit  _p_ut     _s_earch     _t_ab 
 _w_indow
 "
   ("b" hydra-buffer/body)
