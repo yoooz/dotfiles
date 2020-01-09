@@ -6,6 +6,8 @@
   (evil-mode 1)
   (setq evil-want-fine-undo t)
   (setq evil-esc-delay 0)
+  (setq evil-emacs-state-cursor '("#ff6ac1" bar))  ;; snazzy-themeのmagenta
+  (setq evil-normal-state-cursor '("#57c7ff" box)) ;; snazzy-themeのblue
   )
 
 (define-key evil-emacs-state-map (kbd "<escape>") 'evil-normal-state)
