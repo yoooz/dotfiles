@@ -7,8 +7,8 @@
 hydra
 --------------------------------------
 _a_lpha _b_uffer _c_ursors _g_it-gutter 
-_h_owm  _m_agit  _p_ut     _s_earch  
-_t_ab   _w_indow
+_h_owm  _m_agit  _s_earch  _t_ab
+_w_indow
 "
   ("a" set-alpha)
   ("b" hydra-buffer/body)
@@ -16,7 +16,6 @@ _t_ab   _w_indow
   ("g" hydra-git-gutter/body)
   ("h" hydra-howm/body)
   ("m" magit-status)
-  ("p" symbol-overlay-put)
   ("s" hydra-search/body)
   ("t" hydra-tab/body)
   ("w" hydra-window/body))

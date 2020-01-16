@@ -7,10 +7,10 @@
   :hook ((prog-mode markdown-mode) . symbol-overlay-mode)
   :bind
   (:map symbol-overlay-map
-   ("p" . symbol-overlay-jump-prev)
-   ("n" . symbol-overlay-jump-next)
    ("C-g" . symbol-overlay-remove-all)
-   )
+   ("<escape>" . symbol-overlay-remove-all)
+   :map evil-normal-state-map
+   ("#" . symbol-overlay-put))
   :custom
   (symbol-overlay-idle-time 0.1)
   )
