@@ -13,6 +13,9 @@
 (define-key evil-emacs-state-map (kbd "<escape>") 'evil-normal-state)
 (define-key evil-emacs-state-map (kbd "C-g") 'evil-normal-state)
 (define-key evil-normal-state-map (kbd "gg") 'goto-line)
+;; メインはUSキーボードなので ; と : を入れ替える
+(define-key evil-normal-state-map (kbd ";") 'evil-ex)
+(define-key evil-normal-state-map (kbd ":") 'evil-repeat-find-char)
 
 (use-package key-chord
   :config
