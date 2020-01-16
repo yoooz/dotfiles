@@ -5,31 +5,46 @@
   (:exit t :hint nil)
   "
 hydra
---------------------------------------
-_a_lpha _b_uffer _c_ursors _g_it-gutter 
-_h_owm  _m_agit  _s_earch  _t_ab
-_w_indow
+---------------------------------
+_a_lpha _b_uffer _c_ounsel _g_it 
+_h_owm  _m_c     _t_ab     M-_x_
+_z_oom
+
+window
+---------------------------------
+_s_elect _d_elete
 "
   ("a" set-alpha)
   ("b" hydra-buffer/body)
-  ("c" hydra-multiple-cursors/body)
-  ("g" hydra-git-gutter/body)
+  ("c" hydra-counsel/body)
+  ("g" magit-status)
   ("h" hydra-howm/body)
-  ("m" magit-status)
-  ("s" hydra-search/body)
+  ("m" hydra-multiple-cursors/body)
   ("t" hydra-tab/body)
-  ("w" hydra-window/body))
+  ("x" counsel-M-x)
+  ("z" zoom)
+  ("s" ace-select-window)
+  ("d" ace-delete-window)
+  )
 
 (define-key evil-normal-state-map (kbd "SPC") 'hydra-global-menu/body)
 (define-key magit-mode-map (kbd "SPC") 'hydra-global-menu/body)
 
-;; hydra
-(defhydra hydra-git-gutter nil
-  "git hunk"
-  ("p" git-gutter:previous-hunk "previous")
-  ("n" git-gutter:next-hunk     "next")
-  ("s" git-gutter:stage-hunk    "stage")
-  ("r" git-gutter:revert-hunk   "revert"))
+(defhydra hydra-buffer
+  (:exit t)
+  "buffer"
+  ("s" ivy-switch-buffer "switch")
+  ("k" kill-buffer       "kill")
+  )
+
+(defhydra hydra-counsel
+  (:exit t)
+  "search"
+  ("f" counsel-find-file "find-file")
+  ("g" counsel-git       "git")
+  ("p" counsel-ghq       "project")
+  ("r" counsel-rg        "ripgrep")
+  )
 
 (defhydra hydra-howm
   (:exit t)
@@ -40,40 +55,8 @@ _w_indow
   ("y" howm-find-yesterday "yesterday")
   ("t" howm-find-today     "today")
   ("m" howm-menu           "menu")
-  ("d" howm-insert-date    "date"))
-
-(defhydra hydra-window
-  (:exit t)
-  "window"
-  ("s" ace-select-window  "select")
-  ("d" ace-delete-window  "delete")
-  ("o" other-window       "other")
-  ("v" split-window-below "vertical")
-  ("h" split-window-right "horizontal"))
-
-(defhydra hydra-buffer
-  (:exit t)
-  "buffer"
-  ("s" ivy-switch-buffer "switch")
-  ("k" kill-buffer       "kill"))
-
-(defhydra hydra-tab
-  (:exit t)
-  "tab"
-  ("c" elscreen-create   "create")
-  ("g" elscreen-goto     "goto")
-  ("n" elscreen-next     "next")
-  ("p" elscreen-previous "previous")
-  ("k" elscreen-kill     "kill"))
-
-(defhydra hydra-search
-  (:exit t)
-  "search"
-  ("x" counsel-M-x       "M-x")
-  ("f" counsel-find-file "find-file")
-  ("g" counsel-git       "git")
-  ("p" counsel-ghq       "project")
-  ("r" counsel-rg        "ripgrep"))
+  ("d" howm-insert-date    "date")
+  )
 
 (defhydra hydra-multiple-cursors
   (:hint nil)
@@ -95,4 +78,15 @@ _w_indow
   ("s" mc/mark-all-in-region-regexp :exit t)
   ("0" mc/insert-numbers :exit t)
   ("A" mc/insert-letters :exit t)
-  ("q" nil))
+  ("q" nil)
+  )
+
+(defhydra hydra-tab
+  (:exit t)
+  "tab"
+  ("c" elscreen-create   "create")
+  ("g" elscreen-goto     "goto")
+  ("n" elscreen-next     "next")
+  ("p" elscreen-previous "previous")
+  ("k" elscreen-kill     "kill")
+  )
