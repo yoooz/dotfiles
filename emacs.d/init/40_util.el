@@ -116,3 +116,5 @@
   :custom-face
   (elscreen-tab-current-screen-face ((t (:background "MediumSlateBlue" :foreground "white"))))
   (elscreen-tab-other-screen-face ((t (:background "#282a36" :foreground "white")))))
+
+(use-package sudo-edit)
