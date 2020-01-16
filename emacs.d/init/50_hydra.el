@@ -21,6 +21,7 @@ _w_indow
   ("w" hydra-window/body))
 
 (define-key evil-normal-state-map (kbd "SPC") 'hydra-global-menu/body)
+(define-key magit-mode-map (kbd "SPC") 'hydra-global-menu/body)
 
 ;; hydra
 (defhydra hydra-git-gutter nil

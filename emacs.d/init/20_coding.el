@@ -43,6 +43,8 @@
   (magit-log-margin '(t "%Y-%m-%d %H:%M:%S" magit-log-margin-width t 18))
 )
 
+(use-package evil-magit)
+
 ;; git-gutter
 (use-package git-gutter
   :diminish git-gutter-mode
