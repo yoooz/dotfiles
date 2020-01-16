@@ -7,8 +7,8 @@
 hydra
 ---------------------------------
 _a_lpha _b_uffer _c_ounsel _g_it 
-_h_owm  _m_c     _t_ab     M-_x_
-_z_oom
+_h_owm  _m_c     _r_evert  _t_ab
+M-_x_   _z_oom
 
 window
 ---------------------------------
@@ -20,6 +20,7 @@ _s_elect _d_elete
   ("g" magit-status)
   ("h" hydra-howm/body)
   ("m" hydra-multiple-cursors/body)
+  ("r" revert-buffer)
   ("t" hydra-tab/body)
   ("x" counsel-M-x)
   ("z" zoom)
