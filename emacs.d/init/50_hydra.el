@@ -28,27 +28,27 @@ _t_ab   _w_indow
 (defhydra hydra-git-gutter nil
   "git hunk"
   ("p" git-gutter:previous-hunk "previous")
-  ("n" git-gutter:next-hunk "next")
-  ("s" git-gutter:stage-hunk "stage")
-  ("r" git-gutter:revert-hunk "revert"))
+  ("n" git-gutter:next-hunk     "next")
+  ("s" git-gutter:stage-hunk    "stage")
+  ("r" git-gutter:revert-hunk   "revert"))
 
 (defhydra hydra-howm
   (:exit t)
   "howm"
-  ("r" howm-remember "remember")
-  ("c" howm-create "create")
-  ("l" howm-list-all "list-all")
+  ("r" howm-remember       "remember")
+  ("c" howm-create         "create")
+  ("l" howm-list-all       "list-all")
   ("y" howm-find-yesterday "yesterday")
-  ("t" howm-find-today "today")
-  ("m" howm-menu "menu")
-  ("d" howm-insert-date "date"))
+  ("t" howm-find-today     "today")
+  ("m" howm-menu           "menu")
+  ("d" howm-insert-date    "date"))
 
 (defhydra hydra-window
   (:exit t)
   "window"
-  ("s" ace-select-window "select")
-  ("d" ace-delete-window "delete")
-  ("o" other-window "other")
+  ("s" ace-select-window  "select")
+  ("d" ace-delete-window  "delete")
+  ("o" other-window       "other")
   ("v" split-window-below "vertical")
   ("h" split-window-right "horizontal"))
 
@@ -56,25 +56,25 @@ _t_ab   _w_indow
   (:exit t)
   "buffer"
   ("s" ivy-switch-buffer "switch")
-  ("k" kill-buffer "kill"))
+  ("k" kill-buffer       "kill"))
 
 (defhydra hydra-tab
   (:exit t)
   "tab"
-  ("c" elscreen-create "create")
-  ("g" elscreen-goto "goto")
-  ("n" elscreen-next "next")
+  ("c" elscreen-create   "create")
+  ("g" elscreen-goto     "goto")
+  ("n" elscreen-next     "next")
   ("p" elscreen-previous "previous")
-  ("k" elscreen-kill "kill"))
+  ("k" elscreen-kill     "kill"))
 
 (defhydra hydra-search
   (:exit t)
   "search"
-  ("x" counsel-M-x "M-x")
+  ("x" counsel-M-x       "M-x")
   ("f" counsel-find-file "find-file")
-  ("g" counsel-git "git")
-  ("p" counsel-ghq "project")
-  ("r" counsel-rg "ripgrep"))
+  ("g" counsel-git       "git")
+  ("p" counsel-ghq       "project")
+  ("r" counsel-rg        "ripgrep"))
 
 (defhydra hydra-multiple-cursors
   (:hint nil)
