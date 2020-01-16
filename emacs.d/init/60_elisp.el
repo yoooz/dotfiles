@@ -13,3 +13,8 @@
   (add-to-list 'package-archives '("melpa". "http://melpa.milkbox.net/packages/"))
   (package-initialize)
   )
+
+(defun set-alpha (alpha-num)
+  "set frame parameter 'alpha"
+  (interactive "nAlpha: ")
+  (set-frame-parameter nil 'alpha (cons alpha-num '(90))))

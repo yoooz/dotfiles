@@ -6,10 +6,11 @@
   "
 hydra
 --------------------------------------
-_b_uffer _c_ursors _g_it-gutter _h_owm 
-_m_agit  _p_ut     _s_earch     _t_ab 
-_w_indow
+_a_lpha _b_uffer _c_ursors _g_it-gutter 
+_h_owm  _m_agit  _p_ut     _s_earch  
+_t_ab   _w_indow
 "
+  ("a" set-alpha)
   ("b" hydra-buffer/body)
   ("c" hydra-multiple-cursors/body)
   ("g" hydra-git-gutter/body)
