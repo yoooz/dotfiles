@@ -1,0 +1,23 @@
+"大文字小文字の区別なし
+set ignorecase
+
+"検索時に大文字を含んでいたら大/小区別
+set smartcase
+
+"検索対象をハイライト
+"ハイライトを消す場合は:noh[l]
+set hlsearch
+
+"スクロール時に表示を10行確保
+set scrolloff=10
+
+"j, k による移動を折り返されたテキストでも自然に振る舞うように変更
+nnoremap j gj
+nnoremap k gk
+
+"入力モード中に素早くJJと入力した場合はESCとみなす
+inoremap jj <ESC>
+
+" ノーマルモード時だけ : と ; を入れ替える
+nnoremap ; :
+nnoremap : ;
