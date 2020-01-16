@@ -62,6 +62,7 @@ _t_ab   _w_indow
   (:exit t)
   "tab"
   ("c" elscreen-create "create")
+  ("g" elscreen-goto "goto")
   ("n" elscreen-next "next")
   ("p" elscreen-previous "previous")
   ("k" elscreen-kill "kill"))
