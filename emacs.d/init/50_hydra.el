@@ -24,8 +24,7 @@ _s_elect _d_elete
   ("x" counsel-M-x)
   ("z" zoom)
   ("s" ace-select-window)
-  ("d" ace-delete-window)
-  )
+  ("d" ace-delete-window))
 
 (define-key evil-normal-state-map (kbd "SPC") 'hydra-global-menu/body)
 (define-key magit-mode-map (kbd "SPC") 'hydra-global-menu/body)
@@ -34,8 +33,7 @@ _s_elect _d_elete
   (:exit t)
   "buffer"
   ("s" ivy-switch-buffer "switch")
-  ("k" kill-buffer       "kill")
-  )
+  ("k" kill-buffer       "kill"))
 
 (defhydra hydra-counsel
   (:exit t)
@@ -43,8 +41,7 @@ _s_elect _d_elete
   ("f" counsel-find-file "find-file")
   ("g" counsel-git       "git")
   ("p" counsel-ghq       "project")
-  ("r" counsel-rg        "ripgrep")
-  )
+  ("r" counsel-rg        "ripgrep"))
 
 (defhydra hydra-howm
   (:exit t)
@@ -55,8 +52,7 @@ _s_elect _d_elete
   ("y" howm-find-yesterday "yesterday")
   ("t" howm-find-today     "today")
   ("m" howm-menu           "menu")
-  ("d" howm-insert-date    "date")
-  )
+  ("d" howm-insert-date    "date"))
 
 (defhydra hydra-multiple-cursors
   (:hint nil)
@@ -78,8 +74,7 @@ _s_elect _d_elete
   ("s" mc/mark-all-in-region-regexp :exit t)
   ("0" mc/insert-numbers :exit t)
   ("A" mc/insert-letters :exit t)
-  ("q" nil)
-  )
+  ("q" nil))
 
 (defhydra hydra-tab
   (:exit t)
@@ -88,5 +83,4 @@ _s_elect _d_elete
   ("g" elscreen-goto     "goto")
   ("n" elscreen-next     "next")
   ("p" elscreen-previous "previous")
-  ("k" elscreen-kill     "kill")
-  )
+  ("k" elscreen-kill     "kill"))

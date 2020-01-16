@@ -1,7 +1,5 @@
-;; google-this
 (use-package google-this)
 
-;; avy
 (use-package avy
   :config
   (setq avy-background t)
@@ -12,20 +10,15 @@
   (avy-lead-face-2 ((t (:foreground "blue" :background "#282a36"))))
   :bind
   (:map evil-normal-state-map
-        ("C-;" . avy-goto-char-timer)
-        )
-  )
+        ("C-;" . avy-goto-char-timer)))
 
-;; ace-window
 (use-package ace-window
   :custom
   (aw-keys '(?j ?k ?l ?i ?o ?h ?y ?u ?p))
   (aw-dispatch-always t)
   :custom-face
-  (aw-leading-char-face ((t (:height 4.0 :foreground "#f1fa8c"))))
-)
+  (aw-leading-char-face ((t (:height 4.0 :foreground "#f1fa8c")))))
 
-;; ivy
 (use-package ivy
   :diminish ivy-mode
   :config
@@ -44,29 +37,19 @@
   :bind
   (("C-s" . swiper)
    :map evil-normal-state-map
-   ("/" . swiper))
-  )
+   ("/" . swiper)))
 
-;; counsel
 (use-package counsel
   :bind
   (("C-r" . counsel-M-x)
-   ("C-x C-f" . counsel-find-file)
-   :map evil-normal-state-map
-   ("SPC :" . counsel-M-x)
-   ("gf" . counsel-find-file)
-   )
-  )
+   ("C-x C-f" . counsel-find-file)))
 
 (defun counsel-ghq-magit-status (directory)
   (magit-status directory))
 
-;; counsel-ghq
 (use-package counsel-ghq
-  :straight (counsel-ghq :type git :host github :repo "yoooz/counsel-ghq")
-  )
+  :straight (counsel-ghq :type git :host github :repo "yoooz/counsel-ghq"))
 
-;; ivy-posframe (GUI Emacs Only)
 (use-package ivy-posframe
   :diminish ivy-posframe-mode
   :custom-face
@@ -81,10 +64,8 @@
   (ivy-posframe-mode 1)
   (ivy-posframe-parameters
    '((left-fringe . 8)
-     (right-fringe . 8)))
-  )
+     (right-fringe . 8))))
 
-;; all the icons ivy 
 (use-package all-the-icons-ivy
   :config
   (all-the-icons-ivy-setup))
@@ -103,13 +84,8 @@
   (migemo-regex-dictionary nil)
   (migemo-coding-system 'utf-8-unix)
   :config
-  (migemo-init)
-  )
+  (migemo-init))
 
-;; treemacs
-(use-package treemacs)
-
-;; beacon
 (use-package beacon
   :diminish beacon-mode
   :config
@@ -121,21 +97,16 @@
   (beacon-blink-when-focused t)
   :bind
   (:map evil-normal-state-map
-        ("ga" . beacon-blink))
-  )
+        ("ga" . beacon-blink)))
 
 (use-package zoom
   :diminish zoom-mode
   :custom
-  (zoom-size '(0.618 . 0.618))
-  :config
-  (zoom-mode t)
-  )
+  (zoom-size '(0.618 . 0.618)))
 
 (use-package hungry-delete
   :diminish hungry-delete-mode
-  :hook (prog-mode . hungry-delete-mode)
-  )
+  :hook (prog-mode . hungry-delete-mode))
 
 (use-package elscreen
   :config
@@ -144,5 +115,4 @@
   (elscreen-tab-display-kill-screen 'right)
   :custom-face
   (elscreen-tab-current-screen-face ((t (:background "MediumSlateBlue" :foreground "white"))))
-  (elscreen-tab-other-screen-face ((t (:background "#282a36" :foreground "white"))))
-  )
+  (elscreen-tab-other-screen-face ((t (:background "#282a36" :foreground "white")))))

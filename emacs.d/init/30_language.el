@@ -1,4 +1,3 @@
-;; yasnippet
 (use-package yasnippet
   :diminish yas-minor-mode
   :config
@@ -7,14 +6,10 @@
   (:map yas-minor-mode-map
         ("C-x i i" . yas-insert-snippet)
         ("C-x i n" . yas-new-snippet)
-        ("C-x i v" . yas-visit-snippet-file)
-        )
-  )
+        ("C-x i v" . yas-visit-snippet-file)))
 
-;; snippets
 (use-package yasnippet-snippets)
 
-;; Language Server Protocol
 (use-package lsp-mode)
 (use-package lsp-ui
   :custom
@@ -47,12 +42,10 @@
   (lsp-ui-peek-line-number ((t (:foreground "LightGreen"))))
   (lsp-ui-peek-highlight ((t (:background "LightGreen" :foreground "black" :box (:line-width 1 :color "black")))))
   ;(lsp-ui-doc-background ((t (:background "#282a36"))))
-  :hook (lsp-mode . lsp-ui-mode)
-  )
+  :hook (lsp-mode . lsp-ui-mode))
 
 (use-package company-lsp)
 
-;; company
 (use-package company
   :diminish company-mode
   :config
@@ -79,9 +72,7 @@
    ("C-n" . company-select-next)
    ("C-p" . company-select-previous)
    :map emacs-lisp-mode-map
-   ("C-M-i" . company-complete)
-   )
-  )
+   ("C-M-i" . company-complete)))
 
 ;; language
 ;(use-package python-mode
@@ -92,8 +83,7 @@
 (add-to-list 'exec-path "~/.ghq/github.com/fwcd/kotlin-language-server/server/build/install/server/bin")
 (use-package kotlin-mode
   :config
-  (add-hook 'kotlin-mode-hook #'lsp)
-  )
+  (add-hook 'kotlin-mode-hook #'lsp))
 (use-package gradle-mode)
 (use-package android-mode)
 ;(use-package apache-mode)
@@ -105,8 +95,7 @@
 (use-package web-mode
   :mode
   (("\\.jsp\\'" . web-mode)
-   ("\\.js\\'" . web-mode))
-  )
+   ("\\.js\\'" . web-mode)))
 (use-package dockerfile-mode)
 ;(use-package go-mode)
 (use-package nxml-mode
@@ -117,5 +106,4 @@
   (setq nxml-attribute-indent 2)
   (setq indent-tabs-mode nil)
   (setq nxml-slash-auto-complete-flag t)
-  (setq tab-width 2)
-  )
+  (setq tab-width 2))
