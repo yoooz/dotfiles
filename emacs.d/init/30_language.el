@@ -91,7 +91,7 @@
 (use-package groovy-mode)
 (use-package markdown-mode)
 (use-package yaml-mode)
-;(use-package swift3-mode)
+(use-package swift-mode)
 (use-package web-mode
   :mode
   (("\\.jsp\\'" . web-mode)
