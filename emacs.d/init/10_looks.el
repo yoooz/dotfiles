@@ -18,9 +18,6 @@
   (setq dashboard-startup-banner "~/dotfiles/emacs.d/swiper2.png")
   (dashboard-setup-startup-hook))
 
-(use-package hide-mode-line
-  :hook(treemacs-mode . hide-mode-line-mode))
-
 (use-package diminish
   :config
   (diminish 'emacs-lock-mode)
