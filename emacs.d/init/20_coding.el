@@ -1,4 +1,8 @@
-(use-package multiple-cursors)
+(use-package multiple-cursors
+  :custom
+  (mc/always-run-for-all t)
+  (mc/always-repeat-command t)
+  )
 
 (use-package symbol-overlay
   :diminish symbol-overlay-mode
