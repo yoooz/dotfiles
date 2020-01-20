@@ -60,6 +60,8 @@
 (show-paren-mode 1)
 (setq show-paren-delay 0)
 
+(add-hook 'prog-mode-hook #'hs-minor-mode)
+
 ;; straight.el setting by myself
 (let ((bootstrap-file (concat user-emacs-directory "straight/repos/straight.el/bootstrap.el"))
       (bootstrap-version 3))

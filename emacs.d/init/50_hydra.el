@@ -8,7 +8,7 @@ hydra
 ---------------------------------
 _a_lpha _b_uffer _c_ounsel _g_it 
 _h_owm  _m_c     _r_evert  _t_ab
-M-_x_   _z_oom
+M-_x_   _z_oom   _[_]
 
 window
 ---------------------------------
@@ -24,6 +24,7 @@ _s_elect _d_elete
   ("t" hydra-tab/body)
   ("x" counsel-M-x)
   ("z" zoom)
+  ("[" hs-toggle-hiding)
   ("s" ace-select-window)
   ("d" ace-delete-window))
 
