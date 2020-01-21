@@ -5,18 +5,23 @@
   (:exit t :hint nil)
   "
 hydra
----------------------------------
-_a_lpha _b_uffer _c_ounsel _g_it 
-_h_owm  _m_c     _r_evert  _t_ab
-M-_x_   _z_oom   _[_]
+-----------------------------------
+_a_lpha _b_uffer _c_ounsel _f_old
+_g_it   _h_owm   _m_c      _r_evert  
+_t_ab   M-_x_    _z_oom   
+
+codic
+-----------------------------------
+_e_ -> j         _j_ -> e
 
 window
----------------------------------
-_s_elect _d_elete
+-----------------------------------
+_s_elect         _d_elete
 "
   ("a" set-alpha)
   ("b" hydra-buffer/body)
   ("c" hydra-counsel/body)
+  ("f" hs-toggle-hiding)
   ("g" magit-status)
   ("h" hydra-howm/body)
   ("m" hydra-multiple-cursors/body)
@@ -24,7 +29,8 @@ _s_elect _d_elete
   ("t" hydra-tab/body)
   ("x" counsel-M-x)
   ("z" zoom)
-  ("[" hs-toggle-hiding)
+  ("e" codic)
+  ("j" codic-translate)
   ("s" ace-select-window)
   ("d" ace-delete-window))
 
