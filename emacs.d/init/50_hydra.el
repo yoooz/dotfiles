@@ -1,5 +1,9 @@
 (use-package hydra)
 
+(use-package hydra-posframe
+  :straight (hydra-posframe :type git :host github :repo "Ladicle/hydra-posframe")
+  :hook (after-init . hydra-posframe-enable))
+
 ;; hydra global menu
 (defhydra hydra-global-menu
   (:exit t :hint nil)
