@@ -118,3 +118,11 @@
   (elscreen-tab-other-screen-face ((t (:background "#282a36" :foreground "white")))))
 
 (use-package sudo-edit)
+
+(use-package popwin
+  :config
+  (popwin-mode))
+(use-package codic
+  :config
+  (setq codic-api-token (my-lisp-load "codec-api-token"))
+  (push '("*Codic Result*") popwin:special-display-config))

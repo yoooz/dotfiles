@@ -37,3 +37,17 @@
   (setq howm-template-date-format
         (concat "[" datetime-format "]"))
   )
+
+(defun my-lisp-load (filename)
+  "Load lisp from FILENAME"
+  (let ((fullname (expand-file-name (concat "spec/" filename) user-emacs-directory))
+        lisp)
+    (when (file-readable-p fullname)
+      (with-temp-buffer
+        (progn
+          (insert-file-contents fullname)
+          (setq lisp 
+                (condition-case nil
+                    (read (current-buffer))
+                  (error ()))))))
+    lisp))
