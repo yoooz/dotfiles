@@ -7,7 +7,7 @@
   (hydra-posframe-border-face ((t (:background "CornflowerBlue"))))
   (hydra-posframe-face ((t (:background "#232533"))))
   :custom
-  (hydra-posframe-poshandler 'posframe-poshandler-frame-bottom-center)
+  (hydra-posframe-poshandler 'posframe-poshandler-frame-center)
   (hydra-posframe-border-width 10)
   )
 
@@ -19,15 +19,11 @@ hydra
 -----------------------------------
 _a_lpha _b_uffer _c_ounsel _f_old
 _g_it   _h_owm   _m_c      _r_evert  
-_t_ab   M-_x_    _z_oom   
+_t_ab   M-_x_    e_v_al
 
 codic
 -----------------------------------
 _e_ -> j         _j_ -> e
-
-window
------------------------------------
-_s_elect         _d_elete
 "
   ("a" set-alpha)
   ("b" hydra-buffer/body)
@@ -39,11 +35,9 @@ _s_elect         _d_elete
   ("r" revert-buffer)
   ("t" hydra-tab/body)
   ("x" counsel-M-x)
-  ("z" zoom)
+  ("v" eval-buffer)
   ("e" codic)
-  ("j" codic-translate)
-  ("s" ace-select-window)
-  ("d" ace-delete-window))
+  ("j" codic-translate))
 
 (define-key evil-normal-state-map (kbd "SPC") 'hydra-global-menu/body)
 (define-key magit-mode-map (kbd "SPC") 'hydra-global-menu/body)
@@ -104,3 +98,37 @@ _s_elect         _d_elete
   ("n" elscreen-next     "next")
   ("p" elscreen-previous "previous")
   ("k" elscreen-kill     "kill"))
+
+(defhydra hydra-window
+  (:hint nil)
+  "
+    Select    Zoom    Split    Frame
+----------------------------------------
+      k       _i_n        -         K
+      ↑        ↑        ↑         ↑
+  h ←   → l                   H ←   → L
+      ↓        ↓        ↓         ↓
+      j       _o_ut       /         J
+----------------------------------------
+   _s_elect    _a_djust           _z_oom-mode
+   _d_elete
+"
+  ("K" evil-window-increase-height)
+  ("J" evil-window-decrease-height)
+  ("H" evil-window-decrease-width)
+  ("L" evil-window-increase-width)
+  ("k" evil-window-up     :exit t)
+  ("j" evil-window-down   :exit t)
+  ("h" evil-window-left   :exit t)
+  ("l" evil-window-right  :exit t)
+  ("i" text-scale-increase)
+  ("o" text-scale-decrease)
+  ("a" text-scale-adjust)
+  ("s" ace-select-window  :exit t)
+  ("d" ace-delete-window  :exit t)
+  ("-" evil-window-split  :exit t)
+  ("/" evil-window-vsplit :exit t)
+  ("z" zoom-mode          :exit t)
+  )
+
+(define-key evil-normal-state-map (kbd "C-w") 'hydra-window/body)
