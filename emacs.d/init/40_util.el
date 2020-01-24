@@ -53,7 +53,8 @@
 (use-package ivy-posframe
   :diminish ivy-posframe-mode
   :custom-face
-  (ivy-posframe-border((t (:background "CornflowerBlue"))))
+  (ivy-posframe-border ((t (:background "CornflowerBlue"))))
+  (ivy-posframe ((t (:background "#232533"))))
   :custom
   (ivy-posframe-display-functions-alist
    '((swiper . nil)

@@ -2,7 +2,13 @@
 
 (use-package hydra-posframe
   :straight (hydra-posframe :type git :host github :repo "Ladicle/hydra-posframe")
-  :hook (after-init . hydra-posframe-enable))
+  :hook (after-init . hydra-posframe-mode)
+  :custom-face
+  (hydra-posframe-border-face ((t (:background "CornflowerBlue"))))
+  (hydra-posframe-face ((t (:background "#232533"))))
+  :custom
+  (hydra-posframe-poshandler 'posframe-poshandler-frame-bottom-center)
+  )
 
 ;; hydra global menu
 (defhydra hydra-global-menu
