@@ -8,6 +8,7 @@
   (hydra-posframe-face ((t (:background "#232533"))))
   :custom
   (hydra-posframe-poshandler 'posframe-poshandler-frame-bottom-center)
+  (hydra-posframe-border-width 10)
   )
 
 ;; hydra global menu
