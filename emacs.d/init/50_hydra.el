@@ -53,7 +53,8 @@ _s_elect         _d_elete
   ("f" counsel-find-file "find-file")
   ("g" counsel-git       "git")
   ("p" counsel-ghq       "project")
-  ("r" counsel-rg        "ripgrep"))
+  ("r" counsel-rg        "ripgrep")
+  ("c" counsel-recentf   "recentf"))
 
 (defhydra hydra-howm
   (:exit t)
