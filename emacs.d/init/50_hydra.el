@@ -43,30 +43,47 @@ _e_ -> j         _j_ -> e
 (define-key magit-mode-map (kbd "SPC") 'hydra-global-menu/body)
 
 (defhydra hydra-buffer
-  (:exit t)
-  "buffer"
-  ("s" ivy-switch-buffer "switch")
-  ("k" kill-buffer       "kill"))
+  (:exit t :hint nil)
+  "
+  Buffer
+----------------------
+  _s_witch    _k_ill
+"
+  ("s" ivy-switch-buffer)
+  ("k" kill-buffer))
 
 (defhydra hydra-counsel
-  (:exit t)
-  "search"
-  ("f" counsel-find-file "find-file")
-  ("g" counsel-git       "git")
-  ("p" counsel-ghq       "project")
-  ("r" counsel-rg        "ripgrep")
-  ("c" counsel-recentf   "recentf"))
+  (:exit t :hint nil)
+  "
+  Counsel
+----------------------------
+  _f_ind-file    _g_it
+  g_h_q          _r_ipgrep
+  re_c_entf
+"
+  ("f" counsel-find-file)
+  ("g" counsel-git)
+  ("p" counsel-ghq)
+  ("h" counsel-rg)
+  ("c" counsel-recentf))
 
 (defhydra hydra-howm
-  (:exit t)
-  "howm"
-  ("r" howm-remember       "remember")
-  ("c" howm-create         "create")
-  ("l" howm-list-all       "list-all")
-  ("y" howm-find-yesterday "yesterday")
-  ("t" howm-find-today     "today")
-  ("m" howm-menu           "menu")
-  ("d" howm-insert-date    "date"))
+  (:exit t :hint nil)
+  "
+  Howm
+---------------------------
+  _r_emember    _c_reate
+  _l_ist-all    _y_esterday
+  _t_oday       _m_enu
+  howm-insert-_d_ate
+"
+  ("r" howm-remember)
+  ("c" howm-create)
+  ("l" howm-list-all)
+  ("y" howm-find-yesterday)
+  ("t" howm-find-today)
+  ("m" howm-menu)
+  ("d" howm-insert-date))
 
 (defhydra hydra-multiple-cursors
   (:hint nil)
@@ -91,13 +108,19 @@ _e_ -> j         _j_ -> e
   ("q" nil))
 
 (defhydra hydra-tab
-  (:exit t)
-  "tab"
-  ("c" elscreen-create   "create")
-  ("g" elscreen-goto     "goto")
-  ("n" elscreen-next     "next")
-  ("p" elscreen-previous "previous")
-  ("k" elscreen-kill     "kill"))
+  (:exit t :hint nil)
+  "
+  Tab
+----------------------
+  _c_reate    _g_oto
+  _n_ext      _p_revious
+  _k_ill
+"
+  ("c" elscreen-create)
+  ("g" elscreen-goto)
+  ("n" elscreen-next)
+  ("p" elscreen-previous)
+  ("k" elscreen-kill))
 
 (defhydra hydra-window
   (:hint nil)
