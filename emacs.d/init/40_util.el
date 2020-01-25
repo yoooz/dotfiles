@@ -1,8 +1,9 @@
 (use-package google-this)
 
 (use-package avy
-  :config
-  (setq avy-background t)
+  :custom
+  (avy-background nil)
+  (avy-all-windows t)
   :custom-face
   (avy-lead-face ((t (:foreground "red" :background "#282a36"))))
   (avy-lead-face-0 ((t (:foreground "green" :background "#282a36"))))
