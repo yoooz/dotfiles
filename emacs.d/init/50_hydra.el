@@ -19,7 +19,7 @@ hydra
 -----------------------------------
 _a_lpha _b_uffer _c_ounsel _f_old
 _g_it   _h_owm   _m_c      _r_evert  
-_t_ab   M-_x_    e_v_al
+_s_udo  _t_ab    e_v_al    M-_x_
 
 codic
 -----------------------------------
@@ -33,9 +33,10 @@ _e_ -> j         _j_ -> e
   ("h" hydra-howm/body)
   ("m" hydra-multiple-cursors/body)
   ("r" revert-buffer)
+  ("s" sudo-edit)
   ("t" hydra-tab/body)
-  ("x" counsel-M-x)
   ("v" eval-buffer)
+  ("x" counsel-M-x)
   ("e" codic)
   ("j" codic-translate))
 
