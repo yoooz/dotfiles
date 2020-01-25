@@ -1,6 +1,8 @@
 emacs.d/auto-save-list
 emacs.d/elpa
-emacs.d/straight
+emacs.d/straight/build/
+emacs.d/straight/build-cache.el
+emacs.d/straight/repos/
 emacs.d/transient
 emacs.d/tramp
 emacs.d/recentf
