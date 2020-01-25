@@ -29,7 +29,7 @@ _e_ -> j         _j_ -> e
   ("b" hydra-buffer/body)
   ("c" hydra-counsel/body)
   ("f" hs-toggle-hiding)
-  ("g" magit-status)
+  ("g" hydra-git/body)
   ("h" hydra-howm/body)
   ("m" hydra-multiple-cursors/body)
   ("r" (revert-buffer t t))
@@ -42,6 +42,21 @@ _e_ -> j         _j_ -> e
 
 (define-key evil-normal-state-map (kbd "SPC") 'hydra-global-menu/body)
 (define-key magit-mode-map (kbd "SPC") 'hydra-global-menu/body)
+
+(defhydra hydra-git
+  (:hint nil)
+  "
+  Git
+----------------------
+  ma_g_it
+  _n_ext      _p_revious
+  _s_tage     _r_evert
+"
+  ("g" magit-status :exit t)
+  ("s" git-gutter:stage-hunk)
+  ("p" git-gutter:previous-hunk)
+  ("n" git-gutter:next-hunk)
+  ("r" git-gutter:revert-hunk))
 
 (defhydra hydra-buffer
   (:exit t :hint nil)
