@@ -35,9 +35,7 @@
   (ivy-format-functions-alist '((t . ivy-format-function-arrow)))
   (ivy-initial-inputs-alist '((counsel-M-x . "")))
   :bind
-  (("C-s" . swiper)
-   :map evil-normal-state-map
-   ("/" . swiper)))
+  (("C-s" . swiper)))
 
 (use-package counsel
   :bind

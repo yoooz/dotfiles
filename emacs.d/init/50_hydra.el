@@ -57,11 +57,12 @@ _e_ -> j         _j_ -> e
   "
   Counsel
 ----------------------------
-  _f_ind-file    _g_it
-  g_h_q          _r_ipgrep
-  re_c_entf
+  _f_ind-file    _s_wiper
+  _g_it          g_h_q
+  _r_ipgrep      re_c_entf
 "
   ("f" counsel-find-file)
+  ("s" swiper)
   ("g" counsel-git)
   ("h" counsel-ghq)
   ("r" counsel-rg)
