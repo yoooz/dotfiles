@@ -154,4 +154,4 @@ _e_ -> j         _j_ -> e
   ("z" zoom-mode          :exit t)
   )
 
-(define-key evil-normal-state-map (kbd "C-w") 'hydra-window/body)
+(defalias 'evil-window-map 'hydra-window/body)
