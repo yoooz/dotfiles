@@ -64,7 +64,7 @@ _e_ -> j         _j_ -> e
   ("f" counsel-find-file)
   ("g" counsel-git)
   ("p" counsel-ghq)
-  ("h" counsel-rg)
+  ("r" counsel-rg)
   ("c" counsel-recentf))
 
 (defhydra hydra-howm
