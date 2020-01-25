@@ -134,7 +134,7 @@ _e_ -> j         _j_ -> e
       j       _o_ut       /         J
 ----------------------------------------
    _s_elect    _a_djust           _z_oom-mode
-   _d_elete
+   _d_elete                     _=_balance
 "
   ("K" evil-window-increase-height)
   ("J" evil-window-decrease-height)
@@ -152,6 +152,7 @@ _e_ -> j         _j_ -> e
   ("-" evil-window-split  :exit t)
   ("/" evil-window-vsplit :exit t)
   ("z" zoom-mode          :exit t)
+  ("=" balance-windows    :exit t)
   )
 
 (defalias 'evil-window-map 'hydra-window/body)
