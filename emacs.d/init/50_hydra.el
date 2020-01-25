@@ -32,7 +32,7 @@ _e_ -> j         _j_ -> e
   ("g" magit-status)
   ("h" hydra-howm/body)
   ("m" hydra-multiple-cursors/body)
-  ("r" revert-buffer)
+  ("r" (revert-buffer t t))
   ("s" sudo-edit)
   ("t" hydra-tab/body)
   ("v" eval-buffer)
