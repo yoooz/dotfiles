@@ -2,7 +2,7 @@
 
 (use-package avy
   :custom
-  (avy-background nil)
+  (avy-background t)
   (avy-all-windows t)
   :custom-face
   (avy-lead-face ((t (:foreground "red" :background "#282a36"))))
