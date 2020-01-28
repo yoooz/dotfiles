@@ -1,0 +1,22 @@
+#!/bin/zsh
+
+if git_status=$(cd $1 && git status 2>/dev/null ); then
+  git_branch="$(echo $git_status| awk 'NR==1 {print $3}')"
+  case $git_status in
+    *Changes\ not\ staged* ) state="#[bg=colour013,fg=black] ± #[bg=colour017,fg=colour013] #[default]" ;;
+    *Changes\ to\ be\ committed* ) state="#[bg=blue,fg=black] + #[bg=colour017,fg=colour013] #[default]" ;; 
+    * ) state="#[bg=green,fg=black] ✔ #[default]" ;;
+  esac
+  if [[ $git_branch = "master" ]]; then
+    git_info="#[bg=colour022,fg=colour005]  #[fg=colour255]${git_branch} #[bg=colour013,fg=colour022]#[default]${state}"
+  else
+    git_info="#[bg=colour022,fg=colour005]  #[fg=colour255]${git_branch} #[bg=colour013,fg=colour022]#[default]${state}"
+  fi
+else
+  git_info=""
+fi
+
+directory="#[bg=colour017,fg=colour215] $1 #[default]#[fg=colour017] "
+
+echo "$git_info$directory"
+
