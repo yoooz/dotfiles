@@ -117,6 +117,8 @@ alias gclone='ghq get'
 alias gjump='git checkout $(git branch | sed "s/*//g" | sed "s/ //g" | peco --prompt "CHECKOUT BRANCH >")'
 alias gdel='git branch -D $(git branch | peco --prompt "DELETE BRANCH >")'
 alias psh='ssh `grep "Host " ~/.ssh/config | grep -v "\*" | cut -b 6- | peco --prompt "HOST > "`'
+alias fd='cd "$(find . -type d | peco)"'
+alias ff='find . -name "*${1}*" | grep -v "/\." | peco'
 
 # peco + history
 function peco-select-history() {
