@@ -152,6 +152,7 @@ _e_ -> j         _j_ -> e
 ----------------------------------------
    _s_elect    _a_djust           _z_oom-mode
    _d_elete                     _=_balance
+   s_w_ap
 "
   ("K" evil-window-increase-height)
   ("J" evil-window-decrease-height)
@@ -166,6 +167,7 @@ _e_ -> j         _j_ -> e
   ("a" text-scale-adjust)
   ("s" ace-select-window  :exit t)
   ("d" ace-delete-window  :exit t)
+  ("w" ace-swap-window    :exit t)
   ("-" evil-window-split  :exit t)
   ("/" evil-window-vsplit :exit t)
   ("z" zoom-mode          :exit t)

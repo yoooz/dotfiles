@@ -1,7 +1,8 @@
 #!/bin/zsh
 
-# zplug
 source ${HOME}/.zplug/init.zsh
+
+# zplug
 zplug 'zsh-users/zsh-completions'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 zplug load
@@ -34,8 +35,6 @@ export LANG=ja_JP.UTF-8
 autoload -U colors
 colors
 
-export EDITOR=emacs
-
 # Use emacs keybindings
 bindkey -e
 
@@ -66,15 +65,13 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 
 # prompt
-PROMPT="%{${fg[cyan]}%}%n %# %{${reset_color}%}"
+PROMPT="%{${fg_bold[cyan]}%}> %{${reset_color}%}"
 
-if [[ -z $TMUX ]]; then
-    export PATH=$PATH:/opt/maven/bin:${HOME}/bin
-    export PATH=$PATH:/usr/local/bin
-    export PATH=$PATH:${HOME}/.anyenv/bin
-    eval "$(anyenv init - zsh)"
-    export GOPATH=$HOME/go
-fi
+eval "$(anyenv init - zsh)"
+export PATH=$PATH:/opt/maven/bin:${HOME}/bin
+export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:${HOME}/.anyenv/bin
+export GOPATH=$HOME/go
 
 # なんかおかしい
 export PATH=$PATH:${GOPATH}/bin
@@ -82,25 +79,28 @@ export JAVA_HOME=`jenv javahome`
 
 case "${OSTYPE}" in
     darwin*)
+        export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/
+        export PATH=$PATH:${HOME}/Library/Android/sdk/tools/
+        ;;
+    linux*)
+        export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/platform-tools
+        export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/tools
+        ;;
+esac
+
+case "${OSTYPE}" in
+    darwin*)
 	alias pidcat='pidcat --always-display-tags'
-	if [[ -z $TMUX ]]; then
-    	    export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/
-            export PATH=$PATH:${HOME}/Library/Android/sdk/tools/
-	fi 
 	;;
     linux*)
 	alias pbcopy='xsel --clipboard --input'
 	alias pbpaste='xsel --clipboard --output'
-    alias hhkb='sudo dpkg-reconfigure keyboard-configuration'
-    if [[ -z $TMUX ]]; then
-    	export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/platform-tools
-    	export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/tools
-    fi
+  alias hhkb='sudo dpkg-reconfigure keyboard-configuration'
 	;;
 esac
 
 # alias
-alias ls='exa'
+alias ls='ls -GF'
 alias ll='exa -l'
 alias la='exa -a'
 alias mv='nocorrect mv'
@@ -117,8 +117,9 @@ alias gclone='ghq get'
 alias gjump='git checkout $(git branch | sed "s/*//g" | sed "s/ //g" | peco --prompt "CHECKOUT BRANCH >")'
 alias gdel='git branch -D $(git branch | peco --prompt "DELETE BRANCH >")'
 alias psh='ssh `grep "Host " ~/.ssh/config | grep -v "\*" | cut -b 6- | peco --prompt "HOST > "`'
+alias fd='cd "$(find . -type d | peco)"'
+alias ff='find . -name "*${1}*" | grep -v "/\." | peco'
 
-# pecos
 # peco + history
 function peco-select-history() {
     local tac
@@ -145,20 +146,6 @@ function peco-kill() {
     done
 }
 alias pk="peco-kill"
-
-# peco + directory history
-function peco-cdr() {
-    local selected_dir=$(cdr -l | awk '{print $2 }' | peco --prompt "CHANGE DIRECTOY> ")
-    if [ -n "$selected_dir" ]; then
-        BUFFER="cd ${selected_dir}"
-        zle accept-line
-    else
-        zle reset-prompt
-    fi
-    zle clear-screen
-}
-zle -N peco-cdr
-bindkey '^S' peco-cdr
 
 function precmd() {
   if [ ! -z $TMUX ]; then

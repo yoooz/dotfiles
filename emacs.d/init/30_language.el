@@ -98,7 +98,9 @@
   (("\\.jsp\\'" . web-mode)
    ("\\.js\\'" . web-mode)))
 (use-package dockerfile-mode)
-;(use-package go-mode)
+(use-package go-mode
+  :config
+  (add-hook 'go-mode-hook #'lsp))
 (use-package nxml-mode
   :mode
   (("\.xml$" . nxml-mode))
