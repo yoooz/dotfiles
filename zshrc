@@ -49,7 +49,6 @@ setopt inc_append_history
 setopt hist_ignore_dups
 setopt hist_ignore_all_dups
 setopt share_history
-setopt correct
 setopt list_packed
 setopt complete_in_word
 setopt longlistjobs
@@ -58,6 +57,8 @@ setopt auto_param_slash
 setopt mark_dirs
 setopt auto_param_keys
 setopt no_flow_control
+unsetopt correctall
+unsetopt correct
 
 # auto cd
 setopt auto_cd
@@ -65,7 +66,17 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 
 # prompt
-PROMPT="%{${fg_bold[cyan]}%}> %{${reset_color}%}"
+#PROMPT="%{${fg_bold[cyan]}%}> %{${reset_color}%}"
+if [ ${UID} -eq 0 ]; then
+  PROMPT="%K{green}%B%F{black}ROOT%b%k %F{cyan}%~ %f$ "
+else
+  UUU="%B%F{cyan}（」・ω・）」❯ %f%b"
+  NYA="%B%F{cyan}\（・ω・\）%f%b"
+  SAN="%B%F{red}＼（・ω・＼）❯ %f%b"
+  PIN="%B%F{red}（／・ω・）／%f%b"
+  PROMPT="%(?,${UUU},${SAN})"
+  RPROMPT="%(?,${NYA},${PIN})"
+fi
 
 eval "$(anyenv init - zsh)"
 export PATH=$PATH:/opt/maven/bin:${HOME}/bin
