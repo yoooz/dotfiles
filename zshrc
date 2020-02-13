@@ -79,13 +79,13 @@ else
 fi
 
 eval "$(anyenv init - zsh)"
-export PATH=$PATH:/opt/maven/bin:${HOME}/bin
-export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:${HOME}/.anyenv/bin
+export PATH=/opt/maven/bin:${HOME}/bin:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=${HOME}/.anyenv/bin:$PATH
 export GOPATH=$HOME/go
 
 # なんかおかしい
-export PATH=$PATH:${GOPATH}/bin
+export PATH=${GOPATH}/bin:$PATH
 export JAVA_HOME=`jenv javahome`
 
 case "${OSTYPE}" in
