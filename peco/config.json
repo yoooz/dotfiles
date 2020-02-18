@@ -2,8 +2,8 @@
     "Style": {
         "Basic": ["on_default", "default"],
         "SavedSelection": ["bold", "on_yellow", "white"],
-        "Selected": ["reverse", "white"],
+        "Selected": ["on_white", "black"],
         "Query": ["magenta"],
         "Matched": ["on_bold", "red"]
-     }
+    } 
 }
