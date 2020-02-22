@@ -1,12 +1,5 @@
 #!/bin/zsh
 
-source ${HOME}/.zplug/init.zsh
-
-# zplug
-zplug 'zsh-users/zsh-completions'
-zplug 'zsh-users/zsh-syntax-highlighting', defer:2
-zplug load
-
 # zstyles
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*:default' menu select=2
@@ -16,6 +9,7 @@ zstyle ':completion:*' recent-dirs-insert both
 zstyle ':completion:*' completer _complete _ignored _expand _match _prefix _list _history
 zstyle ':completion:*' verbose no
 zstyle ':completion:*' recent-dirs-insert both
+zstyle ':completion:*' list-separator '-->'
 zstyle ':chpwd:*' recent-dirs-max 500
 zstyle ':chpwd:*' recent-dirs-default true
 zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recend-dirs"
@@ -57,8 +51,14 @@ setopt auto_param_slash
 setopt mark_dirs
 setopt auto_param_keys
 setopt no_flow_control
+setopt auto_menu
+setopt auto_param_keys
+setopt interactive_comments
+setopt magic_equal_subst
 unsetopt correctall
 unsetopt correct
+
+bindkey "^I" menu-complete
 
 # auto cd
 setopt auto_cd
