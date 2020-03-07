@@ -51,3 +51,10 @@
                     (read (current-buffer))
                   (error ()))))))
     lisp))
+
+(use-package auto-save-buffers-enhanced
+  :config
+  (setq auto-save-buffers-enhanced-interval 3)
+  (auto-save-buffers-enhanced t)
+  )
+
