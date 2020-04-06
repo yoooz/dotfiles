@@ -21,3 +21,22 @@ inoremap jj <ESC>
 " ノーマルモード時だけ : と ; を入れ替える
 nnoremap ; :
 nnoremap : ;
+
+" インクリメンタル検索(検索ワードの最初の文字を入力した時点で検索が開始)
+set incsearch
+
+" 対応する括弧やブレースを表示
+set showmatch matchtime=1
+
+" 行を跨いで移動
+set whichwrap=b,s,h,l,<,>,[,],~
+
+" ヤンクでクリップボードにコピー
+noremap "+y "*y
+noremap "+Y "*Y
+noremap "+p "*p
+noremap "+P "*P
+noremap <C-S-c> "*y
+noremap <C-S-v> "*P
+
+set multiple-cursors

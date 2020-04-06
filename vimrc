@@ -11,8 +11,10 @@ set autoread
 set hidden
 " 入力中のコマンドをステータスに表示する
 set showcmd
-"入力モード中に素早くJJと入力した場合はESCとみなす
+" 入力モード中に素早くJJと入力した場合はESCとみなす
 inoremap jj <ESC>
+" Emacs同様C-gでノーマルモードに戻る
+inoremap <C-g> <ESC>
 
 " ノーマルモード時だけ : と ; を入れ替える
 nnoremap ; :
@@ -73,3 +75,5 @@ if has('vim_starting')
   let &t_SR .="\e[4 q"
 endif 
 
+set compatible
+set whichwrap=b,s,h,l,<,>,[,],~
