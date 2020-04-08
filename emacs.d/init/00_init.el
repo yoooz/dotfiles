@@ -2,14 +2,16 @@
   :config
   (setq evil-cross-lines t)
   (setq evil-search-module 'isearch)
+  (defalias 'evil-insert-state 'evil-emacs-state)
   (evil-mode 1)
   (setq evil-want-fine-undo t)
   (setq evil-esc-delay 0)
-  (setq evil-insert-state-cursor '("#ff6ac1" bar))  ;; snazzy-themeのmagenta
+  (setq evil-emacs-state-cursor '("#ff6ac1" bar))  ;; snazzy-themeのmagenta
   (setq evil-normal-state-cursor '("#57c7ff" box)) ;; snazzy-themeのblue
   )
 
-(define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+(define-key evil-emacs-state-map (kbd "<escape>") 'evil-normal-state)
+(define-key evil-emacs-state-map (kbd "C-g") 'evil-normal-state)
 (define-key evil-normal-state-map (kbd "gg") 'goto-line)
 ;; メインはUSキーボードなので ; と : を入れ替える
 (define-key evil-normal-state-map (kbd ";") 'evil-ex)
@@ -18,7 +20,7 @@
 (use-package key-chord
   :config
   (setq key-chord-two-keys-delay 0.5)
-  (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
+  (key-chord-define evil-emacs-state-map "jj" 'evil-normal-state)
   (key-chord-mode 1))
 
 ;; howm
