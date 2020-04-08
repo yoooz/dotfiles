@@ -132,6 +132,7 @@ alias gdel='git branch -D $(git branch | peco --prompt "DELETE BRANCH >")'
 alias psh='ssh `grep "Host " ~/.ssh/config | grep -v "\*" | cut -b 6- | peco --prompt "HOST > "`'
 alias fd='cd "$(find . -type d | peco)"'
 alias ff='find . -name "*${1}*" | grep -v "/\." | peco'
+alias vf='vim `ff`'
 
 # peco + history
 function peco-select-history() {
