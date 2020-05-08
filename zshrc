@@ -15,6 +15,18 @@ zstyle ':chpwd:*' recent-dirs-default true
 zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recend-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 
+# prompt
+if [ ${UID} -eq 0 ]; then
+  PROMPT="%K{green}%B%F{black}ROOT%b%k %F{cyan}%~ %f$ "
+else
+  UUU="%B%F{cyan}（」・ω・）」❯ %f%b"
+  NYA="%B%F{cyan}\（・ω・\）%f%b"
+  SAN="%B%F{red}＼（・ω・＼）❯ %f%b"
+  PIN="%B%F{red}（／・ω・）／%f%b"
+  PROMPT="%(?,${UUU},${SAN})"
+  RPROMPT="%(?,${NYA},${PIN})"
+fi
+
 # cdr
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
@@ -64,19 +76,6 @@ bindkey "^I" menu-complete
 setopt auto_cd
 setopt auto_pushd
 setopt pushd_ignore_dups
-
-# prompt
-#PROMPT="%{${fg_bold[cyan]}%}> %{${reset_color}%}"
-if [ ${UID} -eq 0 ]; then
-  PROMPT="%K{green}%B%F{black}ROOT%b%k %F{cyan}%~ %f$ "
-else
-  UUU="%B%F{cyan}（」・ω・）」❯ %f%b"
-  NYA="%B%F{cyan}\（・ω・\）%f%b"
-  SAN="%B%F{red}＼（・ω・＼）❯ %f%b"
-  PIN="%B%F{red}（／・ω・）／%f%b"
-  PROMPT="%(?,${UUU},${SAN})"
-  RPROMPT="%(?,${NYA},${PIN})"
-fi
 
 eval "$(anyenv init - zsh)"
 export PATH=/opt/maven/bin:${HOME}/bin:$PATH
@@ -167,4 +166,5 @@ function precmd() {
   fi
 }
 
+# if integrations not installed, this script failure exit
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
