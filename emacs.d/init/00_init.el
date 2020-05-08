@@ -1,29 +1,32 @@
 (use-package evil
+  :custom
+  (evil-disable-insert-state-bindings t)
   :config
   (setq evil-cross-lines t)
   (setq evil-search-module 'isearch)
-  (defalias 'evil-insert-state 'evil-emacs-state)
   (evil-mode 1)
   (setq evil-want-fine-undo t)
   (setq evil-esc-delay 0)
-  (setq evil-emacs-state-cursor '("#ff6ac1" bar))  ;; snazzy-themeのmagenta
+  (setq evil-insert-state-cursor '("#ff6ac1" bar))  ;; snazzy-themeのmagenta
   (setq evil-normal-state-cursor '("#57c7ff" box)) ;; snazzy-themeのblue
   )
 
-(define-key evil-emacs-state-map (kbd "<escape>") 'evil-normal-state)
-(define-key evil-emacs-state-map (kbd "C-g") 'evil-normal-state)
+(global-set-key "\C-g" 'evil-normal-state)
 ;; メインはUSキーボードなので ; と : を入れ替える
 (define-key evil-normal-state-map (kbd ";") 'evil-ex)
 (define-key evil-normal-state-map (kbd ":") 'evil-repeat-find-char)
 
 (use-package key-chord
-  :config
+  :commands (key-chord-mode)
+  :init
   (setq key-chord-two-keys-delay 0.5)
-  (key-chord-define evil-emacs-state-map "jj" 'evil-normal-state)
-  (key-chord-mode 1))
+  (key-chord-define-global "jj" 'evil-normal-state))
 
 ;; key-chordが途中で切れることがあるので、emacs-stateに入るたびにONにする
-(add-hook 'evil-emacs-state-entry-hook (lambda() (key-chord-mode 1)))
+(add-hook 'evil-insert-state-entry-hook (lambda()
+                                         (key-chord-mode 1)))
+(add-hook 'evil-insert-state-exit-hook (lambda()
+                                         (key-chord-mode nil)))
 
 ;; howm
 (use-package howm
