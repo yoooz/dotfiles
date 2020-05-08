@@ -23,6 +23,9 @@
   (key-chord-define evil-emacs-state-map "jj" 'evil-normal-state)
   (key-chord-mode 1))
 
+;; key-chordが途中で切れることがあるので、emacs-stateに入るたびにONにする
+(add-hook 'evil-emacs-state-entry-hook (lambda() (key-chord-mode 1)))
+
 ;; howm
 (use-package howm
   :custom
@@ -57,4 +60,3 @@
   (setq auto-save-buffers-enhanced-interval 3)
   (auto-save-buffers-enhanced t)
   )
-
