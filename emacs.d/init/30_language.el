@@ -60,6 +60,7 @@
   (company-dabbrev-minimum-length 2)
   (company-dabbrev-ignore-case t)
   (company-dabbrev-downcase nil)
+  (company-dabbrev-code-ignore-case t)
   :bind
   (("C-M-i" . company-complete)
    :map company-active-map
