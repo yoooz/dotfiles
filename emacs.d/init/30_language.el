@@ -90,7 +90,9 @@
 ;(use-package apache-mode)
 (use-package clojure-mode)
 (use-package groovy-mode)
-(use-package markdown-mode)
+(use-package markdown-mode
+  :mode
+  (("\.txt$" . markdown-mode)))
 (use-package yaml-mode)
 (use-package swift-mode)
 (use-package web-mode
