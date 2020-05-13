@@ -101,7 +101,15 @@
 (use-package groovy-mode)
 (use-package markdown-mode
   :mode
-  (("\.txt$" . markdown-mode)))
+  (("\.txt$" . markdown-mode))
+  :custom-face
+  (markdown-header-face-1 ((t  (:foreground "White" :background "DeepSkyBlue1" :weight bold))))
+  (markdown-header-face-2 ((t  (:foreground "maroon1" :weight bold))))
+  (markdown-header-face-3 ((t  (:foreground "SkyBlue1" :weight bold))))
+  (markdown-header-face-4 ((t  (:foreground "burlywood1" :weight bold))))
+  (markdown-header-face-5 ((t  (:foreground "OliveDrab1" :weight bold))))
+  (markdown-header-face-6 ((t  (:foreground "orange1" :weight bold)))))
+
 (use-package yaml-mode)
 (use-package swift-mode)
 (use-package web-mode
