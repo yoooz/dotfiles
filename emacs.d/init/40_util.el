@@ -8,10 +8,7 @@
   (avy-lead-face ((t (:foreground "red" :background "#282a36"))))
   (avy-lead-face-0 ((t (:foreground "green" :background "#282a36"))))
   (avy-lead-face-1 ((t (:foreground "yellow" :background "#282a36"))))
-  (avy-lead-face-2 ((t (:foreground "blue" :background "#282a36"))))
-  :bind
-  (:map evil-normal-state-map
-        ("C-;" . avy-goto-char-timer)))
+  (avy-lead-face-2 ((t (:foreground "blue" :background "#282a36")))))
 
 (use-package ace-window
   :custom
@@ -85,6 +82,13 @@
   (migemo-coding-system 'utf-8-unix)
   :config
   (migemo-init))
+
+(use-package avy-migemo
+  :config
+  (avy-migemo-mode t)
+  :bind
+  (:map evil-normal-state-map
+        ("C-;" . avy-migemo-goto-char-timer)))
 
 (use-package beacon
   :diminish beacon-mode
