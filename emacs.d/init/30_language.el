@@ -120,12 +120,3 @@
 (use-package go-mode
   :config
   (add-hook 'go-mode-hook #'lsp))
-(use-package nxml-mode
-  :mode
-  (("\.xml$" . nxml-mode))
-  :config
-  (setq nxml-child-indent 2)
-  (setq nxml-attribute-indent 2)
-  (setq indent-tabs-mode nil)
-  (setq nxml-slash-auto-complete-flag t)
-  (setq tab-width 2))
