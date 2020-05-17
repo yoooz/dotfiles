@@ -15,6 +15,11 @@
   :custom
   ;; lsp-ui-doc
   (lsp-ui-doc-enable nil)
+  (lsp-ui-doc-header t)
+  (lsp-ui-doc-include-signature t)
+  (lsp-ui-doc-position 'top)
+  (lsp-ui-doc-use-childframe t)
+  (lsp-ui-doc-use-webkit t)
   ;; lsp-ui-flycheck
   (lsp-ui-flycheck-enable nil)
   ;; lsp-ui-sideline
