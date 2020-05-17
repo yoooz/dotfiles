@@ -60,6 +60,9 @@
 (show-paren-mode 1)
 (setq show-paren-delay 0)
 
+;; toggle frame maximize
+(toggle-frame-maximized)
+
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 
 ;; straight.el setting by myself
