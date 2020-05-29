@@ -20,6 +20,7 @@ hydra
 _a_lpha _b_uffer _c_ounsel _f_old
 _g_it   _h_owm   _m_c      _r_evert  
 _s_udo  _t_ab    e_v_al    M-_x_
+t_l_lero
 
 codic
 -----------------------------------
@@ -38,7 +39,8 @@ _e_ -> j         _j_ -> e
   ("v" eval-buffer)
   ("x" counsel-M-x)
   ("e" codic)
-  ("j" codic-translate))
+  ("j" codic-translate)
+  ("l" hydra-trello/body))
 
 (define-key evil-normal-state-map (kbd "SPC") 'hydra-global-menu/body)
 (define-key magit-mode-map (kbd "SPC") 'hydra-global-menu/body)
@@ -175,3 +177,24 @@ _e_ -> j         _j_ -> e
   )
 
 (defalias 'evil-window-map 'hydra-window/body)
+
+(defhydra hydra-trello
+  (:exit t :hint nil)
+  "
+    Trello
+----------------------------------------
+    _o_pen trello buffer
+    _i_nstall board meta data
+    _d_ownload from trello
+    _u_pdate to trello
+    _s_ync card
+    _j_ump to board
+----------------------------------------
+
+"
+  ("o" (find-file "~/trello/trello.org"))
+  ("i" org-trello-install-board-metadata)
+  ("d" (org-trello-sync-buffer "o"))
+  ("u" org-trello-sync-buffer)
+  ("s" org-trello-sync-card)
+  ("j" org-trello-jump-to-trello-board))

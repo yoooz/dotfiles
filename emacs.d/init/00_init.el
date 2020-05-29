@@ -63,3 +63,7 @@
   (setq auto-save-buffers-enhanced-interval 3)
   (auto-save-buffers-enhanced t)
   )
+
+(use-package org-trello
+  :custom
+  (org-trello-files '("~/trello/trello.org")))
