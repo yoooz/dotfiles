@@ -32,7 +32,7 @@ _e_ -> j         _j_ -> e
   ("f" hs-toggle-hiding)
   ("g" hydra-git/body)
   ("h" hydra-howm/body)
-  ("m" hydra-multiple-cursors/body)
+  ("m" hydra-evil-mc/body)
   ("r" (revert-buffer t t))
   ("s" sudo-edit)
   ("t" hydra-tab/body)
@@ -43,6 +43,7 @@ _e_ -> j         _j_ -> e
   ("l" hydra-trello/body))
 
 (define-key evil-normal-state-map (kbd "SPC") 'hydra-global-menu/body)
+(define-key evil-visual-state-map (kbd "SPC") 'hydra-global-menu/body)
 (define-key magit-mode-map (kbd "SPC") 'hydra-global-menu/body)
 
 (defhydra hydra-git
@@ -104,26 +105,22 @@ _e_ -> j         _j_ -> e
   ("m" howm-menu)
   ("d" howm-insert-date))
 
-(defhydra hydra-multiple-cursors
+(defhydra hydra-evil-mc
   (:hint nil)
     "
  Up^^             Down^^           Miscellaneous 
 ------------------------------------------------------------------
- [_p_]   Next     [_n_]   Next     [_l_] Edit lines  [_0_] Insert numbers
- [_P_]   Skip     [_N_]   Skip     [_a_] Mark all    [_A_] Insert letters
- [_M-p_] Unmark   [_M-n_] Unmark   [_s_] Search
+ [_p_]   Next     [_n_]   Next     [_a_] Mark all    [_0_] Begin
+ [_P_]   Skip     [_N_]   Skip     [_u_] Unmark all  [_$_] End
  [_q_] Quit"
-  ("l" mc/edit-lines :exit t)
-  ("a" mc/mark-all-like-this :exit t)
-  ("n" mc/mark-next-like-this)
-  ("N" mc/skip-to-next-like-this)
-  ("M-n" mc/unmark-next-like-this)
-  ("p" mc/mark-previous-like-this)
-  ("P" mc/skip-to-previous-like-this)
-  ("M-p" mc/unmark-previous-like-this)
-  ("s" mc/mark-all-in-region-regexp :exit t)
-  ("0" mc/insert-numbers :exit t)
-  ("A" mc/insert-letters :exit t)
+  ("a" evil-mc-make-all-cursors :exit t)
+  ("u" evil-mc-undo-all-cursors :exit t)
+  ("n" evil-mc-make-and-goto-next-match)
+  ("N" evil-mc-skip-and-goto-next-match)
+  ("p" evil-mc-make-and-goto-prev-match)
+  ("P" evil-mc-skip-and-goto-prev-match)
+  ("0" evil-mc-make-cursor-in-visual-selection-beg :exit t)
+  ("$" evil-mc-make-cursor-in-visual-selection-end :exit t)
   ("q" nil))
 
 (defhydra hydra-tab
