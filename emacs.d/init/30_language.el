@@ -74,7 +74,6 @@
    ("C-s" . company-filter-candidates)
    ("C-i" . company-complete-selection)
    ([tab] . company-complete-selection)
-   ("C-f" . company-complete-selection)
    :map company-search-map
    ("C-n" . company-select-next)
    ("C-p" . company-select-previous)
