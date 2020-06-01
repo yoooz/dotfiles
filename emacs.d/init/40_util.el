@@ -131,7 +131,4 @@
   (setq codic-api-token (my-lisp-load "codic-api-token"))
   (push '("*Codic Result*") popwin:special-display-config))
 
-(use-package evil-mc
-  :config
-  (global-evil-mc-mode 1)
-  )
+(use-package evil-mc)
