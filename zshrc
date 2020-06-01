@@ -89,8 +89,8 @@ export JAVA_HOME=`jenv javahome`
 
 case "${OSTYPE}" in
     darwin*)
-        export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools/
-        export PATH=$PATH:${HOME}/Library/Android/sdk/tools/
+        export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools
+        export PATH=$PATH:${HOME}/Library/Android/sdk/tools
         ;;
     linux*)
         export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/platform-tools
