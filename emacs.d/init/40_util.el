@@ -41,7 +41,11 @@
    ("C-x C-f" . counsel-find-file)))
 
 (use-package counsel-ghq
-  :straight (counsel-ghq :type git :host github :repo "yoooz/counsel-ghq"))
+  :straight (counsel-ghq :type git :host github :repo "yoooz/counsel-ghq")
+  :config
+  (ivy-set-actions 'counsel-ghq
+                   '(("o" counsel-find-file "Find File")
+                     ("m" magit-status directory "Open Magit"))))
 
 (use-package ivy-posframe
   :diminish ivy-posframe-mode
@@ -50,11 +54,10 @@
   (ivy-posframe ((t (:background "#232533"))))
   :custom
   (ivy-posframe-display-functions-alist
-   '((swiper . nil)
-     (counsel-rg . nil)
+   '((swiper . ivy-posframe-display-at-window-bottom-left)
+     (counsel-rg . ivy-posframe-display-at-frame-bottom-window-center)
      (t . ivy-posframe-display-at-frame-top-center)
-     )
-   )
+     ))
   (ivy-posframe-mode 1)
   (ivy-posframe-parameters
    '((left-fringe . 8)

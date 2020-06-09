@@ -20,7 +20,7 @@ hydra
 _a_lpha _b_uffer _c_ounsel _f_old
 _g_it   _h_owm   _m_c      _r_evert  
 _s_udo  _t_ab    e_v_al    M-_x_
-t_l_lero
+t_l_lero         max_i_mize
 
 codic
 -----------------------------------
@@ -40,7 +40,8 @@ _e_ -> j         _j_ -> e
   ("x" counsel-M-x)
   ("e" codic)
   ("j" codic-translate)
-  ("l" hydra-trello/body))
+  ("l" hydra-trello/body)
+  ("i" toggle-frame-maximized))
 
 (define-key evil-normal-state-map (kbd "SPC") 'hydra-global-menu/body)
 (define-key evil-visual-state-map (kbd "SPC") 'hydra-global-menu/body)
