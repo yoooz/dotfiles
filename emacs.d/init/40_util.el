@@ -40,9 +40,6 @@
   (("C-r" . counsel-M-x)
    ("C-x C-f" . counsel-find-file)))
 
-(defun counsel-ghq-magit-status (directory)
-  (magit-status directory))
-
 (use-package counsel-ghq
   :straight (counsel-ghq :type git :host github :repo "yoooz/counsel-ghq"))
 
