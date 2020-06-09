@@ -50,9 +50,9 @@
 (setq initial-scratch-message "")
 
 ;; scroll
-(setq scroll-conservatively 35
+(setq scroll-conservatively 10
       next-screen-context-lines 10
-      scroll-margin 20
+      scroll-margin 10
       scroll-preserve-screen-position t)
 (setq comint-scroll-show-maximum-output t)
 

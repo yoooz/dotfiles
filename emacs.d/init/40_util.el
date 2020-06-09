@@ -66,7 +66,7 @@
 
 (use-package ivy-rich
   :config
-  (ivy-rich-mode -1))
+  (ivy-rich-mode t))
 
 (use-package migemo
   :custom
