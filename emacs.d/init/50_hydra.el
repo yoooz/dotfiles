@@ -186,6 +186,7 @@ _e_ -> j         _j_ -> e
     _d_ownload from trello
     _u_pdate to trello
     _s_ync card
+    _a_dd comment
     _j_ump to board
 ----------------------------------------
 
@@ -195,4 +196,5 @@ _e_ -> j         _j_ -> e
   ("d" (org-trello-sync-buffer "o"))
   ("u" org-trello-sync-buffer)
   ("s" org-trello-sync-card)
+  ("a" org-trello-add-card-comment)
   ("j" org-trello-jump-to-trello-board))
