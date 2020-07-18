@@ -37,7 +37,7 @@ _e_ -> j         _j_ -> e
   ("s" sudo-edit)
   ("t" hydra-tab/body)
   ("v" eval-buffer)
-  ("x" counsel-M-x)
+  ("x" (counsel-M-x ""))
   ("e" codic)
   ("j" codic-translate)
   ("l" hydra-trello/body)
