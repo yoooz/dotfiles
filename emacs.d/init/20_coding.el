@@ -8,7 +8,7 @@
    :map evil-normal-state-map
    ("#" . symbol-overlay-put))
   :custom
-  (symbol-overlay-idle-time 1.0))
+  (symbol-overlay-idle-time 0.5))
 
 (use-package highlight-indent-guides
   :diminish highlight-indent-guides-mode
