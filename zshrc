@@ -81,11 +81,10 @@ eval "$(anyenv init - zsh)"
 export PATH=/opt/maven/bin:${HOME}/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=${HOME}/.anyenv/bin:$PATH
-export GOPATH=$HOME/go
-
-# なんかおかしい
 export PATH=${GOPATH}/bin:$PATH
+
 export JAVA_HOME=`jenv javahome`
+export GO111MODULE=on
 
 case "${OSTYPE}" in
     darwin*)

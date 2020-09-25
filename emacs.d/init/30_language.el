@@ -80,14 +80,6 @@
    :map emacs-lisp-mode-map
    ("C-M-i" . company-complete)))
 
-(use-package company-fuzzy
-  :straight (company-fuzzy :type git :host github :repo "jcs-elpa/company-fuzzy")
-  :config
-  (global-company-fuzzy-mode)
-  (setq company-fuzzy-sorting-backend 'alphabetic)
-  (setq company-fuzzy-prefix-ontop t)
-  (setq company-fuzzy-show-annotation t))
-
 ;; language
 ;(use-package python-mode
 ;  :config
