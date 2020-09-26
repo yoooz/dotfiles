@@ -43,3 +43,10 @@
   (git-gutter:modified ((t (:background "#f1fa8c" :foreground "#f1fa8c"))))
   (git-gutter:added    ((t (:background "#50fa7b" :foreground "#50fa7b"))))
   (git-gutter:deleted  ((t (:background "#ff79c6" :foreground "#ff79c6")))))
+
+(use-package which-key
+  :straight (which-key :type git :host github :repo "justbur/emacs-which-key")
+  :diminish which-key-mode
+  :config
+  (which-key-mode)
+)
