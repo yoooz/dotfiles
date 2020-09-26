@@ -110,7 +110,9 @@
 
 (use-package hungry-delete
   :diminish hungry-delete-mode
-  :hook (prog-mode . hungry-delete-mode))
+  :hook (prog-mode . hungry-delete-mode)
+  :config
+  (setq hungry-delete-chars-to-skip " \t\r\f\v"))
 
 (use-package elscreen
   :config
@@ -126,6 +128,7 @@
 (use-package popwin
   :config
   (popwin-mode))
+
 (use-package codic
   :config
   (setq codic-api-token (my-lisp-load "codic-api-token"))
