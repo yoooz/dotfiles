@@ -40,3 +40,4 @@ noremap <C-S-c> "*y
 noremap <C-S-v> "*P
 
 set multiple-cursors
+set highlightedyank
