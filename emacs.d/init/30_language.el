@@ -40,6 +40,8 @@
   (:map lsp-mode-map
         ("C-c C-r" . lsp-ui-peek-find-references)
         ("C-c C-j" . lsp-ui-peek-find-definitions)
+        ("C-c C-b" . lsp-ui-peek-jump-backward)
+        ("C-c C-]" . lsp-ui-peek-jump-forward)
         ("C-c i"   . lsp-ui-peek-find-implementation)
         ("C-c m"   . lsp-ui-imenu)
         ("C-c s"   . lsp-ui-sideline-mode))
