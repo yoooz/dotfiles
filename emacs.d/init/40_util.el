@@ -47,21 +47,21 @@
                    '(("o" counsel-find-file "Find File")
                      ("m" magit-status directory "Open Magit"))))
 
-(use-package ivy-posframe
-  :diminish ivy-posframe-mode
-  :custom-face
-  (ivy-posframe-border ((t (:background "CornflowerBlue"))))
-  (ivy-posframe ((t (:background "#232533"))))
-  :custom
-  (ivy-posframe-display-functions-alist
-   '((swiper . ivy-posframe-display-at-window-bottom-left)
-     (counsel-rg . ivy-posframe-display-at-frame-bottom-window-center)
-     (t . ivy-posframe-display-at-frame-top-center)
-     ))
-  (ivy-posframe-mode 1)
-  (ivy-posframe-parameters
-   '((left-fringe . 8)
-     (right-fringe . 8))))
+;(use-package ivy-posframe
+  ;:diminish ivy-posframe-mode
+  ;:custom-face
+  ;(ivy-posframe-border ((t (:background "CornflowerBlue"))))
+  ;(ivy-posframe ((t (:background "#232533"))))
+  ;:custom
+  ;(ivy-posframe-display-functions-alist
+   ;'((swiper . ivy-posframe-display-at-window-bottom-left)
+     ;(counsel-rg . ivy-posframe-display-at-frame-bottom-window-center)
+     ;(t . ivy-posframe-display-at-frame-top-center)
+     ;))
+  ;(ivy-posframe-mode 1)
+  ;(ivy-posframe-parameters
+   ;'((left-fringe . 8)
+     ;(right-fringe . 8))))
 
 (use-package all-the-icons-ivy
   :config

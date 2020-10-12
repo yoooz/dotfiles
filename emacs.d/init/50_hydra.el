@@ -5,7 +5,7 @@
   :hook (after-init . hydra-posframe-mode)
   :custom-face
   (hydra-posframe-border-face ((t (:background "CornflowerBlue"))))
-  (hydra-posframe-face ((t (:background "#232533"))))
+  (hydra-posframe-face ((t (:background "SteelBlue4"))))
   :custom
   (hydra-posframe-poshandler 'posframe-poshandler-frame-center)
   (hydra-posframe-border-width 10)
