@@ -77,36 +77,20 @@ setopt auto_cd
 setopt auto_pushd
 setopt pushd_ignore_dups
 
-eval "$(anyenv init - zsh)"
-export PATH=/opt/maven/bin:${HOME}/bin:$PATH
-export PATH=/usr/local/bin:$PATH
-export PATH=${HOME}/.anyenv/bin:$PATH
-export PATH=${GOPATH}/bin:$PATH
+# path
+if [[ $TMUX ]]; then
+    export PATH=${HOME}/Library/Android/sdk/platform-tools:$PATH
+    export PATH=${HOME}/Library/Android/sdk/tools:$PATH
+    alias pidcat='pidcat --always-display-tags'
+    
+    eval "$(anyenv init - zsh)"
+    export PATH=/opt/maven/bin:${HOME}/bin:$PATH
+    export PATH=${HOME}/.anyenv/bin:$PATH
+    export PATH=${GOPATH}/bin:$PATH
 
-export JAVA_HOME=`jenv javahome`
-export GO111MODULE=on
-
-case "${OSTYPE}" in
-    darwin*)
-        export PATH=$PATH:${HOME}/Library/Android/sdk/platform-tools
-        export PATH=$PATH:${HOME}/Library/Android/sdk/tools
-        ;;
-    linux*)
-        export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/platform-tools
-        export PATH=$PATH:${HOME}/workspace/android-practice/Sdk/tools
-        ;;
-esac
-
-case "${OSTYPE}" in
-    darwin*)
-	alias pidcat='pidcat --always-display-tags'
-	;;
-    linux*)
-	alias pbcopy='xsel --clipboard --input'
-	alias pbpaste='xsel --clipboard --output'
-  alias hhkb='sudo dpkg-reconfigure keyboard-configuration'
-	;;
-esac
+    export JAVA_HOME=`jenv javahome`
+    export GO111MODULE=on
+fi
 
 # alias
 alias ls='ls -GF'
