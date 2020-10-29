@@ -51,14 +51,11 @@
   ;(lsp-ui-doc-background ((t (:background "#282a36"))))
   :hook (lsp-mode . lsp-ui-mode))
 
-(use-package company-lsp)
-
 (use-package company
   :diminish company-mode
   :config
   (global-company-mode)
   (setq completion-ignore-case t)
-  (push 'company-lsp company-backends)
   :custom 
   (company-transformers '(company-sort-by-backend-importance))
   (company-idle-delay 0)
