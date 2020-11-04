@@ -79,6 +79,9 @@
    :map emacs-lisp-mode-map
    ("C-M-i" . company-complete)))
 
+(use-package company-box
+  :hook (company-mode . company-box-mode))
+
 ;; language
 ;(use-package python-mode
 ;  :config

@@ -78,7 +78,7 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 
 # path
-if [[ $TMUX ]]; then
+if [[ -z $TMUX ]]; then
     export PATH=${HOME}/Library/Android/sdk/platform-tools:$PATH
     export PATH=${HOME}/Library/Android/sdk/tools:$PATH
     alias pidcat='pidcat --always-display-tags'
