@@ -164,7 +164,7 @@ _e_ -> j         _j_ -> e
   ("l" evil-window-right  :exit t)
   ("i" text-scale-increase)
   ("o" text-scale-decrease)
-  ("a" text-scale-adjust)
+  ("a" (text-scale-adjust 0))
   ("s" ace-select-window  :exit t)
   ("d" ace-delete-window  :exit t)
   ("w" ace-swap-window    :exit t)
