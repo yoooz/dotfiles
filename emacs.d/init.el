@@ -62,6 +62,9 @@
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 
+(setq default-directory "~/")
+(setq command-line-default-directory "~/")
+
 ;; straight.el setting by myself
 (let ((bootstrap-file (concat user-emacs-directory "straight/repos/straight.el/bootstrap.el"))
       (bootstrap-version 3))
