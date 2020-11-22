@@ -6,7 +6,7 @@
 ;; hide tool bar
 (tool-bar-mode 0)
 ;; hide menu bar
-;(menu-bar-mode 0)
+(menu-bar-mode 0)
 
 (scroll-bar-mode 0)
 
