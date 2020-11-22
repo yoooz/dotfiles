@@ -44,8 +44,9 @@
   :straight (counsel-ghq :type git :host github :repo "yoooz/counsel-ghq")
   :config
   (ivy-set-actions 'counsel-ghq
-                   '(("o" counsel-find-file "Find File")
-                     ("m" magit-status directory "Open Magit"))))
+                   '(("g" counsel-git "Open Git")
+                     ("o" find-file "Open File")
+                     ("m" counsel-ghq--open-magit "Open Maigt"))))
 
 ;(use-package ivy-posframe
   ;:diminish ivy-posframe-mode
