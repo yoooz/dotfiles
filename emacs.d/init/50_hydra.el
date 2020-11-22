@@ -19,7 +19,7 @@ hydra
 -----------------------------------
 _a_lpha _b_uffer _c_ounsel _f_old
 _g_it   _h_owm   _m_c      _r_evert  
-_s_udo  _t_ab    e_v_al    M-_x_
+_s_udo  e_v_al    M-_x_
 t_l_lero         max_i_mize
 
 codic
@@ -35,7 +35,6 @@ _e_ -> j         _j_ -> e
   ("m" hydra-evil-mc/body)
   ("r" (revert-buffer t t))
   ("s" sudo-edit)
-  ("t" hydra-tab/body)
   ("v" eval-buffer)
   ("x" (counsel-M-x ""))
   ("e" codic)
@@ -123,21 +122,6 @@ _e_ -> j         _j_ -> e
   ("0" evil-mc-make-cursor-in-visual-selection-beg :exit t)
   ("$" evil-mc-make-cursor-in-visual-selection-end :exit t)
   ("q" nil))
-
-(defhydra hydra-tab
-  (:exit t :hint nil)
-  "
-  Tab
-----------------------
-  _c_reate    _g_oto
-  _n_ext      _p_revious
-  _k_ill
-"
-  ("c" elscreen-create)
-  ("g" elscreen-goto)
-  ("n" elscreen-next)
-  ("p" elscreen-previous)
-  ("k" elscreen-kill))
 
 (defhydra hydra-window
   (:hint nil)

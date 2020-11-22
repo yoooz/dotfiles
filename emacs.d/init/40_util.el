@@ -114,15 +114,6 @@
   :config
   (setq hungry-delete-chars-to-skip " \t\r\f\v"))
 
-(use-package elscreen
-  :config
-  (elscreen-start)
-  :custom
-  (elscreen-tab-display-kill-screen 'right)
-  :custom-face
-  (elscreen-tab-current-screen-face ((t (:background "MediumSlateBlue" :foreground "white"))))
-  (elscreen-tab-other-screen-face ((t (:background "#282a36" :foreground "white")))))
-
 (use-package sudo-edit)
 
 (use-package popwin
