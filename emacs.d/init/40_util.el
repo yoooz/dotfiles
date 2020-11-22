@@ -117,13 +117,4 @@
 
 (use-package sudo-edit)
 
-(use-package popwin
-  :config
-  (popwin-mode))
-
-(use-package codic
-  :config
-  (setq codic-api-token (my-lisp-load "codic-api-token"))
-  (push '("*Codic Result*") popwin:special-display-config))
-
 (use-package evil-mc)

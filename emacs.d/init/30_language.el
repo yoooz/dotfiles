@@ -93,8 +93,6 @@
   :config
   (add-hook 'kotlin-mode-hook #'lsp))
 (use-package gradle-mode)
-(use-package android-mode)
-;(use-package apache-mode)
 (use-package clojure-mode)
 (use-package groovy-mode)
 (use-package markdown-mode
