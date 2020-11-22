@@ -91,9 +91,7 @@
 )
 
 ;; init-loader
-(use-package init-loader
-    :custom
-    (init-loader-show-log-after-init 'error-only))
+(use-package init-loader)
 
 ;; loading all el files under ~/.emacs.d/init/ 
 (init-loader-load "~/.emacs.d/init")
