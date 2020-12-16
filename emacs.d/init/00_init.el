@@ -64,6 +64,9 @@
 (evil-ex-define-cmd "q[uit]" 'evil-tab-sensitive-quit)
 (evil-ex-define-cmd "tabnew" 'elscreen-create)
 (evil-ex-define-cmd "tabclone" 'elscreen-clone)
+(evil-ex-define-cmd "tabg[o]" 'elscreen-goto)
+(evil-ex-define-cmd "tabn[ext]" 'elscreen-next)
+(evil-ex-define-cmd "tabp[revious]" 'elscreen-previous)
 
 ;; howm
 (use-package howm
