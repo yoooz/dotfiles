@@ -31,3 +31,9 @@
 (use-package rainbow-mode
   :hook(prog-mode . rainbow-mode)
   :diminish rainbow-mode)
+
+(use-package evil-goggles
+  :straight (evil-goggles :type git :host github :repo "edkolev/evil-goggles")
+  :ensure t
+  :config
+  (evil-goggles-mode))
