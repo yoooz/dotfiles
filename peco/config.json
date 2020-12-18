@@ -2,8 +2,11 @@
     "Style": {
         "Basic": ["on_default", "default"],
         "SavedSelection": ["bold", "on_yellow", "white"],
-        "Selected": ["on_white", "black"],
+        "Selected": ["on_magenta", "black"],
         "Query": ["magenta"],
-        "Matched": ["on_bold", "red"]
-    } 
+        "Matched": ["on_bold", "green"]
+    } ,
+    "Keymap": {
+        "C-k": "peco.KillEndOfLine"
+    }
 }
