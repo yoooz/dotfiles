@@ -1,3 +1,7 @@
+(use-package undo-tree
+  :config
+  (global-undo-tree-mode t))
+
 (use-package evil
   :custom
   (evil-disable-insert-state-bindings t)
@@ -9,6 +13,7 @@
   (setq evil-esc-delay 0)
   (setq evil-insert-state-cursor '("#ff6ac1" bar))  ;; snazzy-themeのmagenta
   (setq evil-normal-state-cursor '("#57c7ff" box)) ;; snazzy-themeのblue
+  (evil-set-undo-system 'undo-tree)
   )
 
 (global-set-key "\C-g" 'evil-normal-state)
