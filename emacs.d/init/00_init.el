@@ -1,77 +1,36 @@
-(use-package undo-tree
-  :config
-  (global-undo-tree-mode t))
-
-(use-package evil
+(use-package doom-themes
   :custom
-  (evil-disable-insert-state-bindings t)
+  (doom-themes-enable-italic t)
+  (doom-themes-enable-bold t)
   :config
-  (setq evil-cross-lines t)
-  (setq evil-search-module 'isearch)
-  (evil-mode 1)
-  (setq evil-want-fine-undo t)
-  (setq evil-esc-delay 0)
-  (setq evil-insert-state-cursor '("#ff6ac1" bar))  ;; snazzy-themeのmagenta
-  (setq evil-normal-state-cursor '("#57c7ff" box)) ;; snazzy-themeのblue
-  (evil-set-undo-system 'undo-tree)
-  )
+  (load-theme 'doom-snazzy t))
 
-(global-set-key "\C-g" 'evil-normal-state)
-;; メインはUSキーボードなので ; と : を入れ替える
-(define-key evil-normal-state-map (kbd ";") 'evil-ex)
-(define-key evil-normal-state-map (kbd ":") 'evil-repeat-find-char)
-(define-key evil-visual-state-map (kbd "C-r") `counsel-M-x)
+(use-package doom-modeline
+  :hook (after-init . doom-modeline-mode)
+  :custom 
+  (doom-modeline-height 25)
+  (doom-modeline-bar-width 3)
+  (doom-modeline-buffer-file-name-style 'truncate-upto-root))
 
-(use-package key-chord
-  :commands (key-chord-mode)
-  :init
-  (setq key-chord-two-keys-delay 0.5)
-  (key-chord-define-global "jj" 'evil-normal-state))
-
-;; key-chordが途中で切れることがあるので、insert-stateに入るたびにONにする
-(add-hook 'evil-insert-state-entry-hook (lambda()
-                                         (key-chord-mode 1)))
-(add-hook 'evil-insert-state-exit-hook (lambda()
-                                         (key-chord-mode nil)))
-
-(use-package elscreen
+(use-package dashboard
   :config
-  (elscreen-start)
-  :custom
-  (elscreen-tab-display-kill-screen nil)
-  :custom-face
-  (elscreen-tab-current-screen-face ((t (:background "#57c7ff" :foreground "white"))))
-  (elscreen-tab-other-screen-face ((t (:background "#282a36" :foreground "white"))))
-  :bind
-  (:map evil-normal-state-map
-        ("gt" . elscreen-next)
-        ("gT" . elscreen-previous)
-        ("gt" . evil-tabs-goto-tab))
-  )
+  (setq dashboard-items '((recents . 15) ))
+  (setq dashboard-startup-banner "~/dotfiles/emacs.d/swiper2.png")
+  (dashboard-setup-startup-hook))
 
-(use-package elscreen-tab
+(use-package diminish
   :config
-  (elscreen-tab-mode)
-  (elscreen-tab-set-position 'top))
+  (diminish 'emacs-lock-mode)
+  (diminish 'eldoc-mode))
 
-(evil-define-command evil-tab-sensitive-quit (&optional bang)
-  :repeat nil
-  (interactive "<!>")
-  (if (> (length (elscreen-get-screen-list)) 1)
-    (elscreen-kill)
-    (evil-quit bang)))
+(use-package cl-lib)
+(use-package color)
+(use-package rainbow-delimiters
+  :hook(prog-mode . rainbow-delimiters-mode))
 
-(evil-define-motion evil-tabs-goto-tab (&optional count)
-  (if count
-      (elscreen-goto count)
-    (elscreen-next)))
-
-(evil-ex-define-cmd "q[uit]" 'evil-tab-sensitive-quit)
-(evil-ex-define-cmd "tabnew" 'elscreen-create)
-(evil-ex-define-cmd "tabclone" 'elscreen-clone)
-(evil-ex-define-cmd "tabg[o]" 'elscreen-goto)
-(evil-ex-define-cmd "tabn[ext]" 'elscreen-next)
-(evil-ex-define-cmd "tabp[revious]" 'elscreen-previous)
+(use-package rainbow-mode
+  :hook(prog-mode . rainbow-mode)
+  :diminish rainbow-mode)
 
 ;; howm
 (use-package howm
