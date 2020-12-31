@@ -70,3 +70,10 @@
 (use-package org-trello
   :custom
   (org-trello-files '("~/trello/trello.org")))
+
+(use-package open-junk-file
+  :config
+  (setq open-junk-file-format "~/howm/junk/%Y/%m/%Y-%m%d-%H%M%S."))
+
+(use-package snow
+  :straight (snow :type git :host github :repo "alphapapa/snow.el"))
