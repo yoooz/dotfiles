@@ -34,6 +34,12 @@
 
 (use-package evil-magit)
 
+(use-package git-gutter
+  :config
+  (global-git-gutter-mode t)
+  (setq git-gutter:update-hooks '(after-save-hook after-revert-hook))
+  )
+
 (use-package which-key
   :straight (which-key :type git :host github :repo "justbur/emacs-which-key")
   :diminish which-key-mode
