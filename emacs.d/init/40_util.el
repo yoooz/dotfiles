@@ -68,6 +68,9 @@
   :config
   (all-the-icons-ivy-setup))
 
+(use-package all-the-icons-ivy-rich
+  :init (all-the-icons-ivy-rich-mode t))
+
 (use-package ivy-rich
   :config
   (ivy-rich-mode t))
