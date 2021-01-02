@@ -19,12 +19,8 @@ hydra
 -----------------------------------
 _a_lpha _b_uffer _c_ounsel _f_old
 _g_it   _h_owm   _m_c      _r_evert  
-_s_udo  e_v_al   M-_x_
+_s_udo  e_v_al   M-_x_     _j_unk
 t_l_lero       max_i_mize
-
-codic
------------------------------------
-_e_ -> j         _j_ -> e
 "
   ("a" set-alpha)
   ("b" hydra-buffer/body)
@@ -37,8 +33,7 @@ _e_ -> j         _j_ -> e
   ("s" sudo-edit)
   ("v" eval-buffer)
   ("x" (counsel-M-x ""))
-  ("e" codic)
-  ("j" codic-translate)
+  ("j" open-junk-file)
   ("l" hydra-trello/body)
   ("i" toggle-frame-maximized))
 
