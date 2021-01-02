@@ -1,3 +1,9 @@
+(use-package dashboard
+  :config
+  (setq dashboard-items '((recents . 15) ))
+  (setq dashboard-startup-banner "~/dotfiles/emacs.d/swiper2.png")
+  (dashboard-setup-startup-hook))
+
 (use-package doom-themes
   :custom
   (doom-themes-enable-italic t)
@@ -8,20 +14,12 @@
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode)
   :custom 
+  (doom-modeline-icon t)
+  (doom-modeline-major-mode-icon nil)
+  (doom-modeline-minor-modes nil)
   (doom-modeline-height 25)
   (doom-modeline-bar-width 3)
   (doom-modeline-buffer-file-name-style 'truncate-upto-root))
-
-(use-package dashboard
-  :config
-  (setq dashboard-items '((recents . 15) ))
-  (setq dashboard-startup-banner "~/dotfiles/emacs.d/swiper2.png")
-  (dashboard-setup-startup-hook))
-
-(use-package diminish
-  :config
-  (diminish 'emacs-lock-mode)
-  (diminish 'eldoc-mode))
 
 (use-package cl-lib)
 (use-package color)
