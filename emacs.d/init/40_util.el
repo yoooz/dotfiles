@@ -120,6 +120,4 @@
 
 (use-package sudo-edit)
 
-(use-package evil-mc)
-
 (use-package treemacs)
