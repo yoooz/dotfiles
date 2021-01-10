@@ -51,11 +51,15 @@
   ;(lsp-ui-doc-background ((t (:background "#282a36"))))
   :hook (lsp-mode . lsp-ui-mode))
 
+(use-package company-box
+  :hook (company-mode . company-box-mode))
+
 (use-package company
   :diminish company-mode
+  :init
+  (setq completion-ignore-case t)
   :config
   (global-company-mode)
-  (setq completion-ignore-case t)
   :custom 
   (company-transformers '(company-sort-by-backend-importance))
   (company-idle-delay 0)
@@ -66,21 +70,16 @@
   (company-dabbrev-downcase nil)
   (company-dabbrev-code-ignore-case t)
   :bind
-  (("C-M-i" . company-complete)
+  (("C-i" . company-complete)
    :map company-active-map
    ("C-n" . company-select-next)
    ("C-p" . company-select-previous)
-   ("C-s" . company-filter-candidates)
-   ("C-i" . company-complete-selection)
    ([tab] . company-complete-selection)
    :map company-search-map
    ("C-n" . company-select-next)
    ("C-p" . company-select-previous)
    :map emacs-lisp-mode-map
    ("C-M-i" . company-complete)))
-
-(use-package company-box
-  :hook (company-mode . company-box-mode))
 
 ;; language
 ;(use-package python-mode
