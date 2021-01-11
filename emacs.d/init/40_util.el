@@ -35,10 +35,6 @@
   :bind
   (("C-s" . swiper)))
 
-(use-package ivy-prescient
-  :config
-  (ivy-prescient-mode t))
-
 (use-package counsel
   :bind
   (("C-r" . counsel-M-x)
