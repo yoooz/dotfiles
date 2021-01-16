@@ -70,16 +70,13 @@
   (company-dabbrev-downcase nil)
   (company-dabbrev-code-ignore-case t)
   :bind
-  (("C-i" . company-complete)
+  (("M-i" . company-complete)
    :map company-active-map
    ("C-n" . company-select-next)
    ("C-p" . company-select-previous)
-   ([tab] . company-complete-selection)
    :map company-search-map
    ("C-n" . company-select-next)
-   ("C-p" . company-select-previous)
-   :map emacs-lisp-mode-map
-   ("C-M-i" . company-complete)))
+   ("C-p" . company-select-previous)))
 
 ;; language
 ;(use-package python-mode
