@@ -45,7 +45,6 @@
   :config
   (ivy-set-actions 'counsel-ghq
                    '(("g" counsel-git "Open Git")
-                     ("o" find-file "Open File")
                      ("m" counsel-ghq--open-magit "Open Maigt"))))
 
 ;(use-package ivy-posframe
