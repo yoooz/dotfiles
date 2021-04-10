@@ -24,9 +24,11 @@
 (use-package cl-lib)
 (use-package color)
 (use-package rainbow-delimiters
+  :defer t
   :hook(prog-mode . rainbow-delimiters-mode))
 
 (use-package rainbow-mode
+  :defer t
   :hook(prog-mode . rainbow-mode)
   :diminish rainbow-mode)
 
@@ -70,6 +72,7 @@
   (org-trello-files '("~/trello/trello.org")))
 
 (use-package open-junk-file
+  :defer t
   :config
   (setq open-junk-file-format "~/howm/junk/%Y/%m/%Y-%m%d-%H%M%S."))
 

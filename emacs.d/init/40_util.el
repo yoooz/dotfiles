@@ -1,6 +1,8 @@
-(use-package google-this)
+(use-package google-this
+  :defer t)
 
 (use-package avy
+  :defer t
   :custom
   (avy-background t)
   (avy-all-windows t)
@@ -11,6 +13,7 @@
   (avy-lead-face-2 ((t (:foreground "blue" :background "#282a36")))))
 
 (use-package ace-window
+  :defer t
   :custom
   (aw-keys '(?j ?k ?l ?i ?o ?h ?y ?u ?p))
   (aw-dispatch-always t)
@@ -18,6 +21,7 @@
   (aw-leading-char-face ((t (:height 4.0 :foreground "#f1fa8c")))))
 
 (use-package ivy
+  :defer t
   :diminish ivy-mode
   :config
   (ivy-mode 1)
@@ -36,11 +40,13 @@
   (("C-s" . swiper)))
 
 (use-package counsel
+  :defer t
   :bind
   (("C-r" . counsel-M-x)
    ("C-x C-f" . counsel-find-file)))
 
 (use-package counsel-ghq
+  :defer t
   :straight (counsel-ghq :type git :host github :repo "yoooz/counsel-ghq")
   :config
   (ivy-set-actions 'counsel-ghq
@@ -64,13 +70,16 @@
      ;(right-fringe . 8))))
 
 (use-package all-the-icons-ivy
+  :defer t
   :config
   (all-the-icons-ivy-setup))
 
 (use-package all-the-icons-ivy-rich
+  :defer t
   :init (all-the-icons-ivy-rich-mode t))
 
 (use-package ivy-rich
+  :defer t
   :config
   (ivy-rich-mode t))
 
@@ -87,6 +96,7 @@
   (migemo-init))
 
 (use-package avy-migemo
+  :defer t
   :config
   (avy-migemo-mode t)
   :bind
@@ -94,6 +104,7 @@
         ("C-;" . avy-migemo-goto-char-timer)))
 
 (use-package beacon
+  :defer t
   :diminish beacon-mode
   :config
   (beacon-mode t)
@@ -107,16 +118,20 @@
         ("ga" . beacon-blink)))
 
 (use-package zoom
+  :defer t
   :diminish zoom-mode
   :custom
   (zoom-size '(0.618 . 0.618)))
 
 (use-package hungry-delete
+  :defer t
   :diminish hungry-delete-mode
   :hook (prog-mode . hungry-delete-mode)
   :config
   (setq hungry-delete-chars-to-skip " \t\r\f\v"))
 
-(use-package sudo-edit)
+(use-package sudo-edit
+  :defer t)
 
-(use-package treemacs)
+(use-package treemacs
+  :defer t)

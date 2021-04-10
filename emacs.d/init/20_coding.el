@@ -16,7 +16,7 @@
   :custom
   (highlight-indent-guides-auto-enabled t)
   (highlight-indent-guides-responsive t)
-  (highlight-indent-guides-method 'character))
+  (highlight-indent-guides-method 'bitmap))
 
 (use-package smartparens
   :diminish smartparens-mode
@@ -24,6 +24,7 @@
   (smartparens-global-mode t))
 
 (use-package magit
+  :defer t
   :custom-face
   (magit-diff-added ((t (:foreground "#00FF00" :background "gray20"))))
   (magit-diff-added-highlight ((t (:foreground "#00FF00" :background "gray20"))))
@@ -35,6 +36,7 @@
 (use-package evil-magit)
 
 (use-package git-gutter
+  :defer t
   :config
   (global-git-gutter-mode t)
   (setq git-gutter:update-hooks '(after-save-hook after-revert-hook))
@@ -49,6 +51,7 @@
   )
 
 (use-package which-key
+  :defer
   :straight (which-key :type git :host github :repo "justbur/emacs-which-key")
   :diminish which-key-mode
   :config

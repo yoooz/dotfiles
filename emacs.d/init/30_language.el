@@ -1,4 +1,5 @@
 (use-package yasnippet
+  :defer t
   :diminish yas-minor-mode
   :config
   (yas-global-mode 1)
@@ -8,10 +9,14 @@
         ("C-x i n" . yas-new-snippet)
         ("C-x i v" . yas-visit-snippet-file)))
 
-(use-package yasnippet-snippets)
+(use-package yasnippet-snippets
+  :defer t)
 
-(use-package lsp-mode)
+(use-package lsp-mode
+  :defer t)
+
 (use-package lsp-ui
+  :defer t
   :custom
   ;; lsp-ui-doc
   (lsp-ui-doc-enable nil)
@@ -52,9 +57,11 @@
   :hook (lsp-mode . lsp-ui-mode))
 
 (use-package company-box
+  :defer t
   :hook (company-mode . company-box-mode))
 
 (use-package company
+  :defer t
   :diminish company-mode
   :init
   (setq completion-ignore-case t)
@@ -86,12 +93,17 @@
 
 (add-to-list 'exec-path "~/.ghq/github.com/fwcd/kotlin-language-server/server/build/install/server/bin")
 (use-package kotlin-mode
+  :defer t
   :config
   (add-hook 'kotlin-mode-hook #'lsp))
-(use-package gradle-mode)
-(use-package clojure-mode)
-(use-package groovy-mode)
+(use-package gradle-mode
+  :defer t)
+(use-package clojure-mode
+  :defer t)
+(use-package groovy-mode
+  :defer t)
 (use-package markdown-mode
+  :defer
   :mode
   (("\.txt$" . markdown-mode))
   :custom-face
@@ -102,13 +114,18 @@
   (markdown-header-face-5 ((t  (:foreground "OliveDrab1" :weight bold))))
   (markdown-header-face-6 ((t  (:foreground "orange1" :weight bold)))))
 
-(use-package yaml-mode)
-(use-package swift-mode)
+(use-package yaml-mode
+  :defer t)
+(use-package swift-mode
+  :defer t)
 (use-package web-mode
+  :defer t
   :mode
   (("\\.jsp\\'" . web-mode)
    ("\\.js\\'" . web-mode)))
-(use-package dockerfile-mode)
+(use-package dockerfile-mode
+  :defer t)
 (use-package go-mode
+  :defer t
   :config
   (add-hook 'go-mode-hook #'lsp))
