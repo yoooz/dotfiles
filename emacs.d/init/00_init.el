@@ -75,3 +75,17 @@
 
 (use-package snow
   :straight (snow :type git :host github :repo "alphapapa/snow.el"))
+
+(use-package tempbuf
+  :config
+  (add-hook 'findfile-hooks 'turn-on-tempbuf-mode)
+  (add-hook 'dired-mode-hook 'turn-on-tempbuf-mode))
+
+(use-package iflipb
+  :config
+  (setq iflibp-ignore-buffers (list "^[*]" "^magit"))
+  :bind
+  (("M-o" . iflipb-next-buffer)
+   ("M-O" . iflipb-previous-buffer))
+  :custom
+  (iflipb-wrap-around t))
