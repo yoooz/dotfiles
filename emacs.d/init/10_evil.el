@@ -51,8 +51,7 @@
   :bind
   (:map evil-normal-state-map
         ("gt" . elscreen-next)
-        ("gT" . elscreen-previous)
-        ("gt" . evil-tabs-goto-tab))
+        ("gT" . elscreen-previous))
   )
 
 (use-package elscreen-tab
@@ -66,11 +65,6 @@
   (if (> (length (elscreen-get-screen-list)) 1)
     (elscreen-kill)
     (evil-quit bang)))
-
-(evil-define-motion evil-tabs-goto-tab (&optional count)
-  (if count
-      (elscreen-goto count)
-    (elscreen-next)))
 
 (evil-ex-define-cmd "q[uit]" 'evil-tab-sensitive-quit)
 (evil-ex-define-cmd "tabnew" 'elscreen-create)

@@ -18,8 +18,8 @@
 hydra
 -----------------------------------
 _a_lpha _b_uffer _c_ounsel _f_old
-_g_it   _h_owm   _m_c      _r_evert  
-_s_udo  e_v_al   M-_x_     _j_unk
+_g_it   _h_owm   _r_evert  _s_udo
+e_v_al   M-_x_   _j_unk
 t_l_lero       max_i_mize
 "
   ("a" set-alpha)
@@ -28,7 +28,6 @@ t_l_lero       max_i_mize
   ("f" hs-toggle-hiding)
   ("g" hydra-git/body)
   ("h" hydra-howm/body)
-  ("m" hydra-evil-mc/body)
   ("r" (revert-buffer t t))
   ("s" sudo-edit)
   ("v" eval-buffer)
@@ -100,24 +99,6 @@ t_l_lero       max_i_mize
   ("t" howm-find-today)
   ("m" howm-menu)
   ("d" howm-insert-date))
-
-(defhydra hydra-evil-mc
-  (:hint nil)
-    "
- Up^^             Down^^           Miscellaneous 
-------------------------------------------------------------------
- [_p_]   Next     [_n_]   Next     [_a_] Mark all    [_0_] Begin
- [_P_]   Skip     [_N_]   Skip     [_u_] Unmark all  [_$_] End
- [_q_] Quit"
-  ("a" evil-mc-make-all-cursors :exit t)
-  ("u" evil-mc-undo-all-cursors :exit t)
-  ("n" evil-mc-make-and-goto-next-match)
-  ("N" evil-mc-skip-and-goto-next-match)
-  ("p" evil-mc-make-and-goto-prev-match)
-  ("P" evil-mc-skip-and-goto-prev-match)
-  ("0" evil-mc-make-cursor-in-visual-selection-beg :exit t)
-  ("$" evil-mc-make-cursor-in-visual-selection-end :exit t)
-  ("q" nil))
 
 (defhydra hydra-window
   (:hint nil)
