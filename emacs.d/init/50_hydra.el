@@ -63,7 +63,7 @@ t_l_lero       max_i_mize
 ----------------------
   _s_witch    _k_ill
 "
-  ("s" ivy-switch-buffer)
+  ("s" counsel-switch-buffer)
   ("k" kill-buffer))
 
 (defhydra hydra-counsel
