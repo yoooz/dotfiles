@@ -135,5 +135,9 @@
 (use-package sudo-edit
   :defer t)
 
-(use-package treemacs
-  :defer t)
+(use-package neotree
+  :defer t
+  :config
+  (setq neo-smart-open t)
+  (setq neo-create-file-auto-open t)
+  (setq neo-theme 'icons))
