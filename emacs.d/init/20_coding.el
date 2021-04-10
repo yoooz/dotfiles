@@ -16,7 +16,7 @@
   :custom
   (highlight-indent-guides-auto-enabled t)
   (highlight-indent-guides-responsive t)
-  (highlight-indent-guides-method 'bitmap))
+  (highlight-indent-guides-method 'character))
 
 (use-package smartparens
   :diminish smartparens-mode
