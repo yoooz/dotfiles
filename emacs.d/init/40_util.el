@@ -41,6 +41,8 @@
 
 (use-package counsel
   :defer t
+  :config
+  (setq counsel-M-x-history t)
   :bind
   (("C-r" . counsel-M-x)
    ("C-x C-f" . counsel-find-file)))
