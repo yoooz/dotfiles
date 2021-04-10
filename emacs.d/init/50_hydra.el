@@ -19,7 +19,7 @@ hydra
 -----------------------------------
 _a_lpha _b_uffer _c_ounsel _f_old
 _g_it   _h_owm   _r_evert  _s_udo
-e_v_al   M-_x_   _j_unk
+e_v_al   M-_x_   _j_unk    _n_eotree
 t_l_lero       max_i_mize
 "
   ("a" set-alpha)
@@ -33,11 +33,13 @@ t_l_lero       max_i_mize
   ("v" eval-buffer)
   ("x" (counsel-M-x ""))
   ("j" open-junk-file)
+  ("n" neotree-toggle)
   ("l" hydra-trello/body)
   ("i" toggle-frame-maximized))
 
 (define-key evil-normal-state-map (kbd "SPC") 'hydra-global-menu/body)
 (define-key evil-visual-state-map (kbd "SPC") 'hydra-global-menu/body)
+(define-key neotree-mode-map (kbd "SPC") 'hydra-global-menu/body)
 (define-key magit-mode-map (kbd "SPC") 'hydra-global-menu/body)
 
 (defhydra hydra-git
