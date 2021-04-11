@@ -1,0 +1,16 @@
+{
+    "editor.suggestSelection": "first",
+    "editor.minimap.enabled": false,
+    "editor.cursorBlinking": "solid",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.hlsearch": true,
+    "workbench.colorTheme": "Snazzy Operator",
+    "editor.fontFamily": "Roboto Mono for Powerline",
+    "editor.codeLensFontFamily": "Roboto Mono for Powerline",
+}
