@@ -11,37 +11,6 @@
   (hydra-posframe-border-width 10)
   )
 
-;; hydra global menu
-(defhydra hydra-global-menu
-  (:exit t :hint nil)
-  "
-hydra
------------------------------------
-_a_lpha _b_uffer _c_ounsel _f_old
-_g_it   _h_owm   _r_evert  _s_udo
-e_v_al   M-_x_   _j_unk    _n_eotree
-t_l_lero       max_i_mize
-"
-  ("a" set-alpha)
-  ("b" hydra-buffer/body)
-  ("c" hydra-counsel/body)
-  ("f" hs-toggle-hiding)
-  ("g" hydra-git/body)
-  ("h" hydra-howm/body)
-  ("r" (revert-buffer t t))
-  ("s" sudo-edit)
-  ("v" eval-buffer)
-  ("x" (counsel-M-x ""))
-  ("j" open-junk-file)
-  ("n" neotree-toggle)
-  ("l" hydra-trello/body)
-  ("i" toggle-frame-maximized))
-
-(define-key evil-normal-state-map (kbd "SPC") 'hydra-global-menu/body)
-(define-key evil-visual-state-map (kbd "SPC") 'hydra-global-menu/body)
-(define-key neotree-mode-map (kbd "SPC") 'hydra-global-menu/body)
-(define-key magit-mode-map (kbd "SPC") 'hydra-global-menu/body)
-
 (defhydra hydra-git
   (:hint nil)
   "
@@ -161,3 +130,34 @@ t_l_lero       max_i_mize
   ("s" org-trello-sync-card)
   ("a" org-trello-add-card-comment)
   ("j" org-trello-jump-to-trello-board))
+
+;; hydra global menu
+(defhydra hydra-global-menu
+  (:exit t :hint nil)
+  "
+hydra
+-----------------------------------
+_a_lpha _b_uffer _c_ounsel _f_old
+_g_it   _h_owm   _r_evert  _s_udo
+e_v_al   M-_x_   _j_unk    _n_eotree
+t_l_lero       max_i_mize
+"
+  ("a" set-alpha)
+  ("b" hydra-buffer/body)
+  ("c" hydra-counsel/body)
+  ("f" hs-toggle-hiding)
+  ("g" hydra-git/body)
+  ("h" hydra-howm/body)
+  ("r" (revert-buffer t t))
+  ("s" sudo-edit)
+  ("v" eval-buffer)
+  ("x" (counsel-M-x ""))
+  ("j" open-junk-file)
+  ("n" neotree-toggle)
+  ("l" hydra-trello/body)
+  ("i" toggle-frame-maximized))
+
+(define-key evil-normal-state-map (kbd "SPC") 'hydra-global-menu/body)
+(define-key evil-visual-state-map (kbd "SPC") 'hydra-global-menu/body)
+(define-key neotree-mode-map (kbd "SPC") 'hydra-global-menu/body)
+(define-key magit-mode-map (kbd "SPC") 'hydra-global-menu/body)
