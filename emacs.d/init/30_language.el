@@ -77,8 +77,7 @@
   (company-dabbrev-downcase nil)
   (company-dabbrev-code-ignore-case t)
   :bind
-  (("M-i" . company-complete)
-   :map company-active-map
+  (:map company-active-map
    ("C-n" . company-select-next)
    ("C-p" . company-select-previous)
    :map company-search-map
@@ -122,7 +121,8 @@
   :defer t
   :mode
   (("\\.jsp\\'" . web-mode)
-   ("\\.js\\'" . web-mode)))
+   ("\\.js\\'" . web-mode)
+   ("\\.vue\\'" . web-mode)))
 (use-package dockerfile-mode
   :defer t)
 (use-package go-mode
