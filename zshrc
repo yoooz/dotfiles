@@ -78,19 +78,17 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 
 # path
-if [[ -z $TMUX ]]; then
-    export PATH=${HOME}/Library/Android/sdk/platform-tools:$PATH
-    export PATH=${HOME}/Library/Android/sdk/tools:$PATH
-    alias pidcat='pidcat --always-display-tags'
-    
-    eval "$(anyenv init - zsh)"
-    export PATH=/opt/maven/bin:${HOME}/bin:$PATH
-    export PATH=${HOME}/.anyenv/bin:$PATH
-    export PATH=${GOPATH}/bin:$PATH
+export PATH=${HOME}/Library/Android/sdk/platform-tools:$PATH
+export PATH=${HOME}/Library/Android/sdk/tools:$PATH
+alias pidcat='pidcat --always-display-tags'
 
-    export JAVA_HOME=`jenv javahome`
-    export GO111MODULE=on
-fi
+eval "$(anyenv init - zsh)"
+export PATH=/opt/maven/bin:${HOME}/bin:$PATH
+export PATH=${HOME}/.anyenv/bin:$PATH
+export PATH=${GOPATH}/bin:$PATH
+
+export JAVA_HOME=`jenv javahome`
+export GO111MODULE=on
 
 # alias
 alias ls='ls -GF'
