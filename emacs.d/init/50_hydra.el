@@ -159,5 +159,4 @@ t_l_lero       max_i_mize
 
 (define-key evil-normal-state-map (kbd "SPC") 'hydra-global-menu/body)
 (define-key evil-visual-state-map (kbd "SPC") 'hydra-global-menu/body)
-(define-key neotree-mode-map (kbd "SPC") 'hydra-global-menu/body)
 (define-key magit-mode-map (kbd "SPC") 'hydra-global-menu/body)
