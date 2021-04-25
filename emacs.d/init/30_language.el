@@ -15,6 +15,20 @@
 (use-package lsp-mode
   :defer t)
 
+(use-package dap-mode
+  :defer t
+  :after lsp-mode
+  :config
+  (dap-mode 1)
+  (dap-auto-configure-mode 1)
+  (require 'dap-hydra)
+  (require 'dap-go)
+  :custom
+  (dap-auto-configure-features '(sessions locals breakpoints expressions repl controls tooltip))
+  (dap-go-debug-path "~/ghq/github.com/golang/vscode-go")
+  (dap-go-debug-program `("node", (f-join dap-go-debug-path "dist/debugAdapter.js")))
+  )
+
 (use-package lsp-ui
   :defer t
   :custom
