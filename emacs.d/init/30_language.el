@@ -79,8 +79,7 @@
   :diminish company-mode
   :init
   (setq completion-ignore-case t)
-  :config
-  (global-company-mode)
+  :hook (prog-mode . company-mode)
   :custom 
   (company-transformers '(company-sort-by-backend-importance))
   (company-idle-delay 0)
@@ -91,7 +90,8 @@
   (company-dabbrev-downcase nil)
   (company-dabbrev-code-ignore-case t)
   :bind
-  (:map company-active-map
+  (("M-i" . company-complete)
+   :map company-active-map
    ("C-n" . company-select-next)
    ("C-p" . company-select-previous)
    :map company-search-map
