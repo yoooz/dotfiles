@@ -28,14 +28,17 @@
   ("o" git-gutter:popup-hunk))
 
 (defhydra hydra-buffer
-  (:exit t :hint nil)
+  (:hint nil)
   "
   Buffer
 ----------------------
   _s_witch    _k_ill
+  _p_revious  _n_ext
 "
-  ("s" counsel-switch-buffer)
-  ("k" kill-buffer))
+  ("s" counsel-switch-buffer :exit t)
+  ("k" kill-buffer :exit t)
+  ("p" iflipb-previous-buffer)
+  ("n" iflipb-next-buffer))
 
 (defhydra hydra-counsel
   (:exit t :hint nil)
