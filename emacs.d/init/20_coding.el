@@ -36,8 +36,9 @@
 (use-package evil-magit)
 
 (use-package git-gutter
+  :defer t
+  :hook (prog-mode . git-gutter-mode)
   :config
-  (global-git-gutter-mode t)
   (setq git-gutter:update-hooks '(after-save-hook after-revert-hook))
   :custom
   (git-gutter:modified-sign " ")
