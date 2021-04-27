@@ -69,7 +69,7 @@
 
 (use-package org-trello
   :custom
-  (org-trello-files '("~/trello/trello.org")))
+  (org-trello-files '("~/howm/trello.org")))
 
 (use-package open-junk-file
   :defer t

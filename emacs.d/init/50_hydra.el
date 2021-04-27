@@ -123,7 +123,7 @@
 ----------------------------------------
 
 "
-  ("o" (find-file "~/trello/trello.org"))
+  ("o" (find-file "~/howm/trello.org"))
   ("i" org-trello-install-board-metadata)
   ("d" (org-trello-sync-buffer "o"))
   ("u" org-trello-sync-buffer)
