@@ -18,11 +18,6 @@
   (highlight-indent-guides-responsive t)
   (highlight-indent-guides-method 'character))
 
-(use-package smartparens
-  :diminish smartparens-mode
-  :config
-  (smartparens-global-mode t))
-
 (use-package magit
   :defer t
   :custom-face

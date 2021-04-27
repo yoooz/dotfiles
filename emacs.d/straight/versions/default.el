@@ -69,7 +69,6 @@
  ("restclient.el" . "abc307b965bf6720bc466281f2e204cd5ce37dc3")
  ("s.el" . "3a5166c81ac9e50eaccf5490c5c632f93452287e")
  ("shrink-path.el" . "c14882c8599aec79a6e8ef2d06454254bb3e1e41")
- ("smartparens" . "25f4d6d1b732f4deabf922059d22a0a7dc04bd0a")
  ("snow.el" . "7ca25adc94148f182ac58c9f5d35f576a8a3131c")
  ("spinner" . "e19f3cfc0646c0e23c10c22df219fcf427054621")
  ("straight.el" . "e1390a933b6f5a15079d6dec91eac97a17aad10c")
