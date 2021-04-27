@@ -135,10 +135,13 @@
 
 (use-package neotree
   :defer t
+  :custom
+  (neo-smart-open t)
+  (neo-create-file-auto-open t)
+  (neo-theme 'icons)
+  (neo-autorefresh t)
+  (neo-hide-cursor t)
   :config
-  (setq neo-smart-open t)
-  (setq neo-create-file-auto-open t)
-  (setq neo-theme 'icons)
   (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
   (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
   (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
