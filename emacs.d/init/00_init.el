@@ -74,7 +74,7 @@
 (use-package open-junk-file
   :defer t
   :config
-  (setq open-junk-file-format "~/howm/junk/%Y/%m/%Y-%m%d-%H%M%S."))
+  (setq open-junk-file-format "~/howm/junk/%Y/%m/%Y-%m%d-%H%M%S.md"))
 
 (use-package snow
   :straight (snow :type git :host github :repo "alphapapa/snow.el"))
