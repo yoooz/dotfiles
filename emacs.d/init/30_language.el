@@ -99,10 +99,10 @@
    ("C-p" . company-select-previous)))
 
 ;; language
-;(use-package python-mode
-;  :config
-;  (add-hook 'python-mode-hook #'lsp)
-;  )
+(use-package python-mode
+  :defer t
+  :config
+  (add-hook 'python-mode-hook #'lsp))
 
 (add-to-list 'exec-path "~/.ghq/github.com/fwcd/kotlin-language-server/server/build/install/server/bin")
 (use-package kotlin-mode
