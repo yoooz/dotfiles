@@ -54,4 +54,6 @@
   :diminish which-key-mode
   :config
   (which-key-mode)
+  :custom
+  (which-key-idle-delay 0.5)
 )
