@@ -10,13 +10,15 @@
   :custom
   (symbol-overlay-idle-time 0.5))
 
-(use-package highlight-indent-guides
-  :diminish highlight-indent-guides-mode
-  :hook ((prog-mode yaml-mode) . highlight-indent-guides-mode)
+(use-package indent-guide
+  :defer t
+  :diminish indent-guide-mode
+  :hook ((prog-mode) . indent-guide-mode)
   :custom
-  (highlight-indent-guides-auto-enabled t)
-  (highlight-indent-guides-responsive t)
-  (highlight-indent-guides-method 'character))
+  (indent-guide-recursive t)
+  :custom-face
+  (indent-guide-face ((t (:foreground "#b0e0e6" :slant normal))))
+  )
 
 (use-package magit
   :defer t
