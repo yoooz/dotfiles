@@ -24,7 +24,6 @@
   :defer t
   :diminish ivy-mode
   :config
-  (ivy-mode 1)
   (setq enable-recursive-minibuffers t)
   (setq ivy-re-builders-alist
         '((t . ivy--regex-plus)))
@@ -106,8 +105,6 @@
 (use-package beacon
   :defer t
   :diminish beacon-mode
-  :config
-  (beacon-mode t)
   :custom
   (beacon-size 30)
   (beacon-color 0.2)

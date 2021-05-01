@@ -1,4 +1,5 @@
 (use-package symbol-overlay
+  :defer t
   :diminish symbol-overlay-mode
   :hook ((prog-mode markdown-mode) . symbol-overlay-mode)
   :bind
@@ -30,7 +31,8 @@
   :custom 
   (magit-log-margin '(t "%Y-%m-%d %H:%M:%S" magit-log-margin-width t 18)))
 
-(use-package evil-magit)
+(use-package evil-magit
+  :defer t)
 
 (use-package git-gutter
   :defer t
@@ -48,10 +50,9 @@
   )
 
 (use-package which-key
+  :defer
   :straight (which-key :type git :host github :repo "justbur/emacs-which-key")
   :diminish which-key-mode
-  :config
-  (which-key-mode)
   :custom
   (which-key-idle-delay 0.5)
 )
