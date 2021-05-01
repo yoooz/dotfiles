@@ -12,6 +12,7 @@
   (load-theme 'doom-snazzy t))
 
 (use-package doom-modeline
+  :defer t
   :hook (after-init . doom-modeline-mode)
   :custom 
   (doom-modeline-icon t)
@@ -47,20 +48,6 @@
         (concat "[" datetime-format "]"))
   )
 
-(defun my-lisp-load (filename)
-  "Load lisp from FILENAME"
-  (let ((fullname (expand-file-name (concat "spec/" filename) user-emacs-directory))
-        lisp)
-    (when (file-readable-p fullname)
-      (with-temp-buffer
-        (progn
-          (insert-file-contents fullname)
-          (setq lisp 
-                (condition-case nil
-                    (read (current-buffer))
-                  (error ()))))))
-    lisp))
-
 (use-package auto-save-buffers-enhanced
   :config
   (setq auto-save-buffers-enhanced-interval 3)
@@ -68,6 +55,7 @@
   )
 
 (use-package org-trello
+  :defer t
   :custom
   (org-trello-files '("~/howm/trello.org")))
 
@@ -77,14 +65,17 @@
   (setq open-junk-file-format "~/howm/junk/%Y/%m/%Y-%m%d-%H%M%S.md"))
 
 (use-package snow
+  :defer t
   :straight (snow :type git :host github :repo "alphapapa/snow.el"))
 
 (use-package tempbuf
+  :defer t
   :config
   (add-hook 'findfile-hooks 'turn-on-tempbuf-mode)
   (add-hook 'dired-mode-hook 'turn-on-tempbuf-mode))
 
 (use-package iflipb
+  :defer t
   :config
   (setq iflibp-ignore-buffers (list "^[*]" "^magit"))
   :bind
