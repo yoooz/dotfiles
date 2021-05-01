@@ -136,7 +136,24 @@
   :mode
   (("\\.jsp\\'" . web-mode)
    ("\\.js\\'" . web-mode)
-   ("\\.vue\\'" . web-mode)))
+   ("\\.vue\\'" . web-mode)
+   ("\\.ts\\'" . web-mode))
+  :custom
+  (web-mode-markup-indent-offset 2)
+  (web-mode-css-indent-offset 2)
+  (web-mode-code-indent-offset 2)
+  (web-mode-part-padding 0)
+  )
+(use-package flymake-eslint
+  :config
+  (add-hook 'web-mode-hook
+            (lambda ()
+              (flymake-eslint-enable))))
+(use-package prettier
+  :config
+  (add-hook 'web-mode-hook
+            (lambda ()
+              (prettier-mode))))
 (use-package dockerfile-mode
   :defer t)
 (use-package go-mode

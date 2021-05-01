@@ -18,7 +18,8 @@
 (setq indent-line-function 'indent-to-left-margin)
 
 ;; tab 
-(setq-default tab-width 4 indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)
 
 ;; auto-save
 (setq backup-inhibited t)
