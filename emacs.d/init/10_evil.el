@@ -14,6 +14,9 @@
   (setq evil-insert-state-cursor (let ((color (doom-color 'red))) (list color 'bar)))
   (setq evil-normal-state-cursor (let ((color (doom-color 'green))) (list color 'box)))
   (evil-set-undo-system 'undo-tree)
+  :custom
+  (evil-split-window-below t)
+  (evil-vsplit-window-right t)
   )
 
 (global-set-key "\C-g" 'evil-normal-state)
