@@ -48,12 +48,12 @@ bindkey -e
 umask 002
 
 export HISTFILE=${HOME}/.zsh_history
-export HISTSIZE=6000000
-export SAVEHIST=6000000
+export SAVEHIST=10000
 
 setopt inc_append_history
 setopt hist_ignore_dups
 setopt hist_ignore_all_dups
+setopt hist_reduce_blanks
 setopt share_history
 setopt list_packed
 setopt complete_in_word
@@ -67,6 +67,7 @@ setopt auto_menu
 setopt auto_param_keys
 setopt interactive_comments
 setopt magic_equal_subst
+setopt hist_expand
 unsetopt correctall
 unsetopt correct
 
