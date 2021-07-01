@@ -2,7 +2,6 @@
   :defer t)
 
 (use-package avy
-  :defer t
   :custom
   (avy-background t)
   (avy-all-windows t)
@@ -13,7 +12,6 @@
   (avy-lead-face-2 ((t (:foreground "blue" :background "#282a36")))))
 
 (use-package ace-window
-  :defer t
   :custom
   (aw-keys '(?j ?k ?l ?i ?o ?h ?y ?u ?p))
   (aw-dispatch-always t)
@@ -21,7 +19,6 @@
   (aw-leading-char-face ((t (:height 4.0 :foreground "#f1fa8c")))))
 
 (use-package ivy
-  :defer t
   :diminish ivy-mode
   :config
   (setq enable-recursive-minibuffers t)
@@ -39,13 +36,11 @@
   (("C-s" . swiper)))
 
 (use-package counsel
-  :defer t
   :bind
   (("C-r" . counsel-M-x)
    ("C-x C-f" . counsel-find-file)))
 
 (use-package counsel-ghq
-  :defer t
   :straight (counsel-ghq :type git :host github :repo "yoooz/counsel-ghq")
   :config
   (ivy-set-actions 'counsel-ghq
@@ -69,16 +64,13 @@
      ;(right-fringe . 8))))
 
 (use-package all-the-icons-ivy
-  :defer t
   :config
   (all-the-icons-ivy-setup))
 
 (use-package all-the-icons-ivy-rich
-  :defer t
   :init (all-the-icons-ivy-rich-mode t))
 
 (use-package ivy-rich
-  :defer t
   :config
   (ivy-rich-mode t))
 
