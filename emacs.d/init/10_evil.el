@@ -28,14 +28,9 @@
 (use-package key-chord
   :commands (key-chord-mode)
   :init
+  (key-chord-mode 1)
   (setq key-chord-two-keys-delay 0.5)
-  (key-chord-define-global "jj" 'evil-normal-state))
-
-;; key-chordが途中で切れることがあるので、insert-stateに入るたびにONにする
-(add-hook 'evil-insert-state-entry-hook (lambda()
-                                         (key-chord-mode 1)))
-(add-hook 'evil-insert-state-exit-hook (lambda()
-                                         (key-chord-mode nil)))
+  (key-chord-define evil-insert-state-map "jj" 'evil-normal-state))
 
 (use-package evil-goggles
   :straight (evil-goggles :type git :host github :repo "edkolev/evil-goggles")
