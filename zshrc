@@ -88,6 +88,10 @@ export PATH=/opt/maven/bin:${HOME}/bin:$PATH
 export PATH=${HOME}/.anyenv/bin:$PATH
 export PATH=${GOPATH}/bin:$PATH
 
+# pyenv
+export PYENV_ROOT="$(anyenv root)/envs/pyenv"
+eval "$(pyenv init --path)"
+
 export JAVA_HOME=`jenv javahome`
 export GO111MODULE=on
 
