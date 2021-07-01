@@ -118,6 +118,7 @@ alias psh='ssh `grep "Host " ~/.ssh/config | grep -v "\*" | cut -b 6- | peco --p
 alias fd='cd "$(find . -type d | peco)"'
 alias ff='find . -name "*${1}*" | grep -v "/\." | peco'
 alias vf='vim `ff`'
+alias tp='tmux popup'
 
 # peco + history
 function peco-select-history() {
