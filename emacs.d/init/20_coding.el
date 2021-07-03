@@ -1,16 +1,3 @@
-(use-package symbol-overlay
-  :defer t
-  :diminish symbol-overlay-mode
-  :hook ((prog-mode markdown-mode) . symbol-overlay-mode)
-  :bind
-  (:map symbol-overlay-map
-   ("C-g" . symbol-overlay-remove-all)
-   ("<escape>" . symbol-overlay-remove-all)
-   :map evil-normal-state-map
-   ("#" . symbol-overlay-put))
-  :custom
-  (symbol-overlay-idle-time 0.5))
-
 (use-package indent-guide
   :defer t
   :diminish indent-guide-mode
