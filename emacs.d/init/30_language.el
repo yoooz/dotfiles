@@ -13,7 +13,10 @@
   :defer t)
 
 (use-package lsp-mode
-  :defer t)
+  :defer t
+  :custom
+  (lsp-auto-guess-root t)
+  )
 
 (use-package dap-mode
   :defer t
@@ -100,15 +103,11 @@
 
 ;; language
 (use-package python-mode
-  :defer t
-  :config
-  (add-hook 'python-mode-hook #'lsp))
+  :defer t)
 
 (add-to-list 'exec-path "~/.ghq/github.com/fwcd/kotlin-language-server/server/build/install/server/bin")
 (use-package kotlin-mode
-  :defer t
-  :config
-  (add-hook 'kotlin-mode-hook #'lsp))
+  :defer t)
 (use-package gradle-mode
   :defer t)
 (use-package clojure-mode
@@ -143,8 +142,6 @@
   (web-mode-css-indent-offset 2)
   (web-mode-code-indent-offset 2)
   (web-mode-part-padding 0)
-  :config
-  (add-hook 'web-mode-hook #'lsp)
   )
 (use-package flymake-eslint
   :config
@@ -159,6 +156,4 @@
 (use-package dockerfile-mode
   :defer t)
 (use-package go-mode
-  :defer t
-  :config
-  (add-hook 'go-mode-hook #'lsp))
+  :defer t)
