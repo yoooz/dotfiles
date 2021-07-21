@@ -82,7 +82,6 @@
  ("sudo-edit" . "a7ae1713bb659988bb1465a13b837fbc2d699504")
  ("swift-mode" . "1b47a09f1c0e15c543e0551e7f1e643f437e7711")
  ("swiper" . "040d458bce4a88f37359192061bcea5ebe87007c")
- ("symbol-overlay" . "4231a36e39b7393d639e9cdef19f311d780deeab")
  ("tempbuf" . "17a005da886436090d3812899d553deb7bdbebb2")
  ("transient" . "37684a8cf7c97b7c0599ae70c6c9c993587a0202")
  ("treemacs" . "2655a8976d56719add893cec45a18e018626842d")
