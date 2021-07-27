@@ -142,6 +142,8 @@
   (web-mode-css-indent-offset 2)
   (web-mode-code-indent-offset 2)
   (web-mode-part-padding 0)
+  :config
+  (add-hook 'web-mode-hook #'lsp)
   )
 (use-package flymake-eslint
   :config
@@ -156,4 +158,6 @@
 (use-package dockerfile-mode
   :defer t)
 (use-package go-mode
-  :defer t)
+  :defer t
+  :config
+  (add-hook 'go-mode-hook #'lsp))
