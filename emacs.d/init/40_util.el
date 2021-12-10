@@ -1,6 +1,3 @@
-(use-package google-this
-  :defer t)
-
 (use-package avy
   :custom
   (avy-background t)
@@ -105,20 +102,6 @@
   :bind
   (:map evil-normal-state-map
         ("ga" . beacon-blink)))
-
-(use-package zoom
-  :defer t
-  :diminish zoom-mode
-  :custom
-  (zoom-size '(0.618 . 0.618)))
-
-(use-package hungry-delete
-  :defer t
-  :diminish hungry-delete-mode
-  :hook (prog-mode . hungry-delete-mode)
-  :config
-  (setq hungry-delete-chars-to-skip " \t\r\f\v"))
-
 (use-package sudo-edit
   :defer t)
 

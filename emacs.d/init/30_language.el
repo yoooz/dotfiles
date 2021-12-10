@@ -86,7 +86,7 @@
   :custom 
   (company-transformers '(company-sort-by-backend-importance))
   (company-idle-delay 0)
-  (company-minimum-prefix-lengh 2)
+  (company-minimum-prefix-lengh 1)
   (company-selection-wrap-around t)
   (company-dabbrev-minimum-length 2)
   (company-dabbrev-ignore-case t)
@@ -104,6 +104,13 @@
 ;; language
 (use-package python-mode
   :defer t)
+
+(use-package blacken
+  :ensure t
+  )
+
+(use-package py-isort
+  :ensure t)
 
 (add-to-list 'exec-path "~/.ghq/github.com/fwcd/kotlin-language-server/server/build/install/server/bin")
 (use-package kotlin-mode
