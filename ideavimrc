@@ -18,10 +18,6 @@ nnoremap k gk
 "入力モード中に素早くJJと入力した場合はESCとみなす
 inoremap jj <ESC>
 
-" ノーマルモード時だけ : と ; を入れ替える
-nnoremap ; :
-nnoremap : ;
-
 " インクリメンタル検索(検索ワードの最初の文字を入力した時点で検索が開始)
 set incsearch
 

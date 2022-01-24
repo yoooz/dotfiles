@@ -16,10 +16,6 @@ inoremap jj <ESC>
 " Emacs同様C-gでノーマルモードに戻る
 inoremap <C-g> <ESC>
 
-" ノーマルモード時だけ : と ; を入れ替える
-nnoremap ; :
-nnoremap : ;
-
 " 見た目系
 " 行番号を表示
 set number

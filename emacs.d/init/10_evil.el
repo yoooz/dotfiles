@@ -19,10 +19,6 @@
   (evil-vsplit-window-right t)
   )
 
-(global-set-key "\C-g" 'evil-normal-state)
-;; メインはUSキーボードなので ; と : を入れ替える
-(define-key evil-normal-state-map (kbd ";") 'evil-ex)
-(define-key evil-normal-state-map (kbd ":") 'evil-repeat-find-char)
 (define-key evil-visual-state-map (kbd "C-r") `counsel-M-x)
 
 (use-package key-chord
