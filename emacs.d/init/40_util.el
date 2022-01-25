@@ -1,4 +1,5 @@
 (use-package avy
+  :defer t
   :custom
   (avy-background t)
   (avy-all-windows t)
@@ -9,6 +10,7 @@
   (avy-lead-face-2 ((t (:foreground "blue" :background "#282a36")))))
 
 (use-package ace-window
+  :defer t
   :custom
   (aw-keys '(?j ?k ?l ?i ?o ?h ?y ?u ?p))
   (aw-dispatch-always t)
@@ -44,22 +46,6 @@
                    '(("g" counsel-git "Open Git")
                      ("m" counsel-ghq--open-magit "Open Maigt"))))
 
-;(use-package ivy-posframe
-  ;:diminish ivy-posframe-mode
-  ;:custom-face
-  ;(ivy-posframe-border ((t (:background "CornflowerBlue"))))
-  ;(ivy-posframe ((t (:background "#232533"))))
-  ;:custom
-  ;(ivy-posframe-display-functions-alist
-   ;'((swiper . ivy-posframe-display-at-window-bottom-left)
-     ;(counsel-rg . ivy-posframe-display-at-frame-bottom-window-center)
-     ;(t . ivy-posframe-display-at-frame-top-center)
-     ;))
-  ;(ivy-posframe-mode 1)
-  ;(ivy-posframe-parameters
-   ;'((left-fringe . 8)
-     ;(right-fringe . 8))))
-
 (use-package all-the-icons-ivy
   :config
   (all-the-icons-ivy-setup))
@@ -90,20 +76,6 @@
   :bind
   (:map evil-normal-state-map
         ("C-;" . avy-migemo-goto-char-timer)))
-
-(use-package beacon
-  :defer t
-  :diminish beacon-mode
-  :custom
-  (beacon-size 30)
-  (beacon-color 0.2)
-  (beacon-blink-delay 0.1)
-  (beacon-blink-when-focused t)
-  :bind
-  (:map evil-normal-state-map
-        ("ga" . beacon-blink)))
-(use-package sudo-edit
-  :defer t)
 
 (use-package neotree
   :defer t

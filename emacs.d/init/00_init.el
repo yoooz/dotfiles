@@ -33,36 +33,16 @@
   :hook(prog-mode . rainbow-mode)
   :diminish rainbow-mode)
 
-;; howm
-(use-package howm
-  :custom
-  (howm-file-name-format "%Y/%m/%Y_%m_%d.txt")
-  (howm-menu-lang 'ja)
-  (howm-keyword-case-fold-search t)
-  :init
-  (setq howm-keyword-file "~/howm/.howm-keys")
-  (setq action-lock-no-browser t)
-  (defvar howm-view-title-header "# ")
-  (defvar datetime-format "%Y-%m-%dT%H:%M:%S")
-  (setq howm-template-date-format
-        (concat "[" datetime-format "]"))
-  )
-
 (use-package auto-save-buffers-enhanced
   :config
   (setq auto-save-buffers-enhanced-interval 3)
   (auto-save-buffers-enhanced t)
   )
 
-(use-package org-trello
-  :defer t
-  :custom
-  (org-trello-files '("~/howm/trello.org")))
-
 (use-package open-junk-file
   :defer t
   :config
-  (setq open-junk-file-format "~/howm/junk/%Y/%m/%Y-%m%d-%H%M%S.md"))
+  (setq open-junk-file-format "~/.junk/%Y/%m/%Y-%m%d-%H%M%S.md"))
 
 (use-package snow
   :defer t
