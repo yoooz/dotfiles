@@ -19,6 +19,7 @@
   (evil-vsplit-window-right t)
   )
 
+(global-set-key "\C-g" 'evil-normal-state)
 (define-key evil-visual-state-map (kbd "C-r") `counsel-M-x)
 
 (use-package key-chord
