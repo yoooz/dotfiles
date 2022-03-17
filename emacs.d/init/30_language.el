@@ -24,8 +24,14 @@
   :config
   (dap-mode 1)
   (dap-auto-configure-mode 1)
+  (dap-ui-mode 1)
+  (dap-tooltip-mode 1)
+  (tooltip-mode 1)
+  (dap-ui-controls-mode 1)
   (require 'dap-hydra)
   (require 'dap-go)
+  (add-hook 'dap-stopped-hook
+            (lambda (arg) (call-interactively #'dap-hydra)))
   :custom
   (dap-auto-configure-features '(sessions locals breakpoints expressions repl controls tooltip))
   (dap-go-debug-path "~/ghq/github.com/golang/vscode-go")
@@ -168,3 +174,23 @@
   :defer t
   :config
   (add-hook 'go-mode-hook #'lsp))
+
+(use-package dart-mode
+  :defer t
+  :config
+  (add-hook 'dart-mode-hook #'lsp)
+  :custom
+  (dart-sdk-path (concat (getenv "HOME") "/bin/flutter/bin/cache/dart-sdk/")
+                 dart-format-on-save t))
+
+(use-package lsp-dart
+  :defer t)
+
+(use-package hover
+  :after dart-mode
+  :defer t
+  :init
+  (setq hover-hot-reload-on-save t
+        hover-screenshot-path (concat (getenv "HOME") "/Pictures"))
+  (hover-minor-mode 1)
+  )

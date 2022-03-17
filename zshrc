@@ -81,6 +81,7 @@ setopt pushd_ignore_dups
 # path
 export PATH=${HOME}/Library/Android/sdk/platform-tools:$PATH
 export PATH=${HOME}/Library/Android/sdk/tools:$PATH
+export PATH=${HOME}/bin/flutter/bin:$PATH
 alias pidcat='pidcat --always-display-tags'
 
 eval "$(anyenv init - zsh)"
