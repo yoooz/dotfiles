@@ -20,6 +20,7 @@
   )
 
 (define-key evil-visual-state-map (kbd "C-r") `counsel-M-x)
+(define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
 
 (use-package key-chord
   :commands (key-chord-mode)
