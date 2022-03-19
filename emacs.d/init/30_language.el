@@ -79,6 +79,9 @@
   ;(lsp-ui-doc-background ((t (:background "#282a36"))))
   :hook (lsp-mode . lsp-ui-mode))
 
+(use-package lsp-treemacs
+  :defer t)
+
 (use-package company-box
   :defer t
   :hook (company-mode . company-box-mode))
