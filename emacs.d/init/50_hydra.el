@@ -35,7 +35,7 @@
   _s_witch    _k_ill
   _p_revious  _n_ext
 "
-  ("s" counsel-switch-buffer :exit t)
+  ("s" ivy-switch-buffer :exit t)
   ("k" kill-buffer :exit t)
   ("p" iflipb-previous-buffer)
   ("n" iflipb-next-buffer))

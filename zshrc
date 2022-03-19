@@ -88,6 +88,7 @@ eval "$(anyenv init - zsh)"
 export PATH=/opt/maven/bin:${HOME}/bin:$PATH
 export PATH=${HOME}/.anyenv/bin:$PATH
 export PATH=${GOPATH}/bin:$PATH
+export PATH=${HOME}/.cargo/bin:$PATH
 
 # pyenv
 export PYENV_ROOT="$(anyenv root)/envs/pyenv"

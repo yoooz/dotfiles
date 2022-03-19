@@ -19,6 +19,7 @@
   (evil-vsplit-window-right t)
   )
 
+(global-set-key "\C-g" 'evil-normal-state)
 (define-key evil-visual-state-map (kbd "C-r") `counsel-M-x)
 (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
 
