@@ -111,29 +111,6 @@
 
 (defalias 'evil-window-map 'hydra-window/body)
 
-(defhydra hydra-trello
-  (:exit t :hint nil)
-  "
-    Trello
-----------------------------------------
-    _o_pen trello buffer
-    _i_nstall board meta data
-    _d_ownload from trello
-    _u_pdate to trello
-    _s_ync card
-    _a_dd comment
-    _j_ump to board
-----------------------------------------
-
-"
-  ("o" (find-file "~/howm/trello.org"))
-  ("i" org-trello-install-board-metadata)
-  ("d" (org-trello-sync-buffer "o"))
-  ("u" org-trello-sync-buffer)
-  ("s" org-trello-sync-card)
-  ("a" org-trello-add-card-comment)
-  ("j" org-trello-jump-to-trello-board))
-
 ;; hydra global menu
 (defhydra hydra-global-menu
   (:exit t :hint nil)
@@ -142,13 +119,14 @@ hydra
 -----------------------------------
 _a_lpha _b_uffer _c_ounsel _f_old
 _g_it   _h_owm   _r_evert  _s_udo
-e_v_al   M-_x_   _j_unk    _n_eotree
+e_v_al  M-_x_    _j_unk    _n_eotree
 t_l_lero       max_i_mize
-_w_hich
+_w_hich _d_ap
 "
   ("a" set-alpha)
   ("b" hydra-buffer/body)
   ("c" hydra-counsel/body)
+  ("d" dap-hydra/body)
   ("f" hs-toggle-hiding)
   ("g" hydra-git/body)
   ("h" hydra-howm/body)
