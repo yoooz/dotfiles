@@ -1,6 +1,6 @@
 (use-package dashboard
   :config
-  (setq dashboard-items '((recents . 15) ))
+  (setq dashboard-items '((recents . 30) ))
   (setq dashboard-startup-banner "~/dotfiles/emacs.d/swiper2.png")
   (dashboard-setup-startup-hook))
 
