@@ -2,6 +2,7 @@
   :config
   (setq dashboard-items '((recents . 30) ))
   (setq dashboard-startup-banner "~/dotfiles/emacs.d/swiper2.png")
+  (setq dashboard-center-content t)
   (dashboard-setup-startup-hook))
 
 (use-package doom-themes
@@ -63,3 +64,5 @@
    ("M-O" . iflipb-previous-buffer))
   :custom
   (iflipb-wrap-around t))
+
+(tab-bar-mode 1)

@@ -35,36 +35,3 @@
   :ensure t
   :config
   (evil-goggles-mode))
-
-(use-package elscreen
-  :config
-  (elscreen-start)
-  :custom
-  (elscreen-tab-display-kill-screen nil)
-  :custom-face
-  (elscreen-tab-current-screen-face ((t (:background "#57c7ff" :foreground "white"))))
-  (elscreen-tab-other-screen-face ((t (:background "#282a36" :foreground "white"))))
-  :bind
-  (:map evil-normal-state-map
-        ("gt" . elscreen-next)
-        ("gT" . elscreen-previous))
-  )
-
-(use-package elscreen-tab
-  :config
-  (elscreen-tab-mode)
-  (elscreen-tab-set-position 'top))
-
-(evil-define-command evil-tab-sensitive-quit (&optional bang)
-  :repeat nil
-  (interactive "<!>")
-  (if (> (length (elscreen-get-screen-list)) 1)
-    (elscreen-kill)
-    (evil-quit bang)))
-
-(evil-ex-define-cmd "q[uit]" 'evil-tab-sensitive-quit)
-(evil-ex-define-cmd "tabnew" 'elscreen-create)
-(evil-ex-define-cmd "tabclone" 'elscreen-clone)
-(evil-ex-define-cmd "tabg[o]" 'elscreen-goto)
-(evil-ex-define-cmd "tabn[ext]" 'elscreen-next)
-(evil-ex-define-cmd "tabp[revious]" 'elscreen-previous)

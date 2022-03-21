@@ -81,3 +81,14 @@
 
 (use-package restclient
   :defer t)
+
+(defun advice-completing-read-to-ivy (orig-func &rest args)
+  (interactive
+   (let* ((recent-tabs (mapcar (lambda (tab)
+                                 (alist-get 'name tab))
+                               (tab-bar--tabs-recent))))
+     (list (ivy-completing-read "Switch to tab by name (default recent): "
+                                recent-tabs nil nil nil nil recent-tabs))))
+  (apply orig-func args))
+(advice-add #'tab-bar-switch-to-tab :around #'advice-completing-read-to-ivy)
+(advice-add #'tab-bar-close-tab-by-name :around #'advice-completing-read-to-ivy)

@@ -119,7 +119,7 @@ hydra
 -----------------------------------
 _a_lpha _b_uffer _c_ounsel _f_old
 _g_it   _h_owm   _r_evert  _s_udo
-e_v_al  M-_x_    _j_unk    
+e_v_al  M-_x_    _j_unk    _t_ab   
 max_i_mize
 _w_hich _d_ap
 "
@@ -136,7 +136,8 @@ _w_hich _d_ap
   ("x" (counsel-M-x ""))
   ("j" open-junk-file)
   ("i" toggle-frame-maximized)
-  ("w" which-key-mode))
+  ("w" which-key-mode)
+  ("t" tab-bar-switch-to-tab))
 
 (define-key evil-normal-state-map (kbd "SPC") 'hydra-global-menu/body)
 (define-key evil-visual-state-map (kbd "SPC") 'hydra-global-menu/body)
