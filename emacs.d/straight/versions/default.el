@@ -22,7 +22,6 @@
  ("elscreen-tab" . "5d7a740e47a56365413d75f4f0553de74f5ca198")
  ("emacs-dashboard" . "d40ceaff2d26f7213eb21f6a39e58c72642ad737")
  ("emacs-gradle-mode" . "e4d665d5784ecda7ddfba015f07c69be3cfc45f2")
- ("emacs-neotree" . "98fe21334affaffe2334bf7c987edaf1980d2d0b")
  ("emacs-which-key" . "1217db8c6356659e67b35dedd9f5f260c06f6e99")
  ("emacsmirror-mirror" . "36fe4252fdd52afcf1a805ebdc6474843012666a")
  ("evil" . "3e41a823334abbba9cf16e482855699054d9dfe0")

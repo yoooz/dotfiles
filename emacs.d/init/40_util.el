@@ -77,24 +77,6 @@
   (:map evil-normal-state-map
         ("C-;" . avy-migemo-goto-char-timer)))
 
-(use-package neotree
-  :defer t
-  :custom
-  (neo-smart-open t)
-  (neo-create-file-auto-open t)
-  (neo-theme 'icons)
-  (neo-autorefresh t)
-  (neo-hide-cursor t)
-  :config
-  (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
-  (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
-  (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
-  (evil-define-key 'normal neotree-mode-map (kbd "g") 'neotree-refresh)
-  (evil-define-key 'normal neotree-mode-map (kbd "n") 'neotree-next-line)
-  (evil-define-key 'normal neotree-mode-map (kbd "p") 'neotree-previous-line)
-  (evil-define-key 'normal neotree-mode-map (kbd "A") 'neotree-stretch-toggle)
-  (evil-define-key 'normal neotree-mode-map (kbd "H") 'neotree-hidden-file-toggle))
-
 (use-package projectile)
 
 (use-package restclient

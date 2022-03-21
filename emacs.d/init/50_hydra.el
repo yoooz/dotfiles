@@ -119,8 +119,8 @@ hydra
 -----------------------------------
 _a_lpha _b_uffer _c_ounsel _f_old
 _g_it   _h_owm   _r_evert  _s_udo
-e_v_al  M-_x_    _j_unk    _n_eotree
-t_l_lero       max_i_mize
+e_v_al  M-_x_    _j_unk    
+max_i_mize
 _w_hich _d_ap
 "
   ("a" set-alpha)
@@ -135,8 +135,6 @@ _w_hich _d_ap
   ("v" eval-buffer)
   ("x" (counsel-M-x ""))
   ("j" open-junk-file)
-  ("n" neotree-toggle)
-  ("l" hydra-trello/body)
   ("i" toggle-frame-maximized)
   ("w" which-key-mode))
 
