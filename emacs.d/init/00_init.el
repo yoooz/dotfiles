@@ -58,7 +58,7 @@
 (use-package iflipb
   :defer t
   :config
-  (setq iflibp-ignore-buffers (list "^[*]" "^magit"))
+  (setq iflibp-ignore-buffers (list "^[*]"))
   :bind
   (("M-o" . iflipb-next-buffer)
    ("M-O" . iflipb-previous-buffer))

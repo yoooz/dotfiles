@@ -16,11 +16,9 @@
   "
   Git
 ----------------------
-  ma_g_it
   _n_ext      _p_revious
   _s_tage     _r_evert   p_o_pup
 "
-  ("g" magit-status :exit t)
   ("s" git-gutter:stage-hunk)
   ("p" git-gutter:previous-hunk)
   ("n" git-gutter:next-hunk)
@@ -141,6 +139,3 @@ _w_hich _d_ap
 
 (define-key evil-normal-state-map (kbd "SPC") 'hydra-global-menu/body)
 (define-key evil-visual-state-map (kbd "SPC") 'hydra-global-menu/body)
-(eval-after-load 'magit
-  '(progn
-     (define-key magit-mode-map (kbd "SPC") 'hydra-global-menu/body)))

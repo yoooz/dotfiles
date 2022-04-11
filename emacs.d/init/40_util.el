@@ -40,11 +40,7 @@
    ("C-x C-f" . counsel-find-file)))
 
 (use-package counsel-ghq
-  :straight (counsel-ghq :type git :host github :repo "yoooz/counsel-ghq")
-  :config
-  (ivy-set-actions 'counsel-ghq
-                   '(("g" counsel-git "Open Git")
-                     ("m" counsel-ghq--open-magit "Open Maigt"))))
+  :straight (counsel-ghq :type git :host github :repo "yoooz/counsel-ghq"))
 
 (use-package all-the-icons-ivy
   :config
