@@ -97,6 +97,10 @@ eval "$(pyenv init --path)"
 export JAVA_HOME=`jenv javahome`
 export GO111MODULE=on
 
+# volta
+export VOLTA_HOME=${HOME}/.volta
+export PATH=${VOLTA_HOME}/bin:${PATH}
+
 # alias
 alias ls='ls -GF'
 alias ll='exa -l'
