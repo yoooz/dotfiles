@@ -85,7 +85,8 @@ export PATH=${HOME}/bin/flutter/bin:$PATH
 alias pidcat='pidcat --always-display-tags'
 
 eval "$(anyenv init - zsh)"
-export PATH=/opt/maven/bin:${HOME}/bin:$PATH
+#export PATH=/opt/maven/bin:${HOME}/bin:$PATH
+export PATH=${HOME}/bin/apache-maven-3.8.1/bin:$PATH
 export PATH=${HOME}/.anyenv/bin:$PATH
 export PATH=${GOPATH}/bin:$PATH
 export PATH=${HOME}/.cargo/bin:$PATH
@@ -94,12 +95,17 @@ export PATH=${HOME}/.cargo/bin:$PATH
 export PYENV_ROOT="$(anyenv root)/envs/pyenv"
 eval "$(pyenv init --path)"
 
-export JAVA_HOME=`jenv javahome`
 export GO111MODULE=on
 
 # volta
 export VOLTA_HOME=${HOME}/.volta
 export PATH=${VOLTA_HOME}/bin:${PATH}
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+export JAVA_HOME=$(sdk home java current)
 
 # alias
 alias ls='ls -GF'
@@ -160,3 +166,4 @@ function precmd() {
 
 # if integrations not installed, this script failure exit
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
