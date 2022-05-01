@@ -3,35 +3,23 @@
 (use-package hydra-posframe
   :straight (hydra-posframe :type git :host github :repo "Ladicle/hydra-posframe")
   :hook (after-init . hydra-posframe-mode)
-  :custom-face
-  (hydra-posframe-border-face ((t (:background "CornflowerBlue"))))
-  (hydra-posframe-face ((t (:background "SteelBlue4"))))
   :custom
   (hydra-posframe-poshandler 'posframe-poshandler-frame-center)
-  (hydra-posframe-border-width 10)
+  (hydra-posframe-border-width 2)
+  (custom-set-faces
+   `(hydra-posframe-border-face ((t (:background ,(doom-color 'bg)))))
+   `(hydra-posframe-face ((t (:background "black"))))
+   )
   )
-
-(defhydra hydra-git
-  (:hint nil)
-  "
-  Git
-----------------------
-  _n_ext      _p_revious
-  _s_tage     _r_evert   p_o_pup
-"
-  ("s" git-gutter:stage-hunk)
-  ("p" git-gutter:previous-hunk)
-  ("n" git-gutter:next-hunk)
-  ("r" git-gutter:revert-hunk)
-  ("o" git-gutter:popup-hunk))
 
 (defhydra hydra-buffer
   (:hint nil)
   "
-  Buffer
-----------------------
-  _s_witch    _k_ill
-  _p_revious  _n_ext
+
+   Buffer
+ ---------------------- 
+   _s_witch    _k_ill
+   _p_revious  _n_ext
 "
   ("s" ivy-switch-buffer :exit t)
   ("k" kill-buffer :exit t)
@@ -41,11 +29,12 @@
 (defhydra hydra-counsel
   (:exit t :hint nil)
   "
-  Counsel
-----------------------------
-  _f_ind-file    _s_wiper
-  _g_it          g_h_q
-  _r_ipgrep      re_c_entf
+
+   Counsel
+ ---------------------------- 
+   _f_ind-file    _s_wiper
+   _g_it          g_h_q
+   _r_ipgrep      re_c_entf
 "
   ("f" counsel-find-file)
   ("s" swiper)
@@ -54,38 +43,21 @@
   ("r" counsel-rg)
   ("c" counsel-recentf))
 
-(defhydra hydra-howm
-  (:exit t :hint nil)
-  "
-  Howm
----------------------------
-  _r_emember    _c_reate
-  _l_ist-all    _y_esterday
-  _t_oday       _m_enu
-  howm-insert-_d_ate
-"
-  ("r" howm-remember)
-  ("c" howm-create)
-  ("l" howm-list-all)
-  ("y" howm-find-yesterday)
-  ("t" howm-find-today)
-  ("m" howm-menu)
-  ("d" howm-insert-date))
-
 (defhydra hydra-window
   (:hint nil)
   "
-    Select    Zoom    Split    Frame
-----------------------------------------
-      k       _i_n        -         K
-      ↑        ↑        ↑         ↑
-  h ←   → l                   H ←   → L
-      ↓        ↓        ↓         ↓
-      j       _o_ut       /         J
-----------------------------------------
-   _s_elect    _a_djust           _z_oom-mode
-   _d_elete                     _=_balance
-   s_w_ap
+
+     Select    Zoom    Split    Frame
+ ---------------------------------------- 
+       k       _i_n        -         K
+       ↑        ↑        ↑         ↑
+   h ←   → l                   H ←   → L
+       ↓        ↓        ↓         ↓
+       j       _o_ut       /         J
+ ----------------------------------------
+    _s_elect    _a_djust         
+    _d_elete                     _=_balance
+    s_w_ap
 "
   ("K" evil-window-increase-height)
   ("J" evil-window-decrease-height)
@@ -103,7 +75,6 @@
   ("w" ace-swap-window    :exit t)
   ("-" evil-window-split  :exit t)
   ("/" evil-window-vsplit :exit t)
-  ("z" zoom-mode          :exit t)
   ("=" balance-windows    :exit t)
   )
 
@@ -113,23 +84,20 @@
 (defhydra hydra-global-menu
   (:exit t :hint nil)
   "
-hydra
------------------------------------
-_a_lpha _b_uffer _c_ounsel _f_old
-_g_it   _h_owm   _r_evert  _s_udo
-e_v_al  M-_x_    _j_unk    _t_ab   
-max_i_mize
-_w_hich _d_ap
+
+ hydra
+ ----------------------------------- 
+ _a_lpha _b_uffer _c_ounsel
+ _r_evert 
+ e_v_al  M-_x_    _j_unk    _t_ab   
+ max_i_mize
+ _w_hich _d_ap
 "
   ("a" set-alpha)
   ("b" hydra-buffer/body)
   ("c" hydra-counsel/body)
   ("d" dap-hydra/body)
-  ("f" hs-toggle-hiding)
-  ("g" hydra-git/body)
-  ("h" hydra-howm/body)
   ("r" (revert-buffer t t))
-  ("s" sudo-edit)
   ("v" eval-buffer)
   ("x" (counsel-M-x ""))
   ("j" open-junk-file)
