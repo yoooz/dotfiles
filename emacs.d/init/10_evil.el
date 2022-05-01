@@ -3,22 +3,22 @@
   (global-undo-tree-mode t))
 
 (use-package evil
-  :custom
-  (evil-disable-insert-state-bindings t)
-  :config
+  :init
   (setq evil-cross-lines t)
   (setq evil-search-module 'isearch)
-  (evil-mode 1)
   (setq evil-want-fine-undo t)
   (setq evil-esc-delay 0)
   (setq evil-insert-state-cursor (let ((color (doom-color 'red))) (list color 'bar)))
   (setq evil-normal-state-cursor (let ((color (doom-color 'green))) (list color 'box)))
+  (setq evil-disable-insert-state-bindings t)
+  :config
   (evil-set-undo-system 'undo-tree)
+  (evil-mode)
   :custom
-  (evil-split-window-below t)
+  (evil-splitt-window-below t)
   (evil-vsplit-window-right t)
-  (evil-toggle-key . nil)
   )
+
 
 (global-set-key "\C-g" 'evil-normal-state)
 (define-key evil-visual-state-map (kbd "C-r") `counsel-M-x)
