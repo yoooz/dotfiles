@@ -65,4 +65,13 @@
   :custom
   (iflipb-wrap-around t))
 
+(use-package tab-bar
+  :custom
+  ((tab-bar-close-button-show . nil)
+   (tab-bar-new-button-show . nil)
+   (tab-bar-new-tab-choice '"*dashboard*")
+   (tab-bar-tab-name-function #'tab-bar-tab-name-truncated)
+   )
+  )
+
 (tab-bar-mode 1)

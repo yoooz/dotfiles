@@ -35,3 +35,13 @@
   :ensure t
   :config
   (evil-goggles-mode))
+
+(evil-define-command evil-tab-sensitive-quit (&optional bang)
+  :repeat nil
+  (interactive "<!>")
+  (if (> (length (tab-bar-tabs)) 1)
+      (tab-bar-close-tab)
+    (evil-quit bang)))
+
+(evil-ex-define-cmd "q[uit]" 'evil-tab-sensitive-quit)
+(evil-ex-define-cmd "tabnew" 'tab-bar-new-tab)
