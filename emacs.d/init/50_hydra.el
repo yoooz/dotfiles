@@ -12,98 +12,57 @@
    )
   )
 
-(defhydra hydra-buffer
-  (:hint nil)
-  "
-
-   Buffer
- ---------------------- 
-   _s_witch    _k_ill
-   _p_revious  _n_ext
-"
-  ("s" ivy-switch-buffer :exit t)
-  ("k" kill-buffer :exit t)
-  ("p" iflipb-previous-buffer)
-  ("n" iflipb-next-buffer))
-
-(defhydra hydra-counsel
-  (:exit t :hint nil)
-  "
-
-   Counsel
- ---------------------------- 
-   _f_ind-file    _s_wiper
-   _g_it          g_h_q
-   _r_ipgrep      re_c_entf
-"
-  ("f" counsel-find-file)
-  ("s" swiper)
-  ("g" counsel-git)
-  ("h" counsel-ghq)
-  ("r" counsel-rg)
-  ("c" counsel-recentf))
-
-(defhydra hydra-window
-  (:hint nil)
-  "
-
-     Select    Zoom    Split    Frame
- ---------------------------------------- 
-       k       _i_n        -         K
-       ↑        ↑        ↑         ↑
-   h ←   → l                   H ←   → L
-       ↓        ↓        ↓         ↓
-       j       _o_ut       /         J
- ----------------------------------------
-    _s_elect    _a_djust         
-    _d_elete                     _=_balance
-    s_w_ap
-"
-  ("K" evil-window-increase-height)
-  ("J" evil-window-decrease-height)
-  ("H" evil-window-decrease-width)
-  ("L" evil-window-increase-width)
-  ("k" evil-window-up     :exit t)
-  ("j" evil-window-down   :exit t)
-  ("h" evil-window-left   :exit t)
-  ("l" evil-window-right  :exit t)
-  ("i" text-scale-increase)
-  ("o" text-scale-decrease)
-  ("a" (text-scale-adjust 0))
-  ("s" ace-select-window  :exit t)
-  ("d" ace-delete-window  :exit t)
-  ("w" ace-swap-window    :exit t)
-  ("-" evil-window-split  :exit t)
-  ("/" evil-window-vsplit :exit t)
-  ("=" balance-windows    :exit t)
-  )
-
-(defalias 'evil-window-map 'hydra-window/body)
-
-;; hydra global menu
 (defhydra hydra-global-menu
-  (:exit t :hint nil)
+  (:hint nil)
   "
 
- hydra
- ----------------------------------- 
- _a_lpha _b_uffer _c_ounsel
- _r_evert 
- e_v_al  M-_x_    _j_unk    _t_ab   
- max_i_mize
- _w_hich _d_ap
+   Size     Zoom      Frame          Counsel             Other
+ ------------------------------------------------------------------------- 
+     _k_        _z_      [_i_] select    [_b_] switch buffer    [_A_] alpha
+     ↑        ↑      [_d_] delete    [_K_] kill buffer      [_w_] which key
+  _h_ ← → _l_            [_s_] swap      [_f_] find file        [_J_] junk file
+     ↓        ↓      [_m_] maximize  [_r_] find repository  [_v_] eval buffer
+     _j_        _x_                    [_g_] search file      [_V_] revert buffer
+                                   [_c_] recent file
+  [_F_] fit [_a_] adjust               [_R_] ripgrep
+                                   [_e_] M-x
+ ------------------------------------------------------------------------- 
+                        [_q_] quit  [_<SPC>_] rotate
 "
-  ("a" set-alpha)
-  ("b" hydra-buffer/body)
-  ("c" hydra-counsel/body)
-  ("d" dap-hydra/body)
-  ("r" (revert-buffer t t))
-  ("v" eval-buffer)
-  ("x" (counsel-M-x ""))
-  ("j" open-junk-file)
-  ("i" toggle-frame-maximized)
-  ("w" which-key-mode)
-  ("t" tab-bar-switch-to-tab))
+  ;size
+  ("k" evil-window-increase-height :color pink)
+  ("j" evil-window-decrease-height :color pink)
+  ("h" evil-window-decrease-width :color pink)
+  ("l" evil-window-increase-width :color pink)
+  ("F" balance-windows :exit t :color blue)
+  ;zoom
+  ("z" text-scale-increase :color pink)
+  ("x" text-scale-decrease :color pink)
+  ("a" (text-scale-adjust 0) :exit t :color blue)
+  ;Frame
+  ("i" ace-select-window :exit t :color blue)
+  ("d" ace-delete-window :exit t :color blue)
+  ("s" ase-swap-window :exit t :color blue)
+  ("m" toggle-frame-maximized :exit t :color blue)
+  ;counsel
+  ("b" ivy-switch-buffer :exit t :color blue)
+  ("K" kill-buffer :exit t :color blue)
+  ("f" counsel-find-file :exit t :color blue)
+  ("r" counsel-ghq :exit t :color blue)
+  ("g" counsel-git :exit t :color blue)
+  ("c" counsel-recentf :exit t :color blue)
+  ("R" counsel-rg :exit t :color blue)
+  ("e" (counsel-M-x "") :exit t :color blue)
+  ;other
+  ("A" set-alpha :exit t :color blue)
+  ("w" which-key-mode :exit t :color blue)
+  ("J" open-junk-file :exit t :color blue)
+  ("v" eval-buffer :exit t :color blue)
+  ("V" (revert-buffer t t) :exit t :color blue)
+
+  ("q" () :exit t :color blue)
+  ("<SPC>" evil-window-rotate-upwards :color pink)
+  )
 
 (define-key evil-normal-state-map (kbd "SPC") 'hydra-global-menu/body)
 (define-key evil-visual-state-map (kbd "SPC") 'hydra-global-menu/body)
