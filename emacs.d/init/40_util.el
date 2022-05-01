@@ -34,6 +34,24 @@
   :bind
   (("C-s" . swiper)))
 
+(use-package ivy-posframe
+  :config
+  (setq ivy-posframe-display-functions-alist
+        '((counsel-M-x . ivy-posframe-display-at-window-center)
+          (counsel-ghq . ivy-posframe-display-at-window-center)
+          (t . ivy-posframe-display-at-frame-bottom-center)))
+  (setq ivy-posframe-parameters
+        '((left-fringe . 8)
+          (right-fringe . 8)
+          (border-width . 8)
+          ))
+  (ivy-posframe-mode 1)
+  :custom
+  (custom-set-faces
+   `(ivy-posframe-border ((t (:background ,(doom-color 'bg)))))
+   `(ivy-posframe ((t (:background "black"))))
+   ))
+
 (use-package counsel
   :bind
   (("C-r" . counsel-M-x)
