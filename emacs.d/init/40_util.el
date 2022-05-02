@@ -37,9 +37,7 @@
 (use-package ivy-posframe
   :config
   (setq ivy-posframe-display-functions-alist
-        '((counsel-M-x . ivy-posframe-display-at-window-center)
-          (counsel-ghq . ivy-posframe-display-at-window-center)
-          (t . ivy-posframe-display-at-frame-bottom-center)))
+        '((t . ivy-posframe-display-at-window-center)))
   (setq ivy-posframe-parameters
         '((left-fringe . 8)
           (right-fringe . 8)
