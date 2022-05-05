@@ -37,17 +37,12 @@
 (use-package auto-save-buffers-enhanced
   :config
   (setq auto-save-buffers-enhanced-interval 3)
-  (auto-save-buffers-enhanced t)
-  )
+  (auto-save-buffers-enhanced t))
 
 (use-package open-junk-file
   :defer t
   :config
   (setq open-junk-file-format "~/.junk/%Y/%m/%Y-%m%d-%H%M%S.md"))
-
-(use-package snow
-  :defer t
-  :straight (snow :type git :host github :repo "alphapapa/snow.el"))
 
 (use-package tempbuf
   :defer t
@@ -55,23 +50,11 @@
   (add-hook 'findfile-hooks 'turn-on-tempbuf-mode)
   (add-hook 'dired-mode-hook 'turn-on-tempbuf-mode))
 
-(use-package iflipb
-  :defer t
-  :config
-  (setq iflibp-ignore-buffers (list "^[*]"))
-  :bind
-  (("M-o" . iflipb-next-buffer)
-   ("M-O" . iflipb-previous-buffer))
-  :custom
-  (iflipb-wrap-around t))
-
 (use-package tab-bar
   :custom
   ((tab-bar-close-button-show . nil)
    (tab-bar-new-button-show . nil)
    (tab-bar-new-tab-choice '"*dashboard*")
-   (tab-bar-tab-name-function #'tab-bar-tab-name-truncated)
-   )
-  )
+   (tab-bar-tab-name-function #'tab-bar-tab-name-truncated)))
 
 (tab-bar-mode 1)

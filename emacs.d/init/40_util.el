@@ -37,18 +37,16 @@
 (use-package ivy-posframe
   :config
   (setq ivy-posframe-display-functions-alist
-        '((t . ivy-posframe-display-at-window-center)))
+        '((t . ivy-posframe-display-at-frame-center)))
   (setq ivy-posframe-parameters
         '((left-fringe . 8)
           (right-fringe . 8)
-          (border-width . 8)
-          ))
+          (border-width . 8)))
   (ivy-posframe-mode 1)
   :custom
   (custom-set-faces
    `(ivy-posframe-border ((t (:background ,(doom-color 'bg)))))
-   `(ivy-posframe ((t (:background "black"))))
-   ))
+   `(ivy-posframe ((t (:background "black"))))))
 
 (use-package counsel
   :bind
@@ -71,26 +69,6 @@
 (use-package ivy-rich
   :config
   (ivy-rich-mode t))
-
-(use-package migemo
-  :custom
-  (migemo-command "cmigemo")
-  (migemo-options '("-q" "--emacs"))
-  ;; Set your installed path
-  (migemo-dictionary "/usr/local/share/migemo/utf-8/migemo-dict")
-  (migemo-user-dictionary nil)
-  (migemo-regex-dictionary nil)
-  (migemo-coding-system 'utf-8-unix)
-  :config
-  (migemo-init))
-
-(use-package avy-migemo
-  :defer t
-  :config
-  (avy-migemo-mode t)
-  :bind
-  (:map evil-normal-state-map
-        ("C-;" . avy-migemo-goto-char-timer)))
 
 (use-package projectile)
 

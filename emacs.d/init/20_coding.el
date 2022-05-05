@@ -5,8 +5,7 @@
   :custom
   (indent-guide-recursive t)
   :custom-face
-  (indent-guide-face ((t (:foreground "#b0e0e6" :slant normal))))
-  )
+  (indent-guide-face ((t (:foreground "#b0e0e6" :slant normal)))))
 
 (use-package magit
   :defer t
@@ -41,5 +40,4 @@
   :straight (which-key :type git :host github :repo "justbur/emacs-which-key")
   :diminish which-key-mode
   :custom
-  (which-key-idle-delay 0.5)
-)
+  (which-key-idle-delay 0.5))

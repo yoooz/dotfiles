@@ -16,8 +16,7 @@
   (evil-mode)
   :custom
   (evil-splitt-window-below t)
-  (evil-vsplit-window-right t)
-  )
+  (evil-vsplit-window-right t))
 
 
 (global-set-key "\C-g" 'evil-normal-state)

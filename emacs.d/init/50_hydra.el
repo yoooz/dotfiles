@@ -8,9 +8,7 @@
   (hydra-posframe-border-width 2)
   (custom-set-faces
    `(hydra-posframe-border-face ((t (:background ,(doom-color 'bg)))))
-   `(hydra-posframe-face ((t (:background "black"))))
-   )
-  )
+   `(hydra-posframe-face ((t (:background "black"))))))
 
 (defhydra hydra-global-menu
   (:hint nil)
@@ -61,8 +59,7 @@
   ("V" (revert-buffer t t) :exit t :color blue)
 
   ("q" () :exit t :color blue)
-  ("<SPC>" evil-window-rotate-upwards :color pink)
-  )
+  ("<SPC>" evil-window-rotate-upwards :color pink))
 
 (define-key evil-normal-state-map (kbd "SPC") 'hydra-global-menu/body)
 (define-key evil-visual-state-map (kbd "SPC") 'hydra-global-menu/body)

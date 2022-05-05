@@ -15,8 +15,7 @@
 (use-package lsp-mode
   :defer t
   :custom
-  (lsp-auto-guess-root t)
-  )
+  (lsp-auto-guess-root t))
 
 (use-package dap-mode
   :defer t
@@ -35,8 +34,7 @@
   :custom
   (dap-auto-configure-features '(sessions locals breakpoints expressions repl controls tooltip))
   (dap-go-debug-path "~/ghq/github.com/golang/vscode-go")
-  (dap-go-debug-program `("node", (f-join dap-go-debug-path "dist/debugAdapter.js")))
-  )
+  (dap-go-debug-program `("node", (f-join dap-go-debug-path "dist/debugAdapter.js"))))
 
 (use-package lsp-ui
   :defer t
@@ -115,21 +113,25 @@
   :defer t)
 
 (use-package blacken
-  :ensure t
-  )
+  :ensure t)
 
 (use-package py-isort
   :ensure t)
 
 (add-to-list 'exec-path "~/.ghq/github.com/fwcd/kotlin-language-server/server/build/install/server/bin")
+
 (use-package kotlin-mode
   :defer t)
+
 (use-package gradle-mode
   :defer t)
+
 (use-package clojure-mode
   :defer t)
+
 (use-package groovy-mode
   :defer t)
+
 (use-package markdown-mode
   :defer
   :mode
@@ -144,8 +146,7 @@
 
 (use-package yaml-mode
   :defer t)
-(use-package swift-mode
-  :defer t)
+
 (use-package web-mode
   :defer t
   :mode
@@ -159,20 +160,23 @@
   (web-mode-code-indent-offset 2)
   (web-mode-part-padding 0)
   :config
-  (add-hook 'web-mode-hook #'lsp)
-  )
+  (add-hook 'web-mode-hook #'lsp))
+
 (use-package flymake-eslint
   :config
   (add-hook 'web-mode-hook
             (lambda ()
               (flymake-eslint-enable))))
+
 (use-package prettier
   :config
   (add-hook 'web-mode-hook
             (lambda ()
               (prettier-mode))))
+
 (use-package dockerfile-mode
   :defer t)
+
 (use-package go-mode
   :defer t
   :config
@@ -195,5 +199,4 @@
   :init
   (setq hover-hot-reload-on-save t
         hover-screenshot-path (concat (getenv "HOME") "/Pictures"))
-  (hover-minor-mode 1)
-  )
+  (hover-minor-mode 1))
