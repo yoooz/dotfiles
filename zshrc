@@ -48,7 +48,8 @@ bindkey -e
 umask 002
 
 export HISTFILE=${HOME}/.zsh_history
-export SAVEHIST=10000
+export HISTSIZE=1000
+export SAVEHIST=100000
 
 setopt inc_append_history
 setopt hist_ignore_dups
@@ -78,34 +79,35 @@ setopt auto_cd
 setopt auto_pushd
 setopt pushd_ignore_dups
 
-# path
-export PATH=${HOME}/Library/Android/sdk/platform-tools:$PATH
-export PATH=${HOME}/Library/Android/sdk/tools:$PATH
-export PATH=${HOME}/bin/flutter/bin:$PATH
-alias pidcat='pidcat --always-display-tags'
-
-eval "$(anyenv init - zsh)"
-#export PATH=/opt/maven/bin:${HOME}/bin:$PATH
-export PATH=${HOME}/bin/apache-maven-3.8.1/bin:$PATH
-export PATH=${HOME}/.anyenv/bin:$PATH
-export PATH=${GOPATH}/bin:$PATH
-export PATH=${HOME}/.cargo/bin:$PATH
-
-# pyenv
-export PYENV_ROOT="$(anyenv root)/envs/pyenv"
-eval "$(pyenv init --path)"
-
-export GO111MODULE=on
-
-# volta
-export VOLTA_HOME=${HOME}/.volta
-export PATH=${VOLTA_HOME}/bin:${PATH}
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-export JAVA_HOME=$(sdk home java current)
+if [[ -z $TMUX ]]; then
+    # path
+    export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+    export PATH=${HOME}/Library/Android/sdk/platform-tools:$PATH
+    export PATH=${HOME}/Library/Android/sdk/tools:$PATH
+    export PATH=${HOME}/bin/flutter/bin:$PATH
+    
+    eval "$(anyenv init - zsh)"
+    export PATH=${HOME}/bin/apache-maven-3.8.1/bin:$PATH
+    export PATH=${HOME}/.anyenv/bin:$PATH
+    export PATH=${GOPATH}/bin:$PATH
+    export PATH=${HOME}/.cargo/bin:$PATH
+    
+    # pyenv
+    export PYENV_ROOT="$(anyenv root)/envs/pyenv"
+    eval "$(pyenv init --path)"
+    
+    export GO111MODULE=on
+    
+    # volta
+    export VOLTA_HOME=${HOME}/.volta
+    export PATH=${VOLTA_HOME}/bin:${PATH}
+    
+    #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+    export SDKMAN_DIR="$HOME/.sdkman"
+    [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+    
+    export JAVA_HOME=$(sdk home java current)
+fi
 
 # alias
 alias ls='ls -GF'
@@ -131,6 +133,7 @@ alias fd='cd "$(find . -type d | peco)"'
 alias ff='find . -name "*${1}*" | grep -v "/\." | peco'
 alias vf='vim `ff`'
 alias tp='tmux popup'
+alias pidcat='pidcat --always-display-tags'
 
 # peco + history
 function peco-select-history() {
