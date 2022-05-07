@@ -88,7 +88,6 @@ if [[ -z $TMUX ]]; then
     export PATH=${HOME}/bin/flutter/bin:$PATH
     
     eval "$(anyenv init - zsh)"
-    export PATH=${HOME}/bin/apache-maven-3.8.1/bin:$PATH
     export PATH=${HOME}/.anyenv/bin:$PATH
     export PATH=${GOPATH}/bin:$PATH
     export PATH=${HOME}/.cargo/bin:$PATH
