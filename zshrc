@@ -82,6 +82,7 @@ setopt pushd_ignore_dups
 if [[ -z $TMUX ]]; then
     # path
     export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+    export PATH=${HOME}/bin:$PATH
     export PATH=${HOME}/Library/Android/sdk/platform-tools:$PATH
     export PATH=${HOME}/Library/Android/sdk/tools:$PATH
     export PATH=${HOME}/bin/flutter/bin:$PATH
