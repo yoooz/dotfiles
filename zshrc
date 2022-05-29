@@ -79,35 +79,32 @@ setopt auto_cd
 setopt auto_pushd
 setopt pushd_ignore_dups
 
-if [[ -z $TMUX ]]; then
-    # path
-    export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-    export PATH=${HOME}/bin:$PATH
-    export PATH=${HOME}/Library/Android/sdk/platform-tools:$PATH
-    export PATH=${HOME}/Library/Android/sdk/tools:$PATH
-    export PATH=${HOME}/bin/flutter/bin:$PATH
+# path
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=${HOME}/bin:$PATH
+export PATH=${HOME}/Library/Android/sdk/platform-tools:$PATH
+export PATH=${HOME}/Library/Android/sdk/tools:$PATH
+export PATH=${HOME}/bin/flutter/bin:$PATH
+
+eval "$(anyenv init - zsh)"
+export PATH=${HOME}/.anyenv/bin:$PATH
+export PATH=${GOPATH}/bin:$PATH
+export PATH=${HOME}/.cargo/bin:$PATH
+
+# pyenv
+export PYENV_ROOT="$(anyenv root)/envs/pyenv"
+eval "$(pyenv init --path)"
+
+export GO111MODULE=on
+
+# volta
+export VOLTA_HOME=${HOME}/.volta
+export PATH=${VOLTA_HOME}/bin:${PATH}
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
     
-    eval "$(anyenv init - zsh)"
-    export PATH=${HOME}/.anyenv/bin:$PATH
-    export PATH=${GOPATH}/bin:$PATH
-    export PATH=${HOME}/.cargo/bin:$PATH
-    
-    # pyenv
-    export PYENV_ROOT="$(anyenv root)/envs/pyenv"
-    eval "$(pyenv init --path)"
-    
-    export GO111MODULE=on
-    
-    # volta
-    export VOLTA_HOME=${HOME}/.volta
-    export PATH=${VOLTA_HOME}/bin:${PATH}
-    
-    #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-    export SDKMAN_DIR="$HOME/.sdkman"
-    [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-    
-    export JAVA_HOME=$(sdk home java current)
-fi
 
 # alias
 alias ls='ls -GF'
