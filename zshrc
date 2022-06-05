@@ -107,7 +107,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
     
 
 # alias
-alias ls='ls -GF'
+alias ls='exa'
 alias ll='exa -l'
 alias la='exa -a'
 alias mv='nocorrect mv'
