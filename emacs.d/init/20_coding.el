@@ -21,18 +21,17 @@
   :defer t)
 
 (use-package git-gutter
-  :defer t
-  :hook (prog-mode . git-gutter-mode)
   :config
   (setq git-gutter:update-hooks '(after-save-hook after-revert-hook))
+  (global-git-gutter-mode t)
   :custom
-  (git-gutter:modified-sign " ")
-  (git-gutter:added-sign " ")
-  (git-gutter:deleted-sign " ")
+  (git-gutter:modified-sign "=")
+  (git-gutter:added-sign "+")
+  (git-gutter:deleted-sign "-")
   :custom-face
-  (git-gutter:modified ((t (:background "#f1fa8c"))))
-  (git-gutter:added ((t (:background "#50fa7b"))))
-  (git-gutter:deleted ((t (:background "#ff79c6"))))
+  (git-gutter:modified ((t (:foreground "#f1fa8c"))))
+  (git-gutter:added ((t (:foreground "#50fa7b"))))
+  (git-gutter:deleted ((t (:foreground "#ff79c6"))))
   )
 
 (use-package which-key
