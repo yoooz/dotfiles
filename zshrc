@@ -16,16 +16,9 @@ zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recend-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 
 # prompt
-if [ ${UID} -eq 0 ]; then
-  PROMPT="%K{green}%B%F{black}ROOT%b%k %F{cyan}%~ %f$ "
-else
-  UUU="%B%F{cyan}（」・ω・）」❯ %f%b"
-  NYA="%B%F{cyan}\（・ω・\）%f%b"
-  SAN="%B%F{red}＼（・ω・＼）❯ %f%b"
-  PIN="%B%F{red}（／・ω・）／%f%b"
-  PROMPT="%(?,${UUU},${SAN})"
-  RPROMPT="%(?,${NYA},${PIN})"
-fi
+UUU="%B%F{cyan}❯ %f%b"
+SAN="%B%F{red}❯ %f%b"
+PROMPT="%(?,${UUU},${SAN})"
 
 # cdr
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
