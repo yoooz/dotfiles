@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+# brew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # zstyles
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*:default' menu select=2
@@ -73,7 +76,8 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 
 # path
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/opt/homebrew/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 export PATH=${HOME}/bin:$PATH
 export PATH=${HOME}/Library/Android/sdk/platform-tools:$PATH
 export PATH=${HOME}/Library/Android/sdk/tools:$PATH
@@ -89,6 +93,7 @@ export PYENV_ROOT="$(anyenv root)/envs/pyenv"
 eval "$(pyenv init --path)"
 
 export GO111MODULE=on
+export PATH=/usr/local/go/bin:$PATH
 
 # volta
 export VOLTA_HOME=${HOME}/.volta
