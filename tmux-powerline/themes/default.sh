@@ -24,13 +24,12 @@ TMUX_POWERLINE_DEFAULT_PANESIDE_SEPARATOR=$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPAR
 if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
 	TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
 	    "tmux_session_info 148 234" \
+            "pwd 17 215" \
             "vcs_branch 22 255" \
             "vcs_compare 60 255" \
             "vcs_staged 64 255" \
             "vcs_modified 9 255" \
             "vcs_others 245 0" \
-            "pwd 17 215" \
-
 	)
 fi
 
@@ -38,6 +37,7 @@ if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 	TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
 		    "battery 137 127" \
 		    "date 235 130" \
+		    "date_day 235 130" \
 		    "time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
 	)
 fi
