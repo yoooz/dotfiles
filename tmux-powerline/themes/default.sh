@@ -39,5 +39,6 @@ if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 		    "date 235 130" \
 		    "date_day 235 130" \
 		    "time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+		    "wifi_network 235 207 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
 	)
 fi
