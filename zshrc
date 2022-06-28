@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # brew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+test -e "/opt/homebrew/bin/brew" && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # zstyles
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
