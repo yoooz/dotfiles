@@ -85,7 +85,6 @@ export PATH=${HOME}/bin/flutter/bin:$PATH
 
 eval "$(anyenv init - zsh)"
 export PATH=${HOME}/.anyenv/bin:$PATH
-export PATH=${GOPATH}/bin:$PATH
 export PATH=${HOME}/.cargo/bin:$PATH
 
 # pyenv
@@ -94,6 +93,7 @@ eval "$(pyenv init --path)"
 
 export GO111MODULE=on
 export PATH=/usr/local/go/bin:$PATH
+export PATH=$(go env GOPATH)/bin:$PATH
 
 # volta
 export VOLTA_HOME=${HOME}/.volta
