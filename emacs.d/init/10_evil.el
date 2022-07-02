@@ -1,6 +1,8 @@
 (use-package undo-tree
   :config
-  (global-undo-tree-mode t))
+  (global-undo-tree-mode t)
+  :custom
+  (undo-tree-auto-save-history nil))
 
 (use-package evil
   :init
@@ -45,3 +47,14 @@
 
 (evil-ex-define-cmd "q[uit]" 'evil-tab-sensitive-quit)
 (evil-ex-define-cmd "tabnew" 'tab-bar-new-tab)
+
+(use-package symbol-overlay)
+(define-key evil-normal-state-map (kbd "#") 'symbol-overlay-put)
+
+(let ((map (make-sparse-keymap)))
+    (define-key map (kbd "n") #'symbol-overlay-jump-next)
+    (define-key map (kbd "N") #'symbol-overlay-jump-prev)
+    (define-key map (kbd "<") #'symbol-overlay-jump-first)
+    (define-key map (kbd ">") #'symbol-overlay-jump-last)
+    (define-key map (kbd "r") #'symbol-overlay-rename)
+    (setq symbol-overlay-map map))
