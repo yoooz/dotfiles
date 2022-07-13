@@ -1,3 +1,14 @@
+(use-package avy
+  :defer t
+  :custom
+  (avy-background t)
+  (avy-all-windows t)
+  :custom-face
+  (avy-lead-face ((t (:foreground "red" :background "#282a36"))))
+  (avy-lead-face-0 ((t (:foreground "green" :background "#282a36"))))
+  (avy-lead-face-1 ((t (:foreground "yellow" :background "#282a36"))))
+  (avy-lead-face-2 ((t (:foreground "blue" :background "#282a36")))))
+
 (use-package undo-tree
   :config
   (global-undo-tree-mode t)
@@ -21,6 +32,7 @@
   (evil-vsplit-window-right t))
 
 
+(define-key evil-normal-state-map (kbd "C-;") 'evil-avy-goto-char-timer)
 (global-set-key "\C-g" 'evil-normal-state)
 (define-key evil-visual-state-map (kbd "C-r") `counsel-M-x)
 (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)

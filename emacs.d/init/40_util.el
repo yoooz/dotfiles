@@ -1,14 +1,3 @@
-(use-package avy
-  :defer t
-  :custom
-  (avy-background t)
-  (avy-all-windows t)
-  :custom-face
-  (avy-lead-face ((t (:foreground "red" :background "#282a36"))))
-  (avy-lead-face-0 ((t (:foreground "green" :background "#282a36"))))
-  (avy-lead-face-1 ((t (:foreground "yellow" :background "#282a36"))))
-  (avy-lead-face-2 ((t (:foreground "blue" :background "#282a36")))))
-
 (use-package ace-window
   :defer t
   :custom
