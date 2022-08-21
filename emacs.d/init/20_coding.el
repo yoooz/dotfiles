@@ -40,3 +40,8 @@
   :diminish which-key-mode
   :custom
   (which-key-idle-delay 0.5))
+
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
