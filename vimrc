@@ -71,3 +71,5 @@ endif
 
 set compatible
 set whichwrap=b,s,h,l,<,>,[,],~
+
+set clipboard+=unnamed
