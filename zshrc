@@ -118,45 +118,36 @@ alias h=history
 alias grep=egrep
 alias cat='bat'
 alias e='emacsclient -t'
-alias gc='cd $(ghq root)/$(ghq list | peco --prompt "REPOSITORY >")'
-alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
+alias gc='cd $(ghq root)/$(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")'
 alias gg='ghq get'
-alias gj='git checkout $(git branch -a | grep -v "\->" | sed "s/*//g" | sed "s/ //g" | sed "s/remotes\/origin\///g" | sort -u | peco --prompt "CHECKOUT BRANCH >")'
+alias gj='git checkout $(git branch -a | grep -v "\->" | sed "s/*//g" | sed "s/ //g" | sed "s/remotes\/origin\///g" | sort -u | fzf)'
 alias gp='git pull'
-alias gm='git branch | grep -v "\*" | peco --prompt "MERGE BRANCH >"| xargs git merge'
-alias gdel='git branch -D $(git branch | grep -v "\*" | peco --prompt "DELETE BRANCH >")'
-alias psh='ssh `grep "Host " ~/.ssh/config | grep -v "\*" | cut -b 6- | peco --prompt "HOST > "`'
-alias fd='cd "$(find . -type d | peco)"'
-alias ff='find . -name "*${1}*" | grep -v "/\." | peco'
+alias gm='git branch | grep -v "\*" | fxf | xargs git merge'
+alias gdel='git branch -D $(git branch | grep -v "\*" | fzf)'
+alias psh='ssh `grep "Host " ~/.ssh/config | grep -v "\*" | cut -b 6- | fzf`'
+alias fd='cd "$(find . -type d | fzf)"'
+alias ff='find . -name "*${1}*" | grep -v "/\." | fzf'
 alias vf='vim `ff`'
 alias tp='tmux popup'
 alias pidcat='pidcat --always-display-tags'
 
 # peco + history
-function peco-select-history() {
-    local tac
-    if which tac > /dev/null; then
-        tac="tac"
-    else
-        tac="tail -r"
-    fi
-    BUFFER=$(\history -n 1 | \
-        eval $tac | \
-        peco --query "$LBUFFER" --prompt "COMMAND> ")
+function fzf-select-history() {
+    BUFFER=$(\history -n -r 1 |  fzf --query "$LBUFFER")
     CURSOR=$#BUFFER
 }
-zle -N peco-select-history
-bindkey '^r' peco-select-history
+zle -N fzf-select-history
+bindkey '^r' fzf-select-history
 
 # peco + ps + kill
-function peco-kill() {
-    for pid in `ps aux | peco --prompt "TARGET PROCESS> "| awk '{ print $2 }'`
+function fzf-kill() {
+    for pid in `ps aux | fzf | awk '{ print $2 }'`
     do
         kill $pid
         echo "Killed ${pid}"
     done
 }
-alias pk="peco-kill"
+alias fk="fzf-kill"
 
 function precmd() {
   if [ ! -z $TMUX ]; then
