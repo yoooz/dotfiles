@@ -21,7 +21,7 @@
   _h_ ← → _l_            [_s_] swap      [_f_] find file        [_J_] junk file
      ↓        ↓      [_m_] maximize  [_r_] find repository  [_v_] eval buffer
      _j_        _x_                    [_g_] search file      [_V_] revert buffer
-                                   [_c_] recent file
+                                   [_c_] recent file      [_D_] dap-hydra
   [_F_] fit [_a_] adjust               [_R_] ripgrep
                                    [_e_] M-x
  ------------------------------------------------------------------------- 
@@ -57,6 +57,7 @@
   ("J" open-junk-file :exit t :color blue)
   ("v" eval-buffer :exit t :color blue)
   ("V" (revert-buffer t t) :exit t :color blue)
+  ("D" dap-hydra :exit t :color blue)
 
   ("q" () :exit t :color blue)
   ("<SPC>" evil-window-rotate-upwards :color pink))

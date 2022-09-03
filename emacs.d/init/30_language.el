@@ -28,13 +28,11 @@
   (tooltip-mode 1)
   (dap-ui-controls-mode 1)
   (require 'dap-hydra)
-  (require 'dap-go)
+  (require 'dap-dlv-go)
   (add-hook 'dap-stopped-hook
             (lambda (arg) (call-interactively #'dap-hydra)))
   :custom
-  (dap-auto-configure-features '(sessions locals breakpoints expressions repl controls tooltip))
-  (dap-go-debug-path "~/ghq/github.com/golang/vscode-go")
-  (dap-go-debug-program `("node", (f-join dap-go-debug-path "dist/debugAdapter.js"))))
+  (dap-auto-configure-features '(sessions locals breakpoints expressions repl controls tooltip)))
 
 (use-package lsp-ui
   :defer t
