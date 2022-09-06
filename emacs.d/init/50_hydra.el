@@ -22,7 +22,7 @@
      ↓        ↓      [_m_] maximize  [_r_] find repository  [_v_] eval buffer
      _j_        _x_                    [_g_] search file      [_V_] revert buffer
                                    [_c_] recent file      [_D_] dap-hydra
-  [_F_] fit [_a_] adjust               [_R_] ripgrep
+  [_F_] fit [_a_] adjust               [_R_] ripgrep          [_t_] treemacs
                                    [_e_] M-x
  ------------------------------------------------------------------------- 
                         [_q_] quit  [_<SPC>_] rotate
@@ -58,6 +58,7 @@
   ("v" eval-buffer :exit t :color blue)
   ("V" (revert-buffer t t) :exit t :color blue)
   ("D" dap-hydra :exit t :color blue)
+  ("t" treemacs :exit t :color blue)
 
   ("q" () :exit t :color blue)
   ("<SPC>" evil-window-rotate-upwards :color pink))
