@@ -12,6 +12,9 @@
 (use-package yasnippet-snippets
   :defer t)
 
+(use-package tree-sitter)
+(use-package tree-sitter-langs)
+
 (use-package lsp-mode
   :defer t
   :custom
@@ -76,7 +79,8 @@
   :hook (lsp-mode . lsp-ui-mode))
 
 (use-package lsp-treemacs
-  :defer t)
+  :defer t
+  :hook (lsp-mode . lsp-treemacs-sync-mode))
 
 (use-package company-box
   :defer t
@@ -178,7 +182,9 @@
 (use-package go-mode
   :defer t
   :config
-  (add-hook 'go-mode-hook #'lsp))
+  (add-hook 'go-mode-hook #'lsp)
+  (add-hook 'go-mode-hook #'tree-sitter-mode)
+  (add-hook 'go-mode-hook #'tree-sitter-hl-mode))
 
 (use-package dart-mode
   :defer t
