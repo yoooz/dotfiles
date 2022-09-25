@@ -1,0 +1,11 @@
+gui:
+  language: 'en'
+  theme:
+    activeBorderColor:
+      - blue
+      - bold
+    inactiveBorderColor:
+      - '#a9a9a9'
+  showIcons: true
+  mouseEvents: false
+
