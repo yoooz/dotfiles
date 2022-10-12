@@ -43,10 +43,8 @@
    ("C-x C-f" . counsel-find-file)))
 
 (use-package counsel-ghq
-  :straight (counsel-ghq :type git :host github :repo "yoooz/counsel-ghq")
-  :config
-  (ivy-set-actions 'counsel-ghq
-                   '(("g" counsel-git "Open Git"))))
+  :straight (counsel-ghq :type git :host github :repo "windymelt/counsel-ghq")
+  :defer t)
 
 (use-package all-the-icons-ivy
   :config
