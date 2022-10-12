@@ -7,19 +7,6 @@
   :custom-face
   (indent-guide-face ((t (:foreground "#b0e0e6" :slant normal)))))
 
-(use-package magit
-  :defer t
-  :custom-face
-  (magit-diff-added ((t (:foreground "#00FF00" :background "gray20"))))
-  (magit-diff-added-highlight ((t (:foreground "#00FF00" :background "gray20"))))
-  (magit-diff-removed ((t (:foreground "#FF0000" :background "gray20"))))
-  (magit-diff-removed-highlight ((t (:foreground "#FF0000" :background "gray20"))))
-  :custom 
-  (magit-log-margin '(t "%Y-%m-%d %H:%M:%S" magit-log-margin-width t 18)))
-
-(use-package evil-magit
-  :defer t)
-
 (use-package git-gutter
   :config
   (setq git-gutter:update-hooks '(after-save-hook after-revert-hook))
