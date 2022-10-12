@@ -32,7 +32,7 @@
   (evil-vsplit-window-right t))
 
 
-(define-key evil-normal-state-map (kbd "C-;") 'evil-avy-goto-char-timer)
+(define-key evil-normal-state-map (kbd "s") 'evil-avy-goto-char-timer)
 (global-set-key "\C-g" 'evil-normal-state)
 (define-key evil-visual-state-map (kbd "C-r") `counsel-M-x)
 (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
