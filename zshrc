@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+export LIBRARY_PATH="/usr/local/opt/libgccjit/lib/gcc/current:/usr/local/opt/gcc/lib/gcc/current:/usr/local/opt/gcc/lib/gcc/current/gcc/x86_64-apple-darwin21/12"
+
 # zstyles
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*:default' menu select=2

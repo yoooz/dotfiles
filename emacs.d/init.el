@@ -1,3 +1,6 @@
+;; warning log legel
+(setq warning-minimum-level :error)
+
 ;; char-code
 (prefer-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
