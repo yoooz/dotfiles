@@ -1,6 +1,20 @@
 (use-package tree-sitter)
 (use-package tree-sitter-langs)
 
+(use-package yasnippet
+  :defer t
+  :diminish yas-minor-mode
+  :config
+  (yas-global-mode 1)
+  :bind
+  (:map yas-minor-mode-map
+        ("C-x i i" . yas-insert-snippet)
+        ("C-x i n" . yas-new-snippet)
+        ("C-x i v" . yas-visit-snippet-file)))
+
+(use-package yasnippet-snippets
+  :defer t)
+
 (use-package lsp-mode
   :defer t
   :custom
