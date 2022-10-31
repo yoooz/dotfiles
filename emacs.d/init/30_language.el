@@ -18,7 +18,20 @@
 (use-package lsp-mode
   :defer t
   :custom
-  (lsp-auto-guess-root t))
+  ;; debug
+  (lsp-print-io nil)
+  (lsp-trace nil)
+  (lsp-print-performance nil)
+  ;; general
+  (lsp-auto-guess-root t)
+  (lsp-document-sync-method 'incremental)
+  (lsp-response-timeout 5)
+  (lsp-prefer-flymake 'flymake)
+  (lsp-enable-completion-at-point nil))
+
+(use-package flymake-posframe
+  :straight (flymake-posframe :type git :host github :repo "Ladicle/flymake-posframe")
+  :hook (flymake-mode . flymake-posframe-mode))
 
 (use-package dap-mode
   :defer t
