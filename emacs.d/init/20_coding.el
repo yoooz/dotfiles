@@ -7,6 +7,8 @@
   :custom-face
   (indent-guide-face ((t (:foreground "#b0e0e6" :slant normal)))))
 
+(use-package magit)
+
 (use-package git-gutter
   :config
   (setq git-gutter:update-hooks '(after-save-hook after-revert-hook))
