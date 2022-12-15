@@ -123,7 +123,7 @@ alias gc='cd $(ghq root)/$(ghq list | fzf --preview "bat --color=always --style=
 alias gg='ghq get'
 alias gj='git checkout $(git branch -a | grep -v "\->" | sed "s/*//g" | sed "s/ //g" | sed "s/remotes\/origin\///g" | sort -u | fzf)'
 alias gp='git pull'
-alias gm='git branch | grep -v "\*" | fxf | xargs git merge'
+alias gm='git branch | grep -v "\*" | fzf | xargs git merge'
 alias gdel='git branch -D $(git branch | grep -v "\*" | fzf)'
 alias psh='ssh `grep "Host " ~/.ssh/config | grep -v "\*" | cut -b 6- | fzf`'
 alias fd='cd "$(find . -type d | fzf)"'
