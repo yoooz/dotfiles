@@ -27,7 +27,12 @@
   (lsp-document-sync-method 'incremental)
   (lsp-response-timeout 5)
   (lsp-prefer-flymake 'flymake)
-  (lsp-enable-completion-at-point nil))
+  (lsp-enable-completion-at-point nil)
+  ;; completion
+  (lsp-completion-enable t)
+  (lsp-completion-show-detail t)
+  (lsp-completion-show-kind t)
+  (lsp-completion-show-label-description t))
 
 (use-package flymake-posframe
   :straight (flymake-posframe :type git :host github :repo "Ladicle/flymake-posframe")
