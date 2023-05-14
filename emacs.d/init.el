@@ -70,6 +70,7 @@
 (setq command-line-default-directory "~/")
 
 ;; straight.el setting by myself
+(defvar bootstrap-version)
 (let ((bootstrap-file (concat user-emacs-directory "straight/repos/straight.el/bootstrap.el"))
       (bootstrap-version 6))
   (unless (file-exists-p bootstrap-file)

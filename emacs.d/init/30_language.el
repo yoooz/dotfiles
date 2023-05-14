@@ -19,9 +19,10 @@
   :defer t
   :custom
   ;; debug
-  (lsp-print-io nil)
-  (lsp-trace nil)
-  (lsp-print-performance nil)
+  (lsp-print-io t)
+  (lsp-log-io t)
+  (lsp-trace t)
+  (lsp-print-performance t)
   ;; general
   (lsp-auto-guess-root t)
   (lsp-document-sync-method 'incremental)

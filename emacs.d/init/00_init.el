@@ -9,8 +9,12 @@
   :custom
   (doom-themes-enable-italic t)
   (doom-themes-enable-bold t)
+  (doom-themes-padded-modeline t)
   :config
-  (load-theme 'doom-snazzy t))
+  (load-theme 'doom-snazzy t)
+  (doom-themes-visual-bell-config)
+  (setq doom-themes-treemacs-theme "doom-snazzy")
+  (doom-themes-treemacs-config))
 
 (use-package doom-modeline
   :defer t
