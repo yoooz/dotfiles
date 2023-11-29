@@ -134,6 +134,7 @@ alias ff='find . -name "*${1}*" | grep -v "/\." | fzf'
 alias vf='vim `ff`'
 alias tp='tmux popup'
 alias pidcat='pidcat --always-display-tags'
+alias vim='nvim'
 
 # peco + history
 function fzf-select-history() {
