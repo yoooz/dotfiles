@@ -156,6 +156,8 @@ function precmd() {
   fi
 }
 
+eval "$(direnv hook zsh)"
+
 # if integrations not installed, this script failure exit
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
