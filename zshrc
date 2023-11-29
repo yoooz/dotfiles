@@ -92,6 +92,9 @@ export PATH=${HOME}/.cargo/bin:$PATH
 export PYENV_ROOT="$(anyenv root)/envs/pyenv"
 eval "$(pyenv init --path)"
 
+# rbenv
+export RUBY_CFLAGS="-w"
+
 export PATH=$(go env GOPATH)/bin:$PATH
 # volta
 export VOLTA_HOME=${HOME}/.volta
