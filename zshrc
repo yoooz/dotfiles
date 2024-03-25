@@ -78,11 +78,14 @@ setopt pushd_ignore_dups
 test -e "/opt/homebrew/bin/brew" && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # path
-export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${HOME}/.local/bin:$PATH
 export PATH=${HOME}/bin:$PATH
 export PATH=${HOME}/Library/Android/sdk/platform-tools:$PATH
 export PATH=${HOME}/Library/Android/sdk/tools:$PATH
 export PATH=${HOME}/bin/flutter/bin:$PATH
+
+# neovim
+export PATH=${PATH}:/opt/nvim
 
 eval "$(anyenv init - zsh)"
 export PATH=${HOME}/.anyenv/bin:$PATH
@@ -95,13 +98,20 @@ eval "$(pyenv init --path)"
 # rbenv
 export RUBY_CFLAGS="-w"
 
+# go
+export PATH=${PATH}:/usr/local/go/bin
 export PATH=$(go env GOPATH)/bin:$PATH
+
 # volta
 export VOLTA_HOME=${HOME}/.volta
 export PATH=${VOLTA_HOME}/bin:${PATH}
 
 # frum
-eval "$(frum init)"
+if type "frum" > /dev/null 2>&1; then
+  eval "$(frum init)"
+else
+  echo "frum not installed"
+fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -163,5 +173,6 @@ function precmd() {
 eval "$(direnv hook zsh)"
 
 # if integrations not installed, this script failure exit
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
+if test -e "${HOME}/.iterm2_shell_integration.zsh";then
+  source "${HOME}/.iterm2_shell_integration.zsh"
+fi
