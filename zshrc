@@ -152,4 +152,3 @@ eval "$(direnv hook zsh)"
 if test -e "${HOME}/.iterm2_shell_integration.zsh";then
   source "${HOME}/.iterm2_shell_integration.zsh"
 fi
-eval "$(zellij setup --generate-auto-start zsh)"
