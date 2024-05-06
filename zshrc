@@ -86,6 +86,9 @@ export PATH=${HOME}/Library/Android/sdk/tools:$PATH
 # neovim
 export PATH=${PATH}:/opt/nvim
 
+# cargo 
+export PATH=${HOME}/.cargo/bin:$PATH
+
 # go
 export PATH=${PATH}:/usr/local/go/bin
 export PATH=$(go env GOPATH)/bin:$PATH
@@ -149,3 +152,4 @@ eval "$(direnv hook zsh)"
 if test -e "${HOME}/.iterm2_shell_integration.zsh";then
   source "${HOME}/.iterm2_shell_integration.zsh"
 fi
+eval "$(zellij setup --generate-auto-start zsh)"
