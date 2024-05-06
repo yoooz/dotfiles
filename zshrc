@@ -82,40 +82,13 @@ export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${HOM
 export PATH=${HOME}/bin:$PATH
 export PATH=${HOME}/Library/Android/sdk/platform-tools:$PATH
 export PATH=${HOME}/Library/Android/sdk/tools:$PATH
-export PATH=${HOME}/bin/flutter/bin:$PATH
 
 # neovim
 export PATH=${PATH}:/opt/nvim
 
-eval "$(anyenv init - zsh)"
-export PATH=${HOME}/.anyenv/bin:$PATH
-export PATH=${HOME}/.cargo/bin:$PATH
-
-# pyenv
-export PYENV_ROOT="$(anyenv root)/envs/pyenv"
-eval "$(pyenv init --path)"
-
-# rbenv
-export RUBY_CFLAGS="-w"
-
 # go
 export PATH=${PATH}:/usr/local/go/bin
 export PATH=$(go env GOPATH)/bin:$PATH
-
-# volta
-export VOLTA_HOME=${HOME}/.volta
-export PATH=${VOLTA_HOME}/bin:${PATH}
-
-# frum
-if type "frum" > /dev/null 2>&1; then
-  eval "$(frum init)"
-else
-  echo "frum not installed"
-fi
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
     
