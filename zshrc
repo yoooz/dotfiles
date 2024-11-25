@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-export LIBRARY_PATH="/usr/local/opt/libgccjit/lib/gcc/current:/usr/local/opt/gcc/lib/gcc/current:/usr/local/opt/gcc/lib/gcc/current/gcc/x86_64-apple-darwin21/12"
+# export LIBRARY_PATH="/usr/local/opt/libgccjit/lib/gcc/current:/usr/local/opt/gcc/lib/gcc/current:/usr/local/opt/gcc/lib/gcc/current/gcc/x86_64-apple-darwin21/12"
 
 # zstyles
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
@@ -82,6 +82,9 @@ export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${HOM
 export PATH=${HOME}/bin:$PATH
 export PATH=${HOME}/Library/Android/sdk/platform-tools:$PATH
 export PATH=${HOME}/Library/Android/sdk/tools:$PATH
+export PATH=${HOME}/.rbenv/bin:$PATH
+
+eval "$(rbenv init -)"
 
 # neovim
 export PATH=${PATH}:/opt/nvim
@@ -95,6 +98,12 @@ export PATH=$(go env GOPATH)/bin:$PATH
 
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
     
+
+# python
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 
 # alias
 alias ls='exa'
