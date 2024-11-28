@@ -129,30 +129,6 @@
    ("C-n" . company-select-next)
    ("C-p" . company-select-previous)))
 
-;; language
-(use-package python-mode
-  :defer t)
-
-(use-package blacken
-  :ensure t)
-
-(use-package py-isort
-  :ensure t)
-
-(add-to-list 'exec-path "~/.ghq/github.com/fwcd/kotlin-language-server/server/build/install/server/bin")
-
-(use-package kotlin-mode
-  :defer t)
-
-(use-package gradle-mode
-  :defer t)
-
-(use-package clojure-mode
-  :defer t)
-
-(use-package groovy-mode
-  :defer t)
-
 (use-package markdown-mode
   :defer
   :mode
@@ -168,33 +144,6 @@
 (use-package yaml-mode
   :defer t)
 
-(use-package web-mode
-  :defer t
-  :mode
-  (("\\.jsp\\'" . web-mode)
-   ("\\.js\\'" . web-mode)
-   ("\\.vue\\'" . web-mode)
-   ("\\.ts\\'" . web-mode))
-  :custom
-  (web-mode-markup-indent-offset 2)
-  (web-mode-css-indent-offset 2)
-  (web-mode-code-indent-offset 2)
-  (web-mode-part-padding 0)
-  :config
-  (add-hook 'web-mode-hook #'lsp))
-
-(use-package flymake-eslint
-  :config
-  (add-hook 'web-mode-hook
-            (lambda ()
-              (flymake-eslint-enable))))
-
-(use-package prettier
-  :config
-  (add-hook 'web-mode-hook
-            (lambda ()
-              (prettier-mode))))
-
 (use-package dockerfile-mode
   :defer t)
 
@@ -204,22 +153,3 @@
   (add-hook 'go-mode-hook #'lsp)
   (add-hook 'go-mode-hook #'tree-sitter-mode)
   (add-hook 'go-mode-hook #'tree-sitter-hl-mode))
-
-(use-package dart-mode
-  :defer t
-  :config
-  (add-hook 'dart-mode-hook #'lsp)
-  :custom
-  (dart-sdk-path (concat (getenv "HOME") "/bin/flutter/bin/cache/dart-sdk/")
-                 dart-format-on-save t))
-
-(use-package lsp-dart
-  :defer t)
-
-(use-package hover
-  :after dart-mode
-  :defer t
-  :init
-  (setq hover-hot-reload-on-save t
-        hover-screenshot-path (concat (getenv "HOME") "/Pictures"))
-  (hover-minor-mode 1))
