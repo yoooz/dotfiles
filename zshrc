@@ -109,9 +109,9 @@ eval "$(pyenv init -)"
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # alias
-alias ls='exa'
-alias ll='exa -l'
-alias la='exa -a'
+alias ls='eza'
+alias ll='eza -l'
+alias la='eza -a'
 alias mv='nocorrect mv'
 alias cp='nocorrect cp'
 alias mkdir='nocorrect mkdir'
