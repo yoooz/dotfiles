@@ -12,9 +12,9 @@ set hidden
 " 入力中のコマンドをステータスに表示する
 set showcmd
 " 入力モード中に素早くJJと入力した場合はESCとみなす
-inoremap jj <ESC>
+imap jj <Esc>
 " Emacs同様C-gでノーマルモードに戻る
-inoremap <C-g> <ESC>
+imap <C-g> <Esc>
 
 " 見た目系
 " 行番号を表示
