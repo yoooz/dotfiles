@@ -108,6 +108,10 @@ eval "$(pyenv init -)"
 # sdkman
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+# volta
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
 # alias
 alias ls='eza'
 alias ll='eza -l'
