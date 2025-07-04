@@ -149,3 +149,31 @@ function ghq-fzf() {
 
 # ghq + fzf alias
 alias gf='ghq-fzf'
+
+# git worktree create and cd
+function git-worktree-cd() {
+  if [ $# -eq 0 ]; then
+    echo "Usage: git-worktree-cd <branch-name>"
+    return 1
+  fi
+  
+  local branch_name="$1"
+  
+  # Get current repository root directory name
+  local repo_name=$(basename "$(git rev-parse --show-toplevel)")
+  
+  # Create worktree path in ghq structure
+  local worktree_path="$(ghq root)/${repo_name}-${branch_name}"
+  
+  # Check if branch exists
+  if git show-ref --verify --quiet "refs/heads/$branch_name"; then
+    # Branch exists, just add worktree
+    git worktree add "$worktree_path" "$branch_name" && cd "$worktree_path"
+  else
+    # Branch doesn't exist, create it
+    git worktree add -b "$branch_name" "$worktree_path" && cd "$worktree_path"
+  fi
+}
+
+# git worktree alias
+alias gwc='git-worktree-cd'
