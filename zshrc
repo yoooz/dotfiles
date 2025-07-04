@@ -114,7 +114,6 @@ alias cp='nocorrect cp'
 alias mkdir='nocorrect mkdir'
 alias grep=egrep
 alias cat='bat'
-alias gc='cd $(ghq root)/$(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")'
 alias gg='ghq get'
 alias vim='nvim'
 
@@ -139,3 +138,14 @@ eval "$(direnv hook zsh)"
 if test -e "${HOME}/.iterm2_shell_integration.zsh";then
   source "${HOME}/.iterm2_shell_integration.zsh"
 fi
+
+# ghq + fzf repository selector
+function ghq-fzf() {
+  local selected_dir=$(ghq list | fzf --preview "eza --tree --level=1 --color=always $(ghq root)/{}")
+  if [ -n "$selected_dir" ]; then
+    cd "$(ghq root)/$selected_dir"
+  fi
+}
+
+# ghq + fzf alias
+alias gf='ghq-fzf'
