@@ -1,7 +1,5 @@
 #!/bin/zsh
 
-# export LIBRARY_PATH="/usr/local/opt/libgccjit/lib/gcc/current:/usr/local/opt/gcc/lib/gcc/current:/usr/local/opt/gcc/lib/gcc/current/gcc/x86_64-apple-darwin21/12"
-
 # zstyles
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*:default' menu select=2
@@ -89,9 +87,6 @@ eval "$(rbenv init -)"
 # neovim
 export PATH=${PATH}:/opt/nvim
 
-# cargo 
-export PATH=${HOME}/.cargo/bin:$PATH
-
 # go
 export PATH=${PATH}:/usr/local/go/bin
 export PATH=$(go env GOPATH)/bin:$PATH
@@ -114,28 +109,13 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 # alias
 alias ls='eza'
-alias ll='eza -l'
-alias la='eza -a'
 alias mv='nocorrect mv'
 alias cp='nocorrect cp'
 alias mkdir='nocorrect mkdir'
-alias j=jobs
-alias h=history
 alias grep=egrep
 alias cat='bat'
-alias e='emacsclient -t'
 alias gc='cd $(ghq root)/$(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")'
 alias gg='ghq get'
-alias gj='git checkout $(git branch -a | grep -v "\->" | sed "s/*//g" | sed "s/ //g" | sed "s/remotes\/origin\///g" | sort -u | fzf)'
-alias gp='git pull'
-alias gm='git branch | grep -v "\*" | fzf | xargs git merge'
-alias gdel='git branch -D $(git branch | grep -v "\*" | fzf)'
-alias psh='ssh `grep "Host " ~/.ssh/config | grep -v "\*" | cut -b 6- | fzf`'
-alias fd='cd "$(find . -type d | fzf)"'
-alias ff='find . -name "*${1}*" | grep -v "/\." | fzf'
-alias vf='vim `ff`'
-alias tp='tmux popup'
-alias pidcat='pidcat --always-display-tags'
 alias vim='nvim'
 
 # peco + history
@@ -145,16 +125,6 @@ function fzf-select-history() {
 }
 zle -N fzf-select-history
 bindkey '^r' fzf-select-history
-
-# peco + ps + kill
-function fzf-kill() {
-    for pid in `ps aux | fzf | awk '{ print $2 }'`
-    do
-        kill $pid
-        echo "Killed ${pid}"
-    done
-}
-alias fk="fzf-kill"
 
 function precmd() {
   if [ ! -z $TMUX ]; then
