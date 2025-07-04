@@ -177,3 +177,34 @@ function git-worktree-cd() {
 
 # git worktree alias
 alias gwc='git-worktree-cd'
+
+# git worktree remove with fzf
+function git-worktree-remove() {
+  # Check if in a git repository
+  if ! git rev-parse --git-dir > /dev/null 2>&1; then
+    echo "Not in a git repository"
+    return 1
+  fi
+  
+  # Get worktree list with path, commit hash and branch
+  local worktrees=$(git worktree list | grep -v "(bare)")
+  
+  # Check if there are worktrees to remove
+  if [ -z "$worktrees" ]; then
+    echo "No worktrees found"
+    return 1
+  fi
+  
+  # Select worktree with fzf (showing full info)
+  local selected=$(echo "$worktrees" | fzf --no-preview)
+  
+  # Extract path from selection
+  if [ -n "$selected" ]; then
+    local worktree_path=$(echo "$selected" | awk '{print $1}')
+    echo "Removing worktree: $worktree_path"
+    git worktree remove "$worktree_path" && echo "Worktree removed successfully"
+  fi
+}
+
+# git worktree remove alias
+alias gwr='git-worktree-remove'
