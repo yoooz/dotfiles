@@ -29,9 +29,9 @@ export TMUX_POWERLINE_STATUS_INTERVAL="1"
 export TMUX_POWERLINE_STATUS_JUSTIFICATION="centre"
 
 # The maximum length of the left status bar.
-export TMUX_POWERLINE_STATUS_LEFT_LENGTH="90"
+export TMUX_POWERLINE_STATUS_LEFT_LENGTH="120"
 # The maximum length of the right status bar.
-export TMUX_POWERLINE_STATUS_RIGHT_LENGTH="90"
+export TMUX_POWERLINE_STATUS_RIGHT_LENGTH="50"
 
 # The separator to use between windows on the status bar.
 export TMUX_POWERLINE_WINDOW_STATUS_SEPARATOR=""
@@ -343,7 +343,7 @@ export TMUX_POWERLINE_SEG_UTC_TIME_FORMAT="%H:%M %Z"
 
 # vcs_branch.sh {
 # Max length of the branch name.
-export TMUX_POWERLINE_SEG_VCS_BRANCH_MAX_LEN=""
+export TMUX_POWERLINE_SEG_VCS_BRANCH_MAX_LEN="20"
 # Symbol when branch length exceeds max length
 # export TMUX_POWERLINE_SEG_VCS_BRANCH_TRUNCATE_SYMBOL="…"
 # Default branch symbol
@@ -386,7 +386,7 @@ export TMUX_POWERLINE_SEG_VCS_BRANCH_SVN_SYMBOL_COLOUR="220"
 # vcs_rootpath.sh {
 # Display mode for vcs_rootpath.
 # Example: (name: folder name only; path: full path, w/o expansion; user_path: full path, w/ tilde expansion)
-# export TMUX_POWERLINE_SEG_VCS_ROOTPATH_MODE="name"
+export TMUX_POWERLINE_SEG_VCS_ROOTPATH_MODE="user_path"
 # }
 
 # vcs_staged.sh {
