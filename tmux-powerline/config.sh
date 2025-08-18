@@ -343,7 +343,7 @@ export TMUX_POWERLINE_SEG_UTC_TIME_FORMAT="%H:%M %Z"
 
 # vcs_branch.sh {
 # Max length of the branch name.
-export TMUX_POWERLINE_SEG_VCS_BRANCH_MAX_LEN="20"
+export TMUX_POWERLINE_SEG_VCS_BRANCH_MAX_LEN="40"
 # Symbol when branch length exceeds max length
 # export TMUX_POWERLINE_SEG_VCS_BRANCH_TRUNCATE_SYMBOL="…"
 # Default branch symbol
