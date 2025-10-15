@@ -81,6 +81,7 @@ export PATH=${HOME}/bin:$PATH
 export PATH=${HOME}/Library/Android/sdk/platform-tools:$PATH
 export PATH=${HOME}/Library/Android/sdk/tools:$PATH
 export PATH=${HOME}/.rbenv/bin:$PATH
+export PATH="/opt/homebrew/opt/mysql-client@8.0/bin:$PATH"
 
 eval "$(rbenv init -)"
 
@@ -208,3 +209,4 @@ function git-worktree-remove() {
 
 # git worktree remove alias
 alias gwr='git-worktree-remove'
+source $HOME/.tenv.completion.zsh
