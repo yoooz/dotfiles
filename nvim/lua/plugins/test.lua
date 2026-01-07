@@ -5,15 +5,17 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "antoinemadec/FixCursorHold.nvim",
-      "nvim-neotest/neotest-go",
+      "fredrikaverpil/neotest-golang",
       "nvim-neotest/nvim-nio",
     },
     opts = function()
       return {
+        discovery = {
+          enabled = false,
+        },
         adapters = {
-          require("neotest-go")({
-            test_command = "gotestsum",
-            test_command_args = { "--jsonfile", "test.json", "--" },
+          require("neotest-golang")({
+            runner = "gotestsum",
           }),
         },
         status = { virtual_text = true, signs = true },
