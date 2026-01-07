@@ -16,3 +16,4 @@ ln -s ${SCRIPT_DIR}/claude/CLAUDE.md ~/.claude/CLAUDE.md
 ln -s ${SCRIPT_DIR}/claude/scripts ~/.claude/scripts
 ln -s ${SCRIPT_DIR}/claude/settings.json ~/.claude/settings.json
 ln -s ${SCRIPT_DIR}/gitignore_global ~/.config/git/ignore
+ln -s ${SCRIPT_DIR}/ghostty ~/.config/ghostty
