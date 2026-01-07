@@ -8,24 +8,15 @@ return {
       "fredrikaverpil/neotest-golang",
       "nvim-neotest/nvim-nio",
     },
-    opts = function()
-      return {
-        discovery = {
-          enabled = false,
-        },
-        adapters = {
-          require("neotest-golang")({
-            runner = "gotestsum",
-          }),
-        },
+    event = { "BufRead *_test.go", "BufNewFile *_test.go" },
+    config = function()
+      require("neotest").setup({
+        discovery = { enabled = false },
         status = { virtual_text = true, signs = true },
-        output = {
-          open = { "rightbelow", "vsplit" },
+        adapters = {
+          require("neotest-golang")({ runner = "gotestsum" }),
         },
-        summary = {
-          open = "botright 15",
-        },
-      }
+      })
     end,
     keys = {
       { "<leader>t", "", desc = "+test" },
@@ -93,13 +84,5 @@ return {
         desc = "Toggle Watch (Neotest)",
       },
     },
-  },
-  {
-    "mfussenegger/nvim-dap",
-    optional = true,
-  -- stylua: ignore
-  keys = {
-    { "<leader>td", function() require("neotest").run.run({strategy = "dap"}) end, desc = "Debug Nearest" },
-  },
   },
 }
