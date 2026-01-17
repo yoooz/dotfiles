@@ -19,7 +19,7 @@ export ICON_BATTERY_CHARGING="󰂄"
 
 # Common apps (for front_app display)
 export ICON_APP_DEFAULT="󰀏"
-export ICON_TERMINAL=""
+export ICON_TERMINAL=">_"
 export ICON_BROWSER="󰖟"
 export ICON_CODE="󰨞"
 export ICON_FINDER="󰀶"
