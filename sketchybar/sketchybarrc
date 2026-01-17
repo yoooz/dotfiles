@@ -1,0 +1,86 @@
+#!/bin/bash
+
+# Load global definitions
+source "$CONFIG_DIR/colors.sh"
+source "$CONFIG_DIR/icons.sh"
+
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+FONT="Hack Nerd Font"
+
+##### Bar Appearance #####
+sketchybar --bar \
+  height=32 \
+  blur_radius=30 \
+  position=top \
+  sticky=on \
+  padding_left=10 \
+  padding_right=10 \
+  color=$BAR_COLOR \
+  border_width=0 \
+  display=all
+
+##### Default Item Appearance #####
+sketchybar --default \
+  icon.font="$FONT:Bold:14.0" \
+  icon.color=$ICON_COLOR \
+  label.font="$FONT:Regular:13.0" \
+  label.color=$LABEL_COLOR \
+  padding_left=5 \
+  padding_right=5 \
+  background.height=26 \
+  background.corner_radius=5
+
+##### Left Area #####
+# Intentionally empty - display number is visually/spatially obvious
+
+##### Center Area #####
+# Focused app name
+sketchybar --add item front_app center \
+  --set front_app \
+    icon.drawing=on \
+    icon.font="$FONT:Bold:14.0" \
+    label.font="$FONT:Bold:14.0" \
+    script="$PLUGIN_DIR/front_app.sh" \
+  --subscribe front_app front_app_switched
+
+##### Right Area #####
+# Clock
+sketchybar --add item clock right \
+  --set clock \
+    icon=$ICON_CLOCK \
+    update_freq=30 \
+    script="$PLUGIN_DIR/clock.sh"
+
+# Battery
+sketchybar --add item battery right \
+  --set battery \
+    update_freq=120 \
+    script="$PLUGIN_DIR/battery.sh" \
+  --subscribe battery system_woke power_source_change
+
+# Memory (graph)
+sketchybar --add graph mem right 50 \
+  --set mem \
+    icon=$ICON_MEMORY \
+    icon.padding_right=5 \
+    graph.color=$BLUE \
+    graph.fill_color=0x403a3a5e \
+    graph.line_width=1 \
+    label.padding_left=5 \
+    update_freq=30 \
+    script="$PLUGIN_DIR/mem.sh"
+
+# CPU (graph)
+sketchybar --add graph cpu right 50 \
+  --set cpu \
+    icon=$ICON_CPU \
+    icon.padding_right=5 \
+    graph.color=$GREEN \
+    graph.fill_color=0x403a5e3a \
+    graph.line_width=1 \
+    label.padding_left=5 \
+    update_freq=2 \
+    script="$PLUGIN_DIR/cpu.sh"
+
+##### Finalize #####
+sketchybar --update
