@@ -65,6 +65,3 @@ esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main']
 backspace = ['close-all-windows-but-current', 'mode main']
 
-# All windows floating by default
-[[on-window-detected]]
-run = 'layout floating'
