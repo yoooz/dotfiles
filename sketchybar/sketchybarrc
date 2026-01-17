@@ -30,8 +30,19 @@ sketchybar --default \
   background.height=26 \
   background.corner_radius=5
 
+##### Events #####
+sketchybar --add event aerospace_workspace_change
+
 ##### Left Area #####
-# Intentionally empty - display number is visually/spatially obvious
+# Aerospace workspaces (trigger item - actual spaces are added dynamically)
+sketchybar --add item aerospace_trigger left \
+  --set aerospace_trigger \
+    drawing=off \
+    script="$PLUGIN_DIR/aerospace.sh" \
+  --subscribe aerospace_trigger aerospace_workspace_change
+
+# Initial load of workspaces
+"$PLUGIN_DIR/aerospace.sh"
 
 ##### Center Area #####
 # Focused app name
