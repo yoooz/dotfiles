@@ -1,0 +1,71 @@
+# Aerospace Configuration
+# https://nikitabobko.github.io/AeroSpace/guide
+
+# Start AeroSpace at login
+start-at-login = true
+
+# Mouse follows focus
+on-focus-changed = ['move-mouse window-lazy-center']
+
+# Normalizations
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# Layout settings
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+
+# sketchybar integration
+exec-on-workspace-change = [
+  '/bin/bash', '-c',
+  'sketchybar --trigger aerospace_workspace_change'
+]
+
+# Gaps
+[gaps]
+inner.horizontal = 0
+inner.vertical = 0
+outer.left = 0
+outer.bottom = 0
+outer.top = 32  # Space for sketchybar
+outer.right = 0
+
+# Main mode keybindings
+[mode.main.binding]
+# Launch terminal
+alt-enter = 'exec-and-forget open -na Ghostty'
+
+# Focus windows
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# Move windows
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+# Resize windows
+alt-minus = 'resize smart -50'
+alt-equal = 'resize smart +50'
+
+# Layout
+alt-slash = 'layout tiles horizontal vertical'
+alt-comma = 'layout accordion horizontal vertical'
+alt-f = 'fullscreen'
+alt-shift-space = 'layout floating tiling'
+
+# Service mode (for reload, etc.)
+alt-shift-semicolon = 'mode service'
+
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main']
+backspace = ['close-all-windows-but-current', 'mode main']
+
+# All windows floating by default
+[[on-window-detected]]
+run = 'layout floating'
+
