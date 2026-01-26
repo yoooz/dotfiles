@@ -95,12 +95,6 @@ export PATH=$(go env GOPATH)/bin:$PATH
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
     
 
-# python
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-
 # sdkman
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
