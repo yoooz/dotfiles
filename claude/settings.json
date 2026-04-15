@@ -65,5 +65,8 @@
   "statusLine": {
     "type": "command",
     "command": "~/.claude/scripts/statusline.js"
+  },
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true
   }
 }
