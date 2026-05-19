@@ -19,3 +19,11 @@ ln -sf ${SCRIPT_DIR}/gitignore_global ~/.config/git/ignore
 ln -sf ${SCRIPT_DIR}/ghostty ~/.config/ghostty
 ln -sf ${SCRIPT_DIR}/sketchybar ~/.config/sketchybar
 ln -sf ${SCRIPT_DIR}/aerospace ~/.config/aerospace
+
+# Claude Code agent skills (自作カスタムskillを個別に symlink)
+mkdir -p ~/.claude/skills
+for skill_dir in ${SCRIPT_DIR}/claude/skills/*/; do
+  [ -d "$skill_dir" ] || continue
+  skill_name=$(basename "$skill_dir")
+  ln -sfn "$skill_dir" ~/.claude/skills/"$skill_name"
+done
