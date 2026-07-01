@@ -87,8 +87,26 @@
     "type": "command",
     "command": "~/.claude/scripts/statusline.js"
   },
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          { "type": "command", "command": "~/.claude/scripts/notify.sh" }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "~/.claude/scripts/notify.sh" }
+        ]
+      }
+    ]
+  },
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true
   },
-  "preferredNotifChannel": "terminal_bell"
+  "tui": "default",
+  "preferredNotifChannel": "terminal_bell",
+  "skipAutoPermissionPrompt": true
 }
