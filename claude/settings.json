@@ -85,7 +85,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "~/.claude/scripts/statusline.js"
+    "command": "~/.claude/scripts/statusline.sh"
   },
   "hooks": {
     "Notification": [
