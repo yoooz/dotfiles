@@ -105,6 +105,9 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 # gcloud 
 export PATH="${HOME}/google-cloud-sdk/bin:$PATH"
 
+# flutter
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
 # alias
 alias ls='eza'
 alias mv='nocorrect mv'
