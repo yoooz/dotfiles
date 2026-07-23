@@ -8,6 +8,8 @@ SCRIPT_DIR=$(
 ln -sf ${SCRIPT_DIR}/zshrc ${HOME}/.zshrc
 ln -sf ${SCRIPT_DIR}/tmux.conf ${HOME}/.tmux.conf
 ln -sfn ${SCRIPT_DIR}/tmux-powerline ${HOME}/.config/tmux-powerline
+mkdir -p ${HOME}/.config/herdr
+ln -sf ${SCRIPT_DIR}/herdr/config.toml ${HOME}/.config/herdr/config.toml
 ln -sfn ${SCRIPT_DIR}/nvim ${HOME}/.config/nvim
 ln -sf ${SCRIPT_DIR}/ideavimrc ${HOME}/.ideavimrc
 ln -sf ${SCRIPT_DIR}/vimrc ${HOME}/.vimrc

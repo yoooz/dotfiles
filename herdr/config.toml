@@ -1,0 +1,66 @@
+# Herdr configuration
+# tmux.conf の操作感をできるだけ引き継ぎつつ、Herdr 固有の workspace / agent UI は残す。
+
+onboarding = false
+
+[theme]
+# Ghostty の配色をそのまま活かす。
+name = "terminal"
+
+[terminal]
+# macOS では login shell として zsh を起動し、現在のペインのディレクトリを引き継ぐ。
+shell_mode = "auto"
+new_cwd = "follow"
+
+[keys]
+# tmux.conf と同じ prefix。Ctrl-w の後に操作キーを押す。
+prefix = "ctrl+w"
+
+# tmux の Ctrl-w h/j/k/l と同じペイン移動。
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+
+# 左右分割は Herdr 公式の v を確実な主キーにする。
+# tmux と同じ / も副キーとして残すが、記号キーは外側の terminal に依存する。
+split_vertical = ["prefix+v", "prefix+/"]
+split_horizontal = "prefix+minus"
+
+# tmux の Ctrl-w Ctrl-r に合わせる。Herdr は設定を client/server の両方へ再読込する。
+reload_config = "prefix+ctrl+r"
+
+# Herdr のリサイズはモード式。Ctrl-w r の後、h/j/k/l で調整し Esc で終了する。
+resize_mode = "prefix+r"
+
+# prefix+Tab で直前に操作したペインへ戻る。
+last_pane = "prefix+tab"
+
+# sidebar に表示された agent を順番に移動する。
+previous_agent = "prefix+u"
+next_agent = "prefix+i"
+
+[ui]
+mouse_capture = true
+copy_on_select = true
+pane_borders = true
+
+# 畳んだ状態でも agent/workspace の状態が分かる細いステータスレールを残す。
+# Ctrl-w b で expanded / compact を切り替えられる。
+sidebar_collapsed_mode = "compact"
+
+# 最初は通知音を切り、agent の状態は sidebar と in-app toast で確認する。
+[ui.toast]
+delivery = "herdr"
+delay_seconds = 1
+
+[ui.sound]
+enabled = false
+
+[advanced]
+# tmux の history-limit=100000 に近い用途。Herdr は行数ではなくバイト数で管理する。
+scrollback_limit_bytes = 10000000
+
+[experimental]
+# 日本語 IME のまま prefix を押したときも、操作キーを ASCII として受け取りやすくする。
+switch_ascii_input_source_in_prefix = true
