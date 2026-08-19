@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Claude Code の statusLine 用スクリプト。stdin に渡される JSON から
-# モデル名 / ディレクトリ / git ブランチ / context 使用量 / コスト を 1 行で表示する。
+# モデル名 / ディレクトリ / git ブランチ / context 使用量 / プラン枠(レート制限) を 1 行で表示する。
 # context 使用率はバー＋色（緑<70% / 黄70-89% / 赤90%+）で可視化する。
 set -euo pipefail
 export PATH="/opt/homebrew/bin:${PATH}"
@@ -12,11 +12,16 @@ j() { printf '%s' "$input" | jq -r "$1"; }
 model=$(j '.model.display_name // "Claude"')
 dir=$(j '.workspace.current_dir // .cwd // ""')
 dir_name=$(basename "$dir" 2>/dev/null || echo "")
-cost=$(j '.cost.total_cost_usd // 0')
 
 ctx_pct=$(j '.context_window.used_percentage // empty')
 ctx_size=$(j '.context_window.context_window_size // 0')
 ctx_in=$(j '.context_window.total_input_tokens // 0')
+
+# レート制限（Claude.ai Pro/Max のみ・最初の API 応答後に出現。無ければ空）
+rl_5h_pct=$(j '.rate_limits.five_hour.used_percentage // empty')
+rl_5h_reset=$(j '.rate_limits.five_hour.resets_at // empty')
+rl_7d_pct=$(j '.rate_limits.seven_day.used_percentage // empty')
+rl_7d_reset=$(j '.rate_limits.seven_day.resets_at // empty')
 
 # git ブランチ（軽い rev-parse のみ。リポジトリでなければ空）
 branch=""
@@ -36,6 +41,28 @@ human_k() { # 引数: トークン数 → "180k" / "1M"
   else
     printf '%dk' $(( n / 1000 ))
   fi
+}
+
+# --- 使用率 → 色（緑<70 / 黄70-89 / 赤90+） ---
+pct_color() { # 引数: パーセント(小数可) → ANSI 色
+  local p=${1%.*}; [[ -z "$p" ]] && p=0
+  if   (( p >= 90 )); then printf '%s' "$RED"
+  elif (( p >= 70 )); then printf '%s' "$YELLOW"
+  else                     printf '%s' "$GREEN"
+  fi
+}
+
+# --- レート制限 1 枠分を組み立て ---
+# 引数: ラベル, 使用率, resets_at(epoch), 時刻フォーマット → "5h 23%→15:00"（色付き）
+rl_seg() {
+  local label=$1 pct=$2 reset=$3 fmt=$4
+  [[ -z "$pct" ]] && return 0
+  local p=${pct%.*}; [[ -z "$p" ]] && p=0
+  local t=""
+  if [[ -n "$reset" ]]; then
+    t="→$(date -r "${reset%.*}" +"$fmt" 2>/dev/null)"
+  fi
+  printf '%s%s %d%%%s%s' "$(pct_color "$pct")" "$label" "$p" "$t" "$RESET"
 }
 
 # --- context 表示（バー＋%＋トークン） ---
@@ -59,11 +86,18 @@ else
   ctx_display="${DIM}ctx --${RESET}"
 fi
 
+# --- レート制限表示（5h は時刻、7d は日付。両方無ければ空） ---
+seg_5h=$(rl_seg "5h" "$rl_5h_pct" "$rl_5h_reset" "%H:%M")
+seg_7d=$(rl_seg "7d" "$rl_7d_pct" "$rl_7d_reset" "%m/%d")
+rl_display=""
+[[ -n "$seg_5h" ]] && rl_display="$seg_5h"
+[[ -n "$seg_7d" ]] && rl_display="${rl_display:+$rl_display ${DIM}·${RESET} }$seg_7d"
+
 # --- 組み立て ---
 line="${CYAN}${model}${RESET}"
 [[ -n "$dir_name" ]] && line+="  ${DIM}${dir_name}${RESET}"
 [[ -n "$branch"   ]] && line+="  ${DIM}⎇ ${branch}${RESET}"
 line+="  │ ${ctx_display}"
-line+="  ${DIM}│ \$$(printf '%.2f' "$cost")${RESET}"
+[[ -n "$rl_display" ]] && line+="  ${DIM}│${RESET} ${rl_display}"
 
 printf '%s' "$line"
