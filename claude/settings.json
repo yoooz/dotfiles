@@ -1,5 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "cleanupPeriodDays": 365,
   "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
@@ -83,30 +84,47 @@
       "~/yoooz_vault/"
     ]
   },
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/scripts/statusline.sh"
-  },
   "hooks": {
     "Notification": [
       {
         "hooks": [
-          { "type": "command", "command": "~/.claude/scripts/notify.sh" }
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/notify.sh"
+          }
         ]
       }
     ],
     "Stop": [
       {
         "hooks": [
-          { "type": "command", "command": "~/.claude/scripts/notify.sh" }
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/notify.sh"
+          }
         ]
       }
     ]
   },
-  "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/scripts/statusline.sh"
   },
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true,
+    "eli5@claude-community": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-community": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-community"
+      }
+    }
+  },
+  "advisorModel": "fable",
   "tui": "default",
   "preferredNotifChannel": "terminal_bell",
-  "skipAutoPermissionPrompt": true
+  "agentPushNotifEnabled": true
 }
