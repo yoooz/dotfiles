@@ -8,8 +8,12 @@ onboarding = false
 name = "terminal"
 
 [theme.custom]
-# Space picker の選択行やアクティブ枠を Snazzy のマゼンタで強調する。
+# アクティブ枠は Snazzy のマゼンタで強調する。
 accent = "#ff79c6"
+
+# Ctrl-w w の Navigate モードでは、選択中の Space の背景を塗る。
+# Ghostty のテキスト選択背景と同じ色にして見た目を揃える。
+selection_bg = "#44475a"
 
 [terminal]
 # macOS では login shell として zsh を起動し、現在のペインのディレクトリを引き継ぐ。
