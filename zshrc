@@ -216,3 +216,6 @@ if [ -f '/Users/yoooz/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yoooz/goo
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/yoooz/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yoooz/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Unity CLI
+. "~/.unity/env"
