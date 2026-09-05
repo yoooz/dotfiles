@@ -58,6 +58,9 @@ navigate_workspace_down = "j"
 [ui]
 # 選択・枠・Navigate UI のアクセント色。
 accent = "#ff79c6"
+
+# 外側の terminal の点滅カーソルを使わず、Herdr の固定描画カーソルにする。
+host_cursor = "drawn"
 mouse_capture = true
 copy_on_select = true
 pane_borders = true
