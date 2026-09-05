@@ -35,6 +35,11 @@ focus_pane_right = "prefix+l"
 split_vertical = ["prefix+v", "prefix+/"]
 split_horizontal = "prefix+minus"
 
+# Git worktree を Space として作成・オープン・削除する。
+new_worktree = "prefix+shift+g"
+open_worktree = "prefix+shift+o"
+remove_worktree = "prefix+shift+r"
+
 # tmux の Ctrl-w Ctrl-r に合わせる。Herdr は設定を client/server の両方へ再読込する。
 reload_config = "prefix+ctrl+r"
 
