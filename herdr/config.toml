@@ -7,6 +7,14 @@ onboarding = false
 # Ghostty の配色をそのまま活かす。
 name = "terminal"
 
+[theme.custom]
+# アクティブ枠は Snazzy のマゼンタで強調する。
+accent = "#ff79c6"
+
+# Ctrl-w w の Navigate モードでは、選択中の Space の背景を塗る。
+# Ghostty のテキスト選択背景と同じ色にして見た目を揃える。
+selection_bg = "#44475a"
+
 [terminal]
 # macOS では login shell として zsh を起動し、現在のペインのディレクトリを引き継ぐ。
 shell_mode = "auto"
@@ -40,7 +48,16 @@ last_pane = "prefix+tab"
 previous_agent = "prefix+u"
 next_agent = "prefix+i"
 
+# Space を番号で直接切り替える（Ctrl-w の後に Shift-1〜9）。
+switch_workspace = "prefix+shift+1..9"
+
+# Ctrl-w w で Space 一覧を開いた後は、vim と同じ j/k で選択する。
+navigate_workspace_up = "k"
+navigate_workspace_down = "j"
+
 [ui]
+# 選択・枠・Navigate UI のアクセント色。
+accent = "#ff79c6"
 mouse_capture = true
 copy_on_select = true
 pane_borders = true
