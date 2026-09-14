@@ -75,6 +75,7 @@ pane_borders = true
 sidebar_collapsed_mode = "compact"
 
 # 最初は通知音を切り、agent の状態は sidebar と in-app toast で確認する。
+show_agent_labels_on_pane_borders = true
 [ui.toast]
 delivery = "herdr"
 delay_seconds = 1
