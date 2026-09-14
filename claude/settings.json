@@ -125,6 +125,10 @@
   },
   "advisorModel": "fable",
   "tui": "default",
+  "theme": "dark-daltonized",
+  "editorMode": "vim",
+  "verbose": true,
   "preferredNotifChannel": "terminal_bell",
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "model": "claude-fable-5-1[1m]"
 }
