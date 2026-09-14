@@ -1,22 +1,33 @@
 # Agent Skills
 
-Claude Code の agent skill を dotfiles で管理するためのディレクトリ。
+自作の agent skill を dotfiles で管理・配布するためのディレクトリ。
 
 skill は出自によって管理方法を分ける：
 
 | 出自 | 本体の場所 | dotfilesでの扱い |
 |---|---|---|
-| 自作カスタム | `claude/skills/<name>/`（このディレクトリ） | symlink 経由で有効化 |
+| 自作カスタム | `skills/<name>/`（このディレクトリ） | symlink 経由で有効化 |
 | 外部 (`npx skills add`) | `~/.claude/skills/<name>/`（CLI管理） | インストールコマンドを下に記録 |
 | 公式 (`~/.agents/skills/`) | Anthropic管理 | 有効化リストを下に記録 |
 
 ## 自作カスタムskill
 
-`claude/skills/<skill-name>/SKILL.md` を作って `./install.sh` を実行すれば、`~/.claude/skills/<skill-name>` に symlink が貼られる。
+`skills/<skill-name>/SKILL.md` を作って `./install.sh` を実行すれば、`~/.claude/skills/<skill-name>` に symlink が貼られる。
 
-`install.sh` は `claude/skills/*/` をループするので、skill追加ごとにスクリプトを書き換える必要はない。
+`install.sh` は `skills/*/` をループするので、skill追加ごとにスクリプトを書き換える必要はない。
 
 skill名は外部skillや公式skillと衝突させないこと（自作のsymlinkで上書きされる）。
+
+### GitHub からインストール
+
+dotfiles の symlink を使わない環境では、GitHub に反映済みの skill を `gh skill install` で導入できる。
+
+```bash
+gh skill install yoooz/dotfiles craft-review --agent claude-code --scope user
+gh skill install yoooz/dotfiles --all --agent claude-code --scope user
+```
+
+構成の検証: repository root で `gh skill publish --dry-run` を実行する。
 
 ## 外部skill（`npx skills add` でインストール）
 

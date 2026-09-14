@@ -19,6 +19,7 @@ install.sh は以下のシンボリックリンクを作成する：
 - `nvim/` → `~/.config/nvim/`
 - `claude/CLAUDE.md` → `~/.claude/CLAUDE.md`
 - `claude/settings.json` → `~/.claude/settings.json`
+- `skills/<name>/` → `~/.claude/skills/<name>/`
 
 ## アーキテクチャ
 
@@ -58,6 +59,12 @@ nvim/
 - `settings.json` → Claude Code の権限と MCP 設定
 - `commands/` → カスタムスラッシュコマンド
 - `scripts/` → ステータスライン用スクリプト
+
+### Agent Skills (`skills/`)
+
+- `skills/<name>/SKILL.md` → 自作スキルの定義
+- 補助スクリプトや参照資料は各スキルのディレクトリ内に配置する
+- 導入方法は `skills/README.md` を参照
 
 ## 依存関係管理
 
