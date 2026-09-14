@@ -12,7 +12,7 @@ macOS 向けの個人用 dotfiles リポジトリ。開発ツールとエージ�
 | `zshrc` | シェル設定、ツール連携、リポジトリ・worktree 操作 |
 | `herdr/` | ペイン・ワークスペース管理。tmux から移行済み |
 | `ghostty/` | ターミナルの表示設定・テーマ |
-| `claude/` | Claude Code のユーザー共通指示、設定、補助スクリプト |
+| `ai/` | 個人用の共通指示、キャラ設定、エージェント固有の設定。導入方法は `ai/README.md` |
 | `skills/` | 自作 agent skills。管理・導入方法は `skills/README.md` |
 | `Brewfile` | Homebrew のパッケージ管理 |
 | `install.sh` | 各設定をホームディレクトリ配下へシンボリックリンクする |

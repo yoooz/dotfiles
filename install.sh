@@ -12,9 +12,11 @@ ln -sfn ${SCRIPT_DIR}/nvim ${HOME}/.config/nvim
 ln -sf ${SCRIPT_DIR}/ideavimrc ${HOME}/.ideavimrc
 ln -sf ${SCRIPT_DIR}/vimrc ${HOME}/.vimrc
 ln -sf ${SCRIPT_DIR}/lazygit_config.yml ${HOME}/Library/Application\ Support/lazygit/config.yml
-ln -sf ${SCRIPT_DIR}/claude/CLAUDE.md ~/.claude/CLAUDE.md
-ln -sfn ${SCRIPT_DIR}/claude/scripts ~/.claude/scripts
-ln -sf ${SCRIPT_DIR}/claude/settings.json ~/.claude/settings.json
+mkdir -p "${HOME}/.claude" "${CODEX_HOME:-${HOME}/.codex}"
+ln -sfn "${SCRIPT_DIR}/ai/AGENTS.md" "${HOME}/.claude/CLAUDE.md"
+ln -sfn "${SCRIPT_DIR}/ai/AGENTS.md" "${CODEX_HOME:-${HOME}/.codex}/AGENTS.md"
+ln -sfn "${SCRIPT_DIR}/ai/claude/scripts" "${HOME}/.claude/scripts"
+ln -sfn "${SCRIPT_DIR}/ai/claude/settings.json" "${HOME}/.claude/settings.json"
 ln -sf ${SCRIPT_DIR}/gitignore_global ~/.config/git/ignore
 ln -sfn ${SCRIPT_DIR}/ghostty ~/.config/ghostty
 ln -sfn ${SCRIPT_DIR}/sketchybar ~/.config/sketchybar
