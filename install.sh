@@ -22,10 +22,14 @@ ln -sfn ${SCRIPT_DIR}/ghostty ~/.config/ghostty
 ln -sfn ${SCRIPT_DIR}/sketchybar ~/.config/sketchybar
 ln -sfn ${SCRIPT_DIR}/aerospace ~/.config/aerospace
 
-# Claude Code agent skills (自作カスタムskillを個別に symlink)
-mkdir -p ~/.claude/skills
+# 自作カスタムskillを個別に symlink。ask-claude は Codex 用。
+mkdir -p "${HOME}/.claude/skills" "${HOME}/.agents/skills"
 for skill_dir in "${SCRIPT_DIR}"/skills/*/; do
   [ -d "$skill_dir" ] || continue
   skill_name=$(basename "$skill_dir")
-  ln -sfn "$skill_dir" ~/.claude/skills/"$skill_name"
+  if [ "$skill_name" = "ask-claude" ]; then
+    ln -sfn "$skill_dir" "${HOME}/.agents/skills/$skill_name"
+  else
+    ln -sfn "$skill_dir" "${HOME}/.claude/skills/$skill_name"
+  fi
 done

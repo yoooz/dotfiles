@@ -23,3 +23,6 @@ ai/
 `CODEX_HOME` が設定されている場合、Codex の配置先は `$CODEX_HOME/AGENTS.md` になる。共通指示は `ai/AGENTS.md` を編集し、キャラ設定の参照は symlink を解決した実体の位置を基準にする。
 
 ルートの `AGENTS.md` はこの dotfiles リポジトリでの作業用、`ai/AGENTS.md` は各プロジェクトで使う個人用の指示。自作スキルはルートの `skills/` で管理する。
+
+Codex から Claude Code に設計やコードを相談するには、[`ask-claude`](../skills/ask-claude/SKILL.md) を使う。
+`./install.sh` で Codex 用のスキルを配置できる。導入・使用方法は [`skills/README.md`](../skills/README.md) を参照。
