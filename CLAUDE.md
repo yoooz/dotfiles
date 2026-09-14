@@ -9,7 +9,7 @@ Neovim、Zsh、Tmux などの開発ツール設定を管理する個人用 dotfi
 ## インストール
 
 ```bash
-git clone https://github.com/yooz-o/dotfiles.git
+git clone https://github.com/yoooz/dotfiles.git
 ./install.sh
 ```
 
