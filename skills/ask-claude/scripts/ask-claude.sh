@@ -19,7 +19,9 @@ if (( $# > 1 )); then
   usage >&2
   exit 2
 fi
-if [[ -n "${CLAUDECODE:-}" ]]; then
+# Claude Code のセッション内、または ask-codex 経由で起動された Codex からの呼び出しは、
+# Claude と Codex が互いに相談し合う再帰になるため拒否する。
+if [[ -n "${CLAUDECODE:-}" || -n "${ASK_CODEX:-}" ]]; then
   echo "Error: このスクリプトは Codex から使ってください。Claude Code 内からの再帰呼び出しはできません。" >&2
   exit 2
 fi
@@ -61,6 +63,9 @@ Codex の案や説明を正しいと仮定せず、ユーザーの目的・制�
 if [[ -n "${ASK_CLAUDE_MODEL:-}" ]]; then
   claude_args+=(--model "$ASK_CLAUDE_MODEL")
 fi
+
+# Claude が起動するプロセスへ伝わり、ask-codex.sh 側の再帰ガードが検知する。
+export ASK_CLAUDE=1
 
 cd -- "$project_dir"
 exec claude "${claude_args[@]}" <<< "$consultation"

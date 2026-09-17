@@ -27,6 +27,8 @@ dotfiles の symlink を使わない環境では、GitHub に反映済みの ski
 gh skill install yoooz/dotfiles craft-review --agent claude-code --scope user
 # Codex から Claude に相談する skill
 gh skill install yoooz/dotfiles ask-claude --agent codex --scope user
+# Claude から Codex に相談する skill
+gh skill install yoooz/dotfiles ask-codex --agent claude-code --scope user
 ```
 
 構成の検証: repository root で `gh skill publish --dry-run` を実行する。
@@ -47,6 +49,23 @@ Claude Code 2.1.270 で利用できるオプションを使う。モデルは Cl
 Codex は `~/.agents/skills` の symlink を読み込む。追加後にスキルが表示されなければ
 Codex を再起動する。配置の仕様は [OpenAI のスキルドキュメント](https://learn.chatgpt.com/docs/build-skills)、
 呼び出しオプションは [Claude Code CLI reference](https://code.claude.com/docs/en/cli-reference) を参照。
+
+### Claude から Codex に相談する
+
+`ask-codex` を導入すると、Claude Code に「Codex にこの設計を相談して」または
+`/ask-codex この変更をレビューして` と依頼できる。
+明示的な依頼がなくても、重要な設計判断や複雑な実装上の意思決定では Claude が能動的に相談する。
+Codex は案の前提・反例・代替案を批判的に検討し、Claude が根拠を確認して作業を進める。
+自明な修正や整形では自動相談しない。
+
+前提はローカルの Codex CLI とログイン済みの認証。呼び出しスクリプトは
+codex-cli 0.153.4 で利用できるオプションを使う。モデルと reasoning effort は
+`~/.codex/config.toml` を引き継ぐ。相談は毎回独立し、セッションは保存しない。
+具体的な動作と呼び出し方法は [`ask-codex/SKILL.md`](ask-codex/SKILL.md) を参照。
+
+`ask-claude` と `ask-codex` は互いに再帰ガードを持つ。各スクリプトは起動時に
+`ASK_CLAUDE=1` / `ASK_CODEX=1` を export し、相手側のスクリプトはそのマーカーや
+`CLAUDECODE` / `CODEX_SESSION_ID` を見て、Claude と Codex が相談し合うループを拒否する。
 
 ## 外部skill（`npx skills add` でインストール）
 
