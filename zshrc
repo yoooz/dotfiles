@@ -15,6 +15,8 @@ zstyle ':chpwd:*' recent-dirs-default true
 zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recend-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 
+mkdir -p "$HOME/.cache/shell"
+
 # prompt
 UUU="%B%F{cyan}❯ %f%b"
 SAN="%B%F{red}❯ %f%b"
@@ -28,7 +30,9 @@ add-zsh-hook chpwd chpwd_recent_dirs
 autoload -Uz compinit
 compinit
 
-export LANG=ja_JP.UTF-8
+if locale -a 2>/dev/null | command grep -qi '^ja_JP\.utf'; then
+  export LANG=ja_JP.UTF-8
+fi
 
 # load colors
 autoload -U colors
@@ -83,20 +87,24 @@ export PATH=${HOME}/Library/Android/sdk/tools:$PATH
 export PATH=${HOME}/.rbenv/bin:$PATH
 export PATH="/opt/homebrew/opt/mysql-client@8.0/bin:$PATH"
 
-eval "$(rbenv init -)"
+if command -v rbenv >/dev/null 2>&1; then
+  eval "$(rbenv init -)"
+fi
 
 # neovim
 export PATH=${PATH}:/opt/nvim
 
 # go
 export PATH=${PATH}:/usr/local/go/bin
-export PATH=$(go env GOPATH)/bin:$PATH
+if command -v go >/dev/null 2>&1; then
+  export PATH="$(go env GOPATH)/bin:$PATH"
+fi
 
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
     
 
 # sdkman
-source "$HOME/.sdkman/bin/sdkman-init.sh"
+[[ -f "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # volta
 export VOLTA_HOME="$HOME/.volta"
@@ -109,12 +117,12 @@ export PATH="${HOME}/google-cloud-sdk/bin:$PATH"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # alias
-alias ls='eza'
+command -v eza >/dev/null 2>&1 && alias ls='eza'
 alias mv='nocorrect mv'
 alias cp='nocorrect cp'
 alias mkdir='nocorrect mkdir'
 alias grep=egrep
-alias cat='bat'
+command -v bat >/dev/null 2>&1 && alias cat='bat'
 alias gg='ghq get'
 alias vim='nvim'
 
@@ -133,7 +141,14 @@ function precmd() {
   fi
 }
 
-eval "$(direnv hook zsh)"
+if command -v direnv >/dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+fi
+
+# Omarchy uses mise for development runtimes.
+if [[ "$OSTYPE" == linux* ]] && command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate zsh)"
+fi
 
 # if integrations not installed, this script failure exit
 if test -e "${HOME}/.iterm2_shell_integration.zsh";then
@@ -209,7 +224,7 @@ function git-worktree-remove() {
 
 # git worktree remove alias
 alias gwr='git-worktree-remove'
-source $HOME/.tenv.completion.zsh
+[[ -f "$HOME/.tenv.completion.zsh" ]] && source "$HOME/.tenv.completion.zsh"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/yoooz/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yoooz/google-cloud-sdk/path.zsh.inc'; fi

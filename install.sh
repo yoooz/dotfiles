@@ -19,7 +19,17 @@ ln -sfn "${SCRIPT_DIR}/ai/codex/config.toml" "${CODEX_HOME:-${HOME}/.codex}/conf
 ln -sfn "${SCRIPT_DIR}/ai/claude/scripts" "${HOME}/.claude/scripts"
 ln -sfn "${SCRIPT_DIR}/ai/claude/settings.json" "${HOME}/.claude/settings.json"
 ln -sf ${SCRIPT_DIR}/gitignore_global ~/.config/git/ignore
-ln -sfn ${SCRIPT_DIR}/ghostty ~/.config/ghostty
+if [[ "$(uname -s)" == "Linux" ]] && command -v omarchy >/dev/null 2>&1; then
+  mkdir -p "${HOME}/.config/hypr"
+  ln -sfn "${SCRIPT_DIR}/hypr/monitors.lua" "${HOME}/.config/hypr/monitors.lua"
+  ln -sfn "${SCRIPT_DIR}/hypr/input.lua" "${HOME}/.config/hypr/input.lua"
+  mkdir -p "${HOME}/.config/ghostty"
+  ln -sfn "${SCRIPT_DIR}/ghostty/config.omarchy" "${HOME}/.config/ghostty/config"
+  mkdir -p "${HOME}/.config/systemd/user/app-com.mitchellh.ghostty.service.d"
+  ln -sfn "${SCRIPT_DIR}/ghostty/systemd/override.conf" "${HOME}/.config/systemd/user/app-com.mitchellh.ghostty.service.d/override.conf"
+else
+  ln -sfn "${SCRIPT_DIR}/ghostty" "${HOME}/.config/ghostty"
+fi
 ln -sfn ${SCRIPT_DIR}/sketchybar ~/.config/sketchybar
 ln -sfn ${SCRIPT_DIR}/aerospace ~/.config/aerospace
 
