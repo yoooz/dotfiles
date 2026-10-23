@@ -20,9 +20,12 @@ ln -sfn "${SCRIPT_DIR}/ai/claude/scripts" "${HOME}/.claude/scripts"
 ln -sfn "${SCRIPT_DIR}/ai/claude/settings.json" "${HOME}/.claude/settings.json"
 ln -sf ${SCRIPT_DIR}/gitignore_global ~/.config/git/ignore
 if [[ "$(uname -s)" == "Linux" ]] && command -v omarchy >/dev/null 2>&1; then
+  mkdir -p "${HOME}/.config/omarchy"
+  ln -sfn "${SCRIPT_DIR}/omarchy/shell.json" "${HOME}/.config/omarchy/shell.json"
   mkdir -p "${HOME}/.config/hypr"
   ln -sfn "${SCRIPT_DIR}/hypr/monitors.lua" "${HOME}/.config/hypr/monitors.lua"
   ln -sfn "${SCRIPT_DIR}/hypr/input.lua" "${HOME}/.config/hypr/input.lua"
+  ln -sfn "${SCRIPT_DIR}/hypr/autostart.lua" "${HOME}/.config/hypr/autostart.lua"
   mkdir -p "${HOME}/.config/ghostty"
   ln -sfn "${SCRIPT_DIR}/ghostty/config.omarchy" "${HOME}/.config/ghostty/config"
   mkdir -p "${HOME}/.config/systemd/user/app-com.mitchellh.ghostty.service.d"
