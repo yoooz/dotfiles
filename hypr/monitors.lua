@@ -12,3 +12,8 @@ hl.monitor({ output = "DP-2", mode = "3440x1440@60", position = "2560x1080", sca
 
 -- I-O DATA: centered above XEC.
 hl.monitor({ output = "DP-3", mode = "1920x1080@60", position = "3320x0", scale = 1 })
+
+-- Keep the main workspaces on their designated monitors, including when empty.
+hl.workspace_rule({ workspace = "1", monitor = "DP-1", default = true, persistent = true })
+hl.workspace_rule({ workspace = "2", monitor = "DP-2", default = true, persistent = true })
+hl.workspace_rule({ workspace = "3", monitor = "DP-3", default = true, persistent = true })

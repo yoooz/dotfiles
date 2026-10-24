@@ -7,7 +7,7 @@
           "id": "omarchy.indicators"
         },
         {
-          "format": "dddd HH:mm",
+          "format": "M/d ddd HH:mm",
           "formatAlt": "d MMMM 'W'ww yyyy",
           "id": "omarchy.clock",
           "verticalFormat": "HH\n—\nmm"
@@ -28,11 +28,20 @@
         },
         {
           "id": "omarchy.workspaces"
+        },
+        {
+          "id": "aditya.workspace-icons"
         }
       ],
       "right": [
         {
           "id": "omarchy.tray"
+        },
+        {
+          "id": "io.github.berrimi.omacursor"
+        },
+        {
+          "id": "io.github.vk2r.battle-station"
         },
         {
           "id": "omarchy.agents"
