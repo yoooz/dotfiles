@@ -60,8 +60,33 @@ switch_workspace = "prefix+shift+1..9"
 navigate_workspace_up = "k"
 navigate_workspace_down = "j"
 
+# Ctrl-w Shift-h/j/k/l で、操作中のペインと隣接ペインを入れ替える。
 [[keys.command]]
+key = "prefix+shift+h"
+type = "shell"
+command = '"${HERDR_BIN_PATH:-herdr}" pane swap --pane "$HERDR_ACTIVE_PANE_ID" --direction left'
+description = "Swap pane left"
+
+[[keys.command]]
+key = "prefix+shift+j"
+type = "shell"
+command = '"${HERDR_BIN_PATH:-herdr}" pane swap --pane "$HERDR_ACTIVE_PANE_ID" --direction down'
+description = "Swap pane down"
+
+[[keys.command]]
+key = "prefix+shift+k"
+type = "shell"
+command = '"${HERDR_BIN_PATH:-herdr}" pane swap --pane "$HERDR_ACTIVE_PANE_ID" --direction up'
+description = "Swap pane up"
+
+[[keys.command]]
+key = "prefix+shift+l"
+type = "shell"
+command = '"${HERDR_BIN_PATH:-herdr}" pane swap --pane "$HERDR_ACTIVE_PANE_ID" --direction right'
+description = "Swap pane right"
+
 # Ctrl-w t で一時的なシェルを開く。exit / Ctrl-d で popup を閉じる。
+[[keys.command]]
 key = "prefix+t"
 type = "popup"
 command = "exec \"${SHELL:-sh}\""
