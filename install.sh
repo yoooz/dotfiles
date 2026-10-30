@@ -44,14 +44,16 @@ fi
 ln -sfn ${SCRIPT_DIR}/sketchybar ~/.config/sketchybar
 ln -sfn ${SCRIPT_DIR}/aerospace ~/.config/aerospace
 
-# 自作カスタムskillを個別に symlink。ask-claude は Codex 用。
-mkdir -p "${HOME}/.claude/skills" "${HOME}/.agents/skills"
+# 自作カスタムskillを個別に symlink。相談用以外は両エージェントで共有。
+mkdir -p "${HOME}/.claude/skills" "${HOME}/.agents/skills" "${CODEX_HOME:-${HOME}/.codex}/skills"
 for skill_dir in "${SCRIPT_DIR}"/skills/*/; do
-  [ -d "$skill_dir" ] || continue
+  [ -f "${skill_dir}SKILL.md" ] || continue
   skill_name=$(basename "$skill_dir")
-  if [ "$skill_name" = "ask-claude" ]; then
+  if [ "$skill_name" != "ask-codex" ]; then
     ln -sfn "$skill_dir" "${HOME}/.agents/skills/$skill_name"
-  else
+    ln -sfn "$skill_dir" "${CODEX_HOME:-${HOME}/.codex}/skills/$skill_name"
+  fi
+  if [ "$skill_name" != "ask-claude" ]; then
     ln -sfn "$skill_dir" "${HOME}/.claude/skills/$skill_name"
   fi
 done

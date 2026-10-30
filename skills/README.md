@@ -12,10 +12,19 @@ skill は出自によって管理方法を分ける：
 
 ## 自作カスタムskill
 
-`skills/<skill-name>/SKILL.md` を作って `./install.sh` を実行すれば、`~/.claude/skills/<skill-name>` に symlink が貼られる。
-Codex 用の `ask-claude` は `~/.agents/skills/ask-claude` に配置する。
+`skills/<skill-name>/SKILL.md` を作って `./install.sh` を実行すれば、各エージェントのスキルディレクトリに symlink が貼られる。
 
-`install.sh` は `skills/*/` をループするので、Claude Code 用の skill 追加ごとにスクリプトを書き換える必要はない。
+| スキル | Codex | Claude Code |
+|---|---|---|
+| `craft-review` / `jot` / `my-review` | ✓ | ✓ |
+| `ask-claude` | ✓ | — |
+| `ask-codex` | — | ✓ |
+
+Codex 用は `~/.agents/skills/` と `${CODEX_HOME:-~/.codex}/skills/`、Claude Code 用は
+`~/.claude/skills/` に配置する。Codex の CLI とデスクトップ環境の両方に対応するため、
+Codex 用の2か所は同じ実体へリンクする。
+
+`install.sh` は `skills/*/` をループするので、共通 skill 追加ごとにスクリプトを書き換える必要はない。
 
 skill名は外部skillや公式skillと衝突させないこと（自作のsymlinkで上書きされる）。
 
