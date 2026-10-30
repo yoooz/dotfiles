@@ -25,6 +25,11 @@ ln -sf ${SCRIPT_DIR}/gitignore_global ~/.config/git/ignore
 if [[ "$(uname -s)" == "Linux" ]] && command -v omarchy >/dev/null 2>&1; then
   mkdir -p "${HOME}/.config/omarchy"
   ln -sfn "${SCRIPT_DIR}/omarchy/shell.json" "${HOME}/.config/omarchy/shell.json"
+  mkdir -p "${HOME}/.config/omarchy/plugins"
+  for plugin_dir in "${SCRIPT_DIR}"/omarchy/plugins/*/; do
+    [ -d "$plugin_dir" ] || continue
+    ln -sfn "${plugin_dir%/}" "${HOME}/.config/omarchy/plugins/$(basename "$plugin_dir")"
+  done
   mkdir -p "${HOME}/.config/hypr"
   ln -sfn "${SCRIPT_DIR}/hypr/monitors.lua" "${HOME}/.config/hypr/monitors.lua"
   ln -sfn "${SCRIPT_DIR}/hypr/input.lua" "${HOME}/.config/hypr/input.lua"

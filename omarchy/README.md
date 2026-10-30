@@ -3,6 +3,8 @@
 - `shell.json`: バーの配置、プラグイン設定、スクリーンセーバー・ロック時間。
 - `plugins.tsv`: 追加プラグインの ID と導入元。標準プラグイン本体は Omarchy が管理する。
 - `install-plugins.sh`: 一覧にある未導入プラグインだけを公式 CLI で導入する。
+- `plugins/`: dotfiles 内で管理する自作プラグイン。`install.sh` がリンクする。
+  `yoooz.ime-status` は Fcitx5 の状態を500msごとに取得し、ON時は「あ ON」、OFF時は「A OFF」を表示する。
 
 ## 追加プラグイン
 

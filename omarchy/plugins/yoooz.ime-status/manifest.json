@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "yoooz.ime-status",
+  "name": "Japanese input status",
+  "version": "1.0.0",
+  "author": "yoooz",
+  "description": "Show Fcitx5 input activation in the bar",
+  "kinds": ["bar-widget"],
+  "entryPoints": { "barWidget": "Widget.qml" },
+  "barWidget": {
+    "displayName": "Japanese input status",
+    "category": "System",
+    "defaultSection": "center",
+    "allowMultiple": false
+  }
+}
