@@ -15,6 +15,9 @@ ln -sf ${SCRIPT_DIR}/lazygit_config.yml ${HOME}/Library/Application\ Support/laz
 mkdir -p "${HOME}/.claude" "${CODEX_HOME:-${HOME}/.codex}"
 ln -sfn "${SCRIPT_DIR}/ai/AGENTS.md" "${HOME}/.claude/CLAUDE.md"
 ln -sfn "${SCRIPT_DIR}/ai/AGENTS.md" "${CODEX_HOME:-${HOME}/.codex}/AGENTS.md"
+# Git に保存する内容から Codex のローカルな projects だけを除外する。
+git -C "${SCRIPT_DIR}" config --local filter.codex-config.clean 'python3 ai/codex/filter-config.py' || exit 1
+git -C "${SCRIPT_DIR}" config --local filter.codex-config.required true || exit 1
 ln -sfn "${SCRIPT_DIR}/ai/codex/config.toml" "${CODEX_HOME:-${HOME}/.codex}/config.toml"
 ln -sfn "${SCRIPT_DIR}/ai/claude/scripts" "${HOME}/.claude/scripts"
 ln -sfn "${SCRIPT_DIR}/ai/claude/settings.json" "${HOME}/.claude/settings.json"

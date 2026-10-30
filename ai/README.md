@@ -27,9 +27,24 @@ ai/
 
 Codex の `config.toml` には、Codex CLI や ChatGPT デスクトップアプリが自動で書き込む項目
 （`projects` の信頼リスト、`marketplaces`、`plugins`、`mcp_servers` の環境変数など）が混在する。
-CLI は symlink をたどって実体を直接編集するため、リポジトリ側に差分として現れる。
+CLI は symlink をたどって実体を直接編集する。
+`projects` は端末ごとの信頼設定なので、Git の clean filter で `git add` 時に除外する。
+手元の `config.toml` には残り、他の項目は通常どおり Git で管理する。
+フィルターには Python 3.11 以降が必要。`./install.sh` が clone ごとに設定する。
+設定だけを適用する場合は、リポジトリ直下で以下を実行する。
+
+```bash
+git config --local filter.codex-config.clean 'python3 ai/codex/filter-config.py'
+git config --local filter.codex-config.required true
+```
+
+新しい clone では、コミットする前に必ずフィルターを設定すること。
+Git のローカル設定は clone で引き継がれず、未設定だと除外されない。
+`git restore` やブランチ切り替えでファイルが書き戻されると、手元の `projects` も失われる。
+その場合は Codex でプロジェクトを信頼し直す。過去のコミットにある `projects` は削除しない。
+
 自分で編集したい項目は `model`、`sandbox_workspace_write.writable_roots` など先頭付近にまとめてあり、
-自動書き込み分はレビューして必要なものだけコミットする。
+`projects` 以外の自動書き込み分はレビューして必要なものだけコミットする。
 自分で書く項目のパスは `~` で始める。Codex は `~` を展開するが、`$HOME` などの環境変数は展開しない。
 自動書き込み分の絶対パスは書き換えても次回の自動書き込みで戻るため、そのままにする。
 

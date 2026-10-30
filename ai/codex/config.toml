@@ -87,41 +87,5 @@ ambient-suggestions-enabled = true
 followUpQueueMode = "queue"
 dock-icon-preference = "codex-system"
 
-[projects."/Users/yoooz/ghq/github.com/yoooz/dotfiles"]
-trust_level = "trusted"
-
-[projects."/Users/yoooz/ghq/github.com/ClusterVR/ClusterONE_server"]
-trust_level = "trusted"
-
-[projects."/Users/yoooz/Documents/Codex/2026-09-07/onetime-20260901-onegai-1178-sql-room"]
-trust_level = "trusted"
-
-[projects."/Users/yoooz/Documents/Codex/2026-09-07/onetime-20260901-onegai-1178-sql-room-2"]
-trust_level = "trusted"
-
-[projects."/Users/yoooz/Documents/Codex/2026-09-07/onetime-20260901-onegai-1178-sql-room-3"]
-trust_level = "trusted"
-
-[projects."/Users/yoooz/Documents/Codex/2026-09-07/onetime-20260901-onegai-1178-sql-room-4"]
-trust_level = "trusted"
-
-[projects."/Users/yoooz/Documents/Codex/2026-09-07/realtime-voice-chat"]
-trust_level = "trusted"
-
-[projects."/Users/yoooz/Documents/Codex/2026-09-08/hatch-pet-users-yoooz-codex-skills"]
-trust_level = "trusted"
-
-[projects."/Users/yoooz/ghq/github.com/ClusterVR/security-hub"]
-trust_level = "trusted"
-
-[projects."/Users/yoooz/ghq/github.com/ClusterVR/cluster_backend"]
-trust_level = "trusted"
-
-[projects."/Users/yoooz/Documents/Codex/2026-09-16/realtime-voice-chat"]
-trust_level = "trusted"
-
-[projects."/Users/yoooz/ghq/github.com/ClusterVR/alefgard_infrastructure"]
-trust_level = "trusted"
-
 [tui.model_availability_nux]
 gpt-6-astra = 4
