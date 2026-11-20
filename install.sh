@@ -11,7 +11,15 @@ ln -sf ${SCRIPT_DIR}/herdr/config.toml ${HOME}/.config/herdr/config.toml
 ln -sfn ${SCRIPT_DIR}/nvim ${HOME}/.config/nvim
 ln -sf ${SCRIPT_DIR}/ideavimrc ${HOME}/.ideavimrc
 ln -sf ${SCRIPT_DIR}/vimrc ${HOME}/.vimrc
-ln -sf ${SCRIPT_DIR}/lazygit_config.yml ${HOME}/Library/Application\ Support/lazygit/config.yml
+if command -v lazygit >/dev/null 2>&1; then
+  LAZYGIT_CONFIG_DIR=$(lazygit --print-config-dir) || exit 1
+elif [[ "$(uname -s)" == "Darwin" ]]; then
+  LAZYGIT_CONFIG_DIR="${HOME}/Library/Application Support/lazygit"
+else
+  LAZYGIT_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/lazygit"
+fi
+mkdir -p "${LAZYGIT_CONFIG_DIR}"
+ln -sfn "${SCRIPT_DIR}/lazygit_config.yml" "${LAZYGIT_CONFIG_DIR}/config.yml"
 mkdir -p "${HOME}/.claude" "${CODEX_HOME:-${HOME}/.codex}"
 ln -sfn "${SCRIPT_DIR}/ai/AGENTS.md" "${HOME}/.claude/CLAUDE.md"
 ln -sfn "${SCRIPT_DIR}/ai/AGENTS.md" "${CODEX_HOME:-${HOME}/.codex}/AGENTS.md"
