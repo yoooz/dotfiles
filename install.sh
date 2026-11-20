@@ -21,6 +21,7 @@ git -C "${SCRIPT_DIR}" config --local filter.codex-config.required true || exit 
 ln -sfn "${SCRIPT_DIR}/ai/codex/config.toml" "${CODEX_HOME:-${HOME}/.codex}/config.toml"
 ln -sfn "${SCRIPT_DIR}/ai/claude/scripts" "${HOME}/.claude/scripts"
 ln -sfn "${SCRIPT_DIR}/ai/claude/settings.json" "${HOME}/.claude/settings.json"
+bash "${SCRIPT_DIR}/ai/antigravity/install.sh" || exit 1
 ln -sf ${SCRIPT_DIR}/gitignore_global ~/.config/git/ignore
 if [[ "$(uname -s)" == "Linux" ]] && command -v omarchy >/dev/null 2>&1; then
   mkdir -p "${HOME}/.config/omarchy"

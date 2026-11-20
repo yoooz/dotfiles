@@ -14,15 +14,17 @@ skill は出自によって管理方法を分ける：
 
 `skills/<skill-name>/SKILL.md` を作って `./install.sh` を実行すれば、各エージェントのスキルディレクトリに symlink が貼られる。
 
-| スキル | Codex | Claude Code |
-|---|---|---|
-| `craft-review` / `jot` / `my-review` | ✓ | ✓ |
-| `ask-claude` | ✓ | — |
-| `ask-codex` | — | ✓ |
+| スキル | Codex | Claude Code | Antigravity CLI |
+|---|---|---|---|
+| `craft-review` / `jot` / `my-review` | ✓ | ✓ | — |
+| `ask-claude` | ✓ | — | ✓ |
+| `ask-codex` | — | ✓ | ✓ |
 
 Codex 用は `~/.agents/skills/` と `${CODEX_HOME:-~/.codex}/skills/`、Claude Code 用は
 `~/.claude/skills/` に配置する。Codex の CLI とデスクトップ環境の両方に対応するため、
 Codex 用の2か所は同じ実体へリンクする。
+Antigravity 用の相談スキルは `~/.gemini/config/skills/` に配置する。
+`install.sh` から呼ばれる `ai/antigravity/install.sh` が、既存の2つのスキルへリンクする。
 
 `install.sh` は `skills/*/` をループするので、共通 skill 追加ごとにスクリプトを書き換える必要はない。
 
@@ -75,6 +77,23 @@ codex-cli 0.153.4 で利用できるオプションを使う。モデルと reas
 `ask-claude` と `ask-codex` は互いに再帰ガードを持つ。各スクリプトは起動時に
 `ASK_CLAUDE=1` / `ASK_CODEX=1` を export し、相手側のスクリプトはそのマーカーや
 `CLAUDECODE` / `CODEX_SESSION_ID` を見て、Claude と Codex が相談し合うループを拒否する。
+
+### Antigravity CLI から Codex・Claude に相談する
+
+リポジトリ直下で `bash ai/antigravity/install.sh` を実行すると、両方の相談スキルを配置する。
+起動中の `agy` では `/skills reload` を実行し、`/skills` で認識を確認できる。
+
+```text
+/ask-codex この設計の前提と代替案を検討して
+/ask-claude この変更の失敗条件をレビューして
+```
+
+「Codex に相談して」「Claude にレビューして」という自然文でも利用できる。
+重要な設計・実装判断では既存スキルと同じ基準で能動的に相談する。
+相談先は読み取りと助言を担当し、返答を確かめて最終判断・実装を行うのは Antigravity。
+ローカルの各 CLI と認証が必要で、モデル設定と再帰防止は上記と共通。
+
+配置・再読み込みの仕様: [Antigravity のスキルドキュメント](https://antigravity.google/docs/skills)
 
 ## 外部skill（`npx skills add` でインストール）
 
