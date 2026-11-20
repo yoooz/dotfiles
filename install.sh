@@ -31,6 +31,7 @@ ln -sfn "${SCRIPT_DIR}/ai/claude/scripts" "${HOME}/.claude/scripts"
 ln -sfn "${SCRIPT_DIR}/ai/claude/settings.json" "${HOME}/.claude/settings.json"
 bash "${SCRIPT_DIR}/ai/antigravity/install.sh" || exit 1
 ln -sf ${SCRIPT_DIR}/gitignore_global ~/.config/git/ignore
+git config --global fetch.prune true
 if [[ "$(uname -s)" == "Linux" ]] && command -v omarchy >/dev/null 2>&1; then
   mkdir -p "${HOME}/.config/omarchy"
   ln -sfn "${SCRIPT_DIR}/omarchy/shell.json" "${HOME}/.config/omarchy/shell.json"
