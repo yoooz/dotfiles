@@ -11,6 +11,7 @@ Omarchy のモニター・入力・自動起動設定は `hypr/`、バーと待�
 追加プラグインの一覧と復元方法は [omarchy/](omarchy/README.md) を参照。
 ログイン時に Chrome をワークスペース1、Ghostty を2、ChatGPT を3で起動する。
 スクリーンセーバーは無操作10分、自動ロックは15分で有効になる。
+GUI の Emacs 風キー操作は [xremap/](xremap/README.md) で管理する。Omarchy 専用で、端末・IDE・Emacs は除外する。
 
 ## How to run
 ```

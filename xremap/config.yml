@@ -1,0 +1,29 @@
+# GUI-wide Emacs movement. Application filters use Hyprland's window class.
+keymap:
+  - name: Emacs basics outside terminals and editors
+    # Keep Ctrl+Shift+F, Ctrl+Alt+F, etc. available to applications.
+    exact_match: true
+    application:
+      not:
+        # Terminals (Ghostty's class was checked on this machine).
+        - '/(?i)^(com\.mitchellh\.ghostty|ghostty|alacritty|kitty|foot|footclient)$/'
+        - '/(?i)^(org\.wezfurlong\.wezterm|wezterm|org\.gnome\.(terminal|console|ptyxis)|gnome-terminal(-server)?|kgx|konsole|org\.kde\.konsole|com\.system76\.cosmicterm)$/'
+        - '/(?i)^(xterm|uxterm|urxvt|rxvt|st|st-256color|xfce4-terminal|tilix|com\.gexperts\.tilix|terminator|terminology|guake|yakuake|tilda|sakura|qterminal|lxterminal|mate-terminal|io\.alacritty\.alacritty|com\.rastersoft\.ddterm|rio|com\.rioterm\.rio|warp|dev\.warp\.Warp(-Stable)?)$/'
+        # Emacs, Vim and Neovim GUIs.
+        - '/(?i)^(emacs([.-].*)?|org\.gnu\.emacs|gvim|vim|nvim|neovim|neovide|goneovim|fvim|nvim-qt|nvui|gnvim|org\.gnvim\.gnvim|com\.neovide\.neovide)$/'
+        # VS Code family and Antigravity IDE (not Chrome pages about it).
+        - '/(?i)^(code([ -].*)?|vscodium(-.*)?|codium(-.*)?|cursor(-.*)?|windsurf(-.*)?|antigravity(-.*)?|com\.visualstudio\.code(\.oss)?|com\.vscodium\.codium|com\.google\.antigravity)$/'
+        # JetBrains IDEs, including versioned and remote-development classes.
+        - '/(?i)^(jetbrains.*|com\.jetbrains\..*|idea|pycharm|webstorm|phpstorm|clion|goland|rider|rubymine|datagrip|dataspell|rustrover|fleet)$/'
+    remap:
+      C-f: Right
+      C-b: Left
+      C-p: Up
+      C-n: Down
+      C-a: Home
+      C-e: End
+      C-h: BackSpace
+      C-d: Delete
+      # At end-of-line, an empty selection can delete the previous character.
+      C-k: [Shift-End, BackSpace]
+      C-q: { escape_next_key: true }

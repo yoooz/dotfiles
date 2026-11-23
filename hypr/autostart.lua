@@ -7,3 +7,9 @@ o.window("^chatgpt$", { workspace = "3 silent" })
 o.launch_on_start("ghostty")
 o.launch_on_start("google-chrome-stable")
 o.launch_on_start("chatgpt")
+
+-- Per-user input remapping; installation and permissions: xremap/README.md.
+o.launch_on_start(
+  '"$HOME/.local/bin/xremap" --watch=config,device --no-window-logging '
+    .. '"$(readlink -f "$HOME/.config/xremap/config.yml")"'
+)
