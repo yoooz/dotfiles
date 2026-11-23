@@ -12,6 +12,7 @@ Omarchy のモニター・入力・自動起動設定は `hypr/`、バーと待�
 ログイン時に Chrome をワークスペース1、Ghostty を2、ChatGPT を3で起動する。
 スクリーンセーバーは無操作10分、自動ロックは15分で有効になる。
 GUI の Emacs 風キー操作は [xremap/](xremap/README.md) で管理する。Omarchy 専用で、端末・IDE・Emacs は除外する。
+SSH端末での日本語入力は [uim/](uim/README.md) で管理する。iPadを英語入力に固定し、ホストのMozcで変換する。
 
 ## How to run
 ```

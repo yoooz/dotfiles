@@ -1,0 +1,27 @@
+#!/bin/bash
+set -euo pipefail
+
+uim_prefix="${HOME}/.local/opt/uim"
+if [[ ! -x "${uim_prefix}/bin/uim-fep" ]]; then
+  echo "uim 2.0.0 is not installed. See dotfiles/uim/README.md." >&2
+  exit 1
+fi
+
+export LD_LIBRARY_PATH="${uim_prefix}/lib${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
+
+case "${1:-}" in
+  -h|--help|-v|-K) exec "${uim_prefix}/bin/uim-fep" "$@" ;;
+esac
+
+if [[ -n "${UIM_FEP_PID:-}" ]]; then
+  echo "uim-fep is already active in this shell. Use Ctrl+] to toggle Japanese input." >&2
+  exit 1
+fi
+
+if ! pgrep -u "$(id -u)" -x mozc_server >/dev/null; then
+  mozc_log_dir="${XDG_STATE_HOME:-${HOME}/.local/state}/uim"
+  mkdir -p "${mozc_log_dir}"
+  nohup /usr/lib/mozc/mozc_server >"${mozc_log_dir}/mozc-server.log" 2>&1 &
+fi
+
+exec "${uim_prefix}/bin/uim-fep" -u mozc "$@"
