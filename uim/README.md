@@ -44,10 +44,20 @@ iPad側を英語入力にしてSSH接続し、`uim-fep` を実行する。
 - `ha`: `は`
 - `Shift` を押して `HA`: `HA`（Mozcの「シフトキーでの入力切替」が「英数字」の場合）
 - `Space`: 変換、`Enter`: 確定
+- 未変換文字列がない状態の `Space`: 半角スペース（以下のMozc共通設定）
 - `exit`: uim-fep内のシェルを終了
 
 特定のコマンドだけを包む場合は `uim-fep -e <command> [args...]` を使う。
 SSHログイン時には自動起動しない。二重起動は起動スクリプトで防ぐ。
+
+## Mozc共通設定
+
+日本語入力中も空白を半角にするため、Mozc設定の「一般」→「スペースの入力」を「半角」にする。
+内部の設定項目は `space_character_form = FUNDAMENTAL_HALF_WIDTH`。
+未変換文字列があるときのSpaceによる漢字変換は引き続き使える。
+GUIのFcitx5とSSHのuim-fepで、同じMozc設定を共有する。
+設定画面はホストのGUI端末で `/usr/lib/mozc/mozc_tool --mode=config_dialog` から開ける。
+設定はMozcのユーザープロファイルに保存され、生成されたDB自体はGit管理しない。
 
 ## 確認・制約
 

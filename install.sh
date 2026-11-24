@@ -43,6 +43,7 @@ if [[ "$(uname -s)" == "Linux" ]] && command -v omarchy >/dev/null 2>&1; then
   mkdir -p "${HOME}/.config/hypr"
   ln -sfn "${SCRIPT_DIR}/hypr/monitors.lua" "${HOME}/.config/hypr/monitors.lua"
   ln -sfn "${SCRIPT_DIR}/hypr/input.lua" "${HOME}/.config/hypr/input.lua"
+  ln -sfn "${SCRIPT_DIR}/hypr/bindings.lua" "${HOME}/.config/hypr/bindings.lua"
   ln -sfn "${SCRIPT_DIR}/hypr/autostart.lua" "${HOME}/.config/hypr/autostart.lua"
   mkdir -p "${HOME}/.config/xremap"
   ln -sfn "${SCRIPT_DIR}/xremap/config.yml" "${HOME}/.config/xremap/config.yml"
