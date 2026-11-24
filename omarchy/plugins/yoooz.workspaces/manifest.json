@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "yoooz.workspaces",
+  "name": "Monitor Workspaces",
+  "version": "1.0.0",
+  "author": "Omarchy",
+  "description": "Workspaces on this monitor, numbered locally",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Workspaces.qml"
+  },
+  "barWidget": {
+    "displayName": "Monitor Workspaces",
+    "description": "Workspaces on this monitor, numbered locally",
+    "category": "Compositor",
+    "allowMultiple": false
+  },
+  "omarchy": {
+    "clonedFrom": "omarchy.workspaces"
+  }
+}

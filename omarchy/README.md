@@ -5,12 +5,14 @@
 - `install-plugins.sh`: 一覧にある未導入プラグインだけを公式 CLI で導入する。
 - `plugins/`: dotfiles 内で管理する自作プラグイン。`install.sh` がリンクする。
   `yoooz.ime-status` は Fcitx5 の状態を500msごとに取得し、ON時は「あ ON」、OFF時は「A OFF」を表示する。
+  `yoooz.workspaces` は各画面のワークスペースだけを表示し、その画面内で1から番号を付ける。
+  [Hyprlandの画面別ワークスペース設定](../hypr/README.md#画面ごとのワークスペース)と組み合わせて使う。
+  Omarchy標準の `omarchy.workspaces` を `omarchy plugin clone` で複製したもの。
 
 ## 追加プラグイン
 
 | プラグイン | 用途 |
 |---|---|
-| Workspace Icons | ワークスペース内のアプリアイコンを表示 |
 | omacursor | テーマに合わせたカーソル配色 |
 | BattleStation | GPU・CPU・メモリなどを表示 |
 
@@ -32,3 +34,7 @@ omarchy plugin update <id>
 
 追加・削除時には `plugins.tsv` と `shell.json` の両方を更新する。
 プラグインの設定・配置を UI から変えた場合も、リンク先の `shell.json` に保存される。
+以前の Workspace Icons は画面を区別せず表示するため、画面別の表示に置き換えている。
+
+ローカルプラグインを編集しても表示が古いままの場合は、`omarchy-shell shell rescanPlugins` で再読み込みする。
+読み込み先が正しくても古いQMLの描画が残る場合は、`omarchy restart shell` でシェルを再起動する。

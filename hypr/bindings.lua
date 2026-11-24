@@ -71,3 +71,35 @@ for _, shortcut in ipairs(shortcuts) do
     end
   end)
 end
+
+-- Replace Omarchy's global 1-10 workspace bindings with local slots 1-5.
+-- Unbind 6-0 as well so those keys cannot jump to another monitor.
+for slot = 1, 10 do
+  local key = "code:" .. tostring(slot + 9)
+  hl.unbind("SUPER + " .. key)
+  hl.unbind("SUPER + SHIFT + " .. key)
+  hl.unbind("SUPER + SHIFT + ALT + " .. key)
+
+  if slot <= 5 then
+    local workspace = "r~" .. tostring(slot)
+    o.bind("SUPER + " .. key, "Switch to monitor workspace " .. slot,
+      hl.dsp.focus({ workspace = workspace }))
+    o.bind("SUPER + SHIFT + " .. key, "Move window to monitor workspace " .. slot,
+      hl.dsp.window.move({ workspace = workspace }))
+    o.bind("SUPER + SHIFT + ALT + " .. key, "Move window silently to monitor workspace " .. slot,
+      hl.dsp.window.move({ workspace = workspace, follow = false }))
+  end
+end
+
+-- All five slots stay alive, so m+/-1 cycles only this monitor's workspaces.
+local workspace_shortcuts = {
+  { "SUPER + TAB", "Next workspace on monitor", "m+1" },
+  { "SUPER + SHIFT + TAB", "Previous workspace on monitor", "m-1" },
+  { "SUPER + CTRL + TAB", "Former workspace on monitor", "previous_per_monitor" },
+  { "SUPER + mouse_down", "Scroll monitor workspace forward", "m+1" },
+  { "SUPER + mouse_up", "Scroll monitor workspace backward", "m-1" },
+}
+for _, shortcut in ipairs(workspace_shortcuts) do
+  hl.unbind(shortcut[1])
+  o.bind(shortcut[1], shortcut[2], hl.dsp.focus({ workspace = shortcut[3] }))
+end

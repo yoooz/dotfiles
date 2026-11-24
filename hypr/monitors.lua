@@ -13,7 +13,18 @@ hl.monitor({ output = "DP-2", mode = "3440x1440@60", position = "2560x1080", sca
 -- I-O DATA: centered above XEC.
 hl.monitor({ output = "DP-3", mode = "1920x1080@60", position = "3320x0", scale = 1 })
 
--- Keep the main workspaces on their designated monitors, including when empty.
-hl.workspace_rule({ workspace = "1", monitor = "DP-1", default = true, persistent = true })
-hl.workspace_rule({ workspace = "2", monitor = "DP-2", default = true, persistent = true })
-hl.workspace_rule({ workspace = "3", monitor = "DP-3", default = true, persistent = true })
+-- Five persistent workspaces per monitor. Interleaving the internal IDs keeps
+-- existing workspaces 1/2/3 (and application placement rules) on their screens.
+-- The bar and keyboard shortcuts use each monitor's local order, 1 through 5.
+local workspace_monitors = { "DP-1", "DP-2", "DP-3" }
+for monitor_index, monitor in ipairs(workspace_monitors) do
+  for slot = 1, 5 do
+    local workspace = monitor_index + (slot - 1) * #workspace_monitors
+    hl.workspace_rule({
+      workspace = tostring(workspace),
+      monitor = monitor,
+      default = slot == 1,
+      persistent = true,
+    })
+  end
+end

@@ -30,13 +30,10 @@
           "id": "omarchy.menu"
         },
         {
-          "id": "omarchy.workspaces"
+          "id": "yoooz.workspaces"
         },
         {
           "id": "omarchy.active-window"
-        },
-        {
-          "id": "aditya.workspace-icons"
         }
       ],
       "right": [
